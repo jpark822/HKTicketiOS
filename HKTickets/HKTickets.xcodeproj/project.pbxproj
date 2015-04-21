@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3CB51D2B66A848F884EB6CDB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FB901E96D7C514CCD9D448 /* libPods.a */; };
+		4E795E9F1AE5C7E2005B752A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E795E9E1AE5C7E2005B752A /* main.m */; };
+		4E795EA21AE5C7E2005B752A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E795EA11AE5C7E2005B752A /* AppDelegate.m */; };
+		4E795EA51AE5C7E2005B752A /* HKTickets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E795EA31AE5C7E2005B752A /* HKTickets.xcdatamodeld */; };
+		4E795EA81AE5C7E2005B752A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E795EA71AE5C7E2005B752A /* ViewController.m */; };
+		4E795EAB1AE5C7E2005B752A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E795EA91AE5C7E2005B752A /* Main.storyboard */; };
+		4E795EAD1AE5C7E2005B752A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E795EAC1AE5C7E2005B752A /* Images.xcassets */; };
+		4E795EB01AE5C7E2005B752A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E795EAE1AE5C7E2005B752A /* LaunchScreen.xib */; };
+		4E795EBC1AE5C7E3005B752A /* HKTicketsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E795EBB1AE5C7E3005B752A /* HKTicketsTests.m */; };
+		4E795EC81AE5DB53005B752A /* HKTJacketMeasurementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E795EC71AE5DB53005B752A /* HKTJacketMeasurementViewController.m */; };
+		4E795ECF1AE5F4AE005B752A /* HKTJacketCustomizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E795ECE1AE5F4AE005B752A /* HKTJacketCustomizeViewController.m */; };
+		4E795ED21AE5FC6A005B752A /* HKTSelectableGroupedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E795ED11AE5FC6A005B752A /* HKTSelectableGroupedImageView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4E795EB61AE5C7E3005B752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E795E911AE5C7E2005B752A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E795E981AE5C7E2005B752A;
+			remoteInfo = HKTickets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		44A925A636513E963995323B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4E795E991AE5C7E2005B752A /* HKTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E795E9D1AE5C7E2005B752A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E795E9E1AE5C7E2005B752A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E795EA01AE5C7E2005B752A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E795EA11AE5C7E2005B752A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E795EA41AE5C7E2005B752A /* HKTickets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HKTickets.xcdatamodel; sourceTree = "<group>"; };
+		4E795EA61AE5C7E2005B752A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4E795EA71AE5C7E2005B752A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4E795EAA1AE5C7E2005B752A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4E795EAC1AE5C7E2005B752A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4E795EAF1AE5C7E2005B752A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4E795EB51AE5C7E3005B752A /* HKTicketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKTicketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E795EBA1AE5C7E3005B752A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E795EBB1AE5C7E3005B752A /* HKTicketsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKTicketsTests.m; sourceTree = "<group>"; };
+		4E795EC61AE5DB53005B752A /* HKTJacketMeasurementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTJacketMeasurementViewController.h; sourceTree = "<group>"; };
+		4E795EC71AE5DB53005B752A /* HKTJacketMeasurementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTJacketMeasurementViewController.m; sourceTree = "<group>"; };
+		4E795ECD1AE5F4AE005B752A /* HKTJacketCustomizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTJacketCustomizeViewController.h; sourceTree = "<group>"; };
+		4E795ECE1AE5F4AE005B752A /* HKTJacketCustomizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTJacketCustomizeViewController.m; sourceTree = "<group>"; };
+		4E795ED01AE5FC6A005B752A /* HKTSelectableGroupedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTSelectableGroupedImageView.h; sourceTree = "<group>"; };
+		4E795ED11AE5FC6A005B752A /* HKTSelectableGroupedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTSelectableGroupedImageView.m; sourceTree = "<group>"; };
+		C1B5286EDBAFEED4DAB9D4B1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D0FB901E96D7C514CCD9D448 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E795E961AE5C7E2005B752A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB51D2B66A848F884EB6CDB /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E795EB21AE5C7E3005B752A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E795E901AE5C7E2005B752A = {
+			isa = PBXGroup;
+			children = (
+				4E795E9B1AE5C7E2005B752A /* HKTickets */,
+				4E795EB81AE5C7E3005B752A /* HKTicketsTests */,
+				4E795E9A1AE5C7E2005B752A /* Products */,
+				D5C9C0F24F82A0D23BEA2279 /* Pods */,
+				ACBF6BEBBF207655073E9402 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4E795E9A1AE5C7E2005B752A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E795E991AE5C7E2005B752A /* HKTickets.app */,
+				4E795EB51AE5C7E3005B752A /* HKTicketsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E795E9B1AE5C7E2005B752A /* HKTickets */ = {
+			isa = PBXGroup;
+			children = (
+				4E795EC91AE5EABA005B752A /* Controls */,
+				4E795EC51AE5DB31005B752A /* JacketOrdering */,
+				4E795EA01AE5C7E2005B752A /* AppDelegate.h */,
+				4E795EA11AE5C7E2005B752A /* AppDelegate.m */,
+				4E795EA61AE5C7E2005B752A /* ViewController.h */,
+				4E795EA71AE5C7E2005B752A /* ViewController.m */,
+				4E795EA91AE5C7E2005B752A /* Main.storyboard */,
+				4E795EAC1AE5C7E2005B752A /* Images.xcassets */,
+				4E795EAE1AE5C7E2005B752A /* LaunchScreen.xib */,
+				4E795EA31AE5C7E2005B752A /* HKTickets.xcdatamodeld */,
+				4E795E9C1AE5C7E2005B752A /* Supporting Files */,
+			);
+			path = HKTickets;
+			sourceTree = "<group>";
+		};
+		4E795E9C1AE5C7E2005B752A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E795E9D1AE5C7E2005B752A /* Info.plist */,
+				4E795E9E1AE5C7E2005B752A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E795EB81AE5C7E3005B752A /* HKTicketsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E795EBB1AE5C7E3005B752A /* HKTicketsTests.m */,
+				4E795EB91AE5C7E3005B752A /* Supporting Files */,
+			);
+			path = HKTicketsTests;
+			sourceTree = "<group>";
+		};
+		4E795EB91AE5C7E3005B752A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E795EBA1AE5C7E3005B752A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E795EC51AE5DB31005B752A /* JacketOrdering */ = {
+			isa = PBXGroup;
+			children = (
+				4E795EC61AE5DB53005B752A /* HKTJacketMeasurementViewController.h */,
+				4E795EC71AE5DB53005B752A /* HKTJacketMeasurementViewController.m */,
+				4E795ECD1AE5F4AE005B752A /* HKTJacketCustomizeViewController.h */,
+				4E795ECE1AE5F4AE005B752A /* HKTJacketCustomizeViewController.m */,
+			);
+			name = JacketOrdering;
+			sourceTree = "<group>";
+		};
+		4E795EC91AE5EABA005B752A /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				4E795ED01AE5FC6A005B752A /* HKTSelectableGroupedImageView.h */,
+				4E795ED11AE5FC6A005B752A /* HKTSelectableGroupedImageView.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		ACBF6BEBBF207655073E9402 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB901E96D7C514CCD9D448 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5C9C0F24F82A0D23BEA2279 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1B5286EDBAFEED4DAB9D4B1 /* Pods.debug.xcconfig */,
+				44A925A636513E963995323B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E795E981AE5C7E2005B752A /* HKTickets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E795EBF1AE5C7E3005B752A /* Build configuration list for PBXNativeTarget "HKTickets" */;
+			buildPhases = (
+				D84113AE73C75F9A9DC6A4B0 /* Check Pods Manifest.lock */,
+				4E795E951AE5C7E2005B752A /* Sources */,
+				4E795E961AE5C7E2005B752A /* Frameworks */,
+				4E795E971AE5C7E2005B752A /* Resources */,
+				46E67B4B47D6E281D52C215A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HKTickets;
+			productName = HKTickets;
+			productReference = 4E795E991AE5C7E2005B752A /* HKTickets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4E795EB41AE5C7E3005B752A /* HKTicketsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E795EC21AE5C7E3005B752A /* Build configuration list for PBXNativeTarget "HKTicketsTests" */;
+			buildPhases = (
+				4E795EB11AE5C7E3005B752A /* Sources */,
+				4E795EB21AE5C7E3005B752A /* Frameworks */,
+				4E795EB31AE5C7E3005B752A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E795EB71AE5C7E3005B752A /* PBXTargetDependency */,
+			);
+			name = HKTicketsTests;
+			productName = HKTicketsTests;
+			productReference = 4E795EB51AE5C7E3005B752A /* HKTicketsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E795E911AE5C7E2005B752A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = JPApps;
+				TargetAttributes = {
+					4E795E981AE5C7E2005B752A = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					4E795EB41AE5C7E3005B752A = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 4E795E981AE5C7E2005B752A;
+					};
+				};
+			};
+			buildConfigurationList = 4E795E941AE5C7E2005B752A /* Build configuration list for PBXProject "HKTickets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E795E901AE5C7E2005B752A;
+			productRefGroup = 4E795E9A1AE5C7E2005B752A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E795E981AE5C7E2005B752A /* HKTickets */,
+				4E795EB41AE5C7E3005B752A /* HKTicketsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E795E971AE5C7E2005B752A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E795EAB1AE5C7E2005B752A /* Main.storyboard in Resources */,
+				4E795EB01AE5C7E2005B752A /* LaunchScreen.xib in Resources */,
+				4E795EAD1AE5C7E2005B752A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E795EB31AE5C7E3005B752A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46E67B4B47D6E281D52C215A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D84113AE73C75F9A9DC6A4B0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E795E951AE5C7E2005B752A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E795ECF1AE5F4AE005B752A /* HKTJacketCustomizeViewController.m in Sources */,
+				4E795EA21AE5C7E2005B752A /* AppDelegate.m in Sources */,
+				4E795EC81AE5DB53005B752A /* HKTJacketMeasurementViewController.m in Sources */,
+				4E795ED21AE5FC6A005B752A /* HKTSelectableGroupedImageView.m in Sources */,
+				4E795E9F1AE5C7E2005B752A /* main.m in Sources */,
+				4E795EA81AE5C7E2005B752A /* ViewController.m in Sources */,
+				4E795EA51AE5C7E2005B752A /* HKTickets.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E795EB11AE5C7E3005B752A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E795EBC1AE5C7E3005B752A /* HKTicketsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4E795EB71AE5C7E3005B752A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E795E981AE5C7E2005B752A /* HKTickets */;
+			targetProxy = 4E795EB61AE5C7E3005B752A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4E795EA91AE5C7E2005B752A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E795EAA1AE5C7E2005B752A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4E795EAE1AE5C7E2005B752A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E795EAF1AE5C7E2005B752A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E795EBD1AE5C7E3005B752A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4E795EBE1AE5C7E3005B752A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E795EC01AE5C7E3005B752A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1B5286EDBAFEED4DAB9D4B1 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HKTickets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E795EC11AE5C7E3005B752A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44A925A636513E963995323B /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HKTickets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4E795EC31AE5C7E3005B752A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HKTicketsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HKTickets.app/HKTickets";
+			};
+			name = Debug;
+		};
+		4E795EC41AE5C7E3005B752A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HKTicketsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HKTickets.app/HKTickets";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E795E941AE5C7E2005B752A /* Build configuration list for PBXProject "HKTickets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E795EBD1AE5C7E3005B752A /* Debug */,
+				4E795EBE1AE5C7E3005B752A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E795EBF1AE5C7E3005B752A /* Build configuration list for PBXNativeTarget "HKTickets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E795EC01AE5C7E3005B752A /* Debug */,
+				4E795EC11AE5C7E3005B752A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E795EC21AE5C7E3005B752A /* Build configuration list for PBXNativeTarget "HKTicketsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E795EC31AE5C7E3005B752A /* Debug */,
+				4E795EC41AE5C7E3005B752A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4E795EA31AE5C7E2005B752A /* HKTickets.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4E795EA41AE5C7E2005B752A /* HKTickets.xcdatamodel */,
+			);
+			currentVersion = 4E795EA41AE5C7E2005B752A /* HKTickets.xcdatamodel */;
+			path = HKTickets.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4E795E911AE5C7E2005B752A /* Project object */;
+}
