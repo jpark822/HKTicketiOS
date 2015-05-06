@@ -8,8 +8,9 @@
 
 #import "HKTJacketCustomizeViewController.h"
 #import "HKTSelectableGroupedImageView.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface HKTJacketCustomizeViewController () <HKTSelectableImageViewDelegate>
+@interface HKTJacketCustomizeViewController () <HKTSelectableImageViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray *lapelArray;
 @property (strong, nonatomic) HKTSelectableGroupedImageView *selectedLapel;
@@ -25,6 +26,12 @@
 @property (weak, nonatomic) IBOutlet HKTSelectableGroupedImageView *buttonTwoView;
 @property (weak, nonatomic) IBOutlet HKTSelectableGroupedImageView *buttonThreeView;
 @property (weak, nonatomic) IBOutlet HKTSelectableGroupedImageView *buttonDoubleBreastedView;
+
+@property (strong, nonatomic) NSArray *ventArray;
+@property (strong, nonatomic) HKTSelectableGroupedImageView *selectedVent;
+@property (weak, nonatomic) IBOutlet HKTSelectableGroupedImageView *ventNoneView;
+@property (weak, nonatomic) IBOutlet HKTSelectableGroupedImageView *ventCenterView;
+@property (weak, nonatomic) IBOutlet HKTSelectableGroupedImageView *ventSideView;
 
 @end
 
@@ -46,6 +53,10 @@
     self.buttonThreeView.selectableDelegate = self;
     self.buttonTwoView.selectableDelegate = self;
     
+    self.ventArray = @[self.ventNoneView, self.ventCenterView, self.ventSideView];
+    self.ventNoneView.selectableDelegate = self;
+    self.ventCenterView.selectableDelegate = self;
+    self.ventSideView.selectableDelegate = self;
 }
 
 - (void)HKTSelectableImageViewDidSelect:(HKTSelectableGroupedImageView *)selectedView {
@@ -57,14 +68,49 @@
         arrayGroup = self.lapelArray;
     }
     else if ([selectedView.groupIdentifier isEqualToString:@"button"]) {
-        self.selectedLapel = selectedView;
+        self.selectedButton = selectedView;
         arrayGroup = self.buttonArray;
     }
+    else if ([selectedView.groupIdentifier isEqualToString:@"vent"]) {
+        self.selectedVent = selectedView;
+        arrayGroup = self.ventArray;
+    }
     
+    //deselct all other items in that group
     NSArray *untappedViews = [arrayGroup filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != %@", selectedView]];
     for (HKTSelectableGroupedImageView *lapelView in untappedViews) {
         [lapelView deselectView];
     }
 }
+
+- (IBAction)nextPressed:(id)sender {
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
+        [composeViewController setMailComposeDelegate:self];
+        [composeViewController setToRecipients:@[@"hongkongtailors@hongkong.com"]];
+        [composeViewController setSubject:@"Order #294A824D"];
+        [composeViewController setMessageBody:@"Neil Balani \n body measurements \n chest: 42 \n waist: 34 \n hips: 38 \n  \n Finishing Measurements \n chest: 43 \n waist: 35 \n hips: 39 \n  \n lapel: L9 \n buttons: two button \n vent: single" isHTML:NO];
+        [self presentViewController:composeViewController animated:YES completion:nil];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent || result == MFMailComposeResultSaved) {
+        NSLog(@"It's away!");
+        [controller dismissViewControllerAnimated:YES completion:^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
+    }
+    else  {
+        [controller dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+    
+    
+}
+
 
 @end
