@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import MessageUI
 
 class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-
+    //needs to be passed along to measurements
+    var delegate : OrderFormDelegate?;
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var newOrderNumberTextField: UITextField!
     @IBOutlet weak var oldOrderNumberTextField: UITextField!
@@ -170,7 +173,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             
             orders.append(shirtOrder);
         }
+        self.delegate?.didFinishCustomizingShirts(orders);
+        self.dismissViewControllerAnimated(true, completion: nil);
     }
-
 
 }

@@ -21,6 +21,10 @@
 		4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83508B1AFC152E00C824C3 /* ShirtOrderFormViewController.swift */; };
 		4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83508E1B0023EB00C824C3 /* BaseViewController.swift */; };
 		4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */; };
+		4E8350931B00D39E00C824C3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8350921B00D39E00C824C3 /* MessageUI.framework */; };
+		4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350941B00D60600C824C3 /* OrderItemInterface.swift */; };
+		4E8350971B00D7C500C824C3 /* OrderFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350961B00D7C500C824C3 /* OrderFormDelegate.swift */; };
+		4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		4E83508B1AFC152E00C824C3 /* ShirtOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtOrderFormViewController.swift; sourceTree = "<group>"; };
 		4E83508E1B0023EB00C824C3 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtOrderInfo.swift; sourceTree = "<group>"; };
+		4E8350921B00D39E00C824C3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		4E8350941B00D60600C824C3 /* OrderItemInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItemInterface.swift; sourceTree = "<group>"; };
+		4E8350961B00D7C500C824C3 /* OrderFormDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormDelegate.swift; sourceTree = "<group>"; };
+		4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8350931B00D39E00C824C3 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +84,7 @@
 		4E83504E1AFAB18D00C824C3 = {
 			isa = PBXGroup;
 			children = (
+				4E8350921B00D39E00C824C3 /* MessageUI.framework */,
 				4E8350591AFAB18D00C824C3 /* HKTicketsSwift */,
 				4E8350721AFAB18D00C824C3 /* HKTicketsSwiftTests */,
 				4E8350581AFAB18D00C824C3 /* Products */,
@@ -134,8 +144,11 @@
 		4E8350811AFAB8F800C824C3 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
-				4E8350881AFC12CA00C824C3 /* Shirts */,
+				4E8350941B00D60600C824C3 /* OrderItemInterface.swift */,
+				4E8350961B00D7C500C824C3 /* OrderFormDelegate.swift */,
 				4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */,
+				4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */,
+				4E8350881AFC12CA00C824C3 /* Shirts */,
 				4E8350841AFAB94100C824C3 /* HKTOrder.storyboard */,
 				4E8350861AFABC8800C824C3 /* HKTFabricChooserViewController.swift */,
 				4E8350891AFC12DD00C824C3 /* AddFabricTableViewCell.swift */,
@@ -261,11 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8350971B00D7C500C824C3 /* OrderFormDelegate.swift in Sources */,
 				4E83508A1AFC12DD00C824C3 /* AddFabricTableViewCell.swift in Sources */,
 				4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */,
 				4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */,
 				4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */,
+				4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */,
 				4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */,
+				4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */,
 				4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */,
 				4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */,
 				4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */,

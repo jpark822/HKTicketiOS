@@ -10,6 +10,7 @@ import UIKit
 
 class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var delegate : OrderFormDelegate?;
     @IBOutlet weak var fabricTextBox: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,9 +37,12 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
     }
 
     @IBAction func donAddingFabricsPressed(sender: AnyObject) {
-        var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
-        shirtOrderForm.fabrics = self.fabrics;
-        self.navigationController?.pushViewController(shirtOrderForm, animated: true);
+        if (self.fabrics.count > 0) {
+            var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
+            shirtOrderForm.fabrics = self.fabrics;
+            shirtOrderForm.delegate = self.delegate;
+            self.navigationController?.pushViewController(shirtOrderForm, animated: true);
+        }
     }
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.navigationController!.popViewControllerAnimated(true);
@@ -56,5 +60,14 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true;
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        self.fabrics.removeAtIndex(indexPath.row);
+        self.tableView.reloadData();
     }
 }

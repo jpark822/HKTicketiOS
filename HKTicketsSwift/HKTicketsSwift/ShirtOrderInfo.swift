@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShirtOrderInfo: NSObject {
+class ShirtOrderInfo: NSObject, OrderItemInterface {
     enum Collar : String {
         case ClosePoint = "#37"
         case MediumSpread = "#40"
@@ -58,6 +58,7 @@ class ShirtOrderInfo: NSObject {
         case SinglePleat = "Single Pleat"
     }
     
+    var itemType = OrderItemType.Shirt;
     var oldOrderNumber : String! = "";
     var newOrderNumber : String! = "";
     var frontCollarLength : String! = "";
@@ -66,7 +67,7 @@ class ShirtOrderInfo: NSObject {
     var convertibleCuff : Bool = false;
     var monogram : String! = "";
     var monogramColor : String! = "";
-    var fabric : String! = "";
+    var fabric : String = "";
     var notes : String! = "";
     
     var collar : Collar! = .ClosePoint;
