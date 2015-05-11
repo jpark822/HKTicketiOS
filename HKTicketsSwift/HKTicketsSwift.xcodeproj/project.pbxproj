@@ -1,0 +1,497 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */; };
+		4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */; };
+		4E8350651AFAB18D00C824C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350631AFAB18D00C824C3 /* Main.storyboard */; };
+		4E8350671AFAB18D00C824C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350661AFAB18D00C824C3 /* Images.xcassets */; };
+		4E83506A1AFAB18D00C824C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350681AFAB18D00C824C3 /* LaunchScreen.xib */; };
+		4E8350761AFAB18D00C824C3 /* HKTicketsSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350751AFAB18D00C824C3 /* HKTicketsSwiftTests.swift */; };
+		4E8350801AFAB7D600C824C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83507F1AFAB7D600C824C3 /* HomeViewController.swift */; };
+		4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */; };
+		4E8350851AFAB94100C824C3 /* HKTOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350841AFAB94100C824C3 /* HKTOrder.storyboard */; };
+		4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350861AFABC8800C824C3 /* HKTFabricChooserViewController.swift */; };
+		4E83508A1AFC12DD00C824C3 /* AddFabricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350891AFC12DD00C824C3 /* AddFabricTableViewCell.swift */; };
+		4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83508B1AFC152E00C824C3 /* ShirtOrderFormViewController.swift */; };
+		4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83508E1B0023EB00C824C3 /* BaseViewController.swift */; };
+		4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4E8350701AFAB18D00C824C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E83504F1AFAB18D00C824C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E8350561AFAB18D00C824C3;
+			remoteInfo = HKTicketsSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E83505B1AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4E83505F1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HKTicketsSwift.xcdatamodel; sourceTree = "<group>"; };
+		4E8350641AFAB18D00C824C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4E8350661AFAB18D00C824C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4E8350691AFAB18D00C824C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4E83506F1AFAB18D00C824C3 /* HKTicketsSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKTicketsSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E8350741AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E8350751AFAB18D00C824C3 /* HKTicketsSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKTicketsSwiftTests.swift; sourceTree = "<group>"; };
+		4E83507F1AFAB7D600C824C3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTOrderFormViewController.swift; sourceTree = "<group>"; };
+		4E8350841AFAB94100C824C3 /* HKTOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HKTOrder.storyboard; sourceTree = "<group>"; };
+		4E8350861AFABC8800C824C3 /* HKTFabricChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTFabricChooserViewController.swift; sourceTree = "<group>"; };
+		4E8350891AFC12DD00C824C3 /* AddFabricTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFabricTableViewCell.swift; sourceTree = "<group>"; };
+		4E83508B1AFC152E00C824C3 /* ShirtOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtOrderFormViewController.swift; sourceTree = "<group>"; };
+		4E83508E1B0023EB00C824C3 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtOrderInfo.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E8350541AFAB18D00C824C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E83506C1AFAB18D00C824C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E83504E1AFAB18D00C824C3 = {
+			isa = PBXGroup;
+			children = (
+				4E8350591AFAB18D00C824C3 /* HKTicketsSwift */,
+				4E8350721AFAB18D00C824C3 /* HKTicketsSwiftTests */,
+				4E8350581AFAB18D00C824C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E8350581AFAB18D00C824C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */,
+				4E83506F1AFAB18D00C824C3 /* HKTicketsSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E8350591AFAB18D00C824C3 /* HKTicketsSwift */ = {
+			isa = PBXGroup;
+			children = (
+				4E83508D1B0023CC00C824C3 /* Common */,
+				4E8350811AFAB8F800C824C3 /* Orders */,
+				4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */,
+				4E83507F1AFAB7D600C824C3 /* HomeViewController.swift */,
+				4E8350631AFAB18D00C824C3 /* Main.storyboard */,
+				4E8350661AFAB18D00C824C3 /* Images.xcassets */,
+				4E8350681AFAB18D00C824C3 /* LaunchScreen.xib */,
+				4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */,
+				4E83505A1AFAB18D00C824C3 /* Supporting Files */,
+			);
+			path = HKTicketsSwift;
+			sourceTree = "<group>";
+		};
+		4E83505A1AFAB18D00C824C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E83505B1AFAB18D00C824C3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E8350721AFAB18D00C824C3 /* HKTicketsSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E8350751AFAB18D00C824C3 /* HKTicketsSwiftTests.swift */,
+				4E8350731AFAB18D00C824C3 /* Supporting Files */,
+			);
+			path = HKTicketsSwiftTests;
+			sourceTree = "<group>";
+		};
+		4E8350731AFAB18D00C824C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E8350741AFAB18D00C824C3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E8350811AFAB8F800C824C3 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				4E8350881AFC12CA00C824C3 /* Shirts */,
+				4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */,
+				4E8350841AFAB94100C824C3 /* HKTOrder.storyboard */,
+				4E8350861AFABC8800C824C3 /* HKTFabricChooserViewController.swift */,
+				4E8350891AFC12DD00C824C3 /* AddFabricTableViewCell.swift */,
+			);
+			name = Orders;
+			sourceTree = "<group>";
+		};
+		4E8350881AFC12CA00C824C3 /* Shirts */ = {
+			isa = PBXGroup;
+			children = (
+				4E83508B1AFC152E00C824C3 /* ShirtOrderFormViewController.swift */,
+				4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */,
+			);
+			name = Shirts;
+			sourceTree = "<group>";
+		};
+		4E83508D1B0023CC00C824C3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4E83508E1B0023EB00C824C3 /* BaseViewController.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E8350561AFAB18D00C824C3 /* HKTicketsSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E8350791AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwift" */;
+			buildPhases = (
+				4E8350531AFAB18D00C824C3 /* Sources */,
+				4E8350541AFAB18D00C824C3 /* Frameworks */,
+				4E8350551AFAB18D00C824C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HKTicketsSwift;
+			productName = HKTicketsSwift;
+			productReference = 4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4E83506E1AFAB18D00C824C3 /* HKTicketsSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E83507C1AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwiftTests" */;
+			buildPhases = (
+				4E83506B1AFAB18D00C824C3 /* Sources */,
+				4E83506C1AFAB18D00C824C3 /* Frameworks */,
+				4E83506D1AFAB18D00C824C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E8350711AFAB18D00C824C3 /* PBXTargetDependency */,
+			);
+			name = HKTicketsSwiftTests;
+			productName = HKTicketsSwiftTests;
+			productReference = 4E83506F1AFAB18D00C824C3 /* HKTicketsSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E83504F1AFAB18D00C824C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = JPApps;
+				TargetAttributes = {
+					4E8350561AFAB18D00C824C3 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					4E83506E1AFAB18D00C824C3 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 4E8350561AFAB18D00C824C3;
+					};
+				};
+			};
+			buildConfigurationList = 4E8350521AFAB18D00C824C3 /* Build configuration list for PBXProject "HKTicketsSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E83504E1AFAB18D00C824C3;
+			productRefGroup = 4E8350581AFAB18D00C824C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E8350561AFAB18D00C824C3 /* HKTicketsSwift */,
+				4E83506E1AFAB18D00C824C3 /* HKTicketsSwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E8350551AFAB18D00C824C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E8350651AFAB18D00C824C3 /* Main.storyboard in Resources */,
+				4E8350851AFAB94100C824C3 /* HKTOrder.storyboard in Resources */,
+				4E83506A1AFAB18D00C824C3 /* LaunchScreen.xib in Resources */,
+				4E8350671AFAB18D00C824C3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E83506D1AFAB18D00C824C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E8350531AFAB18D00C824C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E83508A1AFC12DD00C824C3 /* AddFabricTableViewCell.swift in Sources */,
+				4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */,
+				4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */,
+				4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */,
+				4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */,
+				4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */,
+				4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */,
+				4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */,
+				4E8350801AFAB7D600C824C3 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E83506B1AFAB18D00C824C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E8350761AFAB18D00C824C3 /* HKTicketsSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4E8350711AFAB18D00C824C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E8350561AFAB18D00C824C3 /* HKTicketsSwift */;
+			targetProxy = 4E8350701AFAB18D00C824C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4E8350631AFAB18D00C824C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E8350641AFAB18D00C824C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4E8350681AFAB18D00C824C3 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E8350691AFAB18D00C824C3 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E8350771AFAB18D00C824C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4E8350781AFAB18D00C824C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E83507A1AFAB18D00C824C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HKTicketsSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E83507B1AFAB18D00C824C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HKTicketsSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4E83507D1AFAB18D00C824C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HKTicketsSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HKTicketsSwift.app/HKTicketsSwift";
+			};
+			name = Debug;
+		};
+		4E83507E1AFAB18D00C824C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HKTicketsSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HKTicketsSwift.app/HKTicketsSwift";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E8350521AFAB18D00C824C3 /* Build configuration list for PBXProject "HKTicketsSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E8350771AFAB18D00C824C3 /* Debug */,
+				4E8350781AFAB18D00C824C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E8350791AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E83507A1AFAB18D00C824C3 /* Debug */,
+				4E83507B1AFAB18D00C824C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E83507C1AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E83507D1AFAB18D00C824C3 /* Debug */,
+				4E83507E1AFAB18D00C824C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4E83505F1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodel */,
+			);
+			currentVersion = 4E83505F1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodel */;
+			path = HKTicketsSwift.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4E83504F1AFAB18D00C824C3 /* Project object */;
+}
