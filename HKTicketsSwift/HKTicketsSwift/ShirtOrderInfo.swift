@@ -78,4 +78,52 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
     var shirtFront : ShirtFront! = .Placket;
     var shirtBack : ShirtBack! = .Plain;
     
+    var bodyMeasurements : BodyMeasurements?;
+    var finishMeasurements : ShirtFinishMeasurements?;
+    
+    func convertToMailingString() -> String {
+        var myString = "";
+        myString += "Item: \(self.itemType.rawValue) \n";
+        if (count(oldOrderNumber) > 0) {
+            myString += "Old Order Number: \(self.oldOrderNumber) \n";
+        }
+        if (count(newOrderNumber) > 0) {
+            myString += "New Order Number: \(self.newOrderNumber) \n";
+        }
+        myString += "Fabric: \(self.fabric) \n";
+        myString += "Front Collar Length: \(self.frontCollarLength) \n";
+        myString += "Back Collar Length: \(self.backCollarLength) \n";
+        
+        myString += buttonOnPlacket == true ? "Button on Placket: Yes \n" : "Button on Placket: No \n";
+
+        myString += convertibleCuff == true ? "Convertible Cuff: Yes \n" : "Convertible Cuff: No \n";
+        
+        if (count(self.monogram) > 0) {
+            myString += "Monogram: \(self.monogram) \n";
+        }
+        if (count(self.monogramColor) > 0) {
+            myString += "Monogram Color: \(self.monogramColor) \n";
+        }
+        
+        myString += "Collar: \(self.collar.rawValue) \n";
+        myString += "Stavs: \(self.stavs.rawValue) \n";
+        if (self.shortSleeves != ShortSleeve.None) {
+            myString += "Short Sleeves: \(self.shortSleeves.rawValue) \n";
+        }
+        myString += "Pockets: \(self.pockets.rawValue) \n";
+        myString += "Cuffs: \(self.cuffs.rawValue) \n";
+        myString += "Shirt Front: \(self.shirtFront.rawValue) \n";
+        myString += "Shirt Back: \(self.shirtBack.rawValue) \n";
+        
+        if let body = self.bodyMeasurements {
+            myString += self.bodyMeasurements!.convertToMailingString();
+        }
+        if let finish = self.finishMeasurements {
+            myString += self.finishMeasurements!.convertToMailingString();
+        }
+        
+        myString += "Notes: \(self.notes) \n";
+        
+        return myString;
+    }
 }

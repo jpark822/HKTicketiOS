@@ -9,7 +9,13 @@
 import Foundation
 
 protocol OrderFormDelegate {
-    func didFinishCustomizing(items: [OrderItemInterface]);
+    //theres a bug with this. cant use until apple fixes
+//    func didFinishCustomizing(items: [OrderItemInterface]);
+//    func didFinishEditing(item: OrderItemInterface)
+    
+    func getBodyMeasurements() -> BodyMeasurements;
+    func getShirtFinishMeasurements() -> ShirtFinishMeasurements;
     
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]);
+    func didFinishEditingShirt(shirt: ShirtOrderInfo);
 }

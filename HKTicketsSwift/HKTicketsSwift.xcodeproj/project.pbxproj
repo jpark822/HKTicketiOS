@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */; };
 		4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */; };
 		4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */; };
 		4E8350651AFAB18D00C824C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350631AFAB18D00C824C3 /* Main.storyboard */; };
@@ -25,6 +26,9 @@
 		4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350941B00D60600C824C3 /* OrderItemInterface.swift */; };
 		4E8350971B00D7C500C824C3 /* OrderFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350961B00D7C500C824C3 /* OrderFormDelegate.swift */; };
 		4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */; };
+		4E83509B1B0240E700C824C3 /* BodyMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509A1B0240E700C824C3 /* BodyMeasurements.swift */; };
+		4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */; };
+		4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsInterface.swift; sourceTree = "<group>"; };
 		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83505B1AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +65,9 @@
 		4E8350941B00D60600C824C3 /* OrderItemInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItemInterface.swift; sourceTree = "<group>"; };
 		4E8350961B00D7C500C824C3 /* OrderFormDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormDelegate.swift; sourceTree = "<group>"; };
 		4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormItemCell.swift; sourceTree = "<group>"; };
+		4E83509A1B0240E700C824C3 /* BodyMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyMeasurements.swift; sourceTree = "<group>"; };
+		4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtFinishMeasurements.swift; sourceTree = "<group>"; };
+		4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtMeasurementsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,14 +152,16 @@
 		4E8350811AFAB8F800C824C3 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				4E8350841AFAB94100C824C3 /* HKTOrder.storyboard */,
+				4E8350861AFABC8800C824C3 /* HKTFabricChooserViewController.swift */,
+				4E8350891AFC12DD00C824C3 /* AddFabricTableViewCell.swift */,
 				4E8350941B00D60600C824C3 /* OrderItemInterface.swift */,
+				4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */,
+				4E83509A1B0240E700C824C3 /* BodyMeasurements.swift */,
 				4E8350961B00D7C500C824C3 /* OrderFormDelegate.swift */,
 				4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */,
 				4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */,
 				4E8350881AFC12CA00C824C3 /* Shirts */,
-				4E8350841AFAB94100C824C3 /* HKTOrder.storyboard */,
-				4E8350861AFABC8800C824C3 /* HKTFabricChooserViewController.swift */,
-				4E8350891AFC12DD00C824C3 /* AddFabricTableViewCell.swift */,
 			);
 			name = Orders;
 			sourceTree = "<group>";
@@ -161,6 +171,8 @@
 			children = (
 				4E83508B1AFC152E00C824C3 /* ShirtOrderFormViewController.swift */,
 				4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */,
+				4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */,
+				4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */,
 			);
 			name = Shirts;
 			sourceTree = "<group>";
@@ -274,6 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */,
+				4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */,
 				4E8350971B00D7C500C824C3 /* OrderFormDelegate.swift in Sources */,
 				4E83508A1AFC12DD00C824C3 /* AddFabricTableViewCell.swift in Sources */,
 				4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */,
@@ -281,10 +295,12 @@
 				4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */,
 				4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */,
 				4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */,
+				4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */,
 				4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */,
 				4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */,
 				4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */,
 				4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */,
+				4E83509B1B0240E700C824C3 /* BodyMeasurements.swift in Sources */,
 				4E8350801AFAB7D600C824C3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

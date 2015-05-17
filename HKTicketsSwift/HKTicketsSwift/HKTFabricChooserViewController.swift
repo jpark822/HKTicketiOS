@@ -45,7 +45,7 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController!.popViewControllerAnimated(true);
+        self.navigationController?.popViewControllerAnimated(true);
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -18,4 +18,6 @@ enum OrderItemType : String {
 protocol OrderItemInterface {
     var itemType : OrderItemType {get set};
     var fabric : String {get set};
+    
+    func convertToMailingString() -> String;
 }

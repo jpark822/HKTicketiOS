@@ -32,7 +32,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var monogramColorTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
     
-    var fabrics : [String]! = [];
+    var fabrics : [String]?;
     var collarOptions : [ShirtOrderInfo.Collar]! = [];
     var stavOptions : [ShirtOrderInfo.Stavs]! = [];
     var shortSleeveOptions : [ShirtOrderInfo.ShortSleeve]! = [];
@@ -40,6 +40,10 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     var cuffOptions : [ShirtOrderInfo.Cuffs]! = [];
     var shirtFrontOptions : [ShirtOrderInfo.ShirtFront]! = [];
     var shirtBackOptions : [ShirtOrderInfo.ShirtBack]! = [];
+    
+    //If editing, this will not be nil
+    var editShirtinfo : ShirtOrderInfo?;
+    @IBOutlet weak var fabricTextBox: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +72,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.shortSleeveOptions = [ShirtOrderInfo.ShortSleeve.S1,
         ShirtOrderInfo.ShortSleeve.S2,
         ShirtOrderInfo.ShortSleeve.S4,
-            ShirtOrderInfo.ShortSleeve.S5];
+        ShirtOrderInfo.ShortSleeve.S5,
+            ShirtOrderInfo.ShortSleeve.None];
         
         self.pocketOptions = [ShirtOrderInfo.Pockets.P2,
         ShirtOrderInfo.Pockets.P3,
@@ -93,6 +98,45 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         ShirtOrderInfo.ShirtBack.PlainWithDart,
         ShirtOrderInfo.ShirtBack.BoxPleat,
             ShirtOrderInfo.ShirtBack.SinglePleat];
+        
+        if let existingShirtOrder = self.editShirtinfo {
+            self.setupControlsWithEditableShirtOrderInfo();
+        }
+    }
+    
+    func setupControlsWithEditableShirtOrderInfo() {
+        self.fabricTextBox.hidden = false;
+        self.fabricTextBox.text = self.editShirtinfo!.fabric;
+        if let collarIndex = find(self.collarOptions, self.editShirtinfo!.collar) {
+            self.collarSegmentedControl.selectedSegmentIndex = collarIndex;
+        }
+        if let stavIndex = find(self.stavOptions, self.editShirtinfo!.stavs) {
+            self.StavsSegmentedControl.selectedSegmentIndex = stavIndex;
+        }
+        if let shortSleeveIndex = find(self.shortSleeveOptions, self.editShirtinfo!.shortSleeves) {
+            self.ShortSleeveSegmentedControl.selectedSegmentIndex = shortSleeveIndex
+        }
+        if let pocketIndex = find(self.pocketOptions, self.editShirtinfo!.pockets) {
+            self.pocketsSegmentedControl.selectedSegmentIndex = pocketIndex;
+        }
+        if let cuffIndex = find(self.cuffOptions, self.editShirtinfo!.cuffs) {
+            self.cuffsSegmentedControl.selectedSegmentIndex = cuffIndex;
+        }
+        if let shirtFrontIndex = find(self.shirtFrontOptions, self.editShirtinfo!.shirtFront) {
+            self.shirtFrontSegmentedControl.selectedSegmentIndex = shirtFrontIndex;
+        }
+        if let shirtBackIndex = find(self.shirtBackOptions, self.editShirtinfo!.shirtBack) {
+            self.shirtBackSegmentedControl.selectedSegmentIndex = shirtBackIndex;
+        }
+        self.oldOrderNumberTextField.text = self.editShirtinfo!.oldOrderNumber;
+        self.newOrderNumberTextField.text = self.editShirtinfo!.newOrderNumber;
+        self.frontLengthTextField.text = self.editShirtinfo!.frontCollarLength;
+        self.backLengthTextField.text = self.editShirtinfo!.backCollarLength;
+        self.buttonPlacketSwitch.on = self.editShirtinfo!.buttonOnPlacket;
+        self.convertibleSwitch.on = self.editShirtinfo!.convertibleCuff;
+        self.monogramTextField.text = self.editShirtinfo!.monogram;
+        self.monogramColorTextField.text = self.editShirtinfo!.monogramColor;
+        self.notesTextField.text = self.editShirtinfo!.notes;
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,33 +192,65 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        var orders : [ShirtOrderInfo]! = [];
-        
-        for fabric in self.fabrics
-        {
-            var shirtOrder = ShirtOrderInfo();
-            shirtOrder.collar = self.collarOptions[self.collarSegmentedControl.selectedSegmentIndex];
-            shirtOrder.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
-            shirtOrder.shortSleeves = self.shortSleeveOptions[self.ShortSleeveSegmentedControl.selectedSegmentIndex];
-            shirtOrder.pockets = self.pocketOptions[self.pocketsSegmentedControl.selectedSegmentIndex];
-            shirtOrder.cuffs = self.cuffOptions[self.cuffsSegmentedControl.selectedSegmentIndex];
-            shirtOrder.shirtFront = self.shirtFrontOptions[self.shirtFrontSegmentedControl.selectedSegmentIndex];
-            shirtOrder.shirtBack = self.shirtBackOptions[self.shirtBackSegmentedControl.selectedSegmentIndex];
-            shirtOrder.frontCollarLength = self.frontLengthTextField.text;
-            shirtOrder.backCollarLength = self.backLengthTextField.text;
-            shirtOrder.buttonOnPlacket = self.buttonPlacketSwitch.on;
-            shirtOrder.convertibleCuff = self.convertibleSwitch.on;
-            shirtOrder.monogram = self.monogramTextField.text;
-            shirtOrder.monogramColor = self.monogramColorTextField.text;
-            shirtOrder.fabric = fabric;
-            shirtOrder.oldOrderNumber = self.oldOrderNumberTextField.text;
-            shirtOrder.newOrderNumber = self.newOrderNumberTextField.text;
-            shirtOrder.notes = self.notesTextField.text;
+        if let fabrics = self.fabrics {
+            var orders : [ShirtOrderInfo]! = [];
             
-            orders.append(shirtOrder);
+            for fabric in fabrics
+            {
+                var shirtOrder = ShirtOrderInfo();
+                shirtOrder.collar = self.collarOptions[self.collarSegmentedControl.selectedSegmentIndex];
+                shirtOrder.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
+                shirtOrder.shortSleeves = self.shortSleeveOptions[self.ShortSleeveSegmentedControl.selectedSegmentIndex];
+                shirtOrder.pockets = self.pocketOptions[self.pocketsSegmentedControl.selectedSegmentIndex];
+                shirtOrder.cuffs = self.cuffOptions[self.cuffsSegmentedControl.selectedSegmentIndex];
+                shirtOrder.shirtFront = self.shirtFrontOptions[self.shirtFrontSegmentedControl.selectedSegmentIndex];
+                shirtOrder.shirtBack = self.shirtBackOptions[self.shirtBackSegmentedControl.selectedSegmentIndex];
+                shirtOrder.frontCollarLength = self.frontLengthTextField.text;
+                shirtOrder.backCollarLength = self.backLengthTextField.text;
+                shirtOrder.buttonOnPlacket = self.buttonPlacketSwitch.on;
+                shirtOrder.convertibleCuff = self.convertibleSwitch.on;
+                shirtOrder.monogram = self.monogramTextField.text;
+                shirtOrder.monogramColor = self.monogramColorTextField.text;
+                shirtOrder.fabric = fabric;
+                shirtOrder.oldOrderNumber = self.oldOrderNumberTextField.text;
+                shirtOrder.newOrderNumber = self.newOrderNumberTextField.text;
+                shirtOrder.notes = self.notesTextField.text;
+                
+                orders.append(shirtOrder);
+            }
+
+            var shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
+            shirtMeasurementsVC.delegate = self.delegate;
+            shirtMeasurementsVC.shirts = orders;
+            self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
+//            self.dismissViewControllerAnimated(true, completion: nil);
         }
-        self.delegate?.didFinishCustomizingShirts(orders);
-        self.dismissViewControllerAnimated(true, completion: nil);
+            
+        else if let shirtToEdit = self.editShirtinfo {
+            
+            self.editShirtinfo!.collar = self.collarOptions[self.collarSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.shortSleeves = self.shortSleeveOptions[self.ShortSleeveSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.pockets = self.pocketOptions[self.pocketsSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.cuffs = self.cuffOptions[self.cuffsSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.shirtFront = self.shirtFrontOptions[self.shirtFrontSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.shirtBack = self.shirtBackOptions[self.shirtBackSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.frontCollarLength = self.frontLengthTextField.text;
+            self.editShirtinfo!.backCollarLength = self.backLengthTextField.text;
+            self.editShirtinfo!.buttonOnPlacket = self.buttonPlacketSwitch.on;
+            self.editShirtinfo!.convertibleCuff = self.convertibleSwitch.on;
+            self.editShirtinfo!.monogram = self.monogramTextField.text;
+            self.editShirtinfo!.monogramColor = self.monogramColorTextField.text;
+            self.editShirtinfo!.fabric = self.fabricTextBox.text;
+            self.editShirtinfo!.oldOrderNumber = self.oldOrderNumberTextField.text;
+            self.editShirtinfo!.newOrderNumber = self.newOrderNumberTextField.text;
+            self.editShirtinfo!.notes = self.notesTextField.text;
+            
+            var shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
+            shirtMeasurementsVC.delegate = self.delegate;
+            shirtMeasurementsVC.editShirtInfo = shirtToEdit;
+            self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
+        }
     }
 
 }

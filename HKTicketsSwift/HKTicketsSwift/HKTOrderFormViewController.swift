@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource {
+class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var orderItems : [OrderItemInterface] = [];
@@ -22,23 +23,20 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     @IBAction func addShirtButtonPressed(sender: UIButton) {
         var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
         fabricVC.delegate = self;
-        let shirtNavController = UINavigationController(rootViewController: fabricVC);
-        self.navigationController?.presentViewController(shirtNavController, animated: true, completion: { () -> Void in
-            
-        });
-//        self.navigationController!.pushViewController(fabricVC, animated: true);
-        
-    }
-    
-    func didFinishCustomizing(items: [OrderItemInterface]) {
-        orderItems += items;
-        self.tableView.reloadData();
+        self.navigationController?.pushViewController(fabricVC, animated: true);
+//        let shirtNavController = UINavigationController(rootViewController: fabricVC);
+//        self.navigationController?.presentViewController(shirtNavController, animated: true, completion: { () -> Void in
+//        });        
     }
     
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]) {
         for shirt in items {
             self.orderItems.append(shirt);
         }
+        self.tableView.reloadData();
+    }
+    
+    func didFinishEditingShirt(shirt: ShirtOrderInfo) {
         self.tableView.reloadData();
     }
     
@@ -65,5 +63,51 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.orderItems.removeAtIndex(indexPath.row);
         self.tableView.reloadData();
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
+        shirtOrderForm.editShirtinfo = self.orderItems[indexPath.row] as? ShirtOrderInfo;
+        shirtOrderForm.delegate = self;
+        var navController = UINavigationController(rootViewController: shirtOrderForm);
+//        self.navigationController!.presentViewController(shirtOrderForm, animated: true, completion: nil);
+        self.navigationController?.pushViewController(shirtOrderForm, animated: true);
+    }
+    
+    func getBodyMeasurements() -> BodyMeasurements {
+        return BodyMeasurements();
+    }
+    
+    func getShirtFinishMeasurements() -> ShirtFinishMeasurements {
+        return ShirtFinishMeasurements();
+    }
+    
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    @IBAction func completeOrderButtonPressed(sender: AnyObject) {
+        var orderString = "";
+        for orderItem in self.orderItems {
+            orderString += orderItem.convertToMailingString();
+            orderString += "\n";
+        }
+        var mailComposer = MFMailComposeViewController();
+        mailComposer.setMessageBody(orderString, isHTML: false)
+        mailComposer.mailComposeDelegate = self;
+        self.presentViewController(mailComposer, animated: true, completion: nil);
+        
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        if (result.value == MFMailComposeResultSent.value || result.value == MFMailComposeResultSaved.value) {
+            controller.dismissViewControllerAnimated(true, completion: { () -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        }
+        
+        else {
+            controller.dismissViewControllerAnimated(true, completion: nil);
+        }
     }
 }
