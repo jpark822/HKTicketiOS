@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */; };
+		4E1BE0931B0925380092E035 /* OrderOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1BE0921B0925380092E035 /* OrderOptionCell.swift */; };
 		4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */; };
 		4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */; };
 		4E8350651AFAB18D00C824C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350631AFAB18D00C824C3 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsInterface.swift; sourceTree = "<group>"; };
+		4E1BE0921B0925380092E035 /* OrderOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderOptionCell.swift; sourceTree = "<group>"; };
 		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83505B1AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */,
 				4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */,
 				4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */,
+				4E1BE0921B0925380092E035 /* OrderOptionCell.swift */,
 			);
 			name = Shirts;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			files = (
 				4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */,
 				4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */,
+				4E1BE0931B0925380092E035 /* OrderOptionCell.swift in Sources */,
 				4E8350971B00D7C500C824C3 /* OrderFormDelegate.swift in Sources */,
 				4E83508A1AFC12DD00C824C3 /* AddFabricTableViewCell.swift in Sources */,
 				4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */,

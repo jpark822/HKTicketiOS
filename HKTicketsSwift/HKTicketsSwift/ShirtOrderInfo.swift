@@ -59,8 +59,6 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
     }
     
     var itemType = OrderItemType.Shirt;
-    var oldOrderNumber : String! = "";
-    var newOrderNumber : String! = "";
     var frontCollarLength : String! = "";
     var backCollarLength : String! = "";
     var buttonOnPlacket : Bool = false;
@@ -84,12 +82,6 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
     func convertToMailingString() -> String {
         var myString = "";
         myString += "Item: \(self.itemType.rawValue) \n";
-        if (count(oldOrderNumber) > 0) {
-            myString += "Old Order Number: \(self.oldOrderNumber) \n";
-        }
-        if (count(newOrderNumber) > 0) {
-            myString += "New Order Number: \(self.newOrderNumber) \n";
-        }
         myString += "Fabric: \(self.fabric) \n";
         myString += "Front Collar Length: \(self.frontCollarLength) \n";
         myString += "Back Collar Length: \(self.backCollarLength) \n";
