@@ -17,6 +17,7 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
         case HiddenButtonDown = "#47-HBD"
         case Tab = "#56"
         case EyeLets = "#58"
+        case Other = "Other"
     };
     enum Stavs : String {
         case Detachable = "Detachable Stavs"
@@ -45,6 +46,7 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
         case C6 = "C6"
         case C9 = "C9"
         case C10 = "C10"
+        case Other = "Other"
     }
     enum ShirtFront : String {
         case Placket = "Placket Front"

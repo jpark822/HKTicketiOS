@@ -80,7 +80,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         ShirtOrderInfo.Collar.ButtonDown,
         ShirtOrderInfo.Collar.HiddenButtonDown,
         ShirtOrderInfo.Collar.Tab,
-            ShirtOrderInfo.Collar.EyeLets];
+        ShirtOrderInfo.Collar.EyeLets,
+        ShirtOrderInfo.Collar.Other];
         
         self.stavOptions = [ShirtOrderInfo.Stavs.Detachable,
             ShirtOrderInfo.Stavs.Permenant];
@@ -89,13 +90,13 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         ShirtOrderInfo.ShortSleeve.S2,
         ShirtOrderInfo.ShortSleeve.S4,
         ShirtOrderInfo.ShortSleeve.S5,
-            ShirtOrderInfo.ShortSleeve.None];
+        ShirtOrderInfo.ShortSleeve.None];
         
         self.pocketOptions = [ShirtOrderInfo.Pockets.P2,
         ShirtOrderInfo.Pockets.P3,
         ShirtOrderInfo.Pockets.P6,
         ShirtOrderInfo.Pockets.P10,
-            ShirtOrderInfo.Pockets.NoPockets];
+        ShirtOrderInfo.Pockets.NoPockets];
         
         self.cuffOptions = [ShirtOrderInfo.Cuffs.C1,
         ShirtOrderInfo.Cuffs.C2,
@@ -104,7 +105,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         ShirtOrderInfo.Cuffs.C5,
         ShirtOrderInfo.Cuffs.C6,
         ShirtOrderInfo.Cuffs.C9,
-            ShirtOrderInfo.Cuffs.C10];
+        ShirtOrderInfo.Cuffs.C10,
+        ShirtOrderInfo.Cuffs.Other];
         
         self.shirtFrontOptions = [ShirtOrderInfo.ShirtFront.Placket,
         ShirtOrderInfo.ShirtFront.Plain,
