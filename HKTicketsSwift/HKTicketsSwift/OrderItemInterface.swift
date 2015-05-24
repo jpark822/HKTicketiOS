@@ -9,10 +9,10 @@
 import Foundation
 
 enum OrderItemType : String {
-    case Shirt = "Shirt"
-    case Pants = "Pants"
-    case Vest = "Vest"
-    case Jacket = "Jacket"
+    case Shirt = "Custom Shirt"
+    case Pants = "Custom Pants"
+    case Vest = "Custom Vest"
+    case Jacket = "Custom Jacket"
 }
 
 protocol OrderItemInterface {

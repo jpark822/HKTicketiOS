@@ -163,6 +163,7 @@
 				4E8350961B00D7C500C824C3 /* OrderFormDelegate.swift */,
 				4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */,
 				4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */,
+				4E1BE0921B0925380092E035 /* OrderOptionCell.swift */,
 				4E8350881AFC12CA00C824C3 /* Shirts */,
 			);
 			name = Orders;
@@ -175,7 +176,6 @@
 				4E8350901B00313700C824C3 /* ShirtOrderInfo.swift */,
 				4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */,
 				4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */,
-				4E1BE0921B0925380092E035 /* OrderOptionCell.swift */,
 			);
 			name = Shirts;
 			sourceTree = "<group>";

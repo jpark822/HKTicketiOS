@@ -287,6 +287,24 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
+        
+        switch collectionView {
+        case self.collarCollectionView:
+            orderOptionCell.configureCellWithOption(self.collarOptions[indexPath.row]);
+        case self.shortSleeveCollectionView:
+            orderOptionCell.configureCellWithOption(self.shortSleeveOptions[indexPath.row]);
+        case self.pocketCollectionView:
+            orderOptionCell.configureCellWithOption(self.pocketOptions[indexPath.row]);
+        case self.cuffsCollectionView:
+            orderOptionCell.configureCellWithOption(self.cuffOptions[indexPath.row]);
+        case self.shirtFrontCollectionView:
+            orderOptionCell.configureCellWithOption(self.shirtFrontOptions[indexPath.row]);
+        case self.shirtBackCollectionView:
+            orderOptionCell.configureCellWithOption(self.shirtBackOptions[indexPath.row]);
+        default:
+            println("no item for option");
+        }
+        
         return orderOptionCell;
     }
     

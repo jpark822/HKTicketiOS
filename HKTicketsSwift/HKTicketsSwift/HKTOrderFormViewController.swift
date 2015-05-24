@@ -11,6 +11,8 @@ import MessageUI
 
 class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
+    @IBOutlet weak var oldOrderNumberTextField: UITextField!
+    @IBOutlet weak var newOrderNumberTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var orderItems : [OrderItemInterface] = [];
     
@@ -24,9 +26,6 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
         fabricVC.delegate = self;
         self.navigationController?.pushViewController(fabricVC, animated: true);
-//        let shirtNavController = UINavigationController(rootViewController: fabricVC);
-//        self.navigationController?.presentViewController(shirtNavController, animated: true, completion: { () -> Void in
-//        });        
     }
     
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]) {
@@ -70,7 +69,6 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         shirtOrderForm.editShirtinfo = self.orderItems[indexPath.row] as? ShirtOrderInfo;
         shirtOrderForm.delegate = self;
         var navController = UINavigationController(rootViewController: shirtOrderForm);
-//        self.navigationController!.presentViewController(shirtOrderForm, animated: true, completion: nil);
         self.navigationController?.pushViewController(shirtOrderForm, animated: true);
     }
     
@@ -88,6 +86,12 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     
     @IBAction func completeOrderButtonPressed(sender: AnyObject) {
         var orderString = "";
+        if (count(self.oldOrderNumberTextField.text) > 0) {
+            orderString += "Old Order Number: \(self.oldOrderNumberTextField.text) \n";
+        }
+        if (count(self.newOrderNumberTextField.text) > 0) {
+            orderString += "New Order Number: \(self.newOrderNumberTextField.text) \n\n";
+        }
         for orderItem in self.orderItems {
             orderString += orderItem.convertToMailingString();
             orderString += "\n";
