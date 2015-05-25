@@ -30,6 +30,7 @@
 		4E83509B1B0240E700C824C3 /* BodyMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509A1B0240E700C824C3 /* BodyMeasurements.swift */; };
 		4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */; };
 		4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */; };
+		4ED9EFC51B124CC600461EB4 /* PantsOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9EFC41B124CC600461EB4 /* PantsOrderInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		4E83509A1B0240E700C824C3 /* BodyMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyMeasurements.swift; sourceTree = "<group>"; };
 		4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtFinishMeasurements.swift; sourceTree = "<group>"; };
 		4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtMeasurementsViewController.swift; sourceTree = "<group>"; };
+		4ED9EFC41B124CC600461EB4 /* PantsOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsOrderInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */,
 				4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */,
 				4E1BE0921B0925380092E035 /* OrderOptionCell.swift */,
+				4ED9EFC31B124C3200461EB4 /* Pants */,
 				4E8350881AFC12CA00C824C3 /* Shirts */,
 			);
 			name = Orders;
@@ -186,6 +189,14 @@
 				4E83508E1B0023EB00C824C3 /* BaseViewController.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		4ED9EFC31B124C3200461EB4 /* Pants */ = {
+			isa = PBXGroup;
+			children = (
+				4ED9EFC41B124CC600461EB4 /* PantsOrderInfo.swift */,
+			);
+			name = Pants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 				4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */,
 				4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */,
 				4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */,
+				4ED9EFC51B124CC600461EB4 /* PantsOrderInfo.swift in Sources */,
 				4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */,
 				4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */,
 				4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */,
