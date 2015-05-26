@@ -145,5 +145,16 @@ class OrderOptionCell: UICollectionViewCell {
             println("no image");
         }
     }
+    
+    func configureCellWithOption(option : PantsOrderInfo.Pleat) {
+        switch option {
+        case PantsOrderInfo.Pleat.FlatFront:
+            self.optionImage.image = UIImage(named: "pants_flat_front");
+        case PantsOrderInfo.Pleat.Single:
+            self.optionImage.image = UIImage(named: "pants_single_pleat");
+        case PantsOrderInfo.Pleat.Double:
+            self.optionImage.image = UIImage(named: "pants_double_pleat");
+        }
+    }
 }
 

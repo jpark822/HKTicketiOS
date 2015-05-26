@@ -21,12 +21,25 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData();
+    }
 
     @IBAction func addShirtButtonPressed(sender: UIButton) {
         var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
         fabricVC.delegate = self;
+        fabricVC.itemType = OrderItemType.Shirt;
         self.navigationController?.pushViewController(fabricVC, animated: true);
     }
+    
+    @IBAction func addPantsButtonPressed(sender: AnyObject) {
+        var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+        fabricVC.delegate = self;
+        fabricVC.itemType = OrderItemType.Pants;
+        self.navigationController?.pushViewController(fabricVC, animated: true);
+    }
+
     
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]) {
         for shirt in items {
@@ -36,6 +49,17 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     }
     
     func didFinishEditingShirt(shirt: ShirtOrderInfo) {
+        self.tableView.reloadData();
+    }
+    
+    func didFinishCustomizingPants(items: [PantsOrderInfo]) {
+        for pants in items {
+            self.orderItems.append(pants);
+        }
+        self.tableView.reloadData();
+    }
+    
+    func didFinishEditingPants(shirt: PantsOrderInfo) {
         self.tableView.reloadData();
     }
     
@@ -65,11 +89,22 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
-        shirtOrderForm.editShirtinfo = self.orderItems[indexPath.row] as? ShirtOrderInfo;
-        shirtOrderForm.delegate = self;
-        var navController = UINavigationController(rootViewController: shirtOrderForm);
-        self.navigationController?.pushViewController(shirtOrderForm, animated: true);
+        var item : OrderItemInterface = self.orderItems[indexPath.row];
+        
+        switch item.itemType {
+        case OrderItemType.Shirt:
+            var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
+            shirtOrderForm.editShirtinfo = item as? ShirtOrderInfo;
+            shirtOrderForm.delegate = self;
+            self.navigationController?.pushViewController(shirtOrderForm, animated: true);
+        case OrderItemType.Pants:
+            var pantsOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsOrderFormID") as! PantsOrderFormViewController;
+            pantsOrderForm.existingPantOrder = item as? PantsOrderInfo
+            pantsOrderForm.delegate = self;
+            self.navigationController?.pushViewController(pantsOrderForm, animated: true);
+        default:
+            NSLog("no type");
+        }
     }
     
     func getBodyMeasurements() -> BodyMeasurements {

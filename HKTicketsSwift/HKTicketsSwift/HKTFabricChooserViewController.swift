@@ -15,6 +15,7 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var tableView: UITableView!
     
     var fabrics : [String] = [];
+    var itemType : OrderItemType = OrderItemType.Shirt;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,27 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
     }
 
     @IBAction func donAddingFabricsPressed(sender: AnyObject) {
-        if (self.fabrics.count > 0) {
-            var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
-            shirtOrderForm.fabrics = self.fabrics;
-            shirtOrderForm.delegate = self.delegate;
-            self.navigationController?.pushViewController(shirtOrderForm, animated: true);
+        switch (self.itemType) {
+        case OrderItemType.Shirt:
+            if (self.fabrics.count > 0) {
+                var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
+                shirtOrderForm.fabrics = self.fabrics;
+                shirtOrderForm.delegate = self.delegate;
+                self.navigationController?.pushViewController(shirtOrderForm, animated: true);
+            }
+        case OrderItemType.Pants:
+            if (self.fabrics.count > 0) {
+                var pantsOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsOrderFormID") as! PantsOrderFormViewController;
+                pantsOrderForm.fabrics = self.fabrics;
+                pantsOrderForm.delegate = self.delegate;
+                self.navigationController?.pushViewController(pantsOrderForm, animated: true);
+            }
+        case OrderItemType.Jacket:
+            NSLog("jacket here");
+        case OrderItemType.Vest:
+            NSLog("vest here");
+        default:
+            NSLog("nothing");
         }
     }
     @IBAction func backButtonPressed(sender: AnyObject) {

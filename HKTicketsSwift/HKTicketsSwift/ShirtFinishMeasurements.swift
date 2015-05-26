@@ -33,7 +33,6 @@ class ShirtFinishMeasurements: NSObject, MeasurementsInterface {
         myString += "Sleeve Width 6 Below: \(self.sleeveWidth6Below) \n";
         myString += "Sleeve Width 12 Below: \(self.sleeveWidth12Below) \n";
         
-        
         return myString;
     }
 }

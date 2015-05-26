@@ -66,6 +66,14 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.shirtBackCollectionView.delegate = self;
         self.shirtBackCollectionView.dataSource = self;
         
+        let orderItemCellNib = UINib(nibName: "OrderItemCell", bundle: nil);
+        self.collarCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
+        self.shortSleeveCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
+        self.pocketCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
+        self.cuffsCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
+        self.shirtFrontCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
+        self.shirtBackCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
+        
         self.frontLengthTextField.delegate = self;
         self.backLengthTextField.delegate = self;
         self.monogramColorTextField.delegate = self;
@@ -251,7 +259,6 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             shirtMeasurementsVC.delegate = self.delegate;
             shirtMeasurementsVC.shirts = orders;
             self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
-//            self.dismissViewControllerAnimated(true, completion: nil);
         }
             
         else if let shirtToEdit = self.editShirtinfo {
@@ -286,7 +293,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     
     //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
+        var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderItemCellId", forIndexPath: indexPath) as! OrderOptionCell;
         
         switch collectionView {
         case self.collarCollectionView:
