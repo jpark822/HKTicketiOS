@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var customerNameLabel: UILabel!
 
     @IBOutlet weak var pleatCollectionView: UICollectionView!
@@ -104,6 +104,10 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.pleatOptions.count;
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(135, 135);
     }
 
 }

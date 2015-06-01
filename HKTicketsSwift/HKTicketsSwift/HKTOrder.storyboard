@@ -449,17 +449,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-DL-izS">
-                                <rect key="frame" x="12" y="110" width="752" height="155"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PrO-7D-dlB">
-                                    <size key="itemSize" width="135" height="135"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EuO-Lw-iym">
                                 <rect key="frame" x="16" y="273" width="744" height="29"/>
                                 <segments>
@@ -501,6 +490,17 @@
                                     <action selector="doneButtonPressed:" destination="TJz-64-NJ9" eventType="touchUpInside" id="AQ1-JT-tJ3"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M0E-sJ-IkL">
+                                <rect key="frame" x="8" y="110" width="752" height="155"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mNw-Np-DtO">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -512,7 +512,7 @@
                         <outlet property="depthOfPleatTextField" destination="SGX-1V-Dw3" id="06c-nk-S58"/>
                         <outlet property="fabricTextField" destination="6wN-LG-ZR3" id="iSZ-jL-kS8"/>
                         <outlet property="liningSegmentedControl" destination="EuO-Lw-iym" id="PuV-lO-wms"/>
-                        <outlet property="pleatCollectionView" destination="SMG-DL-izS" id="7dn-KU-Uio"/>
+                        <outlet property="pleatCollectionView" destination="M0E-sJ-IkL" id="hv9-pe-h6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxc-R3-hA1" userLabel="First Responder" sceneMemberID="firstResponder"/>

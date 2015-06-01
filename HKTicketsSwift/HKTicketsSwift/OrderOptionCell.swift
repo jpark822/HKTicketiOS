@@ -147,6 +147,7 @@ class OrderOptionCell: UICollectionViewCell {
     }
     
     func configureCellWithOption(option : PantsOrderInfo.Pleat) {
+        self.optionLabel.text = option.rawValue;
         switch option {
         case PantsOrderInfo.Pleat.FlatFront:
             self.optionImage.image = UIImage(named: "pants_flat_front");
