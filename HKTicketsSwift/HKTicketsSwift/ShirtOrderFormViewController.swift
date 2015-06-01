@@ -13,6 +13,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     //needs to be passed along to measurements
     var delegate : OrderFormDelegate?;
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameLabel: UILabel!
 
@@ -135,6 +136,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             self.cuffsCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
             self.shirtFrontCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
             self.shirtBackCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+            
+            self.navigationItem.rightBarButtonItem = nil;
         }
     }
     
@@ -261,7 +264,17 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
         }
             
-        else if let shirtToEdit = self.editShirtinfo {
+        else if self.editShirtinfo != nil {
+            self.collectFormDataAndUpdateExistingShirt();
+            var shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
+            shirtMeasurementsVC.delegate = self.delegate;
+            shirtMeasurementsVC.editShirtInfo = self.editShirtinfo;
+            self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
+        }
+    }
+    
+    func collectFormDataAndUpdateExistingShirt() {
+        if let shirtToEdit = self.editShirtinfo {
             var selectedCollarIndexes = self.collarCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
             self.editShirtinfo!.collar = self.collarOptions[selectedCollarIndexes[0].row];
             self.editShirtinfo!.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
@@ -283,12 +296,12 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             self.editShirtinfo!.monogramColor = self.monogramColorTextField.text;
             self.editShirtinfo!.fabric = self.fabricTextBox.text;
             self.editShirtinfo!.notes = self.notesTextField.text;
-            
-            var shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
-            shirtMeasurementsVC.delegate = self.delegate;
-            shirtMeasurementsVC.editShirtInfo = shirtToEdit;
-            self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
         }
+    }
+    
+    @IBAction func saveButtonPressed(sender: AnyObject) {
+        
+        self.collectFormDataAndUpdateExistingShirt();
     }
     
     //MARK: collection view delegate and data source

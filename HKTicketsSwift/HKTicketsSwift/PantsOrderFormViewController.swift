@@ -41,6 +41,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         }
         else {
             self.pleatCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+            self.navigationItem.rightBarButtonItem = nil;
         }
     }
     
@@ -56,6 +57,13 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
             self.liningSegmentedControl.selectedSegmentIndex = liningIndex;
         }
         
+    }
+    
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true);
+    }
+    
+    @IBAction func saveButtonPressed(sender: AnyObject) {
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -78,18 +86,23 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
             self.navigationController?.pushViewController(pantMeasurementsVC, animated: true);
         }
         else if let existingPant = self.existingPantOrder {
+            collectFormDataAndUpdateExistingPants();
+            
+            var pantMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsMeasurementsControllerId") as! PantMeasurementViewController;
+            pantMeasurementsVC.delegate = self.delegate;
+            pantMeasurementsVC.existingPants = self.existingPantOrder;
+            self.navigationController?.pushViewController(pantMeasurementsVC, animated: true);
+        }
+    }
+    
+    func collectFormDataAndUpdateExistingPants() {
+        if let existingPant = self.existingPantOrder {
             existingPant.fabric = self.fabricTextField.text;
             var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
             existingPant.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
             existingPant.lining = self.liningOptions[self.liningSegmentedControl.selectedSegmentIndex];
             existingPant.depthOfPleat = self.depthOfPleatTextField.text;
-            
-            var pantMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsMeasurementsControllerId") as! PantMeasurementViewController;
-            pantMeasurementsVC.delegate = self.delegate;
-            pantMeasurementsVC.existingPants = existingPant;
-            self.navigationController?.pushViewController(pantMeasurementsVC, animated: true);
         }
-        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
