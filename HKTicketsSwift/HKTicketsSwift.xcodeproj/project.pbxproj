@@ -35,6 +35,14 @@
 		4ED9EFCB1B13B87100461EB4 /* PantsOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9EFCA1B13B87100461EB4 /* PantsOrderFormViewController.swift */; };
 		4ED9EFCD1B13F2A100461EB4 /* PantMeasurementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9EFCC1B13F2A100461EB4 /* PantMeasurementViewController.swift */; };
 		4ED9EFCF1B13F9CC00461EB4 /* PantsFinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9EFCE1B13F9CC00461EB4 /* PantsFinishMeasurements.swift */; };
+		4ED9F0191B1CF60D00461EB4 /* JacketOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0181B1CF60D00461EB4 /* JacketOrderFormViewController.swift */; };
+		4ED9F01C1B1D30C200461EB4 /* VestOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F01B1B1D30C200461EB4 /* VestOrderFormViewController.swift */; };
+		4ED9F01E1B1D320400461EB4 /* VestOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F01D1B1D320400461EB4 /* VestOrderInfo.swift */; };
+		4ED9F0201B1D33CB00461EB4 /* VestFinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F01F1B1D33CB00461EB4 /* VestFinishMeasurements.swift */; };
+		4ED9F0221B1D430800461EB4 /* VestMeasurementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0211B1D430800461EB4 /* VestMeasurementViewController.swift */; };
+		4ED9F0241B1F8B6C00461EB4 /* JacketFinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0231B1F8B6C00461EB4 /* JacketFinishMeasurements.swift */; };
+		4ED9F0261B1F8CCD00461EB4 /* JacketOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0251B1F8CCD00461EB4 /* JacketOrderInfo.swift */; };
+		4ED9F0281B20983000461EB4 /* JacketMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0271B20983000461EB4 /* JacketMeasurementsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +88,14 @@
 		4ED9EFCA1B13B87100461EB4 /* PantsOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsOrderFormViewController.swift; sourceTree = "<group>"; };
 		4ED9EFCC1B13F2A100461EB4 /* PantMeasurementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantMeasurementViewController.swift; sourceTree = "<group>"; };
 		4ED9EFCE1B13F9CC00461EB4 /* PantsFinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsFinishMeasurements.swift; sourceTree = "<group>"; };
+		4ED9F0181B1CF60D00461EB4 /* JacketOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketOrderFormViewController.swift; sourceTree = "<group>"; };
+		4ED9F01B1B1D30C200461EB4 /* VestOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestOrderFormViewController.swift; sourceTree = "<group>"; };
+		4ED9F01D1B1D320400461EB4 /* VestOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestOrderInfo.swift; sourceTree = "<group>"; };
+		4ED9F01F1B1D33CB00461EB4 /* VestFinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestFinishMeasurements.swift; sourceTree = "<group>"; };
+		4ED9F0211B1D430800461EB4 /* VestMeasurementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestMeasurementViewController.swift; sourceTree = "<group>"; };
+		4ED9F0231B1F8B6C00461EB4 /* JacketFinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketFinishMeasurements.swift; sourceTree = "<group>"; };
+		4ED9F0251B1F8CCD00461EB4 /* JacketOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketOrderInfo.swift; sourceTree = "<group>"; };
+		4ED9F0271B20983000461EB4 /* JacketMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketMeasurementsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +139,7 @@
 		4E8350591AFAB18D00C824C3 /* HKTicketsSwift */ = {
 			isa = PBXGroup;
 			children = (
+				4ED9F01A1B1D30B300461EB4 /* Vest */,
 				4E83508D1B0023CC00C824C3 /* Common */,
 				4E8350811AFAB8F800C824C3 /* Orders */,
 				4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */,
@@ -177,6 +194,7 @@
 				4ED9EFC81B13B39500461EB4 /* OrderItemCell.xib */,
 				4ED9EFC31B124C3200461EB4 /* Pants */,
 				4E8350881AFC12CA00C824C3 /* Shirts */,
+				4ED9F0171B1CF5DB00461EB4 /* Jacket */,
 			);
 			name = Orders;
 			sourceTree = "<group>";
@@ -209,6 +227,28 @@
 				4ED9EFCE1B13F9CC00461EB4 /* PantsFinishMeasurements.swift */,
 			);
 			name = Pants;
+			sourceTree = "<group>";
+		};
+		4ED9F0171B1CF5DB00461EB4 /* Jacket */ = {
+			isa = PBXGroup;
+			children = (
+				4ED9F0181B1CF60D00461EB4 /* JacketOrderFormViewController.swift */,
+				4ED9F0231B1F8B6C00461EB4 /* JacketFinishMeasurements.swift */,
+				4ED9F0251B1F8CCD00461EB4 /* JacketOrderInfo.swift */,
+				4ED9F0271B20983000461EB4 /* JacketMeasurementsViewController.swift */,
+			);
+			name = Jacket;
+			sourceTree = "<group>";
+		};
+		4ED9F01A1B1D30B300461EB4 /* Vest */ = {
+			isa = PBXGroup;
+			children = (
+				4ED9F01B1B1D30C200461EB4 /* VestOrderFormViewController.swift */,
+				4ED9F01D1B1D320400461EB4 /* VestOrderInfo.swift */,
+				4ED9F01F1B1D33CB00461EB4 /* VestFinishMeasurements.swift */,
+				4ED9F0211B1D430800461EB4 /* VestMeasurementViewController.swift */,
+			);
+			name = Vest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,7 +353,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED9F01E1B1D320400461EB4 /* VestOrderInfo.swift in Sources */,
 				4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */,
+				4ED9F0281B20983000461EB4 /* JacketMeasurementsViewController.swift in Sources */,
+				4ED9F0261B1F8CCD00461EB4 /* JacketOrderInfo.swift in Sources */,
+				4ED9F0191B1CF60D00461EB4 /* JacketOrderFormViewController.swift in Sources */,
 				4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */,
 				4E1BE0931B0925380092E035 /* OrderOptionCell.swift in Sources */,
 				4E8350971B00D7C500C824C3 /* OrderFormDelegate.swift in Sources */,
@@ -325,14 +369,18 @@
 				4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */,
 				4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */,
 				4ED9EFC51B124CC600461EB4 /* PantsOrderInfo.swift in Sources */,
+				4ED9F0201B1D33CB00461EB4 /* VestFinishMeasurements.swift in Sources */,
 				4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */,
 				4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */,
+				4ED9F0241B1F8B6C00461EB4 /* JacketFinishMeasurements.swift in Sources */,
 				4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */,
 				4ED9EFCD1B13F2A100461EB4 /* PantMeasurementViewController.swift in Sources */,
 				4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */,
 				4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */,
 				4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */,
 				4E83509B1B0240E700C824C3 /* BodyMeasurements.swift in Sources */,
+				4ED9F0221B1D430800461EB4 /* VestMeasurementViewController.swift in Sources */,
+				4ED9F01C1B1D30C200461EB4 /* VestOrderFormViewController.swift in Sources */,
 				4E8350801AFAB7D600C824C3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

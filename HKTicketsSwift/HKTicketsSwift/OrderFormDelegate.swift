@@ -21,4 +21,10 @@ protocol OrderFormDelegate {
     
     func didFinishCustomizingPants(items: [PantsOrderInfo]);
     func didFinishEditingPants(shirt: PantsOrderInfo);
+    
+    func didFinishCustomizingVests(items: [VestOrderInfo]);
+    func didFinishEditingVest(vest: VestOrderInfo);
+    
+    func didFinishCustomizingJackets(items: [JacketOrderInfo]);
+    func didFinishEditingJacket(vest: JacketOrderInfo);
 }

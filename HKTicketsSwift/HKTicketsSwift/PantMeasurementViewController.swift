@@ -35,6 +35,7 @@ class PantMeasurementViewController: UIViewController {
         if (existingPants != nil) {
             self.prepopulateTextFields();
         }
+        //else use delegate to get body measurements
     }
     
     func prepopulateTextFields() {

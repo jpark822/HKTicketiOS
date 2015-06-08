@@ -24,6 +24,7 @@ class PantsOrderInfo: NSObject, OrderItemInterface {
     var fabric : String = "";
     var pleat : Pleat = Pleat.FlatFront;
     var lining : Lining = Lining.Front;
+    var notes : String = "";
     
     var depthOfPleat : String = "";
     
@@ -33,12 +34,13 @@ class PantsOrderInfo: NSObject, OrderItemInterface {
     func convertToMailingString() -> String {
         var myString = "";
         myString += "Item Type: Custom Pants\n";
-        myString += "Fabric : \(self.fabric)\n";
+        myString += "Fabric: \(self.fabric)\n";
         myString += "Pleat Type: \(self.pleat.rawValue)\n";
         myString += "Lining: \(self.lining.rawValue)\n";
         if (count(self.depthOfPleat) > 0 && self.pleat != Pleat.FlatFront) {
             myString += "Depth of Pleat: \(self.depthOfPleat)\n";
         }
+        myString += "Notes: \(self.notes)\n";
         if let finish = self.finishMeasurements {
             myString += "Finish Measurements:\n";
             myString += self.finishMeasurements!.convertToMailingString();

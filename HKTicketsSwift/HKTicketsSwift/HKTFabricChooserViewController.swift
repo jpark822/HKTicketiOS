@@ -22,6 +22,10 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.fabricTextBox.becomeFirstResponder();
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,9 +58,19 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
                 self.navigationController?.pushViewController(pantsOrderForm, animated: true);
             }
         case OrderItemType.Jacket:
-            NSLog("jacket here");
+            if (self.fabrics.count > 0) {
+                var jacketOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketOrderFormId") as! JacketOrderFormViewController;
+                jacketOrderForm.fabrics = self.fabrics;
+                jacketOrderForm.delegate = self.delegate;
+                self.navigationController?.pushViewController(jacketOrderForm, animated: true);
+            }
         case OrderItemType.Vest:
-            NSLog("vest here");
+            if (self.fabrics.count > 0) {
+                var vestOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestOrderFormId") as! VestOrderFormViewController;
+                vestOrderForm.fabrics = self.fabrics;
+                vestOrderForm.delegate = self.delegate;
+                self.navigationController?.pushViewController(vestOrderForm, animated: true);
+            }
         default:
             NSLog("nothing");
         }

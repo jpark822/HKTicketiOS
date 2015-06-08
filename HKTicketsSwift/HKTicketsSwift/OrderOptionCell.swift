@@ -157,5 +157,115 @@ class OrderOptionCell: UICollectionViewCell {
             self.optionImage.image = UIImage(named: "pants_double_pleat");
         }
     }
+    
+    func configureCellWithOption(option : VestOrderInfo.VestType) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case VestOrderInfo.VestType.V1:
+            self.optionImage.image = UIImage(named: "vest_v1");
+        case VestOrderInfo.VestType.V4:
+            self.optionImage.image = UIImage(named: "vest_v4");
+        case VestOrderInfo.VestType.V6:
+            self.optionImage.image = UIImage(named: "vest_v6");
+        case VestOrderInfo.VestType.V8:
+            self.optionImage.image = UIImage(named: "vest_v8");
+        case VestOrderInfo.VestType.V12:
+            self.optionImage.image = UIImage(named: "vest_v12");
+        default:
+            println("no image");
+        }
+    }
+    
+    func configureCellWithOption(option : JacketOrderInfo.Lapel) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case JacketOrderInfo.Lapel.Notch:
+            self.optionImage.image = UIImage(named: "jacket_lapel_notch");
+        case JacketOrderInfo.Lapel.Peak:
+            self.optionImage.image = UIImage(named: "jacket_lapel_peak");
+        case JacketOrderInfo.Lapel.Shawl:
+            self.optionImage.image = UIImage(named: "jacket_lapel_shawl");
+        default:
+            println("no image");
+        }
+    }
+    
+    func configureCellWithOption(option : JacketOrderInfo.Lining) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case JacketOrderInfo.Lining.Full:
+            self.optionImage.image = UIImage(named: "jacket_lining_full");
+        case JacketOrderInfo.Lining.Quarter:
+            self.optionImage.image = UIImage(named: "jacket_lining_quarter");
+        case JacketOrderInfo.Lining.Unconstructed:
+            self.optionImage.image = UIImage(named: "jacket_lining_unconstructed");
+        }
+    }
+    
+    func configureCellWithOption(option : JacketOrderInfo.Buttons) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case JacketOrderInfo.Buttons.Single:
+            self.optionImage.image = UIImage(named: "jacket_button_single");
+        case JacketOrderInfo.Buttons.Two:
+            self.optionImage.image = UIImage(named: "jacket_button_two");
+        case JacketOrderInfo.Buttons.Three:
+            self.optionImage.image = UIImage(named: "jacket_button_three");
+        case JacketOrderInfo.Buttons.DoubleBreasted:
+            self.optionImage.image = UIImage(named: "jacket_button_double_breasted");
+        }
+    }
+    
+    func configureCellWithOption(option : JacketOrderInfo.Pockets) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case JacketOrderInfo.Pockets.Regular:
+            self.optionImage.image = UIImage(named: "jacket_pocket_regular");
+        case JacketOrderInfo.Pockets.Slanted:
+            self.optionImage.image = UIImage(named: "jacket_pocket_slanted");
+        }
+    }
+    
+    func configureCellWithOption(option : JacketOrderInfo.Vent) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case JacketOrderInfo.Vent.None:
+            self.optionImage.image = UIImage(named: "jacket_vent_none");
+        case JacketOrderInfo.Vent.Center:
+            self.optionImage.image = UIImage(named: "jacket_vent_center");
+        case JacketOrderInfo.Vent.Side:
+            self.optionImage.image = UIImage(named: "jacket_vent_side");
+        }
+    }
+    
+    func configureCellWithOption(option : JacketOrderInfo.Stitch) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case JacketOrderInfo.Stitch.None:
+            self.optionImage.image = UIImage(named: "jacket_stitch_none");
+        case JacketOrderInfo.Stitch.Hand:
+            self.optionImage.image = UIImage(named: "jacket_stitch_hand");
+        case JacketOrderInfo.Stitch.QuarterMachine:
+            self.optionImage.image = UIImage(named: "jacket_stitch_machine");
+        }
+    }
+    
+    func configureCellWithOption(option : JacketOrderInfo.Cuffs) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case JacketOrderInfo.Cuffs.ButtonholeReady:
+            self.optionImage.image = UIImage(named: "jacket_cuffs_buttonhole_ready");
+        case JacketOrderInfo.Cuffs.Functional:
+            self.optionImage.image = UIImage(named: "jacket_cuffs_functional");
+        }
+    }
 }
 

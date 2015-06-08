@@ -13,6 +13,7 @@ enum OrderItemType : String {
     case Pants = "Custom Pants"
     case Vest = "Custom Vest"
     case Jacket = "Custom Jacket"
+    case Suit = "Custom Suit"
 }
 
 protocol OrderItemInterface {

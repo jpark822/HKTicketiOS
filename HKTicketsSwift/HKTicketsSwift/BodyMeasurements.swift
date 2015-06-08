@@ -23,6 +23,7 @@ class BodyMeasurements: NSObject, MeasurementsInterface {
     var wrist : String = "";
     var neckSize : String = "";
     var jacketLength : String = "";
+    var jacketWidth : String = "";
     var bicep : String = "";
     var armHole : String = "";
     var belly : String = "";
@@ -50,17 +51,18 @@ class BodyMeasurements: NSObject, MeasurementsInterface {
         return myString;
     }
     
-    func convertToShirtMailingString() -> String {
-        var myString = "";
-        myString += "Chest: \(self.chest) \n";
-        myString += "Waist: \(self.waist) \n";
-        myString += "Hips: \(self.hips) \n";
-        myString += "Shoulders: \(self.shoulders) \n";
-        myString += "Sleeve Length: \(self.sleeveLength) \n";
-        myString += "Lenght of Shirt: \(self.shirtLength) \n";
-        myString += "Wrist: \(self.wrist) \n";
-        myString += "Neck Size: \(self.neckSize) \n";
-        
-        return myString;
-    }
+//no longer needed?
+//    func convertToShirtMailingString() -> String {
+//        var myString = "";
+//        myString += "Chest: \(self.chest) \n";
+//        myString += "Waist: \(self.waist) \n";
+//        myString += "Hips: \(self.hips) \n";
+//        myString += "Shoulders: \(self.shoulders) \n";
+//        myString += "Sleeve Length: \(self.sleeveLength) \n";
+//        myString += "Lenght of Shirt: \(self.shirtLength) \n";
+//        myString += "Wrist: \(self.wrist) \n";
+//        myString += "Neck Size: \(self.neckSize) \n";
+//        
+//        return myString;
+//    }
 }

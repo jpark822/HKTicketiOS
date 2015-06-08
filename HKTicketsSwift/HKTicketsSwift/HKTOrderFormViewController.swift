@@ -20,10 +20,18 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         super.viewDidLoad()
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        
+        var tapRecognizer = UITapGestureRecognizer(target: self, action:"mainViewTapped" );
+        self.view.addGestureRecognizer(tapRecognizer);
     }
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData();
+    }
+    
+    func mainViewTapped() {
+        self.oldOrderNumberTextField.resignFirstResponder();
+        self.newOrderNumberTextField.resignFirstResponder();
     }
 
     @IBAction func addShirtButtonPressed(sender: UIButton) {
@@ -40,7 +48,19 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         self.navigationController?.pushViewController(fabricVC, animated: true);
     }
 
+    @IBAction func addVestButtonPressed(sender: AnyObject) {
+        var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+        fabricVC.delegate = self;
+        fabricVC.itemType = OrderItemType.Vest;
+        self.navigationController?.pushViewController(fabricVC, animated: true);
+    }
     
+    @IBAction func addJacketButtonPressed(sender: AnyObject) {
+        var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+        fabricVC.delegate = self;
+        fabricVC.itemType = OrderItemType.Jacket;
+        self.navigationController?.pushViewController(fabricVC, animated: true);
+    }
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]) {
         for shirt in items {
             self.orderItems.append(shirt);
@@ -62,6 +82,29 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     func didFinishEditingPants(shirt: PantsOrderInfo) {
         self.tableView.reloadData();
     }
+    
+    func didFinishCustomizingVests(items: [VestOrderInfo]) {
+        for vest in items {
+            self.orderItems.append(vest);
+        }
+    }
+    
+    func didFinishEditingVest(vest: VestOrderInfo) {
+        self.tableView.reloadData();
+    }
+    
+    func didFinishCustomizingJackets(items: [JacketOrderInfo]) {
+        for jacket in items {
+            self.orderItems.append(jacket);
+        }
+        self.tableView.reloadData();
+    }
+    
+    func didFinishEditingJacket(vest: JacketOrderInfo) {
+        self.tableView.reloadData();
+    }
+    
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
@@ -102,7 +145,18 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
             pantsOrderForm.existingPantOrder = item as? PantsOrderInfo
             pantsOrderForm.delegate = self;
             self.navigationController?.pushViewController(pantsOrderForm, animated: true);
+        case OrderItemType.Vest:
+            var vestOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestOrderFormId") as! VestOrderFormViewController;
+            vestOrderForm.existingVestOrder = item as? VestOrderInfo
+            vestOrderForm.delegate = self;
+            self.navigationController?.pushViewController(vestOrderForm, animated: true);
+        case OrderItemType.Jacket:
+            var jacketOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketOrderFormId") as! JacketOrderFormViewController;
+            jacketOrderForm.existingJacketOrder = item as? JacketOrderInfo
+            jacketOrderForm.delegate = self;
+            self.navigationController?.pushViewController(jacketOrderForm, animated: true);
         default:
+            
             NSLog("no type");
         }
     }

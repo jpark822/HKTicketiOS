@@ -15,6 +15,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var liningSegmentedControl: UISegmentedControl!
     @IBOutlet weak var depthOfPleatTextField: UITextField!
     @IBOutlet weak var fabricTextField: UITextField!
+    @IBOutlet weak var notesTextField: UITextView!
     
     var pleatOptions : [PantsOrderInfo.Pleat] = [];
     var liningOptions : [PantsOrderInfo.Lining] = [];
@@ -26,6 +27,8 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
+        self.notesTextField.layer.borderWidth = 1;
         
         let orderItemCellNib = UINib(nibName: "OrderItemCell", bundle: nil);
         self.pleatCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderOptionCellId")
@@ -56,7 +59,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         if let liningIndex = find(self.liningOptions, self.existingPantOrder!.lining) {
             self.liningSegmentedControl.selectedSegmentIndex = liningIndex;
         }
-        
+        self.notesTextField.text = self.existingPantOrder?.notes;
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -64,6 +67,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     }
     
     @IBAction func saveButtonPressed(sender: AnyObject) {
+        self.collectFormDataAndUpdateExistingPants();
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -77,6 +81,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
                 pantOrder.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
                 pantOrder.lining = self.liningOptions[self.liningSegmentedControl.selectedSegmentIndex];
                 pantOrder.depthOfPleat = self.depthOfPleatTextField.text;
+                pantOrder.notes = self.notesTextField.text;
                 
                 orders.append(pantOrder);
             }
@@ -102,9 +107,11 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
             existingPant.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
             existingPant.lining = self.liningOptions[self.liningSegmentedControl.selectedSegmentIndex];
             existingPant.depthOfPleat = self.depthOfPleatTextField.text;
+            existingPant.notes = self.notesTextField.text;
         }
     }
     
+    //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
         orderOptionCell.configureCellWithOption(pleatOptions[indexPath.row]);
