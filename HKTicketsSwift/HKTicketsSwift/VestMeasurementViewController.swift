@@ -44,15 +44,15 @@ class VestMeasurementViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        var body : BodyMeasurements = BodyMeasurements();
-        body.chest = self.bodyChest.text;
-        body.waist = self.bodyWaist.text;
-        body.hips = self.bodyHips.text;
-        body.shoulders = self.bodyShoulders.text;
+        let body : BodyMeasurements = BodyMeasurements();
+        body.chest = self.bodyChest.text!;
+        body.waist = self.bodyWaist.text!;
+        body.hips = self.bodyHips.text!;
+        body.shoulders = self.bodyShoulders.text!;
         
-        var finish : VestFinishMeasurements = VestFinishMeasurements();
-        finish.frontLength = self.finishFrontLength.text;
-        finish.backLength = self.finishBackLength.text;
+        let finish : VestFinishMeasurements = VestFinishMeasurements();
+        finish.frontLength = self.finishFrontLength.text!;
+        finish.backLength = self.finishBackLength.text!;
         
         if let newOrders = self.vestOrders {
             for order in newOrders {

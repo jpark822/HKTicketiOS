@@ -43,8 +43,8 @@ class ShirtMeasurementsViewController: UIViewController {
         super.viewDidLoad();
         
         if let newShirts = self.shirts {
-            var bodyMeasurements : BodyMeasurements = self.delegate!.getBodyMeasurements();
-            var shirtFinish : ShirtFinishMeasurements = self.delegate!.getShirtFinishMeasurements();
+            let bodyMeasurements : BodyMeasurements = self.delegate!.getBodyMeasurements();
+            let shirtFinish : ShirtFinishMeasurements = self.delegate!.getShirtFinishMeasurements();
             prepopulateTextFields(bodyMeasurements, finishMeasurements: shirtFinish);
         }
         else if let existingShirt = self.editShirtInfo, let bodyMeasurements = self.editShirtInfo?.bodyMeasurements, let finishMeasurements = self.editShirtInfo?.finishMeasurements {
@@ -78,27 +78,27 @@ class ShirtMeasurementsViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true);
     }
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        var body : BodyMeasurements = BodyMeasurements();
-        body.chest = self.bodyChest.text;
-        body.waist = self.bodyWaist.text;
-        body.hips = self.bodyHips.text;
-        body.shoulders = self.bodyShoulders.text;
-        body.sleeveLength = self.bodySleeveLength.text;
-        body.shirtLength = self.bodyShirtLength.text;
-        body.wrist = self.bodyWristLength.text;
-        body.neckSize = self.bodyNeckSize.text;
+        let body : BodyMeasurements = BodyMeasurements();
+        body.chest = self.bodyChest.text!;
+        body.waist = self.bodyWaist.text!;
+        body.hips = self.bodyHips.text!;
+        body.shoulders = self.bodyShoulders.text!;
+        body.sleeveLength = self.bodySleeveLength.text!;
+        body.shirtLength = self.bodyShirtLength.text!;
+        body.wrist = self.bodyWristLength.text!;
+        body.neckSize = self.bodyNeckSize.text!;
         
-        var finish : ShirtFinishMeasurements = ShirtFinishMeasurements();
-        finish.chest = self.finishChest.text;
-        finish.waist = self.finishWaist.text;
-        finish.hips = self.finishHips.text;
-        finish.shoulders = self.finishShoulders.text;
-        finish.sleeveLength = self.finishSleeveLength.text;
-        finish.shirtLength = self.finishShirtLength.text;
-        finish.cuff = self.finishCuff.text;
-        finish.neckSize = self.finishNeckSize.text;
-        finish.sleeveWidth6Below = self.finishSleeve6Below.text;
-        finish.sleeveWidth12Below =  self.finishSleeve12Below.text;
+        let finish : ShirtFinishMeasurements = ShirtFinishMeasurements();
+        finish.chest = self.finishChest.text!;
+        finish.waist = self.finishWaist.text!;
+        finish.hips = self.finishHips.text!;
+        finish.shoulders = self.finishShoulders.text!;
+        finish.sleeveLength = self.finishSleeveLength.text!;
+        finish.shirtLength = self.finishShirtLength.text!;
+        finish.cuff = self.finishCuff.text!;
+        finish.neckSize = self.finishNeckSize.text!;
+        finish.sleeveWidth6Below = self.finishSleeve6Below.text!;
+        finish.sleeveWidth12Below =  self.finishSleeve12Below.text!;
         
         if let shirtInfos = self.shirts {
             for shirt in shirtInfos {

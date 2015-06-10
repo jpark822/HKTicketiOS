@@ -11,5 +11,9 @@ import UIKit
 class SuitOrderInfo: NSObject {
     var jacketOrderInfo = JacketOrderInfo();
     var pantsOrderInfo = PantsOrderInfo();
-//    var vestOrderInfo : VestOrderInfo?;
+    var vestOrderInfo : VestOrderInfo?;
+    
+    var jacketFinishMeasurements = JacketFinishMeasurements();
+    var pantsFinishMeasurements = PantsFinishMeasurements();
+    var vestFinishMeasurements : VestFinishMeasurements?;
 }

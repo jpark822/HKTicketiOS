@@ -45,7 +45,7 @@ class OrderOptionCell: UICollectionViewCell {
         case ShirtOrderInfo.Collar.Other:
             self.optionImage.image = UIImage();
         default:
-            println("no image");
+            print("no image");
         }
     }
     
@@ -64,7 +64,7 @@ class OrderOptionCell: UICollectionViewCell {
         case ShirtOrderInfo.Pockets.P10:
             self.optionImage.image = UIImage(named: "pockets_p10");
         default:
-            println("no image");
+            print("no image");
         }
     }
     
@@ -83,7 +83,7 @@ class OrderOptionCell: UICollectionViewCell {
         case ShirtOrderInfo.ShortSleeve.S5:
             self.optionImage.image = UIImage(named: "short_sleeve_s5");
         default:
-            println("no image");
+            print("no image");
         }
     }
     
@@ -110,7 +110,7 @@ class OrderOptionCell: UICollectionViewCell {
         case ShirtOrderInfo.Cuffs.C10:
             self.optionImage.image = UIImage(named: "cuffs_c10");
         default:
-            println("no image");
+            print("no image");
         }
     }
     
@@ -125,7 +125,7 @@ class OrderOptionCell: UICollectionViewCell {
         case ShirtOrderInfo.ShirtFront.Plain:
             self.optionImage.image = UIImage(named: "shirt_front_plain");
         default:
-            println("no image");
+            print("no image");
         }
     }
     
@@ -142,7 +142,7 @@ class OrderOptionCell: UICollectionViewCell {
         case ShirtOrderInfo.ShirtBack.BoxPleat:
             self.optionImage.image = UIImage(named: "shirt_back_box_pleat");
         default:
-            println("no image");
+            print("no image");
         }
     }
     
@@ -173,7 +173,7 @@ class OrderOptionCell: UICollectionViewCell {
         case VestOrderInfo.VestType.V12:
             self.optionImage.image = UIImage(named: "vest_v12");
         default:
-            println("no image");
+            print("no image");
         }
     }
     
@@ -188,7 +188,7 @@ class OrderOptionCell: UICollectionViewCell {
         case JacketOrderInfo.Lapel.Shawl:
             self.optionImage.image = UIImage(named: "jacket_lapel_shawl");
         default:
-            println("no image");
+            print("no image");
         }
     }
     

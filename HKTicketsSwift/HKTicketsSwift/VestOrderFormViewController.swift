@@ -53,7 +53,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.noteTextView.text = self.existingVestOrder?.notes;
         self.firstButtonTextField.text = self.existingVestOrder?.firstButtonPosition;
         
-        if let vestTypeIndex = find(self.vestOptions, self.existingVestOrder!.vestType) {
+        if let vestTypeIndex = self.vestOptions.indexOf(self.existingVestOrder!.vestType) {
             self.vestCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: vestTypeIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
     }
@@ -66,9 +66,9 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 var vestOrder = VestOrderInfo();
                 vestOrder.fabric = fabric;
                 
-                var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 vestOrder.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
-                vestOrder.firstButtonPosition = self.firstButtonTextField.text;
+                vestOrder.firstButtonPosition = self.firstButtonTextField.text!;
                 vestOrder.notes = self.noteTextView.text;
                 
                 orders.append(vestOrder);
@@ -90,10 +90,10 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
     
     func collectFormDataAndUpdateExistingPants() {
         if let existingVest = self.existingVestOrder {
-            existingVest.fabric = self.fabricTextField.text;
-            var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            existingVest.fabric = self.fabricTextField.text!;
+            var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingVest.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
-            existingVest.firstButtonPosition = self.firstButtonTextField.text;
+            existingVest.firstButtonPosition = self.firstButtonTextField.text!;
             existingVest.notes = self.noteTextView.text;
         }
     }
@@ -108,7 +108,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
 
     //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
+        let orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
         orderOptionCell.configureCellWithOption(vestOptions[indexPath.row]);
         return orderOptionCell;
     }

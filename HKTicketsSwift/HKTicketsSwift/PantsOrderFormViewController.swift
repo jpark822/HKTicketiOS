@@ -53,10 +53,10 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         self.fabricTextField.hidden = false;
         self.depthOfPleatTextField.text = self.existingPantOrder?.depthOfPleat;
         
-        if let pleatIndex = find(self.pleatOptions, self.existingPantOrder!.pleat) {
+        if let pleatIndex = self.pleatOptions.indexOf(self.existingPantOrder!.pleat) {
             self.pleatCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: pleatIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let liningIndex = find(self.liningOptions, self.existingPantOrder!.lining) {
+        if let liningIndex = self.liningOptions.indexOf(self.existingPantOrder!.lining) {
             self.liningSegmentedControl.selectedSegmentIndex = liningIndex;
         }
         self.notesTextField.text = self.existingPantOrder?.notes;
@@ -77,10 +77,10 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
             for fabric in fabrics {
                 var pantOrder = PantsOrderInfo();
                 pantOrder.fabric = fabric;
-                var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 pantOrder.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
                 pantOrder.lining = self.liningOptions[self.liningSegmentedControl.selectedSegmentIndex];
-                pantOrder.depthOfPleat = self.depthOfPleatTextField.text;
+                pantOrder.depthOfPleat = self.depthOfPleatTextField.text!;
                 pantOrder.notes = self.notesTextField.text;
                 
                 orders.append(pantOrder);
@@ -102,18 +102,18 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     
     func collectFormDataAndUpdateExistingPants() {
         if let existingPant = self.existingPantOrder {
-            existingPant.fabric = self.fabricTextField.text;
-            var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            existingPant.fabric = self.fabricTextField.text!;
+            var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingPant.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
             existingPant.lining = self.liningOptions[self.liningSegmentedControl.selectedSegmentIndex];
-            existingPant.depthOfPleat = self.depthOfPleatTextField.text;
+            existingPant.depthOfPleat = self.depthOfPleatTextField.text!;
             existingPant.notes = self.notesTextField.text;
         }
     }
     
     //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
+        let orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
         orderOptionCell.configureCellWithOption(pleatOptions[indexPath.row]);
         return orderOptionCell;
     }

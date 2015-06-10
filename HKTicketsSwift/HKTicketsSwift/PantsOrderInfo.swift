@@ -37,7 +37,7 @@ class PantsOrderInfo: NSObject, OrderItemInterface {
         myString += "Fabric: \(self.fabric)\n";
         myString += "Pleat Type: \(self.pleat.rawValue)\n";
         myString += "Lining: \(self.lining.rawValue)\n";
-        if (count(self.depthOfPleat) > 0 && self.pleat != Pleat.FlatFront) {
+        if (self.depthOfPleat.characters.count > 0 && self.pleat != Pleat.FlatFront) {
             myString += "Depth of Pleat: \(self.depthOfPleat)\n";
         }
         myString += "Notes: \(self.notes)\n";

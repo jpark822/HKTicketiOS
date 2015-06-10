@@ -67,27 +67,28 @@ class JacketMeasurementsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        var body : BodyMeasurements = BodyMeasurements();
-        body.chest = self.bodyChest.text;
-        body.waist = self.bodyWaist.text;
-        body.hips = self.bodyHips.text;
-        body.shoulders = self.bodyShoulders.text;
-        body.sleeveLength = self.bodySleeveLength.text;
-        body.jacketWidth = self.bodyJacketWidth.text;
-        body.jacketLength = self.bodyJacketLength.text;
-        body.bicep = self.bodyBicep.text;
-        body.armHole = self.bodyArmHole.text;
-        body.belly = self.bodyBelly.text;
+        let body : BodyMeasurements = BodyMeasurements();
+        body.chest = self.bodyChest.text!;
+        body.waist = self.bodyWaist.text!;
+        body.hips = self.bodyHips.text!;
+        body.shoulders = self.bodyShoulders.text!;
+        body.sleeveLength = self.bodySleeveLength.text!;
+        body.jacketWidth = self.bodyJacketWidth.text!;
+        body.jacketLength = self.bodyJacketLength.text!;
+        body.bicep = self.bodyBicep.text!;
+        body.armHole = self.bodyArmHole.text!;
+        body.belly = self.bodyBelly.text!
+        ;
 
-        var finish : JacketFinishMeasurements = JacketFinishMeasurements();
-        finish.chest = self.finishChest.text;
-        finish.waist = self.finishWaist.text;
-        finish.hips = self.finishHips.text;
-        finish.shoulders = self.finishShoulders.text;
-        finish.sleeveLength = self.finishSleeveLength.text;
-        finish.halfShoulder = self.finishHalfShoulder.text;
-        finish.jacketLength = self.finishJacketLength.text;
-        finish.jacketSleeve = self.finishJacketSleeve.text;
+        let finish : JacketFinishMeasurements = JacketFinishMeasurements();
+        finish.chest = self.finishChest.text!;
+        finish.waist = self.finishWaist.text!;
+        finish.hips = self.finishHips.text!;
+        finish.shoulders = self.finishShoulders.text!;
+        finish.sleeveLength = self.finishSleeveLength.text!;
+        finish.halfShoulder = self.finishHalfShoulder.text!;
+        finish.jacketLength = self.finishJacketLength.text!;
+        finish.jacketSleeve = self.finishJacketSleeve.text!;
         
         if let newOrders = self.jacketOrders {
             for order in newOrders {

@@ -32,6 +32,7 @@
 		4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */; };
 		4EB02B451B27B97300287BCE /* SuitOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB02B441B27B97300287BCE /* SuitOrder.storyboard */; };
 		4EB02B471B27C63800287BCE /* SuitOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB02B461B27C63800287BCE /* SuitOrderInfo.swift */; };
+		4EB02B491B27D14C00287BCE /* SuitFabricModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB02B481B27D14C00287BCE /* SuitFabricModalViewController.swift */; };
 		4ED9EFC51B124CC600461EB4 /* PantsOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9EFC41B124CC600461EB4 /* PantsOrderInfo.swift */; };
 		4ED9EFC91B13B39500461EB4 /* OrderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED9EFC81B13B39500461EB4 /* OrderItemCell.xib */; };
 		4ED9EFCB1B13B87100461EB4 /* PantsOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9EFCA1B13B87100461EB4 /* PantsOrderFormViewController.swift */; };
@@ -45,6 +46,7 @@
 		4ED9F0241B1F8B6C00461EB4 /* JacketFinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0231B1F8B6C00461EB4 /* JacketFinishMeasurements.swift */; };
 		4ED9F0261B1F8CCD00461EB4 /* JacketOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0251B1F8CCD00461EB4 /* JacketOrderInfo.swift */; };
 		4ED9F0281B20983000461EB4 /* JacketMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0271B20983000461EB4 /* JacketMeasurementsViewController.swift */; };
+		4EDFF5001B27D9080039AE42 /* SuitFabricChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFF4FF1B27D9080039AE42 /* SuitFabricChooserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,7 @@
 		4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtMeasurementsViewController.swift; sourceTree = "<group>"; };
 		4EB02B441B27B97300287BCE /* SuitOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SuitOrder.storyboard; sourceTree = "<group>"; };
 		4EB02B461B27C63800287BCE /* SuitOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitOrderInfo.swift; sourceTree = "<group>"; };
+		4EB02B481B27D14C00287BCE /* SuitFabricModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricModalViewController.swift; sourceTree = "<group>"; };
 		4ED9EFC41B124CC600461EB4 /* PantsOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsOrderInfo.swift; sourceTree = "<group>"; };
 		4ED9EFC81B13B39500461EB4 /* OrderItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderItemCell.xib; sourceTree = "<group>"; };
 		4ED9EFCA1B13B87100461EB4 /* PantsOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsOrderFormViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		4ED9F0231B1F8B6C00461EB4 /* JacketFinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketFinishMeasurements.swift; sourceTree = "<group>"; };
 		4ED9F0251B1F8CCD00461EB4 /* JacketOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketOrderInfo.swift; sourceTree = "<group>"; };
 		4ED9F0271B20983000461EB4 /* JacketMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketMeasurementsViewController.swift; sourceTree = "<group>"; };
+		4EDFF4FF1B27D9080039AE42 /* SuitFabricChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricChooserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,8 +230,10 @@
 		4EB02B431B27B96900287BCE /* Suit */ = {
 			isa = PBXGroup;
 			children = (
+				4EDFF4FF1B27D9080039AE42 /* SuitFabricChooserViewController.swift */,
 				4EB02B441B27B97300287BCE /* SuitOrder.storyboard */,
 				4EB02B461B27C63800287BCE /* SuitOrderInfo.swift */,
+				4EB02B481B27D14C00287BCE /* SuitFabricModalViewController.swift */,
 			);
 			name = Suit;
 			sourceTree = "<group>";
@@ -399,6 +405,8 @@
 				4ED9F01C1B1D30C200461EB4 /* VestOrderFormViewController.swift in Sources */,
 				4E8350801AFAB7D600C824C3 /* HomeViewController.swift in Sources */,
 				4EB02B471B27C63800287BCE /* SuitOrderInfo.swift in Sources */,
+				4EDFF5001B27D9080039AE42 /* SuitFabricChooserViewController.swift in Sources */,
+				4EB02B491B27D14C00287BCE /* SuitFabricModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

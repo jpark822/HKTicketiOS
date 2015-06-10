@@ -92,10 +92,10 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
 
         myString += convertibleCuff == true ? "Convertible Cuff: Yes \n" : "Convertible Cuff: No \n";
         
-        if (count(self.monogram) > 0) {
+        if (self.monogram.characters.count > 0) {
             myString += "Monogram: \(self.monogram) \n";
         }
-        if (count(self.monogramColor) > 0) {
+        if (self.monogramColor.characters.count > 0) {
             myString += "Monogram Color: \(self.monogramColor) \n";
         }
         

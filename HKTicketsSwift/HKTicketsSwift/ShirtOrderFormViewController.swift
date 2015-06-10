@@ -147,25 +147,25 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     func setupControlsWithEditableShirtOrderInfo() {
         self.fabricTextBox.hidden = false;
         self.fabricTextBox.text = self.editShirtinfo!.fabric;
-        if let collarIndex = find(self.collarOptions, self.editShirtinfo!.collar) {
+        if let collarIndex = self.collarOptions.indexOf(self.editShirtinfo!.collar) {
             self.collarCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: collarIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let stavIndex = find(self.stavOptions, self.editShirtinfo!.stavs) {
+        if let stavIndex = self.stavOptions.indexOf(self.editShirtinfo!.stavs) {
             self.StavsSegmentedControl.selectedSegmentIndex = stavIndex;
         }
-        if let shortSleeveIndex = find(self.shortSleeveOptions, self.editShirtinfo!.shortSleeves) {
+        if let shortSleeveIndex = self.shortSleeveOptions.indexOf(self.editShirtinfo!.shortSleeves) {
             self.shortSleeveCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: shortSleeveIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let pocketIndex = find(self.pocketOptions, self.editShirtinfo!.pockets) {
+        if let pocketIndex = self.pocketOptions.indexOf(self.editShirtinfo!.pockets) {
             self.pocketCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: pocketIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let cuffIndex = find(self.cuffOptions, self.editShirtinfo!.cuffs) {
+        if let cuffIndex = self.cuffOptions.indexOf(self.editShirtinfo!.cuffs) {
             self.cuffsCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: cuffIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let shirtFrontIndex = find(self.shirtFrontOptions, self.editShirtinfo!.shirtFront) {
+        if let shirtFrontIndex = self.shirtFrontOptions.indexOf(self.editShirtinfo!.shirtFront) {
             self.shirtFrontCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: shirtFrontIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let shirtBackIndex = find(self.shirtBackOptions, self.editShirtinfo!.shirtBack) {
+        if let shirtBackIndex = self.shirtBackOptions.indexOf(self.editShirtinfo!.shirtBack) {
             self.shirtBackCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: shirtBackIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
         self.frontLengthTextField.text = self.editShirtinfo!.frontCollarLength;
@@ -235,19 +235,19 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             
             for fabric in fabrics
             {
-                var shirtOrder = ShirtOrderInfo();
-                var selectedCollarIndexes = self.collarCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                let shirtOrder = ShirtOrderInfo();
+                var selectedCollarIndexes = self.collarCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.collar = self.collarOptions[selectedCollarIndexes[0].row];
                 shirtOrder.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
-                var selectedSleeveIndexes = self.shortSleeveCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedSleeveIndexes = self.shortSleeveCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.shortSleeves = self.shortSleeveOptions[selectedSleeveIndexes[0].row];
-                var selectedPocketsIndexes = self.pocketCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedPocketsIndexes = self.pocketCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.pockets = self.pocketOptions[selectedPocketsIndexes[0].row];
-                var selectedCuffsIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedCuffsIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.cuffs = self.cuffOptions[selectedCuffsIndexes[0].row];
-                var selectedShirtFrontIndexes = self.shirtFrontCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedShirtFrontIndexes = self.shirtFrontCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.shirtFront = self.shirtFrontOptions[selectedShirtFrontIndexes[0].row];
-                var selectedShirtBackIndexes = self.shirtBackCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedShirtBackIndexes = self.shirtBackCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.shirtBack = self.shirtBackOptions[selectedShirtBackIndexes[0].row];
                 shirtOrder.frontCollarLength = self.frontLengthTextField.text;
                 shirtOrder.backCollarLength = self.backLengthTextField.text;
@@ -261,7 +261,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
                 orders.append(shirtOrder);
             }
 
-            var shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
+            let shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
             shirtMeasurementsVC.delegate = self.delegate;
             shirtMeasurementsVC.shirts = orders;
             self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
@@ -269,7 +269,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             
         else if self.editShirtinfo != nil {
             self.collectFormDataAndUpdateExistingShirt();
-            var shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
+            let shirtMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("ShirtMeasurementsControllerId") as! ShirtMeasurementsViewController;
             shirtMeasurementsVC.delegate = self.delegate;
             shirtMeasurementsVC.editShirtInfo = self.editShirtinfo;
             self.navigationController?.pushViewController(shirtMeasurementsVC, animated: true);
@@ -278,18 +278,18 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     
     func collectFormDataAndUpdateExistingShirt() {
         if let shirtToEdit = self.editShirtinfo {
-            var selectedCollarIndexes = self.collarCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedCollarIndexes = self.collarCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.collar = self.collarOptions[selectedCollarIndexes[0].row];
             self.editShirtinfo!.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
-            var selectedShortSleeveIndexes = self.shortSleeveCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedShortSleeveIndexes = self.shortSleeveCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.shortSleeves = self.shortSleeveOptions[selectedShortSleeveIndexes[0].row];
-            var selectedPocketIndexes = self.pocketCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedPocketIndexes = self.pocketCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.pockets = self.pocketOptions[selectedPocketIndexes[0].row];
-            var selectedCuffIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedCuffIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.cuffs = self.cuffOptions[selectedCuffIndexes[0].row];
-            var selectedShirtFrontIndexes = self.shirtFrontCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedShirtFrontIndexes = self.shirtFrontCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.shirtFront = self.shirtFrontOptions[selectedShirtFrontIndexes[0].row];
-            var selectedShirtBackIndexes = self.shirtBackCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedShirtBackIndexes = self.shirtBackCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.shirtBack = self.shirtBackOptions[selectedShirtBackIndexes[0].row];
             self.editShirtinfo!.frontCollarLength = self.frontLengthTextField.text;
             self.editShirtinfo!.backCollarLength = self.backLengthTextField.text;
@@ -297,7 +297,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             self.editShirtinfo!.convertibleCuff = self.convertibleSwitch.on;
             self.editShirtinfo!.monogram = self.monogramTextField.text;
             self.editShirtinfo!.monogramColor = self.monogramColorTextField.text;
-            self.editShirtinfo!.fabric = self.fabricTextBox.text;
+            self.editShirtinfo!.fabric = self.fabricTextBox.text!;
             self.editShirtinfo!.notes = self.notesTextField.text;
         }
     }
@@ -309,7 +309,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     
     //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderItemCellId", forIndexPath: indexPath) as! OrderOptionCell;
+        let orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderItemCellId", forIndexPath: indexPath) as! OrderOptionCell;
         
         switch collectionView {
         case self.collarCollectionView:
@@ -325,7 +325,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         case self.shirtBackCollectionView:
             orderOptionCell.configureCellWithOption(self.shirtBackOptions[indexPath.row]);
         default:
-            println("no item for option");
+            print("no item for option");
         }
         
         return orderOptionCell;

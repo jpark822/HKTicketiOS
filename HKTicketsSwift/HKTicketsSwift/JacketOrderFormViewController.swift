@@ -113,29 +113,29 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         self.ticketPocketSwitch.on = self.existingJacketOrder!.ticketPocket;
         self.flapWidthTextField.text = self.existingJacketOrder?.flapWidth;
         self.buttonHoleLapelSwitch.on = self.existingJacketOrder!.buttonHoleOnLapel;
-        if let lapelIndex = find(self.lapelOptions, self.existingJacketOrder!.lapel) {
+        if let lapelIndex = self.lapelOptions.indexOf(self.existingJacketOrder!.lapel) {
             self.lapelCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: lapelIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
         self.lapelWidthTextField.text = self.existingJacketOrder!.lapelWidth;
-        if let liningIndex = find(self.liningOptions, self.existingJacketOrder!.lining) {
+        if let liningIndex = self.liningOptions.indexOf(self.existingJacketOrder!.lining) {
             self.liningCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: liningIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let paddingIndex = find(self.paddingOptions, self.existingJacketOrder!.padding) {
+        if let paddingIndex = self.paddingOptions.indexOf(self.existingJacketOrder!.padding) {
             self.paddingSegmentedControl.selectedSegmentIndex = paddingIndex;
         }
-        if let buttonIndex = find(self.buttonOptions, self.existingJacketOrder!.buttons) {
+        if let buttonIndex = self.buttonOptions.indexOf(self.existingJacketOrder!.buttons) {
             self.buttonCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: buttonIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let pocketIndex = find(self.pocketOptions, self.existingJacketOrder!.pockets) {
+        if let pocketIndex = self.pocketOptions.indexOf(self.existingJacketOrder!.pockets) {
             self.pocketsCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: pocketIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let ventIndex = find(self.ventOptions, self.existingJacketOrder!.vent) {
+        if let ventIndex = self.ventOptions.indexOf(self.existingJacketOrder!.vent) {
             self.ventCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: ventIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let stitchIndex = find(self.stitchOptions, self.existingJacketOrder!.stitch) {
+        if let stitchIndex = self.stitchOptions.indexOf(self.existingJacketOrder!.stitch) {
             self.stitchCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: stitchIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
-        if let cuffIndex = find(self.cuffsOptions, self.existingJacketOrder!.cuffs) {
+        if let cuffIndex = self.cuffsOptions.indexOf(self.existingJacketOrder!.cuffs) {
             self.cuffsCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: cuffIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
     }
@@ -150,28 +150,28 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
     
     func collectFormDataAndUpdateExistingPants() {
         if let existingJacket = self.existingJacketOrder {
-            existingJacket.fabric = self.fabricTextField.text;
+            existingJacket.fabric = self.fabricTextField.text!;
             
-            var selectedLapelIndexes = self.lapelCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedLapelIndexes = self.lapelCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.lapel = self.lapelOptions[selectedLapelIndexes[0].row];
-            var selectedLiningIndexes = self.liningCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedLiningIndexes = self.liningCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.lining = self.liningOptions[selectedLiningIndexes[0].row];
-            var selectedButtonIndexes = self.buttonCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedButtonIndexes = self.buttonCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.buttons = self.buttonOptions[selectedButtonIndexes[0].row];
-            var selectedPocketIndexes = self.pocketsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedPocketIndexes = self.pocketsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath]!;
             existingJacket.pockets = self.pocketOptions[selectedPocketIndexes[0].row];
-            var selectedVentIndexes = self.ventCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedVentIndexes = self.ventCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.vent = self.ventOptions[selectedVentIndexes[0].row];
-            var selectedStitchIndexes = self.stitchCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedStitchIndexes = self.stitchCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.stitch = self.stitchOptions[selectedStitchIndexes[0].row];
-            var selectedCuffIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+            var selectedCuffIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.cuffs = self.cuffsOptions[selectedCuffIndexes[0].row];
             
-            existingJacket.lapelWidth = self.lapelWidthTextField.text;
-            existingJacket.firstButtonPosition = self.firstButtonTextField.text;
+            existingJacket.lapelWidth = self.lapelWidthTextField.text!;
+            existingJacket.firstButtonPosition = self.firstButtonTextField.text!;
             existingJacket.ticketPocket = self.ticketPocketSwitch.on;
             existingJacket.padding = self.paddingOptions[self.paddingSegmentedControl.selectedSegmentIndex];
-            existingJacket.flapWidth = self.flapWidthTextField.text;
+            existingJacket.flapWidth = self.flapWidthTextField.text!;
             existingJacket.buttonHoleOnLapel = self.buttonHoleLapelSwitch.on;
             existingJacket.notes = self.notesTextView.text;
         }
@@ -185,26 +185,26 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
                 var jacketOrder = JacketOrderInfo();
                 jacketOrder.fabric = fabric;
                 
-                var selectedLapelIndexes = self.lapelCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedLapelIndexes = self.lapelCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.lapel = self.lapelOptions[selectedLapelIndexes[0].row];
-                var selectedLiningIndexes = self.liningCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedLiningIndexes = self.liningCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.lining = self.liningOptions[selectedLiningIndexes[0].row];
-                var selectedButtonIndexes = self.buttonCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedButtonIndexes = self.buttonCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.buttons = self.buttonOptions[selectedButtonIndexes[0].row];
-                var selectedPocketIndexes = self.pocketsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedPocketIndexes = self.pocketsCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.pockets = self.pocketOptions[selectedPocketIndexes[0].row];
-                var selectedVentIndexes = self.ventCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedVentIndexes = self.ventCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.vent = self.ventOptions[selectedVentIndexes[0].row];
-                var selectedStitchIndexes = self.stitchCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedStitchIndexes = self.stitchCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.stitch = self.stitchOptions[selectedStitchIndexes[0].row];
-                var selectedCuffIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath];
+                var selectedCuffIndexes = self.cuffsCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.cuffs = self.cuffsOptions[selectedCuffIndexes[0].row];
                 
-                jacketOrder.lapelWidth = self.lapelWidthTextField.text;
-                jacketOrder.firstButtonPosition = self.firstButtonTextField.text;
+                jacketOrder.lapelWidth = self.lapelWidthTextField.text!;
+                jacketOrder.firstButtonPosition = self.firstButtonTextField.text!;
                 jacketOrder.ticketPocket = self.ticketPocketSwitch.on;
                 jacketOrder.padding = self.paddingOptions[self.paddingSegmentedControl.selectedSegmentIndex];
-                jacketOrder.flapWidth = self.flapWidthTextField.text;
+                jacketOrder.flapWidth = self.flapWidthTextField.text!;
                 jacketOrder.buttonHoleOnLapel = self.buttonHoleLapelSwitch.on;
                 jacketOrder.notes = self.notesTextView.text;
                 
@@ -227,7 +227,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
     
     //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
+        let orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;
         
         switch collectionView {
         case self.lapelCollectionView:
@@ -245,7 +245,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         case self.cuffsCollectionView:
             orderOptionCell.configureCellWithOption(self.cuffsOptions[indexPath.row]);
         default:
-            println("no item for option");
+            print("no item for option");
         }
         
         return orderOptionCell;

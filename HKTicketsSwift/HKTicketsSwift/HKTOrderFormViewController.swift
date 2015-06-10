@@ -21,7 +21,7 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         
-        var tapRecognizer = UITapGestureRecognizer(target: self, action:"mainViewTapped" );
+        let tapRecognizer = UITapGestureRecognizer(target: self, action:"mainViewTapped" );
         self.view.addGestureRecognizer(tapRecognizer);
     }
     
@@ -35,32 +35,38 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     }
 
     @IBAction func addShirtButtonPressed(sender: UIButton) {
-        var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
         fabricVC.delegate = self;
         fabricVC.itemType = OrderItemType.Shirt;
         self.navigationController?.pushViewController(fabricVC, animated: true);
     }
     
     @IBAction func addPantsButtonPressed(sender: AnyObject) {
-        var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
         fabricVC.delegate = self;
         fabricVC.itemType = OrderItemType.Pants;
         self.navigationController?.pushViewController(fabricVC, animated: true);
     }
 
     @IBAction func addVestButtonPressed(sender: AnyObject) {
-        var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
         fabricVC.delegate = self;
         fabricVC.itemType = OrderItemType.Vest;
         self.navigationController?.pushViewController(fabricVC, animated: true);
     }
     
     @IBAction func addJacketButtonPressed(sender: AnyObject) {
-        var fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
         fabricVC.delegate = self;
         fabricVC.itemType = OrderItemType.Jacket;
         self.navigationController?.pushViewController(fabricVC, animated: true);
     }
+    
+    @IBAction func addSuitPressed(sender: AnyObject) {
+        let suitFabricVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitFabricChooserId") as! SuitFabricChooserViewController;
+        self.navigationController?.pushViewController(suitFabricVC, animated: true);
+    }
+    
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]) {
         for shirt in items {
             self.orderItems.append(shirt);
@@ -111,7 +117,7 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("orderFormCellId") as! OrderFormItemCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("orderFormCellId") as! OrderFormItemCell;
         cell.fabricLabel.text = self.orderItems[indexPath.row].fabric;
         cell.typeLabel.text = self.orderItems[indexPath.row].itemType.rawValue;
         
@@ -132,26 +138,26 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var item : OrderItemInterface = self.orderItems[indexPath.row];
+        let item : OrderItemInterface = self.orderItems[indexPath.row];
         
         switch item.itemType {
         case OrderItemType.Shirt:
-            var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
+            let shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
             shirtOrderForm.editShirtinfo = item as? ShirtOrderInfo;
             shirtOrderForm.delegate = self;
             self.navigationController?.pushViewController(shirtOrderForm, animated: true);
         case OrderItemType.Pants:
-            var pantsOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsOrderFormID") as! PantsOrderFormViewController;
+            let pantsOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsOrderFormID") as! PantsOrderFormViewController;
             pantsOrderForm.existingPantOrder = item as? PantsOrderInfo
             pantsOrderForm.delegate = self;
             self.navigationController?.pushViewController(pantsOrderForm, animated: true);
         case OrderItemType.Vest:
-            var vestOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestOrderFormId") as! VestOrderFormViewController;
+            let vestOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestOrderFormId") as! VestOrderFormViewController;
             vestOrderForm.existingVestOrder = item as? VestOrderInfo
             vestOrderForm.delegate = self;
             self.navigationController?.pushViewController(vestOrderForm, animated: true);
         case OrderItemType.Jacket:
-            var jacketOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketOrderFormId") as! JacketOrderFormViewController;
+            let jacketOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketOrderFormId") as! JacketOrderFormViewController;
             jacketOrderForm.existingJacketOrder = item as? JacketOrderInfo
             jacketOrderForm.delegate = self;
             self.navigationController?.pushViewController(jacketOrderForm, animated: true);
@@ -175,10 +181,10 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     
     @IBAction func completeOrderButtonPressed(sender: AnyObject) {
         var orderString = "";
-        if (count(self.oldOrderNumberTextField.text) > 0) {
+        if (self.oldOrderNumberTextField.text!.characters.count > 0) {
             orderString += "Old Order Number: \(self.oldOrderNumberTextField.text) \n";
         }
-        if (count(self.newOrderNumberTextField.text) > 0) {
+        if (self.newOrderNumberTextField.text!.characters.count > 0) {
             orderString += "New Order Number: \(self.newOrderNumberTextField.text) \n\n";
         }
         for orderItem in self.orderItems {
@@ -192,8 +198,8 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        if (result.value == MFMailComposeResultSent.value || result.value == MFMailComposeResultSaved.value) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        if (result.rawValue == MFMailComposeResultSent.rawValue || result.rawValue == MFMailComposeResultSaved.rawValue) {
             controller.dismissViewControllerAnimated(true, completion: { () -> Void in
                 self.dismissViewControllerAnimated(true, completion: nil)
             })

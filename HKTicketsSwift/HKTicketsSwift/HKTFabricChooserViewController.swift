@@ -32,8 +32,8 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     @IBAction func addFabricButtonPressed(sender: AnyObject) {
-        let trimmedString = self.fabricTextBox.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
-        if (count(trimmedString) > 0)
+        let trimmedString = self.fabricTextBox.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
+        if (trimmedString.characters.count > 0)
         {
             fabrics.append(trimmedString);
             self.fabricTextBox.text = "";
@@ -45,28 +45,28 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
         switch (self.itemType) {
         case OrderItemType.Shirt:
             if (self.fabrics.count > 0) {
-                var shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
+                let shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
                 shirtOrderForm.fabrics = self.fabrics;
                 shirtOrderForm.delegate = self.delegate;
                 self.navigationController?.pushViewController(shirtOrderForm, animated: true);
             }
         case OrderItemType.Pants:
             if (self.fabrics.count > 0) {
-                var pantsOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsOrderFormID") as! PantsOrderFormViewController;
+                let pantsOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsOrderFormID") as! PantsOrderFormViewController;
                 pantsOrderForm.fabrics = self.fabrics;
                 pantsOrderForm.delegate = self.delegate;
                 self.navigationController?.pushViewController(pantsOrderForm, animated: true);
             }
         case OrderItemType.Jacket:
             if (self.fabrics.count > 0) {
-                var jacketOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketOrderFormId") as! JacketOrderFormViewController;
+                let jacketOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketOrderFormId") as! JacketOrderFormViewController;
                 jacketOrderForm.fabrics = self.fabrics;
                 jacketOrderForm.delegate = self.delegate;
                 self.navigationController?.pushViewController(jacketOrderForm, animated: true);
             }
         case OrderItemType.Vest:
             if (self.fabrics.count > 0) {
-                var vestOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestOrderFormId") as! VestOrderFormViewController;
+                let vestOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestOrderFormId") as! VestOrderFormViewController;
                 vestOrderForm.fabrics = self.fabrics;
                 vestOrderForm.delegate = self.delegate;
                 self.navigationController?.pushViewController(vestOrderForm, animated: true);
@@ -80,7 +80,7 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var fabricCell = tableView.dequeueReusableCellWithIdentifier("fabricCellId") as! AddFabricTableViewCell;
+        let fabricCell = tableView.dequeueReusableCellWithIdentifier("fabricCellId") as! AddFabricTableViewCell;
         fabricCell.fabricNameLabel.text = self.fabrics[indexPath.row];
         return fabricCell;
     }

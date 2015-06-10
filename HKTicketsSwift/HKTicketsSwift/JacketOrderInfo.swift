@@ -90,11 +90,11 @@ class JacketOrderInfo: NSObject, OrderItemInterface {
         myString += "Stitch: \(self.stitch.rawValue)\n";
         myString += "Cuffs: \(self.cuffs.rawValue)\n";
         myString += self.ticketPocket == true ? "Ticket Pocket: Yes \n" : "Ticket Pocket: No \n";
-        if (count(self.flapWidth) > 0) {
+        if (self.flapWidth.characters.count > 0) {
             myString += "Flap Width: \(self.flapWidth)\n";
         }
         myString += self.buttonHoleOnLapel == true ? "Button Hole On Lapel: Yes \n" : "Button Hole On Lapel: No \n";
-        if (count(self.notes) > 0) {
+        if (self.notes.characters.count > 0) {
             myString += "Notes: \(self.notes)\n";
         }
         

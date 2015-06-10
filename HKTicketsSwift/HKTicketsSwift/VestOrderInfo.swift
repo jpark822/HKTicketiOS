@@ -32,7 +32,7 @@ class VestOrderInfo: NSObject, OrderItemInterface {
         myString += "Item Type: \(self.itemType.rawValue)\n";
         myString += "Fabric: \(self.fabric)\n"
         myString += "Vest Type: \(self.vestType.rawValue)\n";
-        if (count(self.firstButtonPosition) > 0) {
+        if (self.firstButtonPosition.characters.count > 0) {
             myString += "First Button Position: \(self.firstButtonPosition)\n";
         }
         myString += "Notes: \(self.notes)\n";

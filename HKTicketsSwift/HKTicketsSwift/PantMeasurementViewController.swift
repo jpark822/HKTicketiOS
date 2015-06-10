@@ -58,22 +58,22 @@ class PantMeasurementViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        var body : BodyMeasurements = BodyMeasurements();
-        body.waist = self.bodyWaist.text;
-        body.seat = self.bodySeat.text;
-        body.crotch = self.bodyCrotch.text;
-        body.actualThigh = self.bodyActualThigh.text;
-        body.outseam = self.bodyOutseam.text;
-        body.inseam = self.bodyInseam.text;
+        let body : BodyMeasurements = BodyMeasurements();
+        body.waist = self.bodyWaist.text!;
+        body.seat = self.bodySeat.text!;
+        body.crotch = self.bodyCrotch.text!;
+        body.actualThigh = self.bodyActualThigh.text!;
+        body.outseam = self.bodyOutseam.text!;
+        body.inseam = self.bodyInseam.text!;
         
-        var finish : PantsFinishMeasurements = PantsFinishMeasurements();
-        finish.waist = self.finishWaist.text;
-        finish.seat = self.finishSeat.text;
-        finish.crotch = self.finishCrotch.text;
-        finish.below1623 = self.Finish1623below.text;
-        finish.bottomCuff = self.finishBottomCuff.text;
-        finish.outseam = self.finishOutseam.text;
-        finish.inseam = self.finishInseam.text;
+        let finish : PantsFinishMeasurements = PantsFinishMeasurements();
+        finish.waist = self.finishWaist.text!;
+        finish.seat = self.finishSeat.text!;
+        finish.crotch = self.finishCrotch.text!;
+        finish.below1623 = self.Finish1623below.text!;
+        finish.bottomCuff = self.finishBottomCuff.text!;
+        finish.outseam = self.finishOutseam.text!;
+        finish.inseam = self.finishInseam.text!;
         
         if let newPantOrders = self.pantOrders {
             for pants in newPantOrders {
