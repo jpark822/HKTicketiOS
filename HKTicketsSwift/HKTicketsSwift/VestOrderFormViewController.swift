@@ -37,7 +37,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.vestCollectionView.delegate = self;
         self.vestCollectionView.dataSource = self;
         
-        if let existingOrder = self.existingVestOrder {
+        if self.existingVestOrder != nil {
             self.setupControlsWithEditablePantInfo()
             self.fabricTextField.hidden = false;
         }
@@ -63,7 +63,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
             var orders : [VestOrderInfo]! = []
             
             for fabric in fabrics {
-                var vestOrder = VestOrderInfo();
+                let vestOrder = VestOrderInfo();
                 vestOrder.fabric = fabric;
                 
                 var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
@@ -73,7 +73,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 
                 orders.append(vestOrder);
             }
-            var vestMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestMeasurementId") as! VestMeasurementViewController;
+            let vestMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestMeasurementId") as! VestMeasurementViewController;
             vestMeasurementsVC.delegate = self.delegate;
             vestMeasurementsVC.vestOrders = orders;
             self.navigationController?.pushViewController(vestMeasurementsVC, animated: true);
@@ -81,9 +81,9 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         else if let existingVest = self.existingVestOrder {
             self.collectFormDataAndUpdateExistingPants();
             
-            var vestMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestMeasurementId") as! VestMeasurementViewController;
+            let vestMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestMeasurementId") as! VestMeasurementViewController;
             vestMeasurementsVC.delegate = self.delegate;
-            vestMeasurementsVC.existingVest = self.existingVestOrder;
+            vestMeasurementsVC.existingVest = existingVest;
             self.navigationController?.pushViewController(vestMeasurementsVC, animated: true);
         }
     }

@@ -39,13 +39,48 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var notesTextField: UITextView!
     
     var fabrics : [String]?;
-    var collarOptions : [ShirtOrderInfo.Collar]! = [];
-    var stavOptions : [ShirtOrderInfo.Stavs]! = [];
-    var shortSleeveOptions : [ShirtOrderInfo.ShortSleeve]! = [];
-    var pocketOptions : [ShirtOrderInfo.Pockets]! = [];
-    var cuffOptions : [ShirtOrderInfo.Cuffs]! = [];
-    var shirtFrontOptions : [ShirtOrderInfo.ShirtFront]! = [];
-    var shirtBackOptions : [ShirtOrderInfo.ShirtBack]! = [];
+    var collarOptions : [ShirtOrderInfo.Collar]! = [ShirtOrderInfo.Collar.ClosePoint,
+        ShirtOrderInfo.Collar.MediumSpread,
+        ShirtOrderInfo.Collar.WideSpread,
+        ShirtOrderInfo.Collar.ButtonDown,
+        ShirtOrderInfo.Collar.HiddenButtonDown,
+        ShirtOrderInfo.Collar.Tab,
+        ShirtOrderInfo.Collar.EyeLets,
+        ShirtOrderInfo.Collar.Other];
+    
+    var stavOptions : [ShirtOrderInfo.Stavs]! = [ShirtOrderInfo.Stavs.Detachable,
+        ShirtOrderInfo.Stavs.Permenant];
+    
+    var shortSleeveOptions : [ShirtOrderInfo.ShortSleeve]! = [ShirtOrderInfo.ShortSleeve.S1,
+        ShirtOrderInfo.ShortSleeve.S2,
+        ShirtOrderInfo.ShortSleeve.S4,
+        ShirtOrderInfo.ShortSleeve.S5,
+        ShirtOrderInfo.ShortSleeve.None];
+    
+    var pocketOptions : [ShirtOrderInfo.Pockets]! = [ShirtOrderInfo.Pockets.P2,
+        ShirtOrderInfo.Pockets.P3,
+        ShirtOrderInfo.Pockets.P6,
+        ShirtOrderInfo.Pockets.P10,
+        ShirtOrderInfo.Pockets.NoPockets];
+    
+    var cuffOptions : [ShirtOrderInfo.Cuffs]! = [ShirtOrderInfo.Cuffs.C1,
+        ShirtOrderInfo.Cuffs.C2,
+        ShirtOrderInfo.Cuffs.C3,
+        ShirtOrderInfo.Cuffs.C4,
+        ShirtOrderInfo.Cuffs.C5,
+        ShirtOrderInfo.Cuffs.C6,
+        ShirtOrderInfo.Cuffs.C9,
+        ShirtOrderInfo.Cuffs.C10,
+        ShirtOrderInfo.Cuffs.Other];
+    
+    var shirtFrontOptions : [ShirtOrderInfo.ShirtFront]! = [ShirtOrderInfo.ShirtFront.Placket,
+        ShirtOrderInfo.ShirtFront.Plain,
+        ShirtOrderInfo.ShirtFront.HiddenButton];
+    
+    var shirtBackOptions : [ShirtOrderInfo.ShirtBack]! = [ShirtOrderInfo.ShirtBack.Plain,
+        ShirtOrderInfo.ShirtBack.PlainWithDart,
+        ShirtOrderInfo.ShirtBack.BoxPleat,
+        ShirtOrderInfo.ShirtBack.SinglePleat];
     
     //If editing, this will not be nil
     var editShirtinfo : ShirtOrderInfo?;
@@ -85,49 +120,6 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.notesTextField.delegate = self;
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
-        
-        self.collarOptions = [ShirtOrderInfo.Collar.ClosePoint,
-        ShirtOrderInfo.Collar.MediumSpread,
-        ShirtOrderInfo.Collar.WideSpread,
-        ShirtOrderInfo.Collar.ButtonDown,
-        ShirtOrderInfo.Collar.HiddenButtonDown,
-        ShirtOrderInfo.Collar.Tab,
-        ShirtOrderInfo.Collar.EyeLets,
-        ShirtOrderInfo.Collar.Other];
-        
-        self.stavOptions = [ShirtOrderInfo.Stavs.Detachable,
-            ShirtOrderInfo.Stavs.Permenant];
-        
-        self.shortSleeveOptions = [ShirtOrderInfo.ShortSleeve.S1,
-        ShirtOrderInfo.ShortSleeve.S2,
-        ShirtOrderInfo.ShortSleeve.S4,
-        ShirtOrderInfo.ShortSleeve.S5,
-        ShirtOrderInfo.ShortSleeve.None];
-        
-        self.pocketOptions = [ShirtOrderInfo.Pockets.P2,
-        ShirtOrderInfo.Pockets.P3,
-        ShirtOrderInfo.Pockets.P6,
-        ShirtOrderInfo.Pockets.P10,
-        ShirtOrderInfo.Pockets.NoPockets];
-        
-        self.cuffOptions = [ShirtOrderInfo.Cuffs.C1,
-        ShirtOrderInfo.Cuffs.C2,
-        ShirtOrderInfo.Cuffs.C3,
-        ShirtOrderInfo.Cuffs.C4,
-        ShirtOrderInfo.Cuffs.C5,
-        ShirtOrderInfo.Cuffs.C6,
-        ShirtOrderInfo.Cuffs.C9,
-        ShirtOrderInfo.Cuffs.C10,
-        ShirtOrderInfo.Cuffs.Other];
-        
-        self.shirtFrontOptions = [ShirtOrderInfo.ShirtFront.Placket,
-        ShirtOrderInfo.ShirtFront.Plain,
-            ShirtOrderInfo.ShirtFront.HiddenButton];
-        
-        self.shirtBackOptions = [ShirtOrderInfo.ShirtBack.Plain,
-        ShirtOrderInfo.ShirtBack.PlainWithDart,
-        ShirtOrderInfo.ShirtBack.BoxPleat,
-            ShirtOrderInfo.ShirtBack.SinglePleat];
         
         if let existingShirtOrder = self.editShirtinfo {
             self.setupControlsWithEditableShirtOrderInfo();

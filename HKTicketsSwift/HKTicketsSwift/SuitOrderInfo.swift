@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct SuitFabricUnit {
+    var jacketFabric = ""
+    var pantFabric = ""
+    var vestFabric = ""
+}
+
 class SuitOrderInfo: NSObject {
     var jacketOrderInfo = JacketOrderInfo();
     var pantsOrderInfo = PantsOrderInfo();

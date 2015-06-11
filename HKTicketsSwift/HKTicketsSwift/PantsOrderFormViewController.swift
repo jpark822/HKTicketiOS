@@ -17,8 +17,8 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var fabricTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
     
-    var pleatOptions : [PantsOrderInfo.Pleat] = [];
-    var liningOptions : [PantsOrderInfo.Lining] = [];
+    var pleatOptions : [PantsOrderInfo.Pleat] = [PantsOrderInfo.Pleat.FlatFront, PantsOrderInfo.Pleat.Single, PantsOrderInfo.Pleat.Double];
+    var liningOptions : [PantsOrderInfo.Lining] = [PantsOrderInfo.Lining.Front, PantsOrderInfo.Lining.Full, PantsOrderInfo.Lining.None];
     
     var existingPantOrder : PantsOrderInfo?;
     var fabrics : [String]?;
@@ -34,9 +34,6 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         self.pleatCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderOptionCellId")
         self.pleatCollectionView.dataSource = self;
         self.pleatCollectionView.delegate = self;
-        
-        self.pleatOptions = [PantsOrderInfo.Pleat.FlatFront, PantsOrderInfo.Pleat.Single, PantsOrderInfo.Pleat.Double];
-        self.liningOptions = [PantsOrderInfo.Lining.Front, PantsOrderInfo.Lining.Full, PantsOrderInfo.Lining.None];
         
         if let existingOrder = self.existingPantOrder {
             self.setupControlsWithEditablePantInfo();

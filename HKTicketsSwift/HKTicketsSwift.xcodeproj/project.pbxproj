@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */; };
 		4E1BE0931B0925380092E035 /* OrderOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1BE0921B0925380092E035 /* OrderOptionCell.swift */; };
+		4E7B32531B2928CF000D9A87 /* SuitFabricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */; };
 		4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */; };
 		4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */; };
 		4E8350651AFAB18D00C824C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350631AFAB18D00C824C3 /* Main.storyboard */; };
@@ -30,6 +31,8 @@
 		4E83509B1B0240E700C824C3 /* BodyMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509A1B0240E700C824C3 /* BodyMeasurements.swift */; };
 		4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */; };
 		4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */; };
+		4EA85F081B29176A00795742 /* SuitOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA85F071B29176A00795742 /* SuitOrderFormViewController.swift */; };
+		4EA85F0A1B291B2C00795742 /* SuitMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA85F091B291B2C00795742 /* SuitMeasurementsViewController.swift */; };
 		4EB02B451B27B97300287BCE /* SuitOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB02B441B27B97300287BCE /* SuitOrder.storyboard */; };
 		4EB02B471B27C63800287BCE /* SuitOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB02B461B27C63800287BCE /* SuitOrderInfo.swift */; };
 		4EB02B491B27D14C00287BCE /* SuitFabricModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB02B481B27D14C00287BCE /* SuitFabricModalViewController.swift */; };
@@ -62,6 +65,7 @@
 /* Begin PBXFileReference section */
 		4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsInterface.swift; sourceTree = "<group>"; };
 		4E1BE0921B0925380092E035 /* OrderOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderOptionCell.swift; sourceTree = "<group>"; };
+		4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricTableViewCell.swift; sourceTree = "<group>"; };
 		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83505B1AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		4E83509A1B0240E700C824C3 /* BodyMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyMeasurements.swift; sourceTree = "<group>"; };
 		4E83509C1B02412300C824C3 /* ShirtFinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtFinishMeasurements.swift; sourceTree = "<group>"; };
 		4E83509E1B02493300C824C3 /* ShirtMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtMeasurementsViewController.swift; sourceTree = "<group>"; };
+		4EA85F071B29176A00795742 /* SuitOrderFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitOrderFormViewController.swift; sourceTree = "<group>"; };
+		4EA85F091B291B2C00795742 /* SuitMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitMeasurementsViewController.swift; sourceTree = "<group>"; };
 		4EB02B441B27B97300287BCE /* SuitOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SuitOrder.storyboard; sourceTree = "<group>"; };
 		4EB02B461B27C63800287BCE /* SuitOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitOrderInfo.swift; sourceTree = "<group>"; };
 		4EB02B481B27D14C00287BCE /* SuitFabricModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricModalViewController.swift; sourceTree = "<group>"; };
@@ -230,10 +236,13 @@
 		4EB02B431B27B96900287BCE /* Suit */ = {
 			isa = PBXGroup;
 			children = (
-				4EDFF4FF1B27D9080039AE42 /* SuitFabricChooserViewController.swift */,
 				4EB02B441B27B97300287BCE /* SuitOrder.storyboard */,
+				4EA85F071B29176A00795742 /* SuitOrderFormViewController.swift */,
+				4EDFF4FF1B27D9080039AE42 /* SuitFabricChooserViewController.swift */,
 				4EB02B461B27C63800287BCE /* SuitOrderInfo.swift */,
 				4EB02B481B27D14C00287BCE /* SuitFabricModalViewController.swift */,
+				4EA85F091B291B2C00795742 /* SuitMeasurementsViewController.swift */,
+				4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */,
 			);
 			name = Suit;
 			sourceTree = "<group>";
@@ -241,8 +250,8 @@
 		4ED9EFC31B124C3200461EB4 /* Pants */ = {
 			isa = PBXGroup;
 			children = (
-				4ED9EFC41B124CC600461EB4 /* PantsOrderInfo.swift */,
 				4ED9EFCA1B13B87100461EB4 /* PantsOrderFormViewController.swift */,
+				4ED9EFC41B124CC600461EB4 /* PantsOrderInfo.swift */,
 				4ED9EFCC1B13F2A100461EB4 /* PantMeasurementViewController.swift */,
 				4ED9EFCE1B13F9CC00461EB4 /* PantsFinishMeasurements.swift */,
 			);
@@ -378,6 +387,7 @@
 				4ED9F01E1B1D320400461EB4 /* VestOrderInfo.swift in Sources */,
 				4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */,
 				4ED9F0281B20983000461EB4 /* JacketMeasurementsViewController.swift in Sources */,
+				4E7B32531B2928CF000D9A87 /* SuitFabricTableViewCell.swift in Sources */,
 				4ED9F0261B1F8CCD00461EB4 /* JacketOrderInfo.swift in Sources */,
 				4ED9F0191B1CF60D00461EB4 /* JacketOrderFormViewController.swift in Sources */,
 				4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */,
@@ -389,10 +399,12 @@
 				4ED9EFCB1B13B87100461EB4 /* PantsOrderFormViewController.swift in Sources */,
 				4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */,
 				4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */,
+				4EA85F0A1B291B2C00795742 /* SuitMeasurementsViewController.swift in Sources */,
 				4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */,
 				4ED9EFC51B124CC600461EB4 /* PantsOrderInfo.swift in Sources */,
 				4ED9F0201B1D33CB00461EB4 /* VestFinishMeasurements.swift in Sources */,
 				4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */,
+				4EA85F081B29176A00795742 /* SuitOrderFormViewController.swift in Sources */,
 				4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */,
 				4ED9F0241B1F8B6C00461EB4 /* JacketFinishMeasurements.swift in Sources */,
 				4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */,

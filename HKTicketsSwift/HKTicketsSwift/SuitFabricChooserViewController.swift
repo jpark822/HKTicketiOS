@@ -8,26 +8,53 @@
 
 import UIKit
 
-class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate {
+class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var suitFabricUnits : [SuitFabricUnit] = [];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
     }
 
     @IBAction func addFabricPressed(sender: AnyObject) {
         let modal = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitFabricModalId") as! SuitFabricModalViewController;
         modal.delegate = self;
+        modal.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
         self.presentViewController(modal, animated: true, completion: nil);
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
+        let suitOrderVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitOrderFormId") as! SuitOrderFormViewController;
+        self.presentViewController(suitOrderVC, animated: true, completion: nil);
     }
     
     func suitFabricModalFinishedAddingFabrics(jacket: String, pants: String, vest: String) {
-        NSLog("\(jacket), \(pants), \(vest)");
-        
+        let fabric = SuitFabricUnit(jacketFabric: jacket, pantFabric: pants, vestFabric: vest);
+        self.suitFabricUnits.append(fabric);
+        self.tableView.reloadData();
+    }
+    
+    //MARK: tableview
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("suitFabricCellId") as! SuitFabricTableViewCell;
+        cell.configureWithSuitFabricUnit(self.suitFabricUnits[indexPath.row]);
+        return cell;
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 187;
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.suitFabricUnits.count;
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1;
     }
     
 }
