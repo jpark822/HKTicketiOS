@@ -29,7 +29,7 @@ class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         let suitOrderVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitOrderFormId") as! SuitOrderFormViewController;
-        self.presentViewController(suitOrderVC, animated: true, completion: nil);
+        self.navigationController?.pushViewController(suitOrderVC, animated: true);
     }
     
     func suitFabricModalFinishedAddingFabrics(jacket: String, pants: String, vest: String) {

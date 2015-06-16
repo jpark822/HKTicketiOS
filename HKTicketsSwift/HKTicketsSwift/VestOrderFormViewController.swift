@@ -38,8 +38,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.vestCollectionView.dataSource = self;
         
         if self.existingVestOrder != nil {
-            self.setupControlsWithEditablePantInfo()
-            self.fabricTextField.hidden = false;
+            self.setupControlsWithEditableVestInfo()
         }
         else {
             self.vestCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
@@ -47,7 +46,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         }
     }
     
-    func setupControlsWithEditablePantInfo() {
+    func setupControlsWithEditableVestInfo() {
         self.fabricTextField.text = self.existingVestOrder?.fabric;
         self.fabricTextField.hidden = false;
         self.noteTextView.text = self.existingVestOrder?.notes;
