@@ -9,12 +9,21 @@
 import UIKit
 
 struct SuitFabricUnit {
-    var jacketFabric = ""
-    var pantFabric = ""
-    var vestFabric = ""
+    var suitFabric = "";
+    var vestFabric : String?
 }
 
-class SuitOrderInfo: NSObject {
+class SuitOrderInfo: NSObject, OrderItemInterface {
+    var itemType = OrderItemType.Suit;
+    var fabric : String {
+        get {
+            return self.jacketOrderInfo.fabric;
+        }
+        set {
+            
+        }
+    }
+    
     var jacketOrderInfo = JacketOrderInfo();
     var pantsOrderInfo = PantsOrderInfo();
     var vestOrderInfo : VestOrderInfo?;
@@ -22,4 +31,10 @@ class SuitOrderInfo: NSObject {
     var jacketFinishMeasurements = JacketFinishMeasurements();
     var pantsFinishMeasurements = PantsFinishMeasurements();
     var vestFinishMeasurements : VestFinishMeasurements?;
+    
+    var notes = "";
+    
+    func convertToMailingString() -> String {
+        return "";
+    }
 }

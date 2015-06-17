@@ -19,8 +19,10 @@ class SuitFabricTableViewCell: UITableViewCell {
     }
     
     func configureWithSuitFabricUnit(_fabrics: SuitFabricUnit) {
-        self.jacketFabricLabel.text = "Jacket Fabric: \(_fabrics.jacketFabric)"
-        self.pantsFabricLabel.text = "Pants Fabric: \(_fabrics.pantFabric)"
-        self.vestFabricLabel.text = "Vest Fabric: \(_fabrics.vestFabric)"
+        self.jacketFabricLabel.text = "Jacket Fabric: \(_fabrics.suitFabric)"
+        self.pantsFabricLabel.text = "Pants Fabric: \(_fabrics.suitFabric)"
+        if let vest = _fabrics.vestFabric {
+            self.vestFabricLabel.text = "Vest Fabric: \(vest)"
+        }
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    var delegate : OrderFormDelegate?;
     
     //Jacket
     @IBOutlet weak var jacketFabricTextField: UITextField!
@@ -62,8 +63,8 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     var pantsLiningOptions : [PantsOrderInfo.Lining] = [PantsOrderInfo.Lining.Front, PantsOrderInfo.Lining.Full, PantsOrderInfo.Lining.None];
     
     //Vest
+    @IBOutlet weak var vestContainerView: UIView!
     @IBOutlet weak var vestFabricTextField: UITextField!
-    @IBOutlet weak var includeVestSwitch: UISwitch!
     @IBOutlet weak var vestCollectionView: UICollectionView!
     @IBOutlet weak var vestFirstButtonTextField: UITextField!
     
@@ -177,12 +178,38 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
         }
         
         //vest
-        self.vestFabricTextField.text = self.existingSuit?.vestOrderInfo!.fabric;
-        self.vestFabricTextField.hidden = false;
-        self.vestFirstButtonTextField.text = self.existingSuit?.vestOrderInfo!.firstButtonPosition;
-        
-        if let vestTypeIndex = self.vestOptions.indexOf(self.existingSuit!.vestOrderInfo!.vestType) {
-            self.vestCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: vestTypeIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+        if self.existingSuit?.vestOrderInfo != nil {
+            self.vestFabricTextField.text = self.existingSuit?.vestOrderInfo!.fabric;
+            self.vestFabricTextField.hidden = false;
+            self.vestFirstButtonTextField.text = self.existingSuit?.vestOrderInfo!.firstButtonPosition;
+            
+            if let vestTypeIndex = self.vestOptions.indexOf(self.existingSuit!.vestOrderInfo!.vestType) {
+                self.vestCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: vestTypeIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+            }
+        }
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews();
+        if let suit = existingSuit {
+            if suit.vestOrderInfo == nil {
+                self.vestContainerView.frame = CGRectMake(self.vestContainerView.frame.origin.x, self.vestContainerView.frame.origin.y, 0, 0);
+            }
+        }
+        else if let newFabrics = self.fabrics {
+            var containsVest = false;
+            //strange loop, possibly due to bug in iterating over structs in swift
+            if let allFabrics = self.fabrics {
+                for fabric in allFabrics {
+                    if fabric.vestFabric != nil {
+                        containsVest = true;
+                    }
+                }
+            }
+            if containsVest == false {
+                self.vestContainerView.frame = CGRectMake(self.vestContainerView.frame.origin.x, self.vestContainerView.frame.origin.y, 0, 0);
+            }
         }
     }
     
@@ -190,6 +217,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.navigationItem.rightBarButtonItem = nil;
         
         //jacket
+        self.jacketFabricTextField.hidden = true;
         self.lapelCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         self.liningCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         self.buttonCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
@@ -198,10 +226,13 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.stitchCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         self.cuffsCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         self.navigationItem.rightBarButtonItem = nil;
+        
         //pants
+        self.pantFabricTextField.hidden = true;
         self.pleatCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         
         //vest
+        self.vestFabricTextField.hidden = true;
         self.vestCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
     }
     
@@ -217,7 +248,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 let suitOrder = SuitOrderInfo();
                 //jacket
                 let jacketOrder = JacketOrderInfo();
-                jacketOrder.fabric = fabric.jacketFabric;
+                jacketOrder.fabric = fabric.suitFabric;
                 
                 var selectedLapelIndexes = self.lapelCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 jacketOrder.lapel = self.lapelOptions[selectedLapelIndexes[0].row];
@@ -244,7 +275,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 
                 //pants
                 let pantOrder = PantsOrderInfo();
-                pantOrder.fabric = fabric.pantFabric;
+                pantOrder.fabric = fabric.suitFabric;
                 var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 pantOrder.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
                 pantOrder.lining = self.pantsLiningOptions[self.liningSegmentedControl.selectedSegmentIndex];
@@ -252,23 +283,33 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 suitOrder.pantsOrderInfo = pantOrder;
                 
                 //vest
-                let vestOrder = VestOrderInfo();
-                vestOrder.fabric = fabric.vestFabric;
+                if (fabric.vestFabric != nil) {
+                    let vestOrder = VestOrderInfo();
+                    vestOrder.fabric = fabric.suitFabric;
+                    
+                    let selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
+                    vestOrder.vestType = self.vestOptions[selectedVestTypeIndexes.first!.row];
+                    vestOrder.firstButtonPosition = self.vestFirstButtonTextField.text!;
+                    suitOrder.vestOrderInfo = vestOrder;
+                }
                 
-                var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
-                vestOrder.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
-                vestOrder.firstButtonPosition = self.vestFirstButtonTextField.text!;
-                suitOrder.vestOrderInfo = vestOrder;
-
+                suitOrder.notes = self.overallNotesTextField.text;
                 //append suit order
                 orders.append(suitOrder);
             }
             
             //present new suit measurements vc and set delegate
+            let suitMeasureVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitMeasurementVC") as! SuitMeasurementsViewController;
+            suitMeasureVC.suitOrders = orders;
+            suitMeasureVC.delegate = self.delegate;
+            self.navigationController?.pushViewController(suitMeasureVC, animated: true);
         }
         else if let suit = self.existingSuit {
             self.collectFormDataAndUpdateExistingSuit();
-            
+            let suitMeasureVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitMeasurementVC") as! SuitMeasurementsViewController;
+            suitMeasureVC.existingSuit = suit;
+            suitMeasureVC.delegate = self.delegate
+            self.navigationController?.pushViewController(suitMeasureVC, animated: true);
             //present existing suit measurements vc and set delegate
         }
 
@@ -309,14 +350,14 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
             suit.pantsOrderInfo.depthOfPleat = self.depthOfPleatTextField.text!;
             
             //vest
-            if (self.includeVestSwitch.on == true) {
-                if let existingVest = suit.vestOrderInfo {
-                    existingVest.fabric = self.vestFabricTextField.text!;
-                    var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
-                    existingVest.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
-                    existingVest.firstButtonPosition = self.vestFirstButtonTextField.text!;
-                }
+            if let existingVest = suit.vestOrderInfo {
+                existingVest.fabric = self.vestFabricTextField.text!;
+                var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
+                existingVest.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
+                existingVest.firstButtonPosition = self.vestFirstButtonTextField.text!;
             }
+            
+            suit.notes = self.overallNotesTextField.text;
         }
     }
     

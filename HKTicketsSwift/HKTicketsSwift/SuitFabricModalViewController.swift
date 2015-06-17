@@ -9,13 +9,13 @@
 import UIKit
 
 protocol SuitFabricModalDelegate {
-    func suitFabricModalFinishedAddingFabrics(jacket:String, pants:String, vest:String) -> Void
+    func suitFabricModalFinishedAddingFabrics(suit:String, vest:String?) -> Void
 }
 
 class SuitFabricModalViewController: UIViewController {
 
-    @IBOutlet weak var jacketTextField: UITextField!
-    @IBOutlet weak var pantsTextField: UITextField!
+
+    @IBOutlet weak var suitTextField: UITextField!
     @IBOutlet weak var vestTextField: UITextField!
     
     var delegate: SuitFabricModalDelegate?
@@ -26,8 +26,9 @@ class SuitFabricModalViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        if self.jacketTextField.text!.characters.count > 0 && self.pantsTextField.text!.characters.count > 0 {
-            self.delegate?.suitFabricModalFinishedAddingFabrics(self.jacketTextField.text!, pants: self.pantsTextField.text!, vest: self.vestTextField.text!);
+        if self.suitTextField.text!.characters.count > 0 {
+            let vestFabric : String? = self.vestTextField.text?.characters.count == 0 ? nil : self.vestTextField.text;
+            self.delegate?.suitFabricModalFinishedAddingFabrics(self.suitTextField.text!, vest: vestFabric)
             self.dismissViewControllerAnimated(true, completion: nil);
         }
 

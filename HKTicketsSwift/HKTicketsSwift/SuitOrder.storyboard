@@ -93,7 +93,7 @@
         <!--Suit Measurements-->
         <scene sceneID="OmX-oJ-vPt">
             <objects>
-                <viewController id="NmM-mG-NoU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="suitMeasurementVC" id="NmM-mG-NoU" customClass="SuitMeasurementsViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vLa-na-qs8"/>
                         <viewControllerLayoutGuide type="bottom" id="noy-6g-nUI"/>
@@ -157,7 +157,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actual Thigh" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8df-98-o2F">
-                                <rect key="frame" x="87" y="631" width="96" height="21"/>
+                                <rect key="frame" x="87" y="631" width="97" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -521,12 +521,61 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K49-da-6p5">
+                                <rect key="frame" x="184" y="969" width="401" height="47"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Finished Customizing Suit">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="NmM-mG-NoU" eventType="touchUpInside" id="LoM-dE-p2c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Suit Measurements" id="Sfo-P3-bz7"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="jacketBodyArmHole" destination="8oM-BX-HWy" id="QGu-lF-bjC"/>
+                        <outlet property="jacketBodyBelly" destination="Mlm-Iq-lLO" id="C9p-ax-dn9"/>
+                        <outlet property="jacketBodyBicep" destination="IAx-KQ-seY" id="YdR-Xn-0P2"/>
+                        <outlet property="jacketBodyChest" destination="AZy-cX-IDW" id="cfo-pw-MoZ"/>
+                        <outlet property="jacketBodyHips" destination="pvn-dM-dqP" id="tRE-fQ-lmR"/>
+                        <outlet property="jacketBodyJacketLength" destination="TJc-HI-ZIo" id="nYd-e9-i8M"/>
+                        <outlet property="jacketBodyJacketWidth" destination="ePp-sf-dge" id="GN5-jC-Wdg"/>
+                        <outlet property="jacketBodyShoulders" destination="6u6-pL-cHl" id="hlX-0q-P97"/>
+                        <outlet property="jacketBodySleeveLength" destination="iWB-cL-pkF" id="7Sj-kW-VZg"/>
+                        <outlet property="jacketBodyWaist" destination="zEb-Rb-HwP" id="UKt-by-Z2G"/>
+                        <outlet property="jacketFinishChest" destination="ohz-If-b74" id="36v-u9-UDS"/>
+                        <outlet property="jacketFinishHalfShoulder" destination="FPa-np-lFY" id="VEy-U2-h1c"/>
+                        <outlet property="jacketFinishHips" destination="098-6g-Bjh" id="0gX-UQ-dZa"/>
+                        <outlet property="jacketFinishJacketLength" destination="w79-Pq-LPB" id="QPd-3u-D6p"/>
+                        <outlet property="jacketFinishJacketSleeve" destination="AVN-FK-vhb" id="5uc-bl-mT1"/>
+                        <outlet property="jacketFinishShoulders" destination="jB6-Tr-X4v" id="0W9-EV-BC4"/>
+                        <outlet property="jacketFinishSleeveLength" destination="Qla-U6-ZL3" id="oAT-NM-Ogk"/>
+                        <outlet property="jacketFinishWaist" destination="i36-9Y-gcF" id="RMg-HQ-LPw"/>
+                        <outlet property="pantsBodyActualThigh" destination="akF-iC-FXD" id="UMe-R9-ndd"/>
+                        <outlet property="pantsBodyCrotch" destination="1TF-FQ-gK4" id="LuJ-E1-Xrp"/>
+                        <outlet property="pantsBodyInseam" destination="9dV-Gw-Zvv" id="8pW-1f-1Nj"/>
+                        <outlet property="pantsBodyOutseam" destination="FcV-7t-Aus" id="N4g-wc-HKa"/>
+                        <outlet property="pantsBodySeat" destination="9j0-k5-C8k" id="6x0-c0-yHb"/>
+                        <outlet property="pantsBodyWaist" destination="xVl-jy-8rJ" id="Afb-AW-eh9"/>
+                        <outlet property="pantsFinish1623below" destination="VFH-lP-md9" id="05C-Nd-l8V"/>
+                        <outlet property="pantsFinishBottomCuff" destination="uJo-7q-hac" id="DZd-b3-7Am"/>
+                        <outlet property="pantsFinishCrotch" destination="HCJ-hs-68G" id="OWV-or-pJb"/>
+                        <outlet property="pantsFinishInseam" destination="Ko9-Ze-1Md" id="K2W-tg-AWd"/>
+                        <outlet property="pantsFinishOutseam" destination="RTC-YT-R3I" id="jb5-Ud-5kR"/>
+                        <outlet property="pantsFinishSeat" destination="EwJ-dl-BcO" id="KaY-2D-SeX"/>
+                        <outlet property="pantsFinishWaist" destination="4Ve-m5-SbB" id="Wag-AI-ckM"/>
+                        <outlet property="vestBodyChest" destination="fLW-6h-4N0" id="LLz-Ju-BYh"/>
+                        <outlet property="vestBodyHips" destination="9gA-J9-YpV" id="BRZ-pU-bCi"/>
+                        <outlet property="vestBodyShoulders" destination="94t-7K-tKs" id="KUs-1U-kPV"/>
+                        <outlet property="vestBodyWaist" destination="yAh-Gd-hOX" id="30W-P4-PuD"/>
+                        <outlet property="vestFinishBackLength" destination="zGv-OU-y9f" id="8dE-Lo-0Cm"/>
+                        <outlet property="vestFinishFrontLength" destination="Oof-kg-Mpg" id="gHA-sr-x5f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUF-Rv-jNT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -544,24 +593,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jacket Fabric" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMz-Hu-6O1">
-                                <rect key="frame" x="182" y="69" width="210" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Suit Fabric" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMz-Hu-6O1">
+                                <rect key="frame" x="182" y="70" width="210" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jacket Fabric" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dt-t7-qW7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suit Fabric" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dt-t7-qW7">
                                 <rect key="frame" x="56" y="73" width="118" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pants Fabric" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xYN-Td-Yqj">
-                                <rect key="frame" x="182" y="157" width="210" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pants Fabric" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LId-a9-D3Z">
-                                <rect key="frame" x="56" y="161" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -603,8 +641,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="jacketTextField" destination="TMz-Hu-6O1" id="rkB-wL-fyB"/>
-                        <outlet property="pantsTextField" destination="xYN-Td-Yqj" id="e2h-ep-QKn"/>
+                        <outlet property="suitTextField" destination="TMz-Hu-6O1" id="KUl-tm-3Xf"/>
                         <outlet property="vestTextField" destination="6T5-a5-N77" id="bdN-PI-F52"/>
                     </connections>
                 </viewController>
@@ -809,49 +846,12 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2yZ-Vv-dnN">
-                                <rect key="frame" x="58" y="1749" width="51" height="31"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8U8-5C-gcy">
-                                <rect key="frame" x="16" y="1754" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gk6-9M-P6t">
-                                <rect key="frame" x="16" y="1788" width="736" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ynh-R6-dtf">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Button Position" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tci-C9-e5m">
-                                <rect key="frame" x="16" y="2100" width="157" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Button Position" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6JL-TX-G46">
-                                <rect key="frame" x="181" y="2096" width="183" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-Uy-qVA">
                                 <rect key="frame" x="16" y="2142" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7p2-yc-oZK">
-                                <rect key="frame" x="16" y="2171" width="736" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucr-hV-Nka">
                                 <rect key="frame" x="170" y="2333" width="436" height="74"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -867,11 +867,51 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fabric" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-3H-CrH">
-                                <rect key="frame" x="536" y="1745" width="224" height="30"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWK-RY-eIV">
+                                <rect key="frame" x="8" y="1720" width="752" height="414"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8U8-5C-gcy">
+                                        <rect key="frame" x="8" y="9" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gk6-9M-P6t">
+                                        <rect key="frame" x="8" y="43" width="736" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ynh-R6-dtf">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fabric" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-3H-CrH">
+                                        <rect key="frame" x="528" y="0.0" width="224" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Button Position" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tci-C9-e5m">
+                                        <rect key="frame" x="8" y="380" width="157" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Button Position" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6JL-TX-G46">
+                                        <rect key="frame" x="173" y="376" width="183" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7p2-yc-oZK">
+                                <rect key="frame" x="16" y="2171" width="736" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
@@ -891,7 +931,6 @@
                         <outlet property="cuffsCollectionView" destination="Efa-3e-OuL" id="JRg-1Q-nUu"/>
                         <outlet property="depthOfPleatTextField" destination="Lh8-Oa-lk4" id="N0b-bI-Hbj"/>
                         <outlet property="flapWidthTextField" destination="arG-bS-jUt" id="Moy-G7-XNP"/>
-                        <outlet property="includeVestSwitch" destination="2yZ-Vv-dnN" id="bYx-K9-ySu"/>
                         <outlet property="jacketFabricTextField" destination="nFr-UT-q3L" id="xnb-U2-v90"/>
                         <outlet property="jacketFirstButtonTextField" destination="6Yu-ZR-aF0" id="VY9-w6-Hst"/>
                         <outlet property="lapelCollectionView" destination="I9r-uo-jfW" id="fh7-QJ-XaZ"/>
@@ -908,6 +947,7 @@
                         <outlet property="ticketPocketSwitch" destination="GCn-oi-n4k" id="02K-Ro-l3S"/>
                         <outlet property="ventCollectionView" destination="C8L-Et-8Ko" id="VpV-7F-EXw"/>
                         <outlet property="vestCollectionView" destination="gk6-9M-P6t" id="hGo-g0-zlD"/>
+                        <outlet property="vestContainerView" destination="mWK-RY-eIV" id="AJQ-5O-v5Y"/>
                         <outlet property="vestFabricTextField" destination="Kab-3H-CrH" id="Sjk-ln-4f6"/>
                         <outlet property="vestFirstButtonTextField" destination="6JL-TX-G46" id="Sby-jT-kog"/>
                     </connections>

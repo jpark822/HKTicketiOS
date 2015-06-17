@@ -9,7 +9,8 @@
 import UIKit
 
 class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate, UITableViewDataSource, UITableViewDelegate {
-
+    
+    var delegate : OrderFormDelegate?;
     @IBOutlet weak var tableView: UITableView!
     
     var suitFabricUnits : [SuitFabricUnit] = [];
@@ -20,6 +21,7 @@ class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate
         self.tableView.dataSource = self;
     }
 
+
     @IBAction func addFabricPressed(sender: AnyObject) {
         let modal = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitFabricModalId") as! SuitFabricModalViewController;
         modal.delegate = self;
@@ -29,11 +31,14 @@ class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         let suitOrderVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitOrderFormId") as! SuitOrderFormViewController;
+        suitOrderVC.fabrics = self.suitFabricUnits;
+        suitOrderVC.delegate = self.delegate;
         self.navigationController?.pushViewController(suitOrderVC, animated: true);
     }
     
-    func suitFabricModalFinishedAddingFabrics(jacket: String, pants: String, vest: String) {
-        let fabric = SuitFabricUnit(jacketFabric: jacket, pantFabric: pants, vestFabric: vest);
+    
+    func suitFabricModalFinishedAddingFabrics(suit: String, vest: String?) {
+        let fabric = SuitFabricUnit(suitFabric: suit, vestFabric: vest);
         self.suitFabricUnits.append(fabric);
         self.tableView.reloadData();
     }
