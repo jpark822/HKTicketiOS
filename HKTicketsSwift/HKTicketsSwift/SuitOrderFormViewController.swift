@@ -26,6 +26,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var buttonHoleLapelSwitch: UISwitch!
     @IBOutlet weak var cuffsCollectionView: UICollectionView!
     @IBOutlet weak var paddingSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var extensionSwitch: UISwitch!
     
     var lapelOptions : [JacketOrderInfo.Lapel] = [JacketOrderInfo.Lapel.Notch,
         JacketOrderInfo.Lapel.Peak,
@@ -78,13 +79,13 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     //Overall Suit
     @IBOutlet weak var overallNotesTextField: UITextView!
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet weak var NoteAndDoneButtonContainerView: UIView!
     
     var existingSuit : SuitOrderInfo?;
     var fabrics : [SuitFabricUnit]?;
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.contentSize = CGSizeMake(768, 2700);
         self.overallNotesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.overallNotesTextField.layer.borderWidth = 1;
         
@@ -169,6 +170,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.pantFabricTextField.text = self.existingSuit?.pantsOrderInfo.fabric;
         self.pantFabricTextField.hidden = false;
         self.depthOfPleatTextField.text = self.existingSuit?.pantsOrderInfo.depthOfPleat;
+        self.extensionSwitch.on = self.existingSuit!.pantsOrderInfo.addExtension;
         
         if let pleatIndex = self.pleatOptions.indexOf(self.existingSuit!.pantsOrderInfo.pleat) {
             self.pleatCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: pleatIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
@@ -192,8 +194,18 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews();
+        
+        self.scrollView.contentSize = CGSizeMake(768, 2520);
         if let suit = existingSuit {
             if suit.vestOrderInfo == nil {
+                var scrollViewSize = self.scrollView.contentSize;
+                scrollViewSize.height -= self.vestContainerView.frame.size.height;
+                self.scrollView.contentSize = scrollViewSize;
+                
+                var notesFrame = self.NoteAndDoneButtonContainerView.frame;
+                notesFrame.origin.y -= self.vestContainerView.frame.size.height;
+                self.NoteAndDoneButtonContainerView.frame = notesFrame;
+                
                 self.vestContainerView.frame = CGRectMake(self.vestContainerView.frame.origin.x, self.vestContainerView.frame.origin.y, 0, 0);
             }
         }
@@ -208,6 +220,14 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 }
             }
             if containsVest == false {
+                var scrollViewSize = self.scrollView.contentSize;
+                scrollViewSize.height -= self.vestContainerView.frame.size.height;
+                self.scrollView.contentSize = scrollViewSize;
+                
+                var notesFrame = self.NoteAndDoneButtonContainerView.frame;
+                notesFrame.origin.y -= self.vestContainerView.frame.size.height;
+                self.NoteAndDoneButtonContainerView.frame = notesFrame;
+                
                 self.vestContainerView.frame = CGRectMake(self.vestContainerView.frame.origin.x, self.vestContainerView.frame.origin.y, 0, 0);
             }
         }
@@ -278,6 +298,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 pantOrder.fabric = fabric.suitFabric;
                 var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 pantOrder.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
+                pantOrder.addExtension = self.extensionSwitch.on;
                 pantOrder.lining = self.pantsLiningOptions[self.liningSegmentedControl.selectedSegmentIndex];
                 pantOrder.depthOfPleat = self.depthOfPleatTextField.text!;
                 suitOrder.pantsOrderInfo = pantOrder;
@@ -346,6 +367,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
             suit.pantsOrderInfo.fabric = self.pantFabricTextField.text!;
             var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             suit.pantsOrderInfo.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
+            suit.pantsOrderInfo.addExtension = self.extensionSwitch.on;
             suit.pantsOrderInfo.lining = self.pantsLiningOptions[self.liningSegmentedControl.selectedSegmentIndex];
             suit.pantsOrderInfo.depthOfPleat = self.depthOfPleatTextField.text!;
             

@@ -35,7 +35,9 @@ class VestOrderInfo: NSObject, OrderItemInterface {
         if (self.firstButtonPosition.characters.count > 0) {
             myString += "First Button Position: \(self.firstButtonPosition)\n";
         }
-        myString += "Notes: \(self.notes)\n";
+        if (self.notes.characters.count > 0) {
+            myString += "Notes: \(self.notes)\n";
+        }
         if let finish = self.finishMeasurements {
             myString += "Finish Measurements:\n";
             myString += self.finishMeasurements!.convertToMailingString();

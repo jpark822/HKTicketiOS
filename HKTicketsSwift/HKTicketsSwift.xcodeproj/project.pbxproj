@@ -134,10 +134,10 @@
 		4E83504E1AFAB18D00C824C3 = {
 			isa = PBXGroup;
 			children = (
-				4E8350921B00D39E00C824C3 /* MessageUI.framework */,
 				4E8350591AFAB18D00C824C3 /* HKTicketsSwift */,
 				4E8350721AFAB18D00C824C3 /* HKTicketsSwiftTests */,
 				4E8350581AFAB18D00C824C3 /* Products */,
+				4E8350921B00D39E00C824C3 /* MessageUI.framework */,
 			);
 			sourceTree = "<group>";
 		};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuitMeasurementsViewController: UIViewController {
+class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
     //jacket outlets
     @IBOutlet weak var jacketBodyChest: UITextField!
     @IBOutlet weak var jacketBodyWaist: UITextField!
@@ -65,6 +65,21 @@ class SuitMeasurementsViewController: UIViewController {
         if (self.existingSuit != nil) {
             self.prepopulateTextFields();
         }
+        
+        self.vestBodyChest.delegate = self;
+        self.vestBodyWaist.delegate = self;
+        self.vestBodyHips.delegate = self;
+        self.vestBodyShoulders.delegate = self;
+        self.vestFinishBackLength.delegate = self;
+        self.vestFinishFrontLength.delegate = self;
+    }    
+    
+    func keyboardWillHide() {
+        var frame = self.view.frame;
+        frame.origin.y += 264;
+        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.view.frame = frame;
+            }, completion: nil)
     }
     
     func prepopulateTextFields() {
@@ -110,15 +125,27 @@ class SuitMeasurementsViewController: UIViewController {
         self.pantsFinishInseam.text = pantsFinish!.inseam;
         
         //vest
-        let vestBody = self.existingSuit?.vestOrderInfo!.bodyMeasurements;
-        self.vestBodyChest.text = vestBody!.chest;
-        self.vestBodyWaist.text = vestBody!.waist;
-        self.vestBodyHips.text = vestBody!.hips;
-        self.vestBodyShoulders.text = vestBody!.shoulders;
+        if let vestBody = self.existingSuit?.vestOrderInfo!.bodyMeasurements {
+            self.vestBodyChest.text = vestBody.chest;
+            self.vestBodyWaist.text = vestBody.waist;
+            self.vestBodyHips.text = vestBody.hips;
+            self.vestBodyShoulders.text = vestBody.shoulders;
+        }
+        else {
+            self.vestBodyChest.hidden = true;
+            self.vestBodyWaist.hidden = true;
+            self.vestBodyHips.hidden = true;
+            self.vestBodyShoulders.hidden = true;
+        }
         
-        let vestFinish = self.existingSuit?.vestOrderInfo!.finishMeasurements;
-        self.vestFinishFrontLength.text = vestFinish!.frontLength;
-        self.vestFinishBackLength.text = vestFinish!.backLength;
+        if let vestFinish = self.existingSuit?.vestOrderInfo!.finishMeasurements {
+            self.vestFinishFrontLength.text = vestFinish.frontLength;
+            self.vestFinishBackLength.text = vestFinish.backLength;
+        }
+        else {
+            self.vestFinishFrontLength.hidden = true;
+            self.vestFinishBackLength.hidden = true;
+        }
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -178,7 +205,7 @@ class SuitMeasurementsViewController: UIViewController {
         if let newOrders = self.suitOrders {
             for order in newOrders {
                 order.jacketOrderInfo.bodyMeasurements = jacketBody;
-                order.jacketFinishMeasurements = jacketFinish;
+                order.jacketOrderInfo.finishMeasurements = jacketFinish;
                 order.pantsOrderInfo.bodyMeasurements = pantsBody;
                 order.pantsOrderInfo.finishMeasurements = pantsFinish;
                 order.vestOrderInfo?.bodyMeasurements = vestBody;
@@ -198,6 +225,23 @@ class SuitMeasurementsViewController: UIViewController {
             self.delegate?.didFinishEditingSuit(existingOrder);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        keyboardWillShow();
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        keyboardWillHide();
+    }
+    
+    func keyboardWillShow() {
+        var frame = self.view.frame;
+        frame.origin.y -= 264;
+        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.view.frame = frame;
+            }, completion: nil)
+        
     }
 
 }

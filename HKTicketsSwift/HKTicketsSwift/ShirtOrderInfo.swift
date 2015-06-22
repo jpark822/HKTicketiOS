@@ -109,12 +109,16 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
         myString += "Shirt Front: \(self.shirtFront.rawValue) \n";
         myString += "Shirt Back: \(self.shirtBack.rawValue) \n";
         
+        if (self.notes.characters.count > 0) {
+            myString += "Notes: \(self.notes) \n";
+        }
+        
         if let finish = self.finishMeasurements {
             myString += "Finish Measurements:\n";
             myString += self.finishMeasurements!.convertToMailingString();
         }
         
-        myString += "Notes: \(self.notes) \n";
+        
         
         return myString;
     }

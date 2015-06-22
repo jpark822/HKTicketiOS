@@ -12,6 +12,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var customerNameLabel: UILabel!
 
     @IBOutlet weak var pleatCollectionView: UICollectionView!
+    @IBOutlet weak var extensionSwitch: UISwitch!
     @IBOutlet weak var liningSegmentedControl: UISegmentedControl!
     @IBOutlet weak var depthOfPleatTextField: UITextField!
     @IBOutlet weak var fabricTextField: UITextField!
@@ -53,6 +54,8 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         if let pleatIndex = self.pleatOptions.indexOf(self.existingPantOrder!.pleat) {
             self.pleatCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: pleatIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
+        self.extensionSwitch.on = self.existingPantOrder!.addExtension;
+        
         if let liningIndex = self.liningOptions.indexOf(self.existingPantOrder!.lining) {
             self.liningSegmentedControl.selectedSegmentIndex = liningIndex;
         }
@@ -76,6 +79,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
                 pantOrder.fabric = fabric;
                 var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 pantOrder.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
+                pantOrder.addExtension = self.extensionSwitch.on;
                 pantOrder.lining = self.liningOptions[self.liningSegmentedControl.selectedSegmentIndex];
                 pantOrder.depthOfPleat = self.depthOfPleatTextField.text!;
                 pantOrder.notes = self.notesTextField.text;
@@ -105,6 +109,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
             existingPant.lining = self.liningOptions[self.liningSegmentedControl.selectedSegmentIndex];
             existingPant.depthOfPleat = self.depthOfPleatTextField.text!;
             existingPant.notes = self.notesTextField.text;
+            existingPant.addExtension = self.extensionSwitch.on;
         }
     }
     

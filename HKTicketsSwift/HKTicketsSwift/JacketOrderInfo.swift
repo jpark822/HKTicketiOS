@@ -100,7 +100,7 @@ class JacketOrderInfo: NSObject, OrderItemInterface {
         
         if let finish = self.finishMeasurements {
             myString += "Finish Measurements:\n";
-            myString += self.finishMeasurements!.convertToMailingString();
+            myString += finish.convertToMailingString();
         }
         
         return myString;

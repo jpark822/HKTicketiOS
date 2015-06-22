@@ -28,13 +28,20 @@ class SuitOrderInfo: NSObject, OrderItemInterface {
     var pantsOrderInfo = PantsOrderInfo();
     var vestOrderInfo : VestOrderInfo?;
     
-    var jacketFinishMeasurements = JacketFinishMeasurements();
-    var pantsFinishMeasurements = PantsFinishMeasurements();
-    var vestFinishMeasurements : VestFinishMeasurements?;
-    
     var notes = "";
     
     func convertToMailingString() -> String {
-        return "";
+        var myString = "";
+        myString += "Item Type: Custom Suit\n";
+        myString += self.jacketOrderInfo.convertToMailingString();
+        myString += "\n";
+        myString += self.pantsOrderInfo.convertToMailingString();
+        myString += "\n";
+        if (self.vestOrderInfo != nil) {
+            myString += self.vestOrderInfo!.convertToMailingString();
+            myString += "\n";
+        }
+        
+        return myString;
     }
 }

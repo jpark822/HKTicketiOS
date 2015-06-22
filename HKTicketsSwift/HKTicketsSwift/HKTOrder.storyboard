@@ -498,25 +498,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EuO-Lw-iym">
-                                <rect key="frame" x="16" y="273" width="744" height="29"/>
-                                <segments>
-                                    <segment title="Front Lining"/>
-                                    <segment title="Full Lining"/>
-                                    <segment title="No Lining"/>
-                                </segments>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depth of Pleat" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGX-1V-Dw3">
-                                <rect key="frame" x="134" y="309" width="117" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Depth of Pleat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqS-Ef-hTC">
-                                <rect key="frame" x="16" y="313" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Neil Balani" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQc-kv-hud">
                                 <rect key="frame" x="8" y="81" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -539,20 +520,48 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G9-ou-sEH">
-                                <rect key="frame" x="16" y="389" width="46" height="21"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgl-yc-YvY">
+                                <rect key="frame" x="95" y="273" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Extension" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4fF-Dq-n2N">
+                                <rect key="frame" x="12" y="278" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EuO-Lw-iym">
+                                <rect key="frame" x="12" y="316" width="744" height="29"/>
+                                <segments>
+                                    <segment title="Front Lining"/>
+                                    <segment title="Full Lining"/>
+                                    <segment title="No Lining"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depth of Pleat" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGX-1V-Dw3">
+                                <rect key="frame" x="130" y="352" width="117" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Depth of Pleat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rqS-Ef-hTC">
+                                <rect key="frame" x="12" y="356" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4G9-ou-sEH">
+                                <rect key="frame" x="12" y="432" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-U0-818">
-                                <rect key="frame" x="16" y="418" width="736" height="128"/>
+                                <rect key="frame" x="12" y="461" width="736" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCW-sh-JWV">
-                                <rect key="frame" x="81" y="581" width="607" height="83"/>
+                                <rect key="frame" x="77" y="624" width="607" height="83"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save and Move To Measurements">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -582,6 +591,7 @@
                     <connections>
                         <outlet property="customerNameLabel" destination="SQc-kv-hud" id="jAb-mD-Y9R"/>
                         <outlet property="depthOfPleatTextField" destination="SGX-1V-Dw3" id="06c-nk-S58"/>
+                        <outlet property="extensionSwitch" destination="xgl-yc-YvY" id="e9H-Rv-8NI"/>
                         <outlet property="fabricTextField" destination="6wN-LG-ZR3" id="iSZ-jL-kS8"/>
                         <outlet property="liningSegmentedControl" destination="EuO-Lw-iym" id="PuV-lO-wms"/>
                         <outlet property="notesTextField" destination="GM0-U0-818" id="1Rh-Kv-H9Z"/>
