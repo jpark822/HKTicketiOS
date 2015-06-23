@@ -118,6 +118,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.monogramColorTextField.delegate = self;
         self.monogramTextField.delegate = self;
         self.notesTextField.delegate = self;
+        
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
         

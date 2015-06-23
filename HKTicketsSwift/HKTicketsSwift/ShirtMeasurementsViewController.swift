@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class ShirtMeasurementsViewController: UIViewController {
+class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bodyChest: UITextField!
     @IBOutlet weak var bodyWaist: UITextField!
@@ -41,6 +41,25 @@ class ShirtMeasurementsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        self.bodyChest.delegate = self;
+        self.bodyWaist.delegate = self;
+        self.bodyHips.delegate = self;
+        self.bodyShoulders.delegate = self;
+        self.bodySleeveLength.delegate = self;
+        self.bodyShirtLength.delegate = self;
+        self.bodyWristLength.delegate = self;
+        self.bodyNeckSize.delegate = self;
+        self.finishChest.delegate = self;
+        self.finishWaist.delegate = self;
+        self.finishHips.delegate = self;
+        self.finishShoulders.delegate = self;
+        self.finishSleeveLength.delegate = self;
+        self.finishShirtLength.delegate = self;
+        self.finishCuff.delegate = self;
+        self.finishNeckSize.delegate = self;
+        self.finishSleeve6Below.delegate = self;
+        self.finishSleeve12Below.delegate = self;
         
         if let newShirts = self.shirts {
             let bodyMeasurements : BodyMeasurements = self.delegate!.getBodyMeasurements();
@@ -114,5 +133,10 @@ class ShirtMeasurementsViewController: UIViewController {
             self.delegate?.didFinishEditingShirt(existingShirt);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 }

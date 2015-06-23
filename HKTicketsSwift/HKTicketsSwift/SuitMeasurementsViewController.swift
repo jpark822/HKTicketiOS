@@ -62,6 +62,46 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.jacketBodyChest.delegate = self;
+        self.jacketBodyWaist.delegate = self;
+        self.jacketBodyHips.delegate = self;
+        self.jacketBodyShoulders.delegate = self;
+        self.jacketBodySleeveLength.delegate = self;
+        self.jacketBodyJacketWidth.delegate = self;
+        self.jacketBodyJacketLength.delegate = self;
+        self.jacketBodyBicep.delegate = self;
+        self.jacketBodyArmHole.delegate = self;
+            self.jacketBodyBelly.delegate = self;
+
+        self.jacketFinishChest.delegate = self;
+        self.jacketFinishWaist.delegate = self;
+        self.jacketFinishHips.delegate = self;
+        self.jacketFinishShoulders.delegate = self;
+        self.jacketFinishSleeveLength.delegate = self;
+        self.jacketFinishHalfShoulder.delegate = self;
+        self.jacketFinishJacketLength.delegate = self;
+        self.jacketFinishJacketSleeve.delegate = self;
+        //pants
+        self.pantsBodyWaist.delegate = self;
+        self.pantsBodySeat.delegate = self;
+        self.pantsBodyCrotch.delegate = self;
+        self.pantsBodyActualThigh.delegate = self;
+        self.pantsBodyOutseam.delegate = self;
+        self.pantsBodyInseam.delegate = self;
+
+        self.pantsFinishWaist.delegate = self;
+        self.pantsFinishSeat.delegate = self;
+        self.pantsFinishCrotch.delegate = self;
+        self.pantsFinish1623below.delegate = self;
+        self.pantsFinishBottomCuff.delegate = self;
+        self.pantsFinishOutseam.delegate = self;
+        self.pantsFinishInseam.delegate = self;
+        //vest
+        self.vestBodyChest.delegate = self;
+        self.vestBodyWaist.delegate = self;
+        self.vestBodyHips.delegate = self;
+        self.vestBodyShoulders.delegate = self;
+        
         if (self.existingSuit != nil) {
             self.prepopulateTextFields();
         }
@@ -160,8 +200,7 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
         jacketBody.jacketLength = self.jacketBodyJacketLength.text!;
         jacketBody.bicep = self.jacketBodyBicep.text!;
         jacketBody.armHole = self.jacketBodyArmHole.text!;
-        jacketBody.belly = self.jacketBodyBelly.text!
-        ;
+        jacketBody.belly = self.jacketBodyBelly.text!;
         
         let jacketFinish : JacketFinishMeasurements = JacketFinishMeasurements();
         jacketFinish.chest = self.jacketFinishChest.text!;
@@ -242,6 +281,11 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
             self.view.frame = frame;
             }, completion: nil)
         
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 
 }

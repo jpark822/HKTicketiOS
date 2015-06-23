@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     @IBOutlet weak var customerNameLabel: UILabel!
 
     @IBOutlet weak var pleatCollectionView: UICollectionView!
@@ -30,6 +30,9 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         super.viewDidLoad()
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
+        
+        self.depthOfPleatTextField.delegate = self;
+        self.fabricTextField.delegate = self;
         
         let orderItemCellNib = UINib(nibName: "OrderItemCell", bundle: nil);
         self.pleatCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderOptionCellId")
@@ -130,6 +133,11 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(135, 135);
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 
 }

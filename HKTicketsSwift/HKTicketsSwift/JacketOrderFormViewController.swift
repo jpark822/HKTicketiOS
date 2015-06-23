@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JacketOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UITextViewDelegate {
+class JacketOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fabricTextField: UITextField!
@@ -64,6 +64,12 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         self.notesTextView.layer.borderWidth = 1;
         self.scrollView.contentSize = CGSizeMake(768, 2500);
         
+        self.fabricTextField.delegate = self;
+        self.lapelWidthTextField.delegate = self;
+        self.firstButtonTextField.delegate = self;
+        self.flapWidthTextField.delegate = self;
+        self.notesTextView.delegate = self;
+        
         let orderItemCellNib = UINib(nibName: "OrderItemCell", bundle: nil);
         self.lapelCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderOptionCellId");
         self.lapelCollectionView.delegate = self;
@@ -86,8 +92,6 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         self.cuffsCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderOptionCellId");
         self.cuffsCollectionView.delegate = self;
         self.cuffsCollectionView.dataSource = self;
-        
-        self.notesTextView.delegate = self;
         
         if let existingOrder = self.existingJacketOrder {
             self.setupControlsWithEditableJacketInfo()
@@ -304,5 +308,10 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.view.frame = frame;
             }, completion: nil)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 }

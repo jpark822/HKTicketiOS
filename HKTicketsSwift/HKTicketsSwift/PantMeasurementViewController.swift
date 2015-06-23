@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PantMeasurementViewController: UIViewController {
+class PantMeasurementViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var bodyWaist: UITextField!
     @IBOutlet weak var bodySeat: UITextField!
@@ -31,6 +31,21 @@ class PantMeasurementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.bodyWaist.delegate = self;
+        self.bodySeat.delegate = self;
+        self.bodyCrotch.delegate = self;
+        self.bodyActualThigh.delegate = self;
+        self.bodyOutseam.delegate = self;
+        self.bodyInseam.delegate = self;
+
+        self.finishWaist.delegate = self;
+        self.finishSeat.delegate = self;
+        self.finishCrotch.delegate = self;
+        self.Finish1623below.delegate = self;
+        self.finishBottomCuff.delegate = self;
+        self.finishOutseam.delegate = self;
+        self.finishInseam.delegate = self;
         
         if (existingPants != nil) {
             self.prepopulateTextFields();
@@ -90,5 +105,10 @@ class PantMeasurementViewController: UIViewController {
             self.delegate?.didFinishEditingPants(existingPantsOrder);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 }

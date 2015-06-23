@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextViewDelegate, UITextFieldDelegate {
     var delegate : OrderFormDelegate?;
     
     //Jacket
@@ -86,6 +86,17 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.lapelWidthTextField.delegate = self;
+        self.jacketFirstButtonTextField.delegate = self;
+        self.flapWidthTextField.delegate = self;
+        self.depthOfPleatTextField.delegate = self
+        self.vestFirstButtonTextField.delegate = self;
+        self.jacketFabricTextField.delegate = self;
+        self.pantFabricTextField.delegate = self;
+        self.vestFirstButtonTextField.delegate = self;
+        self.overallNotesTextField.delegate = self;
+        
         self.overallNotesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.overallNotesTextField.layer.borderWidth = 1;
         
@@ -446,6 +457,11 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(135, 135);
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VestOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class VestOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     @IBOutlet weak var fabricTextField: UITextField!
     @IBOutlet weak var vestCollectionView: UICollectionView!
@@ -31,6 +31,9 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         super.viewDidLoad()
         self.noteTextView.layer.borderColor = UIColor.blackColor().CGColor;
         self.noteTextView.layer.borderWidth = 1;
+        
+        self.fabricTextField.delegate = self;
+        self.firstButtonTextField.delegate = self;
         
         let orderItemCellNib = UINib(nibName: "OrderItemCell", bundle: nil);
         self.vestCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderOptionCellId");
@@ -122,6 +125,11 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(135, 135);
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
     
 }

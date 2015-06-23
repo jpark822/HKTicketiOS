@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VestMeasurementViewController: UIViewController {
+class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bodyChest: UITextField!
     @IBOutlet weak var bodyWaist: UITextField!
@@ -24,6 +24,14 @@ class VestMeasurementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.bodyChest.delegate = self;
+        self.bodyWaist.delegate = self;
+        self.bodyHips.delegate = self;
+        self.bodyShoulders.delegate = self;
+
+        self.finishFrontLength.delegate = self;
+        self.finishBackLength.delegate = self;
         
         if (existingVest != nil) {
             self.prepopulateTextFields();
@@ -69,6 +77,11 @@ class VestMeasurementViewController: UIViewController {
             self.delegate?.didFinishEditingVest(existingOrder);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 
 }

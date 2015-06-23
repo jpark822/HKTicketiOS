@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JacketMeasurementsViewController: UIViewController {
+class JacketMeasurementsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var bodyChest: UITextField!
     @IBOutlet weak var bodyWaist: UITextField!
@@ -36,6 +36,26 @@ class JacketMeasurementsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.bodyChest.delegate = self;
+        self.bodyWaist.delegate = self;
+        self.bodyHips.delegate = self;
+        self.bodyShoulders.delegate = self;
+        self.bodySleeveLength.delegate = self;
+        self.bodyJacketWidth.delegate = self;
+        self.bodyJacketLength.delegate = self;
+        self.bodyBicep.delegate = self;
+        self.bodyArmHole.delegate = self;
+        self.bodyBelly.delegate = self;
+
+        self.finishChest.delegate = self;
+        self.finishWaist.delegate = self;
+        self.finishHips.delegate = self;
+        self.finishShoulders.delegate = self;
+        self.finishSleeveLength.delegate = self;
+        self.finishHalfShoulder.delegate = self;
+        self.finishJacketLength.delegate = self;
+        self.finishJacketSleeve.delegate = self;
         
         if (self.existingJacket != nil) {
             self.prepopulateTextFields();
@@ -104,5 +124,10 @@ class JacketMeasurementsViewController: UIViewController {
             self.delegate?.didFinishEditingJacket(existingOrder);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 }
