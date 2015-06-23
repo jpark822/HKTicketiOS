@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		4E1BE0911B0634EA0092E035 /* MeasurementsInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */; };
 		4E1BE0931B0925380092E035 /* OrderOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1BE0921B0925380092E035 /* OrderOptionCell.swift */; };
+		4E21ED431B38DF9100856148 /* HKTColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21ED421B38DF9100856148 /* HKTColors.swift */; };
+		4E21ED451B38EE1500856148 /* HKTStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21ED441B38EE1500856148 /* HKTStyling.swift */; };
+		4E21ED4B1B38F45F00856148 /* CODE Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED461B38F45F00856148 /* CODE Bold.otf */; };
+		4E21ED4C1B38F45F00856148 /* CODE Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED471B38F45F00856148 /* CODE Light.otf */; };
+		4E21ED4D1B38F45F00856148 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED481B38F45F00856148 /* MyriadPro-Bold.otf */; };
+		4E21ED4E1B38F45F00856148 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED491B38F45F00856148 /* MyriadPro-Regular.otf */; };
+		4E21ED4F1B38F45F00856148 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED4A1B38F45F00856148 /* MyriadPro-Semibold.otf */; };
 		4E7B32531B2928CF000D9A87 /* SuitFabricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */; };
 		4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */; };
 		4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */; };
@@ -65,6 +72,13 @@
 /* Begin PBXFileReference section */
 		4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsInterface.swift; sourceTree = "<group>"; };
 		4E1BE0921B0925380092E035 /* OrderOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderOptionCell.swift; sourceTree = "<group>"; };
+		4E21ED421B38DF9100856148 /* HKTColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTColors.swift; sourceTree = "<group>"; };
+		4E21ED441B38EE1500856148 /* HKTStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTStyling.swift; sourceTree = "<group>"; };
+		4E21ED461B38F45F00856148 /* CODE Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Bold.otf"; sourceTree = "<group>"; };
+		4E21ED471B38F45F00856148 /* CODE Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Light.otf"; sourceTree = "<group>"; };
+		4E21ED481B38F45F00856148 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		4E21ED491B38F45F00856148 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		4E21ED4A1B38F45F00856148 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
 		4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricTableViewCell.swift; sourceTree = "<group>"; };
 		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83505B1AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,6 +183,11 @@
 		4E83505A1AFAB18D00C824C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E21ED461B38F45F00856148 /* CODE Bold.otf */,
+				4E21ED471B38F45F00856148 /* CODE Light.otf */,
+				4E21ED481B38F45F00856148 /* MyriadPro-Bold.otf */,
+				4E21ED491B38F45F00856148 /* MyriadPro-Regular.otf */,
+				4E21ED4A1B38F45F00856148 /* MyriadPro-Semibold.otf */,
 				4E83505B1AFAB18D00C824C3 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -229,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				4E83508E1B0023EB00C824C3 /* BaseViewController.swift */,
+				4E21ED421B38DF9100856148 /* HKTColors.swift */,
+				4E21ED441B38EE1500856148 /* HKTStyling.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -361,9 +382,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E21ED4C1B38F45F00856148 /* CODE Light.otf in Resources */,
 				4ED9EFC91B13B39500461EB4 /* OrderItemCell.xib in Resources */,
+				4E21ED4B1B38F45F00856148 /* CODE Bold.otf in Resources */,
 				4E8350651AFAB18D00C824C3 /* Main.storyboard in Resources */,
 				4E8350851AFAB94100C824C3 /* HKTOrder.storyboard in Resources */,
+				4E21ED4F1B38F45F00856148 /* MyriadPro-Semibold.otf in Resources */,
+				4E21ED4D1B38F45F00856148 /* MyriadPro-Bold.otf in Resources */,
+				4E21ED4E1B38F45F00856148 /* MyriadPro-Regular.otf in Resources */,
 				4E83506A1AFAB18D00C824C3 /* LaunchScreen.xib in Resources */,
 				4EB02B451B27B97300287BCE /* SuitOrder.storyboard in Resources */,
 				4E8350671AFAB18D00C824C3 /* Images.xcassets in Resources */,
@@ -411,6 +437,7 @@
 				4ED9EFCD1B13F2A100461EB4 /* PantMeasurementViewController.swift in Sources */,
 				4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */,
 				4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */,
+				4E21ED431B38DF9100856148 /* HKTColors.swift in Sources */,
 				4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */,
 				4E83509B1B0240E700C824C3 /* BodyMeasurements.swift in Sources */,
 				4ED9F0221B1D430800461EB4 /* VestMeasurementViewController.swift in Sources */,
@@ -419,6 +446,7 @@
 				4EB02B471B27C63800287BCE /* SuitOrderInfo.swift in Sources */,
 				4EDFF5001B27D9080039AE42 /* SuitFabricChooserViewController.swift in Sources */,
 				4EB02B491B27D14C00287BCE /* SuitFabricModalViewController.swift in Sources */,
+				4E21ED451B38EE1500856148 /* HKTStyling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -88,9 +88,12 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.scrollView.contentSize = CGSizeMake(768, 2700);
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
-        self.scrollView.contentSize = CGSizeMake(768, 2700);
+        self.buttonPlacketSwitch.onTintColor = UIColor.HKTRed();
+        self.convertibleSwitch.onTintColor = UIColor.HKTRed();
         
         self.collarCollectionView.delegate = self;
         self.collarCollectionView.dataSource = self;

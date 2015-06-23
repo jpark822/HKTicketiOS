@@ -9,8 +9,14 @@
 import UIKit
 import MessageUI
 
-class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
+class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
+    @IBOutlet weak var addShirtButton: UIButton!
+    @IBOutlet weak var addPantsButton: UIButton!
+    @IBOutlet weak var addJacketButton: UIButton!
+    @IBOutlet weak var addVestButton: UIButton!
+    @IBOutlet weak var addSuitButton: UIButton!
     
+    @IBOutlet weak var completeOrderButton: UIButton!
     @IBOutlet weak var oldOrderNumberTextField: UITextField!
     @IBOutlet weak var newOrderNumberTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +26,16 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         super.viewDidLoad()
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        
+        self.oldOrderNumberTextField.delegate = self;
+        self.newOrderNumberTextField.delegate = self;
+        
+        self.addShirtButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.addPantsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.addVestButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.addJacketButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.addSuitButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.completeOrderButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action:"mainViewTapped" );
         self.view.addGestureRecognizer(tapRecognizer);
@@ -260,5 +276,10 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         else {
             controller.dismissViewControllerAnimated(true, completion: nil);
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 }

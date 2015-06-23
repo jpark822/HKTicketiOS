@@ -10,6 +10,9 @@ import UIKit
 
 class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var addFabricButton: UIButton!
+    @IBOutlet weak var doneAddingButton: UIButton!
+    
     var delegate : OrderFormDelegate?;
     @IBOutlet weak var fabricTextBox: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +24,11 @@ class HKTFabricChooserViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        
+        self.addFabricButton.backgroundColor = UIColor.HKTRed();
+        self.addFabricButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.doneAddingButton.backgroundColor = UIColor.HKTRed();
+        self.doneAddingButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
     }
     
     override func viewDidAppear(animated: Bool) {

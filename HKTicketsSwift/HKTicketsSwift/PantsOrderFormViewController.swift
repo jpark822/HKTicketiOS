@@ -30,6 +30,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         super.viewDidLoad()
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
+        self.extensionSwitch.onTintColor = UIColor.HKTRed();
         
         self.depthOfPleatTextField.delegate = self;
         self.fabricTextField.delegate = self;
@@ -89,7 +90,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
                 
                 orders.append(pantOrder);
             }
-            var pantMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsMeasurementsControllerId") as! PantMeasurementViewController;
+            let pantMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsMeasurementsControllerId") as! PantMeasurementViewController;
             pantMeasurementsVC.delegate = self.delegate;
             pantMeasurementsVC.pantOrders = orders;
             self.navigationController?.pushViewController(pantMeasurementsVC, animated: true);
@@ -97,7 +98,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         else if let existingPant = self.existingPantOrder {
             collectFormDataAndUpdateExistingPants();
             
-            var pantMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsMeasurementsControllerId") as! PantMeasurementViewController;
+            let pantMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsMeasurementsControllerId") as! PantMeasurementViewController;
             pantMeasurementsVC.delegate = self.delegate;
             pantMeasurementsVC.existingPants = self.existingPantOrder;
             self.navigationController?.pushViewController(pantMeasurementsVC, animated: true);

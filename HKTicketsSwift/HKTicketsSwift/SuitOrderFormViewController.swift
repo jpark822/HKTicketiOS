@@ -87,6 +87,10 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.ticketPocketSwitch.onTintColor = UIColor.HKTRed();
+        self.buttonHoleLapelSwitch.onTintColor = UIColor.HKTRed();
+        self.extensionSwitch.onTintColor = UIColor.HKTRed();
+        
         self.lapelWidthTextField.delegate = self;
         self.jacketFirstButtonTextField.delegate = self;
         self.flapWidthTextField.delegate = self;

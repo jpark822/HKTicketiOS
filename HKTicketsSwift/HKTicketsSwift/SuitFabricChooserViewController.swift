@@ -26,14 +26,17 @@ class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate
         let modal = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitFabricModalId") as! SuitFabricModalViewController;
         modal.delegate = self;
         modal.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
+        modal.preferredContentSize = CGSizeMake(500, 310);
         self.presentViewController(modal, animated: true, completion: nil);
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        let suitOrderVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitOrderFormId") as! SuitOrderFormViewController;
-        suitOrderVC.fabrics = self.suitFabricUnits;
-        suitOrderVC.delegate = self.delegate;
-        self.navigationController?.pushViewController(suitOrderVC, animated: true);
+        if (self.suitFabricUnits.count > 0) {
+            let suitOrderVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitOrderFormId") as! SuitOrderFormViewController;
+            suitOrderVC.fabrics = self.suitFabricUnits;
+            suitOrderVC.delegate = self.delegate;
+            self.navigationController?.pushViewController(suitOrderVC, animated: true);
+        }
     }
     
     
