@@ -17,12 +17,16 @@ class SuitFabricModalViewController: UIViewController {
 
     @IBOutlet weak var suitTextField: UITextField!
     @IBOutlet weak var vestTextField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
     var delegate: SuitFabricModalDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.cancelButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.doneButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {

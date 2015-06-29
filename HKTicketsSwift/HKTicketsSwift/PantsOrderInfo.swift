@@ -61,7 +61,7 @@ class PantsOrderInfo: NSObject, OrderItemInterface {
             myString += "Notes: \(self.notes)\n";
         }
         
-        if let finish = self.finishMeasurements {
+        if self.finishMeasurements != nil {
             myString += "Finish Measurements:\n";
             myString += self.finishMeasurements!.convertToMailingString();
         }

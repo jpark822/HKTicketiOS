@@ -55,12 +55,15 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var vestFinishFrontLength: UITextField!
     @IBOutlet weak var vestFinishBackLength: UITextField!
     
+    @IBOutlet weak var addSuitButton: UIButton!
     var suitOrders : [SuitOrderInfo]?;
     var existingSuit : SuitOrderInfo?;
     var delegate : OrderFormDelegate?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addSuitButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.jacketBodyChest.delegate = self;
         self.jacketBodyWaist.delegate = self;
@@ -71,7 +74,7 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
         self.jacketBodyJacketLength.delegate = self;
         self.jacketBodyBicep.delegate = self;
         self.jacketBodyArmHole.delegate = self;
-            self.jacketBodyBelly.delegate = self;
+        self.jacketBodyBelly.delegate = self;
 
         self.jacketFinishChest.delegate = self;
         self.jacketFinishWaist.delegate = self;

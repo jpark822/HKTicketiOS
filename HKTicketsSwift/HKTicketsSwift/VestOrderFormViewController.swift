@@ -14,6 +14,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var vestCollectionView: UICollectionView!
     @IBOutlet weak var firstButtonTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
+    @IBOutlet weak var moveToMeasurementsButton: UIButton!
     
     var vestOptions : [VestOrderInfo.VestType] = [VestOrderInfo.VestType.V1,
         VestOrderInfo.VestType.V4,
@@ -31,6 +32,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         super.viewDidLoad()
         self.noteTextView.layer.borderColor = UIColor.blackColor().CGColor;
         self.noteTextView.layer.borderWidth = 1;
+        self.moveToMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.fabricTextField.delegate = self;
         self.firstButtonTextField.delegate = self;

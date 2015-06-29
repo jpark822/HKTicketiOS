@@ -27,6 +27,8 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
     @IBOutlet weak var paddingSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var moveToMeasurementsButton: UIButton!
+    
     var lapelOptions : [JacketOrderInfo.Lapel] = [JacketOrderInfo.Lapel.Notch,
     JacketOrderInfo.Lapel.Peak,
     JacketOrderInfo.Lapel.Shawl,
@@ -66,6 +68,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         self.notesTextView.layer.borderWidth = 1;
         self.ticketPocketSwitch.onTintColor = UIColor.HKTRed();
         self.buttonHoleLapelSwitch.onTintColor = UIColor.HKTRed();
+        self.moveToMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.fabricTextField.delegate = self;
         self.lapelWidthTextField.delegate = self;
@@ -96,7 +99,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         self.cuffsCollectionView.delegate = self;
         self.cuffsCollectionView.dataSource = self;
         
-        if let existingOrder = self.existingJacketOrder {
+        if self.existingJacketOrder != nil {
             self.setupControlsWithEditableJacketInfo()
             self.fabricTextField.hidden = false;
         }
@@ -165,7 +168,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
             existingJacket.lining = self.liningOptions[selectedLiningIndexes[0].row];
             var selectedButtonIndexes = self.buttonCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.buttons = self.buttonOptions[selectedButtonIndexes[0].row];
-            var selectedPocketIndexes = self.pocketsCollectionView.indexPathsForSelectedItems() as! [NSIndexPath]!;
+            var selectedPocketIndexes = self.pocketsCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.pockets = self.pocketOptions[selectedPocketIndexes[0].row];
             var selectedVentIndexes = self.ventCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingJacket.vent = self.ventOptions[selectedVentIndexes[0].row];
@@ -189,7 +192,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
             var orders : [JacketOrderInfo] = [];
             
             for fabric in fabrics {
-                var jacketOrder = JacketOrderInfo();
+                let jacketOrder = JacketOrderInfo();
                 jacketOrder.fabric = fabric;
                 
                 var selectedLapelIndexes = self.lapelCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
@@ -217,7 +220,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
                 
                 orders.append(jacketOrder);
             }
-            var jacketMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketMeasurementsId") as! JacketMeasurementsViewController;
+            let jacketMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketMeasurementsId") as! JacketMeasurementsViewController;
             jacketMeasurementsVC.jacketOrders = orders;
             jacketMeasurementsVC.delegate = self.delegate;
             self.navigationController?.pushViewController(jacketMeasurementsVC, animated: true);
@@ -225,7 +228,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
         else if let existingJacket = self.existingJacketOrder {
             self.collectFormDataAndUpdateExistingPants();
             
-            var jacketMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketMeasurementsId") as! JacketMeasurementsViewController;
+            let jacketMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketMeasurementsId") as! JacketMeasurementsViewController;
             jacketMeasurementsVC.existingJacket = existingJacket;
             jacketMeasurementsVC.delegate = self.delegate;
             self.navigationController?.pushViewController(jacketMeasurementsVC, animated: true);

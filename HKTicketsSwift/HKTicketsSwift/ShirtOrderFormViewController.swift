@@ -37,6 +37,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var monogramTextField: UITextField!
     @IBOutlet weak var monogramColorTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
+    @IBOutlet weak var moveToMeasurementsButton: UIButton!
     
     var fabrics : [String]?;
     var collarOptions : [ShirtOrderInfo.Collar]! = [ShirtOrderInfo.Collar.ClosePoint,
@@ -89,11 +90,12 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.scrollView.contentSize = CGSizeMake(768, 2700);
+        self.scrollView.contentSize = CGSizeMake(768, 2800);
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
         self.buttonPlacketSwitch.onTintColor = UIColor.HKTRed();
         self.convertibleSwitch.onTintColor = UIColor.HKTRed();
+        self.moveToMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.collarCollectionView.delegate = self;
         self.collarCollectionView.dataSource = self;
@@ -125,7 +127,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
         
-        if let existingShirtOrder = self.editShirtinfo {
+        if self.editShirtinfo != nil {
             self.setupControlsWithEditableShirtOrderInfo();
         }
         else {
@@ -286,15 +288,15 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             var selectedShirtFrontIndexes = self.shirtFrontCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.shirtFront = self.shirtFrontOptions[selectedShirtFrontIndexes[0].row];
             var selectedShirtBackIndexes = self.shirtBackCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
-            self.editShirtinfo!.shirtBack = self.shirtBackOptions[selectedShirtBackIndexes[0].row];
-            self.editShirtinfo!.frontCollarLength = self.frontLengthTextField.text;
-            self.editShirtinfo!.backCollarLength = self.backLengthTextField.text;
-            self.editShirtinfo!.buttonOnPlacket = self.buttonPlacketSwitch.on;
-            self.editShirtinfo!.convertibleCuff = self.convertibleSwitch.on;
-            self.editShirtinfo!.monogram = self.monogramTextField.text;
-            self.editShirtinfo!.monogramColor = self.monogramColorTextField.text;
-            self.editShirtinfo!.fabric = self.fabricTextBox.text!;
-            self.editShirtinfo!.notes = self.notesTextField.text;
+            shirtToEdit.shirtBack = self.shirtBackOptions[selectedShirtBackIndexes[0].row];
+            shirtToEdit.frontCollarLength = self.frontLengthTextField.text;
+            shirtToEdit.backCollarLength = self.backLengthTextField.text;
+            shirtToEdit.buttonOnPlacket = self.buttonPlacketSwitch.on;
+            shirtToEdit.convertibleCuff = self.convertibleSwitch.on;
+            shirtToEdit.monogram = self.monogramTextField.text;
+            shirtToEdit.monogramColor = self.monogramColorTextField.text;
+            shirtToEdit.fabric = self.fabricTextBox.text!;
+            shirtToEdit.notes = self.notesTextField.text;
         }
     }
     

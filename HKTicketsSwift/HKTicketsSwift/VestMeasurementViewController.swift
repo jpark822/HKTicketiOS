@@ -17,6 +17,7 @@ class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var finishFrontLength: UITextField!
     @IBOutlet weak var finishBackLength: UITextField!
+    @IBOutlet weak var addVestButton: UIButton!
 
     var vestOrders : [VestOrderInfo]?;
     var existingVest : VestOrderInfo?;
@@ -24,6 +25,8 @@ class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addVestButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.bodyChest.delegate = self;
         self.bodyWaist.delegate = self;

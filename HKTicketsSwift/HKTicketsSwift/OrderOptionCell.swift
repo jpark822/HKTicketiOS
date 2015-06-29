@@ -44,8 +44,6 @@ class OrderOptionCell: UICollectionViewCell {
             self.optionImage.image = UIImage(named: "collar_tab");
         case ShirtOrderInfo.Collar.Other:
             self.optionImage.image = UIImage();
-        default:
-            print("no image");
         }
     }
     
@@ -63,8 +61,6 @@ class OrderOptionCell: UICollectionViewCell {
             self.optionImage.image = UIImage(named: "pockets_p6");
         case ShirtOrderInfo.Pockets.P10:
             self.optionImage.image = UIImage(named: "pockets_p10");
-        default:
-            print("no image");
         }
     }
     
@@ -82,8 +78,6 @@ class OrderOptionCell: UICollectionViewCell {
             self.optionImage.image = UIImage(named: "short_sleeve_s4");
         case ShirtOrderInfo.ShortSleeve.S5:
             self.optionImage.image = UIImage(named: "short_sleeve_s5");
-        default:
-            print("no image");
         }
     }
     
@@ -109,8 +103,6 @@ class OrderOptionCell: UICollectionViewCell {
             self.optionImage.image = UIImage(named: "cuffs_c9");
         case ShirtOrderInfo.Cuffs.C10:
             self.optionImage.image = UIImage(named: "cuffs_c10");
-        default:
-            print("no image");
         }
     }
     
@@ -124,8 +116,6 @@ class OrderOptionCell: UICollectionViewCell {
             self.optionImage.image = UIImage(named: "shirt_front_placket");
         case ShirtOrderInfo.ShirtFront.Plain:
             self.optionImage.image = UIImage(named: "shirt_front_plain");
-        default:
-            print("no image");
         }
     }
     
@@ -141,8 +131,6 @@ class OrderOptionCell: UICollectionViewCell {
             self.optionImage.image = UIImage(named: "shirt_back_plain");
         case ShirtOrderInfo.ShirtBack.BoxPleat:
             self.optionImage.image = UIImage(named: "shirt_back_box_pleat");
-        default:
-            print("no image");
         }
     }
     

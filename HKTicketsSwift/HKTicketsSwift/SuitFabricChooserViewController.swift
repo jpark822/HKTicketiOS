@@ -10,6 +10,8 @@ import UIKit
 
 class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var suitFabricButton: UIButton!
+    @IBOutlet weak var doneAddingFabricButton: UIButton!
     var delegate : OrderFormDelegate?;
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,6 +19,10 @@ class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.suitFabricButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.doneAddingFabricButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
     }

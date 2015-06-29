@@ -194,9 +194,6 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
             suitOrderVC.existingSuit = item as? SuitOrderInfo
             suitOrderVC.delegate = self;
             self.navigationController?.pushViewController(suitOrderVC, animated: true);
-        default:
-            
-            NSLog("no type");
         }
     }
 
@@ -259,7 +256,7 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
             orderString += orderItem.convertToMailingString();
             orderString += "\n";
         }
-        var mailComposer = MFMailComposeViewController();
+        let mailComposer = MFMailComposeViewController();
         mailComposer.setMessageBody(orderString, isHTML: false)
         mailComposer.mailComposeDelegate = self;
         self.presentViewController(mailComposer, animated: true, completion: nil);

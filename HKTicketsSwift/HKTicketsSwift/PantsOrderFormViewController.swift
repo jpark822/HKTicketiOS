@@ -17,6 +17,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var depthOfPleatTextField: UITextField!
     @IBOutlet weak var fabricTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
+    @IBOutlet weak var movetoMeasurementsButton: UIButton!
     
     var pleatOptions : [PantsOrderInfo.Pleat] = [PantsOrderInfo.Pleat.FlatFront, PantsOrderInfo.Pleat.Single, PantsOrderInfo.Pleat.Double];
     var liningOptions : [PantsOrderInfo.Lining] = [PantsOrderInfo.Lining.Front, PantsOrderInfo.Lining.Full, PantsOrderInfo.Lining.None];
@@ -31,6 +32,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
         self.extensionSwitch.onTintColor = UIColor.HKTRed();
+        self.movetoMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.depthOfPleatTextField.delegate = self;
         self.fabricTextField.delegate = self;
@@ -40,7 +42,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
         self.pleatCollectionView.dataSource = self;
         self.pleatCollectionView.delegate = self;
         
-        if let existingOrder = self.existingPantOrder {
+        if self.existingPantOrder != nil {
             self.setupControlsWithEditablePantInfo();
             self.fabricTextField.hidden = false;
         }
@@ -79,7 +81,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
             var orders : [PantsOrderInfo]! = []
             
             for fabric in fabrics {
-                var pantOrder = PantsOrderInfo();
+                let pantOrder = PantsOrderInfo();
                 pantOrder.fabric = fabric;
                 var selectedPleatIndexes = self.pleatCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 pantOrder.pleat = self.pleatOptions[selectedPleatIndexes[0].row];
@@ -95,7 +97,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
             pantMeasurementsVC.pantOrders = orders;
             self.navigationController?.pushViewController(pantMeasurementsVC, animated: true);
         }
-        else if let existingPant = self.existingPantOrder {
+        else if self.existingPantOrder != nil {
             collectFormDataAndUpdateExistingPants();
             
             let pantMeasurementsVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsMeasurementsControllerId") as! PantMeasurementViewController;

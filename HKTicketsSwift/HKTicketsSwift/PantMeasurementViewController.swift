@@ -24,6 +24,7 @@ class PantMeasurementViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var finishBottomCuff: UITextField!
     @IBOutlet weak var finishOutseam: UITextField!
     @IBOutlet weak var finishInseam: UITextField!
+    @IBOutlet weak var addPantsButton: UIButton!
     
     var pantOrders : [PantsOrderInfo]?;
     var existingPants : PantsOrderInfo?;
@@ -31,6 +32,8 @@ class PantMeasurementViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addPantsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.bodyWaist.delegate = self;
         self.bodySeat.delegate = self;

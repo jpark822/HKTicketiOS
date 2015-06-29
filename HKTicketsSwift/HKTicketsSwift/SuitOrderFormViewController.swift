@@ -80,6 +80,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var overallNotesTextField: UITextView!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var NoteAndDoneButtonContainerView: UIView!
+    @IBOutlet weak var moveToMeasurementsButton: UIButton!
     
     var existingSuit : SuitOrderInfo?;
     var fabrics : [SuitFabricUnit]?;
@@ -90,6 +91,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.ticketPocketSwitch.onTintColor = UIColor.HKTRed();
         self.buttonHoleLapelSwitch.onTintColor = UIColor.HKTRed();
         self.extensionSwitch.onTintColor = UIColor.HKTRed();
+        self.moveToMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.lapelWidthTextField.delegate = self;
         self.jacketFirstButtonTextField.delegate = self;
@@ -224,7 +226,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 self.vestContainerView.frame = CGRectMake(self.vestContainerView.frame.origin.x, self.vestContainerView.frame.origin.y, 0, 0);
             }
         }
-        else if let newFabrics = self.fabrics {
+        else if self.fabrics != nil {
             var containsVest = false;
             //strange loop, possibly due to bug in iterating over structs in swift
             if let allFabrics = self.fabrics {

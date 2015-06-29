@@ -29,6 +29,7 @@ class JacketMeasurementsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var finishHalfShoulder: UITextField!
     @IBOutlet weak var finishJacketLength: UITextField!
     @IBOutlet weak var finishJacketSleeve: UITextField!
+    @IBOutlet weak var addJacketButton: UIButton!
     
     var jacketOrders : [JacketOrderInfo]?;
     var existingJacket : JacketOrderInfo?;
@@ -36,6 +37,8 @@ class JacketMeasurementsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addJacketButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.bodyChest.delegate = self;
         self.bodyWaist.delegate = self;

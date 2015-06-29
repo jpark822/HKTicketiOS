@@ -30,6 +30,7 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var finishNeckSize: UITextField!
     @IBOutlet weak var finishSleeve6Below: UITextField!
     @IBOutlet weak var finishSleeve12Below: UITextField!
+    @IBOutlet weak var addShirtButton: UIButton!
     
     var delegate : OrderFormDelegate?
     
@@ -41,6 +42,8 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        self.addShirtButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
         self.bodyChest.delegate = self;
         self.bodyWaist.delegate = self;
@@ -61,12 +64,12 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
         self.finishSleeve6Below.delegate = self;
         self.finishSleeve12Below.delegate = self;
         
-        if let newShirts = self.shirts {
+        if self.shirts != nil {
             let bodyMeasurements : BodyMeasurements = self.delegate!.getBodyMeasurements();
             let shirtFinish : ShirtFinishMeasurements = self.delegate!.getShirtFinishMeasurements();
             prepopulateTextFields(bodyMeasurements, finishMeasurements: shirtFinish);
         }
-        else if let existingShirt = self.editShirtInfo, let bodyMeasurements = self.editShirtInfo?.bodyMeasurements, let finishMeasurements = self.editShirtInfo?.finishMeasurements {
+        else if let _ = self.editShirtInfo, let bodyMeasurements = self.editShirtInfo?.bodyMeasurements, let finishMeasurements = self.editShirtInfo?.finishMeasurements {
             prepopulateTextFields(bodyMeasurements, finishMeasurements: finishMeasurements);
         }
     }
