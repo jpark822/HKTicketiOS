@@ -23,4 +23,9 @@ class HomeViewController: UIViewController {
         let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! UINavigationController;
         self.presentViewController(orderFormNav, animated: true, completion: nil);
     }
+    
+    @IBAction func customersButtonPressed(sender: AnyObject) {
+        let customerNav : UINavigationController = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerRootNavigationId") as! UINavigationController;
+        self.presentViewController(customerNav, animated: true, completion: nil);
+    }
 }

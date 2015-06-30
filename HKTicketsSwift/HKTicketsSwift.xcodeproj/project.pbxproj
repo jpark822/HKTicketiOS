@@ -16,6 +16,11 @@
 		4E21ED4D1B38F45F00856148 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED481B38F45F00856148 /* MyriadPro-Bold.otf */; };
 		4E21ED4E1B38F45F00856148 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED491B38F45F00856148 /* MyriadPro-Regular.otf */; };
 		4E21ED4F1B38F45F00856148 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED4A1B38F45F00856148 /* MyriadPro-Semibold.otf */; };
+		4E53E8021B431F0B00075AE2 /* CustomerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8011B431F0B00075AE2 /* CustomerSearchViewController.swift */; };
+		4E53E8041B43216100075AE2 /* CustomerSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8031B43216100075AE2 /* CustomerSearchResultTableViewCell.swift */; };
+		4E53E8061B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */; };
+		4E53E8081B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8071B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift */; };
+		4E53E80A1B432B5400075AE2 /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E53E8091B432B5400075AE2 /* Customer.storyboard */; };
 		4E7B32531B2928CF000D9A87 /* SuitFabricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */; };
 		4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */; };
 		4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505E1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld */; };
@@ -79,6 +84,11 @@
 		4E21ED481B38F45F00856148 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		4E21ED491B38F45F00856148 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		4E21ED4A1B38F45F00856148 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		4E53E8011B431F0B00075AE2 /* CustomerSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerSearchViewController.swift; sourceTree = "<group>"; };
+		4E53E8031B43216100075AE2 /* CustomerSearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerSearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMeasurementChooserModalViewController.swift; sourceTree = "<group>"; };
+		4E53E8071B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMeasurementModalTableViewCell.swift; sourceTree = "<group>"; };
+		4E53E8091B432B5400075AE2 /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
 		4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricTableViewCell.swift; sourceTree = "<group>"; };
 		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83505B1AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,6 +155,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E53E8001B431CFA00075AE2 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				4E53E8011B431F0B00075AE2 /* CustomerSearchViewController.swift */,
+				4E53E8031B43216100075AE2 /* CustomerSearchResultTableViewCell.swift */,
+				4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */,
+				4E53E8071B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift */,
+				4E53E8091B432B5400075AE2 /* Customer.storyboard */,
+			);
+			name = Customer;
+			sourceTree = "<group>";
+		};
 		4E83504E1AFAB18D00C824C3 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +189,7 @@
 		4E8350591AFAB18D00C824C3 /* HKTicketsSwift */ = {
 			isa = PBXGroup;
 			children = (
+				4E53E8001B431CFA00075AE2 /* Customer */,
 				4E83508D1B0023CC00C824C3 /* Common */,
 				4E8350811AFAB8F800C824C3 /* Orders */,
 				4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */,
@@ -382,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E53E80A1B432B5400075AE2 /* Customer.storyboard in Resources */,
 				4E21ED4C1B38F45F00856148 /* CODE Light.otf in Resources */,
 				4ED9EFC91B13B39500461EB4 /* OrderItemCell.xib in Resources */,
 				4E21ED4B1B38F45F00856148 /* CODE Bold.otf in Resources */,
@@ -428,14 +452,17 @@
 				4EA85F0A1B291B2C00795742 /* SuitMeasurementsViewController.swift in Sources */,
 				4E8350991B00E29A00C824C3 /* OrderFormItemCell.swift in Sources */,
 				4ED9EFC51B124CC600461EB4 /* PantsOrderInfo.swift in Sources */,
+				4E53E8021B431F0B00075AE2 /* CustomerSearchViewController.swift in Sources */,
 				4ED9F0201B1D33CB00461EB4 /* VestFinishMeasurements.swift in Sources */,
 				4E8350871AFABC8800C824C3 /* HKTFabricChooserViewController.swift in Sources */,
 				4EA85F081B29176A00795742 /* SuitOrderFormViewController.swift in Sources */,
+				4E53E8041B43216100075AE2 /* CustomerSearchResultTableViewCell.swift in Sources */,
 				4E83509F1B02493300C824C3 /* ShirtMeasurementsViewController.swift in Sources */,
 				4ED9F0241B1F8B6C00461EB4 /* JacketFinishMeasurements.swift in Sources */,
 				4E8350951B00D60600C824C3 /* OrderItemInterface.swift in Sources */,
 				4ED9EFCD1B13F2A100461EB4 /* PantMeasurementViewController.swift in Sources */,
 				4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */,
+				4E53E8081B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift in Sources */,
 				4E83508F1B0023EB00C824C3 /* BaseViewController.swift in Sources */,
 				4E21ED431B38DF9100856148 /* HKTColors.swift in Sources */,
 				4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */,
@@ -445,6 +472,7 @@
 				4E8350801AFAB7D600C824C3 /* HomeViewController.swift in Sources */,
 				4EB02B471B27C63800287BCE /* SuitOrderInfo.swift in Sources */,
 				4EDFF5001B27D9080039AE42 /* SuitFabricChooserViewController.swift in Sources */,
+				4E53E8061B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift in Sources */,
 				4EB02B491B27D14C00287BCE /* SuitFabricModalViewController.swift in Sources */,
 				4E21ED451B38EE1500856148 /* HKTStyling.swift in Sources */,
 			);
