@@ -46,7 +46,8 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pantsFinishOutseam: UITextField!
     @IBOutlet weak var pantsFinishInseam: UITextField!
     
-    //vest outlets
+    //vest
+    @IBOutlet weak var vestContainerView: UIView!
     @IBOutlet weak var vestBodyChest: UITextField!
     @IBOutlet weak var vestBodyWaist: UITextField!
     @IBOutlet weak var vestBodyHips: UITextField!
@@ -105,8 +106,15 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
         self.vestBodyHips.delegate = self;
         self.vestBodyShoulders.delegate = self;
         
-        if (self.existingSuit != nil) {
-            self.prepopulateTextFields();
+        if (self.suitOrders != nil) {
+            if let body = self.delegate?.getBodyMeasurements(),
+                let finish = self.delegate?.getFinishMeasurements() {
+                    self.prepopulateTextFieldsWithBody(body, finishMeasurements: finish);
+            }
+        }
+
+        else if let existingSuitOrder = self.existingSuit {
+            self.prepopulateTextFieldsWithExistingSuitInfo(existingSuitOrder);
         }
         
         self.vestBodyChest.delegate = self;
@@ -115,7 +123,17 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
         self.vestBodyShoulders.delegate = self;
         self.vestFinishBackLength.delegate = self;
         self.vestFinishFrontLength.delegate = self;
-    }    
+    }
+    
+    func newSuitOrdersContainVest() ->Bool {
+        var hasVest = false;
+        for suit in self.suitOrders! {
+            if (suit.vestOrderInfo != nil) {
+                hasVest = true;
+            }
+        }
+        return hasVest;
+    }
     
     func keyboardWillHide() {
         var frame = self.view.frame;
@@ -125,69 +143,141 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
             }, completion: nil)
     }
     
-    func prepopulateTextFields() {
-        //jacket
-        let jacketBody = self.existingSuit?.jacketOrderInfo.bodyMeasurements;
-        self.jacketBodyChest.text = jacketBody?.chest;
-        self.jacketBodyWaist.text = jacketBody?.waist;
-        self.jacketBodyHips.text = jacketBody?.hips;
-        self.jacketBodyShoulders.text = jacketBody?.shoulders;
-        self.jacketBodySleeveLength.text = jacketBody?.sleeveLength;
-        self.jacketBodyJacketWidth.text = jacketBody?.jacketWidth;
-        self.jacketBodyJacketLength.text = jacketBody?.jacketLength;
-        self.jacketBodyBicep.text = jacketBody?.bicep;
-        self.jacketBodyArmHole.text = jacketBody?.armHole;
-        self.jacketBodyBelly.text = jacketBody?.belly;
+    func prepopulateTextFieldsWithExistingSuitInfo(suitInfo : SuitOrderInfo) {
+        self.prepopulateBodyTextFieldsWithSuitOrderInfo(suitInfo);
         
-        let jacketFinish = self.existingSuit?.jacketOrderInfo.finishMeasurements;
-        self.jacketFinishChest.text = jacketFinish?.chest;
-        self.jacketFinishWaist.text = jacketFinish?.waist;
-        self.jacketFinishHips.text = jacketFinish?.hips;
-        self.jacketFinishShoulders.text = jacketFinish?.shoulders;
-        self.jacketFinishSleeveLength.text = jacketFinish?.sleeveLength;
-        self.jacketFinishHalfShoulder.text = jacketFinish?.halfShoulder;
-        self.jacketFinishJacketLength.text = jacketFinish?.jacketLength;
-        self.jacketFinishJacketSleeve.text = jacketFinish?.jacketSleeve;
+        //jacket
+        if let jacketFinishMeasurements = suitInfo.jacketOrderInfo.finishMeasurements {
+            self.jacketFinishChest.text = jacketFinishMeasurements.chest;
+            self.jacketFinishWaist.text = jacketFinishMeasurements.waist;
+            self.jacketFinishHips.text = jacketFinishMeasurements.hips;
+            self.jacketFinishShoulders.text = jacketFinishMeasurements.shoulders;
+            self.jacketFinishSleeveLength.text = jacketFinishMeasurements.sleeveLength;
+            self.jacketFinishHalfShoulder.text = jacketFinishMeasurements.halfShoulder;
+            self.jacketFinishJacketLength.text = jacketFinishMeasurements.jacketLength;
+            self.jacketFinishJacketSleeve.text = jacketFinishMeasurements.jacketSleeve;
+        }
         
         //pants
-        let pantBody = self.existingSuit?.pantsOrderInfo.bodyMeasurements;
-        self.pantsBodyWaist.text = pantBody!.waist;
-        self.pantsBodySeat.text = pantBody!.seat;
-        self.pantsBodyCrotch.text = pantBody!.crotch;
-        self.pantsBodyActualThigh.text = pantBody!.actualThigh;
-        self.pantsBodyOutseam.text = pantBody!.outseam;
-        self.pantsBodyInseam.text = pantBody!.inseam
-        
-        let pantsFinish = self.existingSuit?.pantsOrderInfo.finishMeasurements;
-        self.pantsFinishWaist.text = pantsFinish!.waist;
-        self.pantsFinishSeat.text = pantsFinish!.seat;
-        self.pantsFinishCrotch.text = pantsFinish!.crotch;
-        self.pantsFinish1623below.text = pantsFinish!.below1623;
-        self.pantsFinishBottomCuff.text = pantsFinish!.bottomCuff;
-        self.pantsFinishOutseam.text = pantsFinish!.outseam;
-        self.pantsFinishInseam.text = pantsFinish!.inseam;
+        if let pantsFinishMeasurements = suitInfo.pantsOrderInfo.finishMeasurements {
+            self.pantsFinishWaist.text = pantsFinishMeasurements.waist;
+            self.pantsFinishSeat.text = pantsFinishMeasurements.seat;
+            self.pantsFinishCrotch.text = pantsFinishMeasurements.crotch;
+            self.pantsFinish1623below.text = pantsFinishMeasurements.below1623;
+            self.pantsFinishBottomCuff.text = pantsFinishMeasurements.bottomCuff;
+            self.pantsFinishOutseam.text = pantsFinishMeasurements.outseam;
+            self.pantsFinishInseam.text = pantsFinishMeasurements.inseam;
+        }
         
         //vest
-        if let vestBody = self.existingSuit?.vestOrderInfo!.bodyMeasurements {
-            self.vestBodyChest.text = vestBody.chest;
-            self.vestBodyWaist.text = vestBody.waist;
-            self.vestBodyHips.text = vestBody.hips;
-            self.vestBodyShoulders.text = vestBody.shoulders;
-        }
-        else {
-            self.vestBodyChest.hidden = true;
-            self.vestBodyWaist.hidden = true;
-            self.vestBodyHips.hidden = true;
-            self.vestBodyShoulders.hidden = true;
-        }
-        
-        if let vestFinish = self.existingSuit?.vestOrderInfo!.finishMeasurements {
+        if let vestFinish = suitInfo.vestOrderInfo?.finishMeasurements {
             self.vestFinishFrontLength.text = vestFinish.frontLength;
             self.vestFinishBackLength.text = vestFinish.backLength;
         }
         else {
-            self.vestFinishFrontLength.hidden = true;
-            self.vestFinishBackLength.hidden = true;
+            self.vestContainerView.hidden = true;
+        }
+    }
+    
+    func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
+        self.prepopulateBodyTextFieldsWithBody(bodyMeasurements);
+        
+        //jacket
+        self.jacketFinishChest.text = finishMeasurements.chest;
+        self.jacketFinishWaist.text = finishMeasurements.waist;
+        self.jacketFinishHips.text = finishMeasurements.hips;
+        self.jacketFinishShoulders.text = finishMeasurements.shoulders;
+        self.jacketFinishSleeveLength.text = finishMeasurements.jacketSleeveLength;
+        self.jacketFinishHalfShoulder.text = finishMeasurements.jacketHalfShoulder;
+        self.jacketFinishJacketLength.text = finishMeasurements.jacketLength;
+        self.jacketFinishJacketSleeve.text = finishMeasurements.jacketSleeveWidth;
+        
+        //pants
+        self.pantsFinishWaist.text = finishMeasurements.waist;
+        self.pantsFinishSeat.text = finishMeasurements.pantSeat;
+        self.pantsFinishCrotch.text = finishMeasurements.pantCrotch;
+        self.pantsFinish1623below.text = finishMeasurements.pant1623below;
+        self.pantsFinishBottomCuff.text = finishMeasurements.pantBottomCuff;
+        self.pantsFinishOutseam.text = finishMeasurements.pantOutseam;
+        self.pantsFinishInseam.text = finishMeasurements.pantInseam;
+        
+        //vest
+        if (self.newSuitOrdersContainVest()) {
+            self.vestFinishFrontLength.text = finishMeasurements.vestFrontLength;
+            self.vestFinishBackLength.text = finishMeasurements.vestBackLength;
+        }
+        else {
+            self.vestContainerView.hidden = true
+        }
+    }
+    
+    func prepopulateBodyTextFieldsWithBody(bodyMeasurements : BodyMeasurements) {
+        //jacket
+        self.jacketBodyChest.text = bodyMeasurements.chest;
+        self.jacketBodyWaist.text = bodyMeasurements.waist;
+        self.jacketBodyHips.text = bodyMeasurements.hips;
+        self.jacketBodyShoulders.text = bodyMeasurements.shoulders;
+        self.jacketBodySleeveLength.text = bodyMeasurements.jacketSleeveLength;
+        self.jacketBodyJacketWidth.text = bodyMeasurements.jacketWidth;
+        self.jacketBodyJacketLength.text = bodyMeasurements.jacketLength;
+        self.jacketBodyBicep.text = bodyMeasurements.bicep;
+        self.jacketBodyArmHole.text = bodyMeasurements.armHole;
+        self.jacketBodyBelly.text = bodyMeasurements.belly;
+        
+        //pants
+        self.pantsBodyWaist.text = bodyMeasurements.waist;
+        self.pantsBodySeat.text = bodyMeasurements.seat;
+        self.pantsBodyCrotch.text = bodyMeasurements.crotch;
+        self.pantsBodyActualThigh.text = bodyMeasurements.actualThigh;
+        self.pantsBodyOutseam.text = bodyMeasurements.outseam;
+        self.pantsBodyInseam.text = bodyMeasurements.inseam
+        
+        //vest
+        if self.newSuitOrdersContainVest() {
+            self.vestBodyChest.text = bodyMeasurements.chest;
+            self.vestBodyWaist.text = bodyMeasurements.waist;
+            self.vestBodyHips.text = bodyMeasurements.hips;
+            self.vestBodyShoulders.text = bodyMeasurements.shoulders;
+        }
+        else {
+            self.vestContainerView.hidden = true;
+        }
+    }
+    
+    func prepopulateBodyTextFieldsWithSuitOrderInfo(suitInfo : SuitOrderInfo) {
+        //jacket
+        if let jacketBody = suitInfo.jacketOrderInfo.bodyMeasurements {
+            self.jacketBodyChest.text = jacketBody.chest;
+            self.jacketBodyWaist.text = jacketBody.waist;
+            self.jacketBodyHips.text = jacketBody.hips;
+            self.jacketBodyShoulders.text = jacketBody.shoulders;
+            self.jacketBodySleeveLength.text = jacketBody.jacketSleeveLength;
+            self.jacketBodyJacketWidth.text = jacketBody.jacketWidth;
+            self.jacketBodyJacketLength.text = jacketBody.jacketLength;
+            self.jacketBodyBicep.text = jacketBody.bicep;
+            self.jacketBodyArmHole.text = jacketBody.armHole;
+            self.jacketBodyBelly.text = jacketBody.belly;
+        }
+        
+        //pants
+        if let pantBody = suitInfo.pantsOrderInfo.bodyMeasurements {
+            self.pantsBodyWaist.text = pantBody.waist;
+            self.pantsBodySeat.text = pantBody.seat;
+            self.pantsBodyCrotch.text = pantBody.crotch;
+            self.pantsBodyActualThigh.text = pantBody.actualThigh;
+            self.pantsBodyOutseam.text = pantBody.outseam;
+            self.pantsBodyInseam.text = pantBody.inseam
+        }
+        
+        //vest
+        if let vestInfo = suitInfo.vestOrderInfo?.bodyMeasurements {
+            self.vestBodyChest.text = vestInfo.chest;
+            self.vestBodyWaist.text = vestInfo.waist;
+            self.vestBodyHips.text = vestInfo.hips;
+            self.vestBodyShoulders.text = vestInfo.shoulders;
+        }
+        else {
+            self.vestContainerView.hidden = true
         }
     }
     
@@ -198,7 +288,7 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
         jacketBody.waist = self.jacketBodyWaist.text!;
         jacketBody.hips = self.jacketBodyHips.text!;
         jacketBody.shoulders = self.jacketBodyShoulders.text!;
-        jacketBody.sleeveLength = self.jacketBodySleeveLength.text!;
+        jacketBody.jacketSleeveLength = self.jacketBodySleeveLength.text!;
         jacketBody.jacketWidth = self.jacketBodyJacketWidth.text!;
         jacketBody.jacketLength = self.jacketBodyJacketLength.text!;
         jacketBody.bicep = self.jacketBodyBicep.text!;

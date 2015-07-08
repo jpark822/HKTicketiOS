@@ -39,8 +39,8 @@ class CustomerMeasurementChooserModalViewController: UIViewController, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.delegate?.CustomerMeasurementChooserDidSelectIndex(indexPath.row);
         self.dismissViewControllerAnimated(true, completion: nil);
+        self.delegate?.CustomerMeasurementChooserDidSelectIndex(indexPath.row);
     }
 
 }

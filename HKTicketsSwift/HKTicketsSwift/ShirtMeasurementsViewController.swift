@@ -65,35 +65,56 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
         self.finishSleeve12Below.delegate = self;
         
         if self.shirts != nil {
-            let bodyMeasurements : BodyMeasurements = self.delegate!.getBodyMeasurements();
-            let shirtFinish : ShirtFinishMeasurements = self.delegate!.getShirtFinishMeasurements();
-            prepopulateTextFields(bodyMeasurements, finishMeasurements: shirtFinish);
+            if let bodyMeasurements : BodyMeasurements = self.delegate!.getBodyMeasurements(),
+               let finishMeasurements : FinishMeasurements = self.delegate!.getFinishMeasurements() {
+                self.prepopulateTextFields(bodyMeasurements, finishMeasurements: finishMeasurements);
+            }
+
         }
-        else if let _ = self.editShirtInfo, let bodyMeasurements = self.editShirtInfo?.bodyMeasurements, let finishMeasurements = self.editShirtInfo?.finishMeasurements {
-            prepopulateTextFields(bodyMeasurements, finishMeasurements: finishMeasurements);
+        else if let bodyMeasurements = self.editShirtInfo?.bodyMeasurements, let finishMeasurements = self.editShirtInfo?.finishMeasurements {
+            prepopulateTextFields(bodyMeasurements, shirtFinishMeasurements: finishMeasurements);
         }
     }
     
-    func prepopulateTextFields(bodyMeasurements : BodyMeasurements, finishMeasurements : ShirtFinishMeasurements) {
-        self.bodyChest.text = bodyMeasurements.chest;
-        self.bodyWaist.text = bodyMeasurements.waist;
-        self.bodyHips.text = bodyMeasurements.hips;
-        self.bodyShoulders.text = bodyMeasurements.shoulders;
-        self.bodySleeveLength.text = bodyMeasurements.sleeveLength;
-        self.bodyShirtLength.text = bodyMeasurements.shirtLength;
-        self.bodyWristLength.text = bodyMeasurements.wrist;
-        self.bodyNeckSize.text = bodyMeasurements.neckSize;
+    func prepopulateTextFields(bodyMeasurements : BodyMeasurements, shirtFinishMeasurements : ShirtFinishMeasurements) {
+        prepopulateBodyTextFields(bodyMeasurements);
     
+        self.finishChest.text = shirtFinishMeasurements.chest;
+        self.finishWaist.text = shirtFinishMeasurements.waist;
+        self.finishHips.text = shirtFinishMeasurements.hips;
+        self.finishShoulders.text = shirtFinishMeasurements.shoulders;
+        self.finishSleeveLength.text = shirtFinishMeasurements.sleeveLength;
+        self.finishShirtLength.text = shirtFinishMeasurements.shirtLength;
+        self.finishCuff.text = shirtFinishMeasurements.cuff;
+        self.finishNeckSize.text = shirtFinishMeasurements.neckSize;
+        self.finishSleeve6Below.text = shirtFinishMeasurements.sleeveWidth6Below;
+        self.finishSleeve12Below.text = shirtFinishMeasurements.sleeveWidth12Below;
+    }
+    
+    func prepopulateTextFields(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
+        self.prepopulateBodyTextFields(bodyMeasurements);
+        
         self.finishChest.text = finishMeasurements.chest;
         self.finishWaist.text = finishMeasurements.waist;
         self.finishHips.text = finishMeasurements.hips;
         self.finishShoulders.text = finishMeasurements.shoulders;
-        self.finishSleeveLength.text = finishMeasurements.sleeveLength;
+        self.finishSleeveLength.text = finishMeasurements.shirtSleeveLength;
         self.finishShirtLength.text = finishMeasurements.shirtLength;
-        self.finishCuff.text = finishMeasurements.cuff;
-        self.finishNeckSize.text = finishMeasurements.neckSize;
-        self.finishSleeve6Below.text = finishMeasurements.sleeveWidth6Below;
-        self.finishSleeve12Below.text = finishMeasurements.sleeveWidth12Below;
+        self.finishCuff.text = finishMeasurements.shirtCuff;
+        self.finishNeckSize.text = finishMeasurements.shirtNeck;
+        self.finishSleeve6Below.text = finishMeasurements.shirtWidth6Below;
+        self.finishSleeve12Below.text = finishMeasurements.shirtWidth12Below;
+    }
+    
+    func prepopulateBodyTextFields(bodyMeasurements : BodyMeasurements) {
+        self.bodyChest.text = bodyMeasurements.chest;
+        self.bodyWaist.text = bodyMeasurements.waist;
+        self.bodyHips.text = bodyMeasurements.hips;
+        self.bodyShoulders.text = bodyMeasurements.shoulders;
+        self.bodySleeveLength.text = bodyMeasurements.shirtSleeveLength;
+        self.bodyShirtLength.text = bodyMeasurements.shirtLength;
+        self.bodyWristLength.text = bodyMeasurements.wrist;
+        self.bodyNeckSize.text = bodyMeasurements.neckSize;
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -105,7 +126,7 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
         body.waist = self.bodyWaist.text!;
         body.hips = self.bodyHips.text!;
         body.shoulders = self.bodyShoulders.text!;
-        body.sleeveLength = self.bodySleeveLength.text!;
+        body.shirtSleeveLength = self.bodySleeveLength.text!;
         body.shirtLength = self.bodyShirtLength.text!;
         body.wrist = self.bodyWristLength.text!;
         body.neckSize = self.bodyNeckSize.text!;

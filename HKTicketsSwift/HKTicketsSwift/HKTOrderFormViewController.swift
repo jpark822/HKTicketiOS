@@ -9,6 +9,10 @@
 import UIKit
 import MessageUI
 
+protocol OrderFormViewControllerDelegate {
+    func OrderFormViewControllerDidFinishOrder()
+}
+
 class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var addShirtButton: UIButton!
     @IBOutlet weak var addPantsButton: UIButton!
@@ -20,6 +24,9 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     @IBOutlet weak var oldOrderNumberTextField: UITextField!
     @IBOutlet weak var newOrderNumberTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
+    var delegate : OrderFormViewControllerDelegate?
+    
     var orderItems : [OrderItemInterface] = [];
     
     override func viewDidLoad() {
@@ -84,6 +91,7 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         self.navigationController?.pushViewController(suitFabricVC, animated: true);
     }
     
+    //MARK: OrderFormDelegate methods
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]) {
         for shirt in items {
             self.orderItems.append(shirt);
@@ -138,8 +146,60 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         self.tableView.reloadData();
     }
     
+    func getBodyMeasurements() -> BodyMeasurements {
+        let body = BodyMeasurements();
+        body.chest = "1";
+        body.waist = "2";
+        body.hips = "3";
+        body.shoulders = "4";
+        body.seat = "18";
+        body.crotch = "19";
+        body.actualThigh = "5";
+        body.outseam = "6";
+        body.inseam = "7";
+        body.shirtSleeveLength = "8";
+        body.jacketSleeveLength = "9";
+        body.shirtLength = "10";
+        body.wrist = "11";
+        body.neckSize = "12";
+        body.jacketLength = "13";
+        body.jacketWidth = "14";
+        body.bicep = "15";
+        body.armHole = "16";
+        body.belly = "17";
+        return body;
+    }
     
+    func getFinishMeasurements() -> FinishMeasurements {
+        let finish = FinishMeasurements();
+        finish.chest = "1";
+        finish.waist = "2";
+        finish.waist = "3";
+        finish.hips = "4";
+        finish.shoulders = "5";
+        finish.shirtSleeveLength = "6"
+        finish.shirtLength = "7";
+        finish.shirtCuff = "8";
+        finish.shirtNeck = "9";
+        finish.shirtWidth6Below = "10";
+        finish.shirtWidth12Below = "11";
+        finish.jacketSleeveLength = "12";
+        finish.jacketHalfShoulder = "13";
+        finish.jacketLength = "14";
+        finish.jacketSleeveWidth = "15";
+        finish.pantSeat = "16";
+        finish.pantCrotch = "17";
+        finish.pant1623below = "18";
+        finish.pantBottomCuff = "19";
+        finish.pantOutseam = "20";
+        finish.pantInseam = "21";
+        finish.vestFrontLength = "22";
+        finish.vestBackLength = "23";
+        
+        return finish;
+    }
     
+    //MARK: tableview methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
@@ -232,13 +292,6 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
 //        }
 //    }
     
-    func getBodyMeasurements() -> BodyMeasurements {
-        return BodyMeasurements();
-    }
-    
-    func getShirtFinishMeasurements() -> ShirtFinishMeasurements {
-        return ShirtFinishMeasurements();
-    }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil);
@@ -266,7 +319,8 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         if (result.rawValue == MFMailComposeResultSent.rawValue || result.rawValue == MFMailComposeResultSaved.rawValue) {
             controller.dismissViewControllerAnimated(true, completion: { () -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil);
+                self.delegate?.OrderFormViewControllerDidFinishOrder();
             })
         }
         

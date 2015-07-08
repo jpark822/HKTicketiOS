@@ -36,22 +36,39 @@ class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
         self.finishFrontLength.delegate = self;
         self.finishBackLength.delegate = self;
         
-        if (existingVest != nil) {
-            self.prepopulateTextFields();
+        if (self.vestOrders != nil) {
+            if let body = self.delegate?.getBodyMeasurements(),
+                let finish = self.delegate?.getFinishMeasurements() {
+                    self.prepopulateTextFieldsWithBody(body, finishMeasurements: finish);
+            }
         }
-        //else use delegate to get body measurements
+        else if (existingVest != nil) {
+            if let body = self.existingVest?.bodyMeasurements,
+                let finish = self.existingVest?.finishMeasurements {
+                    self.prepopulateTextFieldsWithBody(body, vestFinishMeasurements: finish);
+            }
+        }
     }
     
-    func prepopulateTextFields() {
-        let body = self.existingVest?.bodyMeasurements;
-        self.bodyChest.text = body!.chest;
-        self.bodyWaist.text = body!.waist;
-        self.bodyHips.text = body!.hips;
-        self.bodyShoulders.text = body!.shoulders;
+    func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, vestFinishMeasurements : VestFinishMeasurements) {
+        self.prepopulateBodyTextFieldsWithBody(bodyMeasurements);
         
-        let finish = self.existingVest?.finishMeasurements;
-        self.finishFrontLength.text = finish!.frontLength;
-        self.finishBackLength.text = finish!.backLength;
+        self.finishFrontLength.text = vestFinishMeasurements.frontLength;
+        self.finishBackLength.text = vestFinishMeasurements.backLength;
+    }
+    
+    func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
+        self.prepopulateBodyTextFieldsWithBody(bodyMeasurements);
+        
+        self.finishFrontLength.text = finishMeasurements.vestFrontLength;
+        self.finishBackLength.text = finishMeasurements.vestBackLength;
+    }
+    
+    func prepopulateBodyTextFieldsWithBody(bodyMeasurements : BodyMeasurements) {
+        self.bodyChest.text = bodyMeasurements.chest;
+        self.bodyWaist.text = bodyMeasurements.waist;
+        self.bodyHips.text = bodyMeasurements.hips;
+        self.bodyShoulders.text = bodyMeasurements.shoulders;
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {

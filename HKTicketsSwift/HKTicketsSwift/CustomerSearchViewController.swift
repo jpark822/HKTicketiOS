@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomerMeasurementChooserDelegate {
+class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomerMeasurementChooserDelegate, OrderFormViewControllerDelegate {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var middleNameTextField: UITextField!
@@ -48,9 +48,10 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let measurementChooserVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
+        let measurementChooserVC = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
         measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
         measurementChooserVC.preferredContentSize = CGSizeMake(450, 300);
+        measurementChooserVC.delegate = self;
         self.presentViewController(measurementChooserVC, animated: true, completion: nil);
     }
     
@@ -60,6 +61,12 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: customer measurement chooser delegate
     func CustomerMeasurementChooserDidSelectIndex(index: NSInteger) {
-        
+        let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! UINavigationController;
+        (orderFormNav.viewControllers[0] as! HKTOrderFormViewController).delegate = self;
+        self.presentViewController(orderFormNav, animated: true, completion: nil);
+    }
+    
+    func OrderFormViewControllerDidFinishOrder() {
+        self.dismissViewControllerAnimated(true, completion: nil);
     }
 }

@@ -63,7 +63,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.scrollView.contentSize = CGSizeMake(768, 2500);
+        self.scrollView.contentSize = CGSizeMake(768, 2600);
         self.notesTextView.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextView.layer.borderWidth = 1;
         self.ticketPocketSwitch.onTintColor = UIColor.HKTRed();

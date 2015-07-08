@@ -50,29 +50,50 @@ class PantMeasurementViewController: UIViewController, UITextFieldDelegate {
         self.finishOutseam.delegate = self;
         self.finishInseam.delegate = self;
         
+        if (self.pantOrders != nil) {
+            if let body = self.delegate?.getBodyMeasurements(),
+             let finish = self.delegate?.getFinishMeasurements() {
+                self.prepopulateTextFieldsWithBody(body, finishMeasurements: finish);
+            }
+        }
         if (existingPants != nil) {
-            self.prepopulateTextFields();
+            if let body = self.existingPants?.bodyMeasurements,
+                let finish = self.existingPants?.finishMeasurements {
+                    self.prepopulateTextFieldsWithBody(body, pantsFinishMeasurements: finish);
+            }
         }
         //else use delegate to get body measurements
     }
     
-    func prepopulateTextFields() {
-        let body = self.existingPants?.bodyMeasurements;
-        self.bodyWaist.text = body!.waist;
-        self.bodySeat.text = body!.seat;
-        self.bodyCrotch.text = body!.crotch;
-        self.bodyActualThigh.text = body!.actualThigh;
-        self.bodyOutseam.text = body!.outseam;
-        self.bodyInseam.text = body!.inseam
-        
-        let finish = self.existingPants?.finishMeasurements;
-        self.finishWaist.text = finish!.waist;
-        self.finishSeat.text = finish!.seat;
-        self.finishCrotch.text = finish!.crotch;
-        self.Finish1623below.text = finish!.below1623;
-        self.finishBottomCuff.text = finish!.bottomCuff;
-        self.finishOutseam.text = finish!.outseam;
-        self.finishInseam.text = finish!.inseam;
+    func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, pantsFinishMeasurements : PantsFinishMeasurements) {
+        self.prepopulateBodyTextFieldsWithBody(bodyMeasurements);
+        self.finishWaist.text = pantsFinishMeasurements.waist;
+        self.finishSeat.text = pantsFinishMeasurements.seat;
+        self.finishCrotch.text = pantsFinishMeasurements.crotch;
+        self.Finish1623below.text = pantsFinishMeasurements.below1623;
+        self.finishBottomCuff.text = pantsFinishMeasurements.bottomCuff;
+        self.finishOutseam.text = pantsFinishMeasurements.outseam;
+        self.finishInseam.text = pantsFinishMeasurements.inseam;
+    }
+    
+    func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
+        self.prepopulateBodyTextFieldsWithBody(bodyMeasurements);
+        self.finishWaist.text = finishMeasurements.waist;
+        self.finishSeat.text = finishMeasurements.pantSeat;
+        self.finishCrotch.text = finishMeasurements.pantCrotch;
+        self.Finish1623below.text = finishMeasurements.pant1623below;
+        self.finishBottomCuff.text = finishMeasurements.pantBottomCuff;
+        self.finishOutseam.text = finishMeasurements.pantOutseam;
+        self.finishInseam.text = finishMeasurements.pantInseam;
+    }
+    
+    func prepopulateBodyTextFieldsWithBody(bodyMeasurements : BodyMeasurements) {
+        self.bodyWaist.text = bodyMeasurements.waist;
+        self.bodySeat.text = bodyMeasurements.seat;
+        self.bodyCrotch.text = bodyMeasurements.crotch;
+        self.bodyActualThigh.text = bodyMeasurements.actualThigh;
+        self.bodyOutseam.text = bodyMeasurements.outseam;
+        self.bodyInseam.text = bodyMeasurements.inseam
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {

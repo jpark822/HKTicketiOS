@@ -18,7 +18,8 @@ class BodyMeasurements: NSObject, MeasurementsInterface {
     var actualThigh : String = "";
     var outseam : String = "";
     var inseam : String = "";
-    var sleeveLength : String = "";
+    var shirtSleeveLength : String = "";
+    var jacketSleeveLength : String = "";
     var shirtLength : String = "";
     var wrist : String = "";
     var neckSize : String = "";
@@ -39,7 +40,8 @@ class BodyMeasurements: NSObject, MeasurementsInterface {
         myString += "Actual Thigh: \(self.actualThigh) \n";
         myString += "Outseam: \(self.outseam) \n";
         myString += "Inseam: \(self.inseam) \n";
-        myString += "Sleeve Length: \(self.sleeveLength) \n";
+        myString += "Shirt Sleeve Length: \(self.shirtSleeveLength) \n";
+        myString += "Jacket Sleeve Length: \(self.jacketSleeveLength) \n";
         myString += "Lenght of Shirt: \(self.shirtLength) \n";
         myString += "Wrist: \(self.wrist) \n";
         myString += "Neck Size: \(self.neckSize) \n";

@@ -27,6 +27,8 @@ class SuitFabricModalViewController: UIViewController {
         
         self.cancelButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         self.doneButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        
+        self.suitTextField.becomeFirstResponder();
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {

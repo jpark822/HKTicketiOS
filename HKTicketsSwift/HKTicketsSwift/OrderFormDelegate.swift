@@ -14,7 +14,7 @@ protocol OrderFormDelegate {
 //    func didFinishEditing(item: OrderItemInterface)
     
     func getBodyMeasurements() -> BodyMeasurements;
-    func getShirtFinishMeasurements() -> ShirtFinishMeasurements;
+    func getFinishMeasurements() -> FinishMeasurements;
     
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]);
     func didFinishEditingShirt(shirt: ShirtOrderInfo);
@@ -30,4 +30,5 @@ protocol OrderFormDelegate {
     
     func didFinishCustomizingSuits(items: [SuitOrderInfo]);
     func didFinishEditingSuit(suit: SuitOrderInfo);
+    
 }
