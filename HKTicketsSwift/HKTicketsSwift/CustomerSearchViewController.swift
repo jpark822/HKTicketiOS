@@ -49,7 +49,7 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! UINavigationController;
+        let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! BaseNavigationController;
         (orderFormNav.viewControllers[0] as! HKTOrderFormViewController).delegate = self;
         self.presentViewController(orderFormNav, animated: true, completion: nil);
     }

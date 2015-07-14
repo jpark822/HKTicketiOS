@@ -20,12 +20,12 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     @IBAction func customOrderPressed(sender: AnyObject) {
-        let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! UINavigationController;
+        let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! BaseNavigationController;
         self.presentViewController(orderFormNav, animated: true, completion: nil);
     }
     
     @IBAction func customersButtonPressed(sender: AnyObject) {
-        let customerNav : UINavigationController = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerRootNavigationId") as! OrderFormNavigationController;
+        let customerNav : UINavigationController = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerRootNavigationId") as! BaseNavigationController;
         self.presentViewController(customerNav, animated: true, completion: nil);
     }
 }

@@ -21,7 +21,7 @@
 		4E53E8061B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */; };
 		4E53E8081B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8071B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift */; };
 		4E53E80A1B432B5400075AE2 /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E53E8091B432B5400075AE2 /* Customer.storyboard */; };
-		4E57028E1B4CB8C300CAFA63 /* OrderFormNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57028D1B4CB8C300CAFA63 /* OrderFormNavigationController.swift */; };
+		4E57028E1B4CB8C300CAFA63 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57028D1B4CB8C300CAFA63 /* BaseNavigationController.swift */; };
 		4E7B32531B2928CF000D9A87 /* SuitFabricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */; };
 		4E7F4F251B45AA6400BE4380 /* FinishMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F4F241B45AA6400BE4380 /* FinishMeasurements.swift */; };
 		4E83505D1AFAB18D00C824C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */; };
@@ -91,7 +91,7 @@
 		4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMeasurementChooserModalViewController.swift; sourceTree = "<group>"; };
 		4E53E8071B43260E00075AE2 /* CustomerMeasurementModalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMeasurementModalTableViewCell.swift; sourceTree = "<group>"; };
 		4E53E8091B432B5400075AE2 /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
-		4E57028D1B4CB8C300CAFA63 /* OrderFormNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormNavigationController.swift; sourceTree = "<group>"; };
+		4E57028D1B4CB8C300CAFA63 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricTableViewCell.swift; sourceTree = "<group>"; };
 		4E7F4F241B45AA6400BE4380 /* FinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishMeasurements.swift; sourceTree = "<group>"; };
 		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,7 +249,7 @@
 				4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */,
 				4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */,
 				4E1BE0921B0925380092E035 /* OrderOptionCell.swift */,
-				4E57028D1B4CB8C300CAFA63 /* OrderFormNavigationController.swift */,
+				4E57028D1B4CB8C300CAFA63 /* BaseNavigationController.swift */,
 				4ED9EFC81B13B39500461EB4 /* OrderItemCell.xib */,
 				4ED9EFC31B124C3200461EB4 /* Pants */,
 				4E8350881AFC12CA00C824C3 /* Shirts */,
@@ -454,7 +454,7 @@
 				4ED9EFCF1B13F9CC00461EB4 /* PantsFinishMeasurements.swift in Sources */,
 				4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */,
 				4ED9EFCB1B13B87100461EB4 /* PantsOrderFormViewController.swift in Sources */,
-				4E57028E1B4CB8C300CAFA63 /* OrderFormNavigationController.swift in Sources */,
+				4E57028E1B4CB8C300CAFA63 /* BaseNavigationController.swift in Sources */,
 				4E8350601AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodeld in Sources */,
 				4E83508C1AFC152E00C824C3 /* ShirtOrderFormViewController.swift in Sources */,
 				4EA85F0A1B291B2C00795742 /* SuitMeasurementsViewController.swift in Sources */,

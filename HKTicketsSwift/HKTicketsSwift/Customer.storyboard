@@ -38,10 +38,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Order Form Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="bmF-bd-eTI">
             <objects>
-                <navigationController storyboardIdentifier="customerRootNavigationId" id="xSy-l3-yTF" customClass="OrderFormNavigationController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="customerRootNavigationId" id="xSy-l3-yTF" customClass="BaseNavigationController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="tHW-uR-nul">

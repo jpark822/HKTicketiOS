@@ -1,5 +1,5 @@
 //
-//  OrderFormNavigationController.swift
+//  BaseNavigationController
 //  HKTicketsSwift
 //
 //  Created by Jay Park on 7/7/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderFormNavigationController: UINavigationController {
+class BaseNavigationController : UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
