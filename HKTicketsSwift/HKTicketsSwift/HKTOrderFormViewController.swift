@@ -330,7 +330,7 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     func presentMeasurementsModal() {
         let measurementChooserVC = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
         measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
-        measurementChooserVC.preferredContentSize = CGSizeMake(450, 300);
+        measurementChooserVC.preferredContentSize = CGSizeMake(450, 350);
         measurementChooserVC.delegate = self;
         self.presentViewController(measurementChooserVC, animated: true, completion: nil);
     }

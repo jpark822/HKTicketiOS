@@ -15,6 +15,7 @@ protocol CustomerMeasurementChooserDelegate {
 class CustomerMeasurementChooserModalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cancelButton: UIButton!
     
     var delegate : CustomerMeasurementChooserDelegate?
     
@@ -22,6 +23,8 @@ class CustomerMeasurementChooserModalViewController: UIViewController, UITableVi
         super.viewDidLoad()
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        
+        self.cancelButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -43,4 +46,7 @@ class CustomerMeasurementChooserModalViewController: UIViewController, UITableVi
         self.delegate?.CustomerMeasurementChooserDidSelectIndex(indexPath.row);
     }
 
+    @IBAction func canceButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
 }

@@ -3,13 +3,17 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="CODE Bold.otf">
             <string>Code-Bold</string>
+            <string>Code-Bold</string>
+        </mutableArray>
+        <mutableArray key="MyriadPro-Bold.otf">
+            <string>MyriadPro-Bold</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Regular.otf">
-            <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
@@ -34,10 +38,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Order Form Navigation Controller-->
         <scene sceneID="bmF-bd-eTI">
             <objects>
-                <navigationController storyboardIdentifier="customerRootNavigationId" id="xSy-l3-yTF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="customerRootNavigationId" id="xSy-l3-yTF" customClass="OrderFormNavigationController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="tHW-uR-nul">
@@ -242,18 +246,22 @@
                         <viewControllerLayoutGuide type="bottom" id="SaZ-Il-cCX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hgf-zm-ozk">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TaG-ac-Ppc">
-                                <rect key="frame" x="0.0" y="49" width="450" height="251"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Q6-YS-C6g">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="51"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TaG-ac-Ppc">
+                                <rect key="frame" x="0.0" y="49" width="450" height="233"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomerMeasurementModalTableViewCellId" selectionStyle="none" indentationWidth="10" reuseIdentifier="customerMeasurementModalCellId" rowHeight="55" id="N2I-G8-tEm" customClass="CustomerMeasurementModalTableViewCell" customModule="HKTicketsSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="450" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N2I-G8-tEm" id="OkQ-8C-wIH">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Neil's standard measurements" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUh-Wq-QbM">
@@ -262,24 +270,54 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xb-tL-qY8">
+                                                    <rect key="frame" x="20" y="53" width="409" height="1"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a Measurement Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRm-Bi-AOH">
-                                <rect key="frame" x="123" y="20" width="205" height="21"/>
-                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Measurement Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRm-Bi-AOH">
+                                <rect key="frame" x="117" y="20" width="217" height="18"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbT-Cd-7Iy">
+                                <rect key="frame" x="20" y="290" width="410" height="52"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="acG-uq-APR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Code-Bold" family="Code Bold" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="canceButtonPressed:" destination="lxy-xz-By9" eventType="touchUpInside" id="cXn-hE-jla"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gbT-Cd-7Iy" secondAttribute="trailing" constant="20" id="6Rn-3l-Dkx"/>
+                            <constraint firstItem="gbT-Cd-7Iy" firstAttribute="leading" secondItem="hgf-zm-ozk" secondAttribute="leading" constant="20" id="CiB-I3-4g9"/>
+                            <constraint firstItem="TaG-ac-Ppc" firstAttribute="top" secondItem="nRm-Bi-AOH" secondAttribute="bottom" constant="11" id="GyY-b3-vtb"/>
+                            <constraint firstItem="gbT-Cd-7Iy" firstAttribute="top" secondItem="TaG-ac-Ppc" secondAttribute="bottom" constant="8" id="IRe-1q-fdD"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="gbT-Cd-7Iy" secondAttribute="bottom" constant="8" id="RGy-cz-yqp"/>
+                            <constraint firstItem="TaG-ac-Ppc" firstAttribute="leading" secondItem="hgf-zm-ozk" secondAttribute="leading" id="ZuI-Ko-sJb"/>
+                            <constraint firstItem="nRm-Bi-AOH" firstAttribute="centerX" secondItem="hgf-zm-ozk" secondAttribute="centerX" id="eAq-uU-vud"/>
+                            <constraint firstItem="nRm-Bi-AOH" firstAttribute="top" secondItem="hgf-zm-ozk" secondAttribute="topMargin" constant="20" id="hFz-3T-BDj"/>
+                            <constraint firstAttribute="trailing" secondItem="TaG-ac-Ppc" secondAttribute="trailing" id="xez-YM-JVG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose Measurement" id="U0s-aG-fJb"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="450" height="300"/>
+                    <size key="freeformSize" width="450" height="350"/>
                     <connections>
+                        <outlet property="cancelButton" destination="gbT-Cd-7Iy" id="CGA-ie-NrI"/>
                         <outlet property="tableView" destination="TaG-ac-Ppc" id="TDu-jz-6fF"/>
                     </connections>
                 </viewController>

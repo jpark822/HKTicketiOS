@@ -29,6 +29,7 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        
         self.searchButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
     }
     
@@ -54,7 +55,7 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil);
     }
     
     func OrderFormViewControllerDidFinishOrder() {

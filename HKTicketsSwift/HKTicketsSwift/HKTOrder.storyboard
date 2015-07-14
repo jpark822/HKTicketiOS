@@ -269,7 +269,7 @@
                                         <rect key="frame" x="0.0" y="22" width="494" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="plc-DX-Br7" id="UeC-yX-hxs">
-                                            <rect key="frame" x="0.0" y="0.0" width="494" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="494" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fabric" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJR-p6-8Jk">
@@ -353,7 +353,7 @@
                                         <rect key="frame" x="0.0" y="22" width="498" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eKM-UE-gBb" id="W3g-q1-WRU">
-                                            <rect key="frame" x="0.0" y="0.0" width="498" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="498" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuJ-Sh-umk">
