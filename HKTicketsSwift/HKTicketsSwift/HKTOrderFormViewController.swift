@@ -13,7 +13,7 @@ protocol OrderFormViewControllerDelegate {
     func OrderFormViewControllerDidFinishOrder()
 }
 
-class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
+class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, UITextFieldDelegate, CustomerMeasurementChooserDelegate {
     @IBOutlet weak var addShirtButton: UIButton!
     @IBOutlet weak var addPantsButton: UIButton!
     @IBOutlet weak var addJacketButton: UIButton!
@@ -28,6 +28,8 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     var delegate : OrderFormViewControllerDelegate?
     
     var orderItems : [OrderItemInterface] = [];
+    
+    var selectedItemType : OrderItemType? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,37 +60,28 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     }
 
     @IBAction func addShirtButtonPressed(sender: UIButton) {
-        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
-        fabricVC.delegate = self;
-        fabricVC.itemType = OrderItemType.Shirt;
-        self.navigationController?.pushViewController(fabricVC, animated: true);
+        self.selectedItemType = OrderItemType.Shirt;
+        self.presentMeasurementsModal();
     }
     
     @IBAction func addPantsButtonPressed(sender: AnyObject) {
-        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
-        fabricVC.delegate = self;
-        fabricVC.itemType = OrderItemType.Pants;
-        self.navigationController?.pushViewController(fabricVC, animated: true);
+        self.selectedItemType = OrderItemType.Pants;
+        self.presentMeasurementsModal();
     }
 
     @IBAction func addVestButtonPressed(sender: AnyObject) {
-        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
-        fabricVC.delegate = self;
-        fabricVC.itemType = OrderItemType.Vest;
-        self.navigationController?.pushViewController(fabricVC, animated: true);
+        self.selectedItemType = OrderItemType.Vest;
+        self.presentMeasurementsModal();
     }
     
     @IBAction func addJacketButtonPressed(sender: AnyObject) {
-        let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
-        fabricVC.delegate = self;
-        fabricVC.itemType = OrderItemType.Jacket;
-        self.navigationController?.pushViewController(fabricVC, animated: true);
+        self.selectedItemType = OrderItemType.Jacket;
+        self.presentMeasurementsModal();
     }
     
     @IBAction func addSuitPressed(sender: AnyObject) {
-        let suitFabricVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitFabricChooserId") as! SuitFabricChooserViewController;
-        suitFabricVC.delegate = self;
-        self.navigationController?.pushViewController(suitFabricVC, animated: true);
+        self.selectedItemType = OrderItemType.Suit;
+        self.presentMeasurementsModal();
     }
     
     //MARK: OrderFormDelegate methods
@@ -332,5 +325,34 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return true;
+    }
+    
+    func presentMeasurementsModal() {
+        let measurementChooserVC = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
+        measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
+        measurementChooserVC.preferredContentSize = CGSizeMake(450, 300);
+        measurementChooserVC.delegate = self;
+        self.presentViewController(measurementChooserVC, animated: true, completion: nil);
+    }
+    
+    func CustomerMeasurementChooserDidSelectIndex(index: NSInteger) {
+        if (self.presentedViewController != nil) {
+            self.presentedViewController!.dismissViewControllerAnimated(true, completion: nil);
+            self.presentFabricChooser(self.selectedItemType!);
+        }
+    }
+    
+    func presentFabricChooser(orderItemType : OrderItemType) {
+        switch (orderItemType) {
+        case OrderItemType.Shirt, OrderItemType.Pants, OrderItemType.Vest, OrderItemType.Jacket:
+            let fabricVC = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("FabricChooserViewControllerID") as! HKTFabricChooserViewController;
+            fabricVC.delegate = self;
+            fabricVC.itemType = orderItemType;
+            self.navigationController?.pushViewController(fabricVC, animated: true);
+        case OrderItemType.Suit:
+            let suitFabricVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitFabricChooserId") as! SuitFabricChooserViewController;
+            suitFabricVC.delegate = self;
+            self.navigationController?.pushViewController(suitFabricVC, animated: true);
+        }
     }
 }
