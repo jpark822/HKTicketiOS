@@ -10,18 +10,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var customersButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController!.setNavigationBarHidden(true, animated: false);
+        self.customersButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    @IBAction func customOrderPressed(sender: AnyObject) {
-        let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! BaseNavigationController;
-        self.presentViewController(orderFormNav, animated: true, completion: nil);
     }
     
     @IBAction func customersButtonPressed(sender: AnyObject) {

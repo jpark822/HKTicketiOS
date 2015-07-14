@@ -22,17 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sE3-gG-Ade">
-                                <rect key="frame" x="138" y="101" width="492" height="132"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.0" blue="0.035903165119999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Custom Order">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="customOrderPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Plh-ja-hCy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5r-we-AK7">
                                 <rect key="frame" x="133" y="352" width="491" height="88"/>
                                 <color key="backgroundColor" red="0.50980392159999999" green="0.0" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,6 +39,9 @@
                     <navigationItem key="navigationItem" id="9sj-aq-sMI"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="customersButton" destination="m5r-we-AK7" id="yPE-U6-cQ1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
