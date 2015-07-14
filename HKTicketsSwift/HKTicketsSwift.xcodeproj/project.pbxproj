@@ -249,13 +249,13 @@
 				4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */,
 				4E8350981B00E29A00C824C3 /* OrderFormItemCell.swift */,
 				4E1BE0921B0925380092E035 /* OrderOptionCell.swift */,
+				4E57028D1B4CB8C300CAFA63 /* OrderFormNavigationController.swift */,
 				4ED9EFC81B13B39500461EB4 /* OrderItemCell.xib */,
 				4ED9EFC31B124C3200461EB4 /* Pants */,
 				4E8350881AFC12CA00C824C3 /* Shirts */,
 				4EB02B431B27B96900287BCE /* Suit */,
 				4ED9F01A1B1D30B300461EB4 /* Vest */,
 				4ED9F0171B1CF5DB00461EB4 /* Jacket */,
-				4E57028D1B4CB8C300CAFA63 /* OrderFormNavigationController.swift */,
 			);
 			name = Orders;
 			sourceTree = "<group>";

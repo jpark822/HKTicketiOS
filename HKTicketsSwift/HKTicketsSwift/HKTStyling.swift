@@ -9,5 +9,6 @@
 import UIKit
 
 class HKTStyling: NSObject {
-    static var cornerRadiusMedium : CGFloat = 7;
+    static let cornerRadiusMedium : CGFloat = 7;
+    static let darkRed = UIColor(red: 121.0/255.0, green: 0.0/255.0, blue: 3.0/255.0, alpha: 1)
 }
