@@ -16,6 +16,8 @@
 		4E21ED4D1B38F45F00856148 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED481B38F45F00856148 /* MyriadPro-Bold.otf */; };
 		4E21ED4E1B38F45F00856148 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED491B38F45F00856148 /* MyriadPro-Regular.otf */; };
 		4E21ED4F1B38F45F00856148 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E21ED4A1B38F45F00856148 /* MyriadPro-Semibold.otf */; };
+		4E36076E1B5F241B00C67F1D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E36076D1B5F241B00C67F1D /* ServiceManager.swift */; };
+		4E3607701B5F32B900C67F1D /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E36076F1B5F32B900C67F1D /* Customer.swift */; };
 		4E53E8021B431F0B00075AE2 /* CustomerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8011B431F0B00075AE2 /* CustomerSearchViewController.swift */; };
 		4E53E8041B43216100075AE2 /* CustomerSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8031B43216100075AE2 /* CustomerSearchResultTableViewCell.swift */; };
 		4E53E8061B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */; };
@@ -29,7 +31,6 @@
 		4E8350651AFAB18D00C824C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350631AFAB18D00C824C3 /* Main.storyboard */; };
 		4E8350671AFAB18D00C824C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350661AFAB18D00C824C3 /* Images.xcassets */; };
 		4E83506A1AFAB18D00C824C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350681AFAB18D00C824C3 /* LaunchScreen.xib */; };
-		4E8350761AFAB18D00C824C3 /* HKTicketsSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350751AFAB18D00C824C3 /* HKTicketsSwiftTests.swift */; };
 		4E8350801AFAB7D600C824C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83507F1AFAB7D600C824C3 /* HomeViewController.swift */; };
 		4E8350831AFAB91800C824C3 /* HKTOrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8350821AFAB91800C824C3 /* HKTOrderFormViewController.swift */; };
 		4E8350851AFAB94100C824C3 /* HKTOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8350841AFAB94100C824C3 /* HKTOrder.storyboard */; };
@@ -64,19 +65,24 @@
 		4ED9F0261B1F8CCD00461EB4 /* JacketOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0251B1F8CCD00461EB4 /* JacketOrderInfo.swift */; };
 		4ED9F0281B20983000461EB4 /* JacketMeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9F0271B20983000461EB4 /* JacketMeasurementsViewController.swift */; };
 		4EDFF5001B27D9080039AE42 /* SuitFabricChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFF4FF1B27D9080039AE42 /* SuitFabricChooserViewController.swift */; };
+		D176125754A619BA71D236DC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0B3AF83C1B6BE6624FCEAB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4E8350701AFAB18D00C824C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4E83504F1AFAB18D00C824C3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4E8350561AFAB18D00C824C3;
-			remoteInfo = HKTicketsSwift;
+/* Begin PBXCopyFilesBuildPhase section */
+		4E3607731B5F461600C67F1D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		27C4E73D6205C57444A7E52C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3EC5372CB63CF70815F7C92C /* Pods.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.staging.xcconfig; path = "Pods/Target Support Files/Pods/Pods.staging.xcconfig"; sourceTree = "<group>"; };
 		4E1BE0901B0634EA0092E035 /* MeasurementsInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsInterface.swift; sourceTree = "<group>"; };
 		4E1BE0921B0925380092E035 /* OrderOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderOptionCell.swift; sourceTree = "<group>"; };
 		4E21ED421B38DF9100856148 /* HKTColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTColors.swift; sourceTree = "<group>"; };
@@ -86,6 +92,9 @@
 		4E21ED481B38F45F00856148 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		4E21ED491B38F45F00856148 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		4E21ED4A1B38F45F00856148 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		4E36076D1B5F241B00C67F1D /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		4E36076F1B5F32B900C67F1D /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		4E3607711B5F44AA00C67F1D /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods/AFNetworking.framework"; sourceTree = "<group>"; };
 		4E53E8011B431F0B00075AE2 /* CustomerSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerSearchViewController.swift; sourceTree = "<group>"; };
 		4E53E8031B43216100075AE2 /* CustomerSearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerSearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMeasurementChooserModalViewController.swift; sourceTree = "<group>"; };
@@ -94,14 +103,13 @@
 		4E57028D1B4CB8C300CAFA63 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		4E7B32521B2928CF000D9A87 /* SuitFabricTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricTableViewCell.swift; sourceTree = "<group>"; };
 		4E7F4F241B45AA6400BE4380 /* FinishMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishMeasurements.swift; sourceTree = "<group>"; };
-		4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTicketsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E8350571AFAB18D00C824C3 /* HKTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83505B1AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83505C1AFAB18D00C824C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E83505F1AFAB18D00C824C3 /* HKTicketsSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HKTicketsSwift.xcdatamodel; sourceTree = "<group>"; };
 		4E8350641AFAB18D00C824C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E8350661AFAB18D00C824C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E8350691AFAB18D00C824C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4E83506F1AFAB18D00C824C3 /* HKTicketsSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKTicketsSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8350741AFAB18D00C824C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8350751AFAB18D00C824C3 /* HKTicketsSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKTicketsSwiftTests.swift; sourceTree = "<group>"; };
 		4E83507F1AFAB7D600C824C3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +146,8 @@
 		4ED9F0251B1F8CCD00461EB4 /* JacketOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketOrderInfo.swift; sourceTree = "<group>"; };
 		4ED9F0271B20983000461EB4 /* JacketMeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JacketMeasurementsViewController.swift; sourceTree = "<group>"; };
 		4EDFF4FF1B27D9080039AE42 /* SuitFabricChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuitFabricChooserViewController.swift; sourceTree = "<group>"; };
+		6C0B3AF83C1B6BE6624FCEAB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F3EB50F2D435923B144C8CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,22 +156,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E8350931B00D39E00C824C3 /* MessageUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4E83506C1AFAB18D00C824C3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				D176125754A619BA71D236DC /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E36076C1B5F23FD00C67F1D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4E36076D1B5F241B00C67F1D /* ServiceManager.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		4E5234D81B5F128600C40477 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E3607711B5F44AA00C67F1D /* AFNetworking.framework */,
+				4E8350921B00D39E00C824C3 /* MessageUI.framework */,
+				6C0B3AF83C1B6BE6624FCEAB /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E53E8001B431CFA00075AE2 /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				4E36076F1B5F32B900C67F1D /* Customer.swift */,
 				4E53E8011B431F0B00075AE2 /* CustomerSearchViewController.swift */,
 				4E53E8031B43216100075AE2 /* CustomerSearchResultTableViewCell.swift */,
 				4E53E8051B4325BD00075AE2 /* CustomerMeasurementChooserModalViewController.swift */,
@@ -177,15 +200,15 @@
 				4E8350591AFAB18D00C824C3 /* HKTicketsSwift */,
 				4E8350721AFAB18D00C824C3 /* HKTicketsSwiftTests */,
 				4E8350581AFAB18D00C824C3 /* Products */,
-				4E8350921B00D39E00C824C3 /* MessageUI.framework */,
+				4E5234D81B5F128600C40477 /* Frameworks */,
+				CB92340760DB85ECC77B866F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		4E8350581AFAB18D00C824C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */,
-				4E83506F1AFAB18D00C824C3 /* HKTicketsSwiftTests.xctest */,
+				4E8350571AFAB18D00C824C3 /* HKTickets.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +216,7 @@
 		4E8350591AFAB18D00C824C3 /* HKTicketsSwift */ = {
 			isa = PBXGroup;
 			children = (
+				4E36076C1B5F23FD00C67F1D /* Service */,
 				4E53E8001B431CFA00075AE2 /* Customer */,
 				4E83508D1B0023CC00C824C3 /* Common */,
 				4E8350811AFAB8F800C824C3 /* Orders */,
@@ -330,43 +354,39 @@
 			name = Vest;
 			sourceTree = "<group>";
 		};
+		CB92340760DB85ECC77B866F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F3EB50F2D435923B144C8CD /* Pods.debug.xcconfig */,
+				3EC5372CB63CF70815F7C92C /* Pods.staging.xcconfig */,
+				27C4E73D6205C57444A7E52C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E8350561AFAB18D00C824C3 /* HKTicketsSwift */ = {
+		4E8350561AFAB18D00C824C3 /* HKTickets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E8350791AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwift" */;
+			buildConfigurationList = 4E8350791AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTickets" */;
 			buildPhases = (
+				7A28FFEAD1A89F1668A917F1 /* Check Pods Manifest.lock */,
 				4E8350531AFAB18D00C824C3 /* Sources */,
 				4E8350541AFAB18D00C824C3 /* Frameworks */,
 				4E8350551AFAB18D00C824C3 /* Resources */,
+				4E3607731B5F461600C67F1D /* CopyFiles */,
+				78D84838E0C0D9E5554EB493 /* Embed Pods Frameworks */,
+				BDBF451104A29D99B16B94F2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HKTicketsSwift;
+			name = HKTickets;
 			productName = HKTicketsSwift;
-			productReference = 4E8350571AFAB18D00C824C3 /* HKTicketsSwift.app */;
+			productReference = 4E8350571AFAB18D00C824C3 /* HKTickets.app */;
 			productType = "com.apple.product-type.application";
-		};
-		4E83506E1AFAB18D00C824C3 /* HKTicketsSwiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4E83507C1AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwiftTests" */;
-			buildPhases = (
-				4E83506B1AFAB18D00C824C3 /* Sources */,
-				4E83506C1AFAB18D00C824C3 /* Frameworks */,
-				4E83506D1AFAB18D00C824C3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4E8350711AFAB18D00C824C3 /* PBXTargetDependency */,
-			);
-			name = HKTicketsSwiftTests;
-			productName = HKTicketsSwiftTests;
-			productReference = 4E83506F1AFAB18D00C824C3 /* HKTicketsSwiftTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -380,10 +400,7 @@
 				TargetAttributes = {
 					4E8350561AFAB18D00C824C3 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					4E83506E1AFAB18D00C824C3 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 4E8350561AFAB18D00C824C3;
+						DevelopmentTeam = 6NXWRT5NFB;
 					};
 				};
 			};
@@ -400,8 +417,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E8350561AFAB18D00C824C3 /* HKTicketsSwift */,
-				4E83506E1AFAB18D00C824C3 /* HKTicketsSwiftTests */,
+				4E8350561AFAB18D00C824C3 /* HKTickets */,
 			);
 		};
 /* End PBXProject section */
@@ -426,14 +442,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4E83506D1AFAB18D00C824C3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78D84838E0C0D9E5554EB493 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		7A28FFEAD1A89F1668A917F1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDBF451104A29D99B16B94F2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E8350531AFAB18D00C824C3 /* Sources */ = {
@@ -446,11 +503,13 @@
 				4ED9F0281B20983000461EB4 /* JacketMeasurementsViewController.swift in Sources */,
 				4E7B32531B2928CF000D9A87 /* SuitFabricTableViewCell.swift in Sources */,
 				4ED9F0261B1F8CCD00461EB4 /* JacketOrderInfo.swift in Sources */,
+				4E3607701B5F32B900C67F1D /* Customer.swift in Sources */,
 				4ED9F0191B1CF60D00461EB4 /* JacketOrderFormViewController.swift in Sources */,
 				4E83509D1B02412300C824C3 /* ShirtFinishMeasurements.swift in Sources */,
 				4E1BE0931B0925380092E035 /* OrderOptionCell.swift in Sources */,
 				4E8350971B00D7C500C824C3 /* OrderFormDelegate.swift in Sources */,
 				4E83508A1AFC12DD00C824C3 /* AddFabricTableViewCell.swift in Sources */,
+				4E36076E1B5F241B00C67F1D /* ServiceManager.swift in Sources */,
 				4ED9EFCF1B13F9CC00461EB4 /* PantsFinishMeasurements.swift in Sources */,
 				4E8350911B00313700C824C3 /* ShirtOrderInfo.swift in Sources */,
 				4ED9EFCB1B13B87100461EB4 /* PantsOrderFormViewController.swift in Sources */,
@@ -486,23 +545,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4E83506B1AFAB18D00C824C3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E8350761AFAB18D00C824C3 /* HKTicketsSwiftTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4E8350711AFAB18D00C824C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4E8350561AFAB18D00C824C3 /* HKTicketsSwift */;
-			targetProxy = 4E8350701AFAB18D00C824C3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4E8350631AFAB18D00C824C3 /* Main.storyboard */ = {
@@ -610,61 +653,33 @@
 		};
 		4E83507A1AFAB18D00C824C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F3EB50F2D435923B144C8CD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HKTicketsSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		4E83507B1AFAB18D00C824C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27C4E73D6205C57444A7E52C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HKTicketsSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = Release;
-		};
-		4E83507D1AFAB18D00C824C3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HKTicketsSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HKTicketsSwift.app/HKTicketsSwift";
-			};
-			name = Debug;
-		};
-		4E83507E1AFAB18D00C824C3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HKTicketsSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HKTicketsSwift.app/HKTicketsSwift";
 			};
 			name = Release;
 		};
@@ -715,34 +730,18 @@
 		};
 		4ED9F02A1B25E92F00461EB4 /* Staging */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EC5372CB63CF70815F7C92C /* Pods.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = "STAGING=1";
 				INFOPLIST_FILE = HKTicketsSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = Staging;
-		};
-		4ED9F02B1B25E92F00461EB4 /* Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HKTicketsSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HKTicketsSwift.app/HKTicketsSwift";
 			};
 			name = Staging;
 		};
@@ -759,22 +758,12 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E8350791AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwift" */ = {
+		4E8350791AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTickets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E83507A1AFAB18D00C824C3 /* Debug */,
 				4ED9F02A1B25E92F00461EB4 /* Staging */,
 				4E83507B1AFAB18D00C824C3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4E83507C1AFAB18D00C824C3 /* Build configuration list for PBXNativeTarget "HKTicketsSwiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4E83507D1AFAB18D00C824C3 /* Debug */,
-				4ED9F02B1B25E92F00461EB4 /* Staging */,
-				4E83507E1AFAB18D00C824C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

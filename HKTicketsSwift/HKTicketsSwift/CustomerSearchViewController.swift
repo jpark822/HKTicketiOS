@@ -23,7 +23,7 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchButton: UIButton!
     
-    var customerResults : [NSObject] = [];
+    var searchResults : [Customer] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +31,13 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.dataSource = self;
         
         self.searchButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        
     }
     
     //MARK: table view delegate and data source
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : CustomerSearchResultTableViewCell = tableView.dequeueReusableCellWithIdentifier("customerSearchCellId") as! CustomerSearchResultTableViewCell;
-        
+        cell.configureWithCustomer(self.searchResults[indexPath.row]);
         return cell;
     }
     
@@ -45,7 +46,7 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return self.searchResults.count;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -60,5 +61,44 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     func OrderFormViewControllerDidFinishOrder() {
         self.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        
+        var queryParams = Dictionary<CustomerQueryParam, String>()
+        if (firstNameTextField.text != "") {
+            queryParams[CustomerQueryParam.FirstName] = firstNameTextField.text;
+        }
+        if (middleNameTextField.text != "") {
+            queryParams[CustomerQueryParam.MiddleName] = middleNameTextField.text;
+        }
+        if (lastNameTextField.text != "") {
+            queryParams[CustomerQueryParam.LastName] = lastNameTextField.text;
+        }
+        if (addressTextField.text != "") {
+            queryParams[CustomerQueryParam.Address] = addressTextField.text;
+        }
+        if (cityTextField.text != "") {
+            queryParams[CustomerQueryParam.City] = cityTextField.text;
+        }
+        if (stateTextField.text != "") {
+            queryParams[CustomerQueryParam.State] = stateTextField.text;
+        }
+        if (zipTextField.text != "") {
+            queryParams[CustomerQueryParam.Zip] = zipTextField.text;
+        }
+        if (telephoneTextField.text != "") {
+            queryParams[CustomerQueryParam.Phone] = telephoneTextField.text;
+        }
+        if (emailTextField.text != "") {
+            queryParams[CustomerQueryParam.Email] = emailTextField.text;
+        }
+        
+        ServiceManager.sharedManager.getCustomersBySearchParameters(queryParams, success: { (searchResults) -> () in
+            self.searchResults = searchResults;
+            self.tableView .reloadData();
+            }) { (error) -> () in
+                NSLog("search failed");
+        }
     }
 }
