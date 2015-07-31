@@ -164,7 +164,7 @@
         <!--Base Navigation Controller-->
         <scene sceneID="zPq-C6-cUL">
             <objects>
-                <navigationController storyboardIdentifier="OrderFormRootNavigationID" id="hzD-ZT-cct" customClass="BaseNavigationController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OrderFormRootNavigationID" id="hzD-ZT-cct" customClass="BaseNavigationController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eoW-Ht-Cpq">
@@ -182,7 +182,7 @@
         <!--Custom Order Form For Neil Balani-->
         <scene sceneID="xFS-gz-S8R">
             <objects>
-                <viewController id="x2T-Lg-eXN" customClass="HKTOrderFormViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x2T-Lg-eXN" customClass="HKTOrderFormViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cm6-Uy-YE2"/>
                         <viewControllerLayoutGuide type="bottom" id="p23-5T-FNg"/>
@@ -265,7 +265,7 @@
                                 <rect key="frame" x="274" y="0.0" width="494" height="960"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderFormCellId" id="plc-DX-Br7" customClass="OrderFormItemCell" customModule="HKTicketsSwift" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderFormCellId" id="plc-DX-Br7" customClass="OrderFormItemCell" customModule="HKTickets" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="494" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="plc-DX-Br7" id="UeC-yX-hxs">
@@ -340,7 +340,7 @@
         <!--Choose Fabrics-->
         <scene sceneID="z99-QM-p98">
             <objects>
-                <viewController storyboardIdentifier="FabricChooserViewControllerID" id="BaB-5H-UiU" customClass="HKTFabricChooserViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FabricChooserViewControllerID" id="BaB-5H-UiU" customClass="HKTFabricChooserViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IHg-h5-fI2"/>
                         <viewControllerLayoutGuide type="bottom" id="Rsn-Pl-jcV"/>
@@ -353,7 +353,7 @@
                                 <rect key="frame" x="270" y="0.0" width="498" height="960"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fabricCellId" id="eKM-UE-gBb" customClass="AddFabricTableViewCell" customModule="HKTicketsSwift" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fabricCellId" id="eKM-UE-gBb" customClass="AddFabricTableViewCell" customModule="HKTickets" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="498" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eKM-UE-gBb" id="W3g-q1-WRU">
@@ -434,7 +434,7 @@
         <!--HKT Custom Shirt Order Form-->
         <scene sceneID="DuM-JL-h7e">
             <objects>
-                <viewController storyboardIdentifier="shirtOrderFormId" id="SGe-vM-URH" customClass="ShirtOrderFormViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shirtOrderFormId" id="SGe-vM-URH" customClass="ShirtOrderFormViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H2F-bO-3fU"/>
                         <viewControllerLayoutGuide type="bottom" id="7wq-Rm-ets"/>
@@ -667,7 +667,7 @@
         <!--Custom Pants Order Form-->
         <scene sceneID="dl4-FB-Tgr">
             <objects>
-                <viewController storyboardIdentifier="PantsOrderFormID" id="TJz-64-NJ9" customClass="PantsOrderFormViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PantsOrderFormID" id="TJz-64-NJ9" customClass="PantsOrderFormViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="26l-EW-W3J"/>
                         <viewControllerLayoutGuide type="bottom" id="g3Q-xI-Tvr"/>
@@ -787,7 +787,7 @@
         <!--Custom Jacket Order Form-->
         <scene sceneID="Zmc-uh-3fX">
             <objects>
-                <viewController storyboardIdentifier="jacketOrderFormId" id="2PX-s1-F2g" customClass="JacketOrderFormViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jacketOrderFormId" id="2PX-s1-F2g" customClass="JacketOrderFormViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kPo-Ae-S5e"/>
                         <viewControllerLayoutGuide type="bottom" id="gbg-g3-wWZ"/>
@@ -1027,7 +1027,7 @@
         <!--Jacket Measurements-->
         <scene sceneID="aSa-Jc-Lyl">
             <objects>
-                <viewController storyboardIdentifier="jacketMeasurementsId" id="3gM-w2-GC8" customClass="JacketMeasurementsViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jacketMeasurementsId" id="3gM-w2-GC8" customClass="JacketMeasurementsViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lvx-ch-6PU"/>
                         <viewControllerLayoutGuide type="bottom" id="adq-Nt-MrJ"/>
@@ -1292,7 +1292,7 @@
         <!--Custom Vest Order Form-->
         <scene sceneID="QHa-Wl-7dW">
             <objects>
-                <viewController storyboardIdentifier="vestOrderFormId" id="ng1-zm-mzM" customClass="VestOrderFormViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vestOrderFormId" id="ng1-zm-mzM" customClass="VestOrderFormViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZpT-29-TEu"/>
                         <viewControllerLayoutGuide type="bottom" id="I2o-It-bty"/>
@@ -1389,7 +1389,7 @@
         <!--Vest Measurements-->
         <scene sceneID="cXV-RW-6gA">
             <objects>
-                <viewController storyboardIdentifier="vestMeasurementId" id="I6n-nl-oef" customClass="VestMeasurementViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vestMeasurementId" id="I6n-nl-oef" customClass="VestMeasurementViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lnO-cZ-Ege"/>
                         <viewControllerLayoutGuide type="bottom" id="T7q-Zz-DaT"/>
@@ -1509,7 +1509,7 @@
         <!--Pant Measurements-->
         <scene sceneID="v0q-lt-Pfn">
             <objects>
-                <viewController storyboardIdentifier="PantsMeasurementsControllerId" id="zw9-F6-gR8" customClass="PantMeasurementViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PantsMeasurementsControllerId" id="zw9-F6-gR8" customClass="PantMeasurementViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bZ6-sp-suT"/>
                         <viewControllerLayoutGuide type="bottom" id="50E-w0-cc5"/>
@@ -1715,7 +1715,7 @@
         <!--Shirt Measurements-->
         <scene sceneID="WWg-YM-ZdY">
             <objects>
-                <viewController storyboardIdentifier="ShirtMeasurementsControllerId" id="byO-g5-I2F" customClass="ShirtMeasurementsViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShirtMeasurementsControllerId" id="byO-g5-I2F" customClass="ShirtMeasurementsViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ks4-bc-w5Q"/>
                         <viewControllerLayoutGuide type="bottom" id="q6H-lu-umi"/>

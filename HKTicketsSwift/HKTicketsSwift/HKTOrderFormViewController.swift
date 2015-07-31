@@ -14,6 +14,7 @@ protocol OrderFormViewControllerDelegate {
 }
 
 class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, UITextFieldDelegate, CustomerMeasurementChooserDelegate {
+    
     @IBOutlet weak var addShirtButton: UIButton!
     @IBOutlet weak var addPantsButton: UIButton!
     @IBOutlet weak var addJacketButton: UIButton!
@@ -24,6 +25,8 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     @IBOutlet weak var oldOrderNumberTextField: UITextField!
     @IBOutlet weak var newOrderNumberTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
+    var customer : Customer = Customer();
     
     var delegate : OrderFormViewControllerDelegate?
     

@@ -9,6 +9,9 @@
 import UIKit
 
 class BodyMeasurements: NSObject, MeasurementsInterface {
+    
+    var measurementId : String = "";
+    
     var chest : String = "";
     var waist = "";
     var hips = "";
@@ -52,19 +55,4 @@ class BodyMeasurements: NSObject, MeasurementsInterface {
         
         return myString;
     }
-    
-//no longer needed?
-//    func convertToShirtMailingString() -> String {
-//        var myString = "";
-//        myString += "Chest: \(self.chest) \n";
-//        myString += "Waist: \(self.waist) \n";
-//        myString += "Hips: \(self.hips) \n";
-//        myString += "Shoulders: \(self.shoulders) \n";
-//        myString += "Sleeve Length: \(self.sleeveLength) \n";
-//        myString += "Lenght of Shirt: \(self.shirtLength) \n";
-//        myString += "Wrist: \(self.wrist) \n";
-//        myString += "Neck Size: \(self.neckSize) \n";
-//        
-//        return myString;
-//    }
 }

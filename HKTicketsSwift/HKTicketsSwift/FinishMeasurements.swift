@@ -9,6 +9,8 @@
 import UIKit
 
 class FinishMeasurements: NSObject {
+    var measurementId : String = ""
+    var name : String = "";
     var chest : String = ""
     var waist : String = ""
     var hips : String = ""

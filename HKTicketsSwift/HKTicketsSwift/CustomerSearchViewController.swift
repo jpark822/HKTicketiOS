@@ -23,6 +23,9 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchButton: UIButton!
     
+    @IBOutlet weak var viewMeasurementsButton: UIButton!
+    @IBOutlet weak var newOrderButton: UIButton!
+    
     var searchResults : [Customer] = [];
     
     override func viewDidLoad() {
@@ -31,11 +34,35 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.dataSource = self;
         
         self.searchButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.viewMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.newOrderButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
         
+    }
+    
+    @IBAction func openMeasurementsPressed(sender: AnyObject) {
+        
+        let selectedRow = self.tableView.indexPathForSelectedRow?.row;
+        if (selectedRow != nil) {
+            let orderFormNav : UINavigationController = UIStoryboard(name: "Measurements", bundle: nil).instantiateViewControllerWithIdentifier("measurementsRootNavId") as! BaseNavigationController;
+            (orderFormNav.viewControllers[0] as! CustomerMeasurementsViewController).customer = self.searchResults[selectedRow!];
+            self.presentViewController(orderFormNav, animated: true, completion: nil);
+        }
+
+    }
+    
+    @IBAction func newOrderPressed(sender: AnyObject) {
+        let selectedRow = self.tableView.indexPathForSelectedRow?.row;
+        if (selectedRow != nil) {
+            let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! BaseNavigationController;
+            (orderFormNav.viewControllers[0] as! HKTOrderFormViewController).delegate = self;
+            (orderFormNav.viewControllers[0] as! HKTOrderFormViewController).customer = self.searchResults[selectedRow!];
+            self.presentViewController(orderFormNav, animated: true, completion: nil);
+        }
     }
     
     //MARK: table view delegate and data source
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell : CustomerSearchResultTableViewCell = tableView.dequeueReusableCellWithIdentifier("customerSearchCellId") as! CustomerSearchResultTableViewCell;
         cell.configureWithCustomer(self.searchResults[indexPath.row]);
         return cell;
@@ -50,9 +77,8 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let orderFormNav : UINavigationController = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("OrderFormRootNavigationID") as! BaseNavigationController;
-        (orderFormNav.viewControllers[0] as! HKTOrderFormViewController).delegate = self;
-        self.presentViewController(orderFormNav, animated: true, completion: nil);
+        self.viewMeasurementsButton.enabled = true;
+        self.newOrderButton.enabled = true;
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -64,6 +90,8 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
+        self.viewMeasurementsButton.enabled = false;
+        self.newOrderButton.enabled = false;
         
         var queryParams = Dictionary<CustomerQueryParam, String>()
         if (firstNameTextField.text != "") {
@@ -97,6 +125,7 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
         ServiceManager.sharedManager.getCustomersBySearchParameters(queryParams, success: { (searchResults) -> () in
             self.searchResults = searchResults;
             self.tableView .reloadData();
+            NSLog("%i customer search results", self.searchResults.count);
             }) { (error) -> () in
                 NSLog("search failed");
         }
