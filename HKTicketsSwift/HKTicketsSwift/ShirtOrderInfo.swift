@@ -59,12 +59,25 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
         case BoxPleat = "Box Pleat"
         case SinglePleat = "Single Pleat"
     }
+    enum MonogramPattern : String {
+        case Eleven = "11"
+        case Twelve = "12"
+        case Twenty = "20"
+        case TwentyOne = "21"
+        case TwentyTwo = "22"
+        case TwentyThree = "23"
+        case ThirtyEight = "38"
+        case ThirtyNine = "39"
+        case Fourty = "40"
+        case None = "No Monogram"
+    }
     
     var itemType = OrderItemType.Shirt;
     var frontCollarLength : String! = "";
     var backCollarLength : String! = "";
     var buttonOnPlacket : Bool = false;
     var convertibleCuff : Bool = false;
+    var hasMonogram : Bool = true;
     var monogram : String! = "";
     var monogramColor : String! = "";
     var fabric : String = "";
@@ -77,6 +90,7 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
     var cuffs : Cuffs! = .C1;
     var shirtFront : ShirtFront! = .Placket;
     var shirtBack : ShirtBack! = .Plain;
+    var monogramPattern : MonogramPattern! = .None;
     
     var bodyMeasurements : BodyMeasurements?;
     var finishMeasurements : ShirtFinishMeasurements?;

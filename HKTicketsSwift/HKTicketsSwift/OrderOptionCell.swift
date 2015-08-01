@@ -134,6 +134,33 @@ class OrderOptionCell: UICollectionViewCell {
         }
     }
     
+    func configureCellWithOption(option : ShirtOrderInfo.MonogramPattern) {
+        self.optionLabel.text = option.rawValue;
+        
+        switch option {
+        case ShirtOrderInfo.MonogramPattern.Eleven:
+            self.optionImage.image = UIImage(named: "monogram_11");
+        case ShirtOrderInfo.MonogramPattern.Twelve:
+            self.optionImage.image = UIImage(named: "monogram_12");
+        case ShirtOrderInfo.MonogramPattern.Twenty:
+            self.optionImage.image = UIImage(named: "monogram_20");
+        case ShirtOrderInfo.MonogramPattern.TwentyOne:
+            self.optionImage.image = UIImage(named: "monogram_21");
+        case ShirtOrderInfo.MonogramPattern.TwentyTwo:
+            self.optionImage.image = UIImage(named: "monogram_22");
+        case ShirtOrderInfo.MonogramPattern.TwentyThree:
+            self.optionImage.image = UIImage(named: "monogram_23");
+        case ShirtOrderInfo.MonogramPattern.ThirtyEight:
+            self.optionImage.image = UIImage(named: "monogram_38");
+        case ShirtOrderInfo.MonogramPattern.ThirtyNine:
+            self.optionImage.image = UIImage(named: "monogram_39");
+        case ShirtOrderInfo.MonogramPattern.Fourty:
+            self.optionImage.image = UIImage(named: "monogram_40");
+        case ShirtOrderInfo.MonogramPattern.None:
+            self.optionImage.image = UIImage(named: "monogram_none");
+        }
+    }
+    
     func configureCellWithOption(option : PantsOrderInfo.Pleat) {
         self.optionLabel.text = option.rawValue;
         switch option {

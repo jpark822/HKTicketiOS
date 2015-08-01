@@ -34,10 +34,15 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
 
     @IBOutlet weak var shirtBackCollectionView: UICollectionView!
     
+    @IBOutlet weak var monogramSwitch: UISwitch!
+    @IBOutlet weak var monogramCollectionView: UICollectionView!
     @IBOutlet weak var monogramTextField: UITextField!
     @IBOutlet weak var monogramColorTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
     @IBOutlet weak var moveToMeasurementsButton: UIButton!
+    @IBOutlet weak var monogramContainerView: UIView!
+    
+    var monogramContainerFrame : CGRect?
     
     var fabrics : [String]?;
     var collarOptions : [ShirtOrderInfo.Collar]! = [ShirtOrderInfo.Collar.ClosePoint,
@@ -83,6 +88,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         ShirtOrderInfo.ShirtBack.BoxPleat,
         ShirtOrderInfo.ShirtBack.SinglePleat];
     
+    var monogramOptions : [ShirtOrderInfo.MonogramPattern]! = [ShirtOrderInfo.MonogramPattern.Eleven, ShirtOrderInfo.MonogramPattern.Twelve, ShirtOrderInfo.MonogramPattern.Twenty, ShirtOrderInfo.MonogramPattern.TwentyOne, ShirtOrderInfo.MonogramPattern.TwentyTwo, ShirtOrderInfo.MonogramPattern.TwentyThree, ShirtOrderInfo.MonogramPattern.ThirtyEight, ShirtOrderInfo.MonogramPattern.ThirtyNine, ShirtOrderInfo.MonogramPattern.Fourty];
+    
     //If editing, this will not be nil
     var editShirtinfo : ShirtOrderInfo?;
     @IBOutlet weak var fabricTextBox: UITextField!
@@ -90,12 +97,16 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.scrollView.contentSize = CGSizeMake(768, 2800);
+        self.scrollView.contentSize = CGSizeMake(768, 3485);
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
         self.buttonPlacketSwitch.onTintColor = UIColor.HKTRed();
         self.convertibleSwitch.onTintColor = UIColor.HKTRed();
         self.moveToMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        self.monogramSwitch.onTintColor = UIColor.HKTRed();
+        
+        self.monogramSwitch.addTarget(self, action: "setState:", forControlEvents: UIControlEvents.ValueChanged);
+        self.monogramContainerFrame = self.monogramContainerView.frame;
         
         self.collarCollectionView.delegate = self;
         self.collarCollectionView.dataSource = self;
@@ -109,6 +120,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.shirtFrontCollectionView.dataSource = self;
         self.shirtBackCollectionView.delegate = self;
         self.shirtBackCollectionView.dataSource = self;
+        self.monogramCollectionView.delegate = self;
+        self.monogramCollectionView.dataSource = self;
         
         let orderItemCellNib = UINib(nibName: "OrderItemCell", bundle: nil);
         self.collarCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
@@ -117,6 +130,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.cuffsCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
         self.shirtFrontCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
         self.shirtBackCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
+        self.monogramCollectionView.registerNib(orderItemCellNib, forCellWithReuseIdentifier: "orderItemCellId");
         
         self.frontLengthTextField.delegate = self;
         self.backLengthTextField.delegate = self;
@@ -137,7 +151,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             self.cuffsCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
             self.shirtFrontCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
             self.shirtBackCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
-            
+            self.monogramCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
             self.navigationItem.rightBarButtonItem = nil;
         }
     }
@@ -165,6 +179,15 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         }
         if let shirtBackIndex = self.shirtBackOptions.indexOf(self.editShirtinfo!.shirtBack) {
             self.shirtBackCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: shirtBackIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+        }
+        if (self.editShirtinfo!.hasMonogram) {
+            if let monogramIndex = self.monogramOptions.indexOf(self.editShirtinfo!.monogramPattern) {
+                self.monogramCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: monogramIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+            }
+        }
+        else {
+            self.monogramSwitch.on = false;
+            self.monogramCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
         self.frontLengthTextField.text = self.editShirtinfo!.frontCollarLength;
         self.backLengthTextField.text = self.editShirtinfo!.backCollarLength;
@@ -222,6 +245,16 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             self.view.frame = frame;
             }, completion: nil)
     }
+    
+    func setState(sender : UISwitch)
+    {
+        if (sender.on) {
+            self.monogramContainerView.frame = self.monogramContainerFrame!;
+        }
+        else {
+            self.monogramContainerView.frame = CGRectZero;
+        }
+    }
 
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true);
@@ -251,8 +284,18 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
                 shirtOrder.backCollarLength = self.backLengthTextField.text;
                 shirtOrder.buttonOnPlacket = self.buttonPlacketSwitch.on;
                 shirtOrder.convertibleCuff = self.convertibleSwitch.on;
-                shirtOrder.monogram = self.monogramTextField.text;
-                shirtOrder.monogramColor = self.monogramColorTextField.text;
+                shirtOrder.hasMonogram = self.monogramSwitch.on;
+                if (shirtOrder.hasMonogram) {
+                    shirtOrder.monogram = self.monogramTextField.text;
+                    shirtOrder.monogramColor = self.monogramColorTextField.text;
+                    var selectedMonogramIndexes = self.monogramCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
+                    shirtOrder.monogramPattern = self.monogramOptions[selectedMonogramIndexes[0].row];
+                }
+                else {
+                    shirtOrder.monogram = "";
+                    shirtOrder.monogramColor = "";
+                    shirtOrder.monogramPattern = ShirtOrderInfo.MonogramPattern.None;
+                }
                 shirtOrder.fabric = fabric;
                 shirtOrder.notes = self.notesTextField.text;
                 
@@ -288,13 +331,25 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             var selectedShirtFrontIndexes = self.shirtFrontCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.shirtFront = self.shirtFrontOptions[selectedShirtFrontIndexes[0].row];
             var selectedShirtBackIndexes = self.shirtBackCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
+            
+            shirtToEdit.hasMonogram = self.monogramSwitch.on;
+            if (shirtToEdit.hasMonogram) {
+                shirtToEdit.monogram = self.monogramTextField.text;
+                shirtToEdit.monogramColor = self.monogramColorTextField.text;
+                var selectedMonogramIndexes = self.monogramCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
+                shirtToEdit.monogramPattern = self.monogramOptions[selectedMonogramIndexes[0].row];
+            }
+            else {
+                shirtToEdit.monogram = "";
+                shirtToEdit.monogramColor = "";
+                shirtToEdit.monogramPattern = ShirtOrderInfo.MonogramPattern.None;
+            }
+            
             shirtToEdit.shirtBack = self.shirtBackOptions[selectedShirtBackIndexes[0].row];
             shirtToEdit.frontCollarLength = self.frontLengthTextField.text;
             shirtToEdit.backCollarLength = self.backLengthTextField.text;
             shirtToEdit.buttonOnPlacket = self.buttonPlacketSwitch.on;
             shirtToEdit.convertibleCuff = self.convertibleSwitch.on;
-            shirtToEdit.monogram = self.monogramTextField.text;
-            shirtToEdit.monogramColor = self.monogramColorTextField.text;
             shirtToEdit.fabric = self.fabricTextBox.text!;
             shirtToEdit.notes = self.notesTextField.text;
         }
@@ -322,6 +377,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             orderOptionCell.configureCellWithOption(self.shirtFrontOptions[indexPath.row]);
         case self.shirtBackCollectionView:
             orderOptionCell.configureCellWithOption(self.shirtBackOptions[indexPath.row]);
+        case self.monogramCollectionView:
+            orderOptionCell.configureCellWithOption(self.monogramOptions[indexPath.row]);
         default:
             print("no item for option");
         }
@@ -347,6 +404,9 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         }
         else if (collectionView == self.shirtBackCollectionView) {
             return self.shirtBackOptions.count;
+        }
+        else if (collectionView == self.monogramCollectionView) {
+            return self.monogramOptions.count;
         }
         return 0;
     }
