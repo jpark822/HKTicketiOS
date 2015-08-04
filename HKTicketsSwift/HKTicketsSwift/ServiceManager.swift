@@ -26,6 +26,12 @@ class ServiceManager: NSObject {
     
     var sessionManager : AFHTTPSessionManager = AFHTTPSessionManager()
     
+    //common keys
+    let kMeasurementTypeKey = "type"
+    let kMeasurementBodyTypeKey = "body"
+    let kMeasurementFinishTypeKey = "finish"
+    let kValueKey = "value"
+    
     //id most likely needs changing
     let kFinishIdKey = "id";
     let kFinishChestKey = "finish_chest";
@@ -51,7 +57,7 @@ class ServiceManager: NSObject {
     let kFinishPantInseamKey = "finish_pant_inseam";
     
     //id most likely needs changing
-    let kBodyIdKey = "id";
+    let kCustomerIdKey = "customerId";
     let kBodyChestKey = "body_chest";
     let kBodyWaistKey = "body_waist";
     let kBodyHipsKey = "body_hips";
@@ -71,6 +77,10 @@ class ServiceManager: NSObject {
     let kBodyBicepKey = "body_bicep";
     let kBodyArmHoleKey = "body_arm_hole";
     let kBodyBellyKey = "body_belly";
+    
+    //endpoints
+    let kMeasurementEndpoint = "Measurements";
+    let kCustomersEndpoint = "Customers";
     
     override init() {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration();
@@ -181,7 +191,129 @@ class ServiceManager: NSObject {
         success([finish, finish2]);
     }
     
-    func addFinishMeasurementsForCustomer(_customerId : String, finishMeasurements : FinishMeasurements, success : ((responseDict : Dictionary<String, AnyObject>) -> ()), failure : (NSError!) -> ()) {
+    func postNewFinishMeasurementsForCustomer(_customerId : String, finishMeasurements : FinishMeasurements, success : ((responseDict : Dictionary<String, AnyObject>) -> ()), failure : (NSError!) -> ()) {
+        var postBody = self.covertFinishMeasurementsToDictionary(finishMeasurements);
+        postBody[kCustomerIdKey] = "\(_customerId)";
+    }
+    
+    func getFinishMeasurementsForCustomer(_customerId : String, finishMeasurements : FinishMeasurements, success : (([FinishMeasurements]) -> ()), failure : (NSError!) -> ()) {
+        
+        self.sessionManager .GET(kMeasurementEndpoint, parameters: [kCustomerIdKey : _customerId], success: { (dataTask : NSURLSessionDataTask!, response : AnyObject!) -> Void in
+            let convertedMeasurements = self.convertResponseToFinishMeasurements(response as! Dictionary<String, AnyObject>)
+            success(convertedMeasurements);
+            }) { (dataTask : NSURLSessionDataTask!, error : NSError!) -> Void in
+                
+        }
+    }
+    
+    func postBodyMeasurementsForCustomer(_customerId : Int, bodyMeasurements : BodyMeasurements, success : ((responseDict : Dictionary<String, AnyObject>) -> ()), failure : (NSError!) -> ()) {
+        
+        var postBody = Dictionary<String, AnyObject>();
+        postBody[kValueKey] = self.covertBodyMeasurementsToDictionary(bodyMeasurements);
+        postBody[kCustomerIdKey] = "\(_customerId)";
+        postBody[kMeasurementTypeKey] = kMeasurementBodyTypeKey
+        
+
+        self.sessionManager.POST("Measurements", parameters: postBody, success: { (dataTask : NSURLSessionDataTask!, response : AnyObject!) -> Void in
+            success(responseDict: response as! Dictionary<String, AnyObject>);
+            }) { (dataTask : NSURLSessionDataTask!, error : NSError!) -> Void in
+                failure(error);
+        }
+    }
+    
+    //MARK: Utilities for converting measurements and request bodies
+    func convertResponseToBodyMeasurements(_response : Dictionary<String, AnyObject>) -> BodyMeasurements {
+        let body = BodyMeasurements();
+        
+        if let responseObject : AnyObject = _response["measurements"] {
+            if let response = responseObject as? Dictionary<String, String> {
+                body.chest = response[kBodyChestKey] ?? "";
+                body.waist = response[kBodyWaistKey] ?? "";
+                body.hips = response[kBodyHipsKey] ?? "";
+                body.shoulders = response[kBodyShouldersKey] ?? "";
+                body.seat = response[kBodySeatKey] ?? "";
+                body.crotch = response[kBodyCrotchKey] ?? "";
+                body.actualThigh = response[kBodyActualThighKey] ?? "";
+                body.outseam = response[kBodyOutseamKey] ?? "";
+                body.inseam = response[kBodyInseamKey] ?? "";
+                body.shirtSleeveLength = response[kBodyShirtSleeveLengthKey] ?? "";
+                body.jacketSleeveLength = response[kBodyJacketSleeveLengthKey] ?? "";
+                body.shirtLength = response[kBodyShirtLengthKey] ?? "";
+                body.wrist = response[kBodyWristKey] ?? "";
+                body.neckSize = response[kBodyNeckSizeKey] ?? "";
+                body.jacketLength = response[kBodyJacketLengthKey] ?? "";
+                body.jacketWidth = response[kBodyJacketWidthKey] ?? "";
+                body.bicep = response[kBodyBicepKey] ?? "";
+                body.armHole = response[kBodyArmHoleKey] ?? "";
+                body.belly = response[kBodyBellyKey] ?? "";
+            }
+        }
+        return body;
+    }
+    
+    func convertResponseToFinishMeasurements(_response : Dictionary<String, AnyObject>) -> [FinishMeasurements] {
+        var finishMeasurements : [FinishMeasurements] = [];
+        
+        if let measurements : AnyObject = _response["measurements"] {
+            if let measurementArray = measurements as? [Dictionary<String, String>]  {
+                for measurementDict : Dictionary<String, String> in measurementArray {
+                    let finishMeasurement : FinishMeasurements = FinishMeasurements();
+                    finishMeasurement.chest = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.waist = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.hips = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.shoulders = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.shirtSleeveLength = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.shirtCuff = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.shirtNeck = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.shirtWidth6Below = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.shirtWidth12Below = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.vestBackLength = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.vestFrontLength = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.jacketSleeveLength = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.jacketHalfShoulder = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.jacketLength = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.jacketSleeveWidth = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.pantSeat = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.pantCrotch = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.pant1623below = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.pantBottomCuff = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.pantOutseam = measurementDict[kFinishChestKey] ?? "";
+                    finishMeasurement.pantInseam = measurementDict[kFinishChestKey] ?? "";
+                    
+                    finishMeasurements.append(finishMeasurement);
+                }
+            }
+        }
+        
+        return finishMeasurements;
+    }
+    
+    func covertBodyMeasurementsToDictionary(bodyMeasurements : BodyMeasurements) -> Dictionary<String, String> {
+        var dictionary : Dictionary<String, String> = Dictionary<String, String>();
+        dictionary[kBodyChestKey] = bodyMeasurements.chest
+        dictionary[kBodyWaistKey] = bodyMeasurements.waist
+        dictionary[kBodyHipsKey] = bodyMeasurements.hips
+        dictionary[kBodyShouldersKey] = bodyMeasurements.shoulders
+        dictionary[kBodySeatKey] = bodyMeasurements.seat
+        dictionary[kBodyCrotchKey] = bodyMeasurements.crotch
+        dictionary[kBodyActualThighKey] = bodyMeasurements.actualThigh
+        dictionary[kBodyOutseamKey] = bodyMeasurements.outseam
+        dictionary[kBodyInseamKey] = bodyMeasurements.inseam
+        dictionary[kBodyShirtSleeveLengthKey] = bodyMeasurements.shirtSleeveLength
+        dictionary[kBodyJacketSleeveLengthKey] = bodyMeasurements.jacketSleeveLength
+        dictionary[kBodyShirtLengthKey] = bodyMeasurements.shirtLength
+        dictionary[kBodyWristKey] = bodyMeasurements.wrist
+        dictionary[kBodyNeckSizeKey] = bodyMeasurements.neckSize
+        dictionary[kBodyJacketLengthKey] = bodyMeasurements.jacketLength
+        dictionary[kBodyJacketWidthKey] = bodyMeasurements.jacketWidth
+        dictionary[kBodyBicepKey] = bodyMeasurements.bicep
+        dictionary[kBodyArmHoleKey] = bodyMeasurements.armHole
+        dictionary[kBodyBellyKey] = bodyMeasurements.belly
+        
+        return dictionary;
+    }
+    
+    func covertFinishMeasurementsToDictionary(finishMeasurements : FinishMeasurements) -> Dictionary<String, String> {
         var postBody = Dictionary<String, String>();
         postBody[kFinishChestKey] = finishMeasurements.chest;
         postBody[kFinishWaistKey] = finishMeasurements.waist;
@@ -204,33 +336,8 @@ class ServiceManager: NSObject {
         postBody[kFinishPantBottomCuffKey] = finishMeasurements.pantBottomCuff;
         postBody[kFinishPantOutseamKey] = finishMeasurements.pantOutseam;
         postBody[kFinishPantInseamKey] = finishMeasurements.pantInseam;
-    }
-    
-    func setBodyMeasurementsForCustomer(_customerId : String, bodyMeasurements : BodyMeasurements, success : ((responseDict : Dictionary<String, AnyObject>) -> ()), failure : (NSError!) -> ()) {
         
-        var postBody = Dictionary<String, String>();
-        postBody[kBodyIdKey] = bodyMeasurements.measurementId
-        postBody[kBodyChestKey] = bodyMeasurements.chest
-        postBody[kBodyWaistKey] = bodyMeasurements.waist
-        postBody[kBodyHipsKey] = bodyMeasurements.hips
-        postBody[kBodyShouldersKey] = bodyMeasurements.shoulders
-        postBody[kBodySeatKey] = bodyMeasurements.seat
-        postBody[kBodyCrotchKey] = bodyMeasurements.crotch
-        postBody[kBodyActualThighKey] = bodyMeasurements.actualThigh
-        postBody[kBodyOutseamKey] = bodyMeasurements.outseam
-        postBody[kBodyInseamKey] = bodyMeasurements.inseam
-        postBody[kBodyShirtSleeveLengthKey] = bodyMeasurements.shirtSleeveLength
-        postBody[kBodyJacketSleeveLengthKey] = bodyMeasurements.jacketSleeveLength
-        postBody[kBodyShirtLengthKey] = bodyMeasurements.shirtLength
-        postBody[kBodyWristKey] = bodyMeasurements.wrist
-        postBody[kBodyNeckSizeKey] = bodyMeasurements.neckSize
-        postBody[kBodyJacketLengthKey] = bodyMeasurements.jacketLength
-        postBody[kBodyJacketWidthKey] = bodyMeasurements.jacketWidth
-        postBody[kBodyBicepKey] = bodyMeasurements.bicep
-        postBody[kBodyArmHoleKey] = bodyMeasurements.armHole
-        postBody[kBodyBellyKey] = bodyMeasurements.belly
-        
-        
+        return postBody;
     }
     
 }

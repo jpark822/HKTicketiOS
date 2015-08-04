@@ -99,6 +99,12 @@ class CustomerMeasurementsViewController: UIViewController, UITableViewDelegate,
         body.neckSize = self.neckTextField.text!
         body.shirtSleeveLength = self.shirtSleeveLengthTextField.text!
         body.jacketSleeveLength = self.jacketSleeveTextField.text!
+        
+        ServiceManager.sharedManager.postBodyMeasurementsForCustomer(self.customer.customerId, bodyMeasurements: body, success: { (responseDict : Dictionary<String, AnyObject>) -> () in
+            
+            }) { (error : NSError!) -> () in
+                NSLog(error.description);
+        }
     }
     
     @IBAction func addNewFinishMeasurementPressed(sender: AnyObject) {
