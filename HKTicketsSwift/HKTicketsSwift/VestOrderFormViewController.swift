@@ -32,7 +32,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customerNameLabel.text = "\(self.delegate?.getCustomer().firstName) \(self.delegate?.getCustomer().lastName)"
+        self.customerNameLabel.text = "\(self.delegate!.getCustomer().firstName) \(self.delegate!.getCustomer().lastName)"
         self.noteTextView.layer.borderColor = UIColor.blackColor().CGColor;
         self.noteTextView.layer.borderWidth = 1;
         self.moveToMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;

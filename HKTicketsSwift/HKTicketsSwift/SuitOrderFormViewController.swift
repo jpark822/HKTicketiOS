@@ -89,7 +89,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.customerNameLabel.text = "\(self.delegate?.getCustomer().firstName) \(self.delegate?.getCustomer().lastName)"
+        self.customerNameLabel.text = "\(self.delegate!.getCustomer().firstName) \(self.delegate!.getCustomer().lastName)"
         
         self.ticketPocketSwitch.onTintColor = UIColor.HKTRed();
         self.buttonHoleLapelSwitch.onTintColor = UIColor.HKTRed();

@@ -106,13 +106,15 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
 
         myString += convertibleCuff == true ? "Convertible Cuff: Yes \n" : "Convertible Cuff: No \n";
         
-        if (self.monogram.characters.count > 0) {
-            myString += "Monogram: \(self.monogram) \n";
+        if (self.hasMonogram) {
+            myString += "Monogram Pattern: \(self.monogramPattern.rawValue) \n"
+            if (self.monogram.characters.count > 0) {
+                myString += "Monogram: \(self.monogram) \n";
+            }
+            if (self.monogramColor.characters.count > 0) {
+                myString += "Monogram Color: \(self.monogramColor) \n";
+            }
         }
-        if (self.monogramColor.characters.count > 0) {
-            myString += "Monogram Color: \(self.monogramColor) \n";
-        }
-        
         myString += "Collar: \(self.collar.rawValue) \n";
         myString += "Stavs: \(self.stavs.rawValue) \n";
         if (self.shortSleeves != ShortSleeve.None) {
