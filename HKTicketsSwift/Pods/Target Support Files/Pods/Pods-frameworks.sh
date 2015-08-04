@@ -49,10 +49,13 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'AFNetworking.framework'
+  install_framework 'MBProgressHUD.framework'
 fi
 if [[ "$CONFIGURATION" == "Staging" ]]; then
   install_framework 'AFNetworking.framework'
+  install_framework 'MBProgressHUD.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'AFNetworking.framework'
+  install_framework 'MBProgressHUD.framework'
 fi

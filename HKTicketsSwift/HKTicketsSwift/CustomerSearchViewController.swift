@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, OrderFormViewControllerDelegate {
 
@@ -90,6 +91,8 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
+        let loadingHUD = MBProgressHUD.showHUDAddedTo(self.tableView, animated: true);
+        loadingHUD.labelText = "searching...";
         self.viewMeasurementsButton.enabled = false;
         self.newOrderButton.enabled = false;
         
@@ -125,8 +128,10 @@ class CustomerSearchViewController: UIViewController, UITableViewDelegate, UITab
         ServiceManager.sharedManager.getCustomersBySearchParameters(queryParams, success: { (searchResults) -> () in
             self.searchResults = searchResults;
             self.tableView .reloadData();
+            loadingHUD.hide(true);
             NSLog("%i customer search results", self.searchResults.count);
             }) { (error) -> () in
+                loadingHUD.hide(true);
                 NSLog("search failed");
         }
     }
