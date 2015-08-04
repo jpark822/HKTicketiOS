@@ -9,6 +9,8 @@
 import UIKit
 
 class JacketOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UITextViewDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var customerNameLabel: UILabel!
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fabricTextField: UITextField!
@@ -63,6 +65,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.customerNameLabel.text = "\(self.delegate?.getCustomer().firstName) \(self.delegate?.getCustomer().lastName)"
         self.scrollView.contentSize = CGSizeMake(768, 2600);
         self.notesTextView.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextView.layer.borderWidth = 1;

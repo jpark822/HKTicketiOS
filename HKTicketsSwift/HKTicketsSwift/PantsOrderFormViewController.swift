@@ -29,6 +29,7 @@ class PantsOrderFormViewController: UIViewController, UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.customerNameLabel.text = "\(self.delegate?.getCustomer().firstName) \(self.delegate?.getCustomer().lastName)"
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
         self.extensionSwitch.onTintColor = UIColor.HKTRed();

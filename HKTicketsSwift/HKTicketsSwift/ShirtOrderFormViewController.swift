@@ -96,6 +96,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameLabel.text = "\(self.delegate!.getCustomer().firstName) \(self.delegate!.getCustomer().lastName)"
         
         self.scrollView.contentSize = CGSizeMake(768, 3485);
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;

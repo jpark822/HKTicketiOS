@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
+class VestMeasurementViewController: UIViewController, UITextFieldDelegate, CustomerMeasurementChooserDelegate {
     
     @IBOutlet weak var bodyChest: UITextField!
     @IBOutlet weak var bodyWaist: UITextField!
@@ -60,8 +60,7 @@ class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
     func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
         self.prepopulateBodyTextFieldsWithBody(bodyMeasurements);
         
-        self.finishFrontLength.text = finishMeasurements.vestFrontLength;
-        self.finishBackLength.text = finishMeasurements.vestBackLength;
+        self.prepopulateFinishTextFields(finishMeasurements);
     }
     
     func prepopulateBodyTextFieldsWithBody(bodyMeasurements : BodyMeasurements) {
@@ -69,6 +68,11 @@ class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
         self.bodyWaist.text = bodyMeasurements.waist;
         self.bodyHips.text = bodyMeasurements.hips;
         self.bodyShoulders.text = bodyMeasurements.shoulders;
+    }
+    
+    func prepopulateFinishTextFields(finishMeasurements : FinishMeasurements) {
+        self.finishFrontLength.text = finishMeasurements.vestFrontLength;
+        self.finishBackLength.text = finishMeasurements.vestBackLength;
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -97,6 +101,20 @@ class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
             self.delegate?.didFinishEditingVest(existingOrder);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    @IBAction func addFinishMeasurementsPressed(sender: AnyObject) {
+        let measurementChooserVC = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
+        measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
+        measurementChooserVC.preferredContentSize = CGSizeMake(450, 350);
+        measurementChooserVC.delegate = self;
+        measurementChooserVC.finishMeasurements = self.delegate!.getFinishMeasurements();
+        self.presentViewController(measurementChooserVC, animated: true, completion: nil);
+    }
+    
+    func CustomerMeasurementChooserDidSelectIndex(index: NSInteger) {
+        let finish = self.delegate!.getFinishMeasurements()[index];
+        self.prepopulateFinishTextFields(finish);
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

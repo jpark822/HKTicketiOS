@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JacketMeasurementsViewController: UIViewController, UITextFieldDelegate {
+class JacketMeasurementsViewController: UIViewController, UITextFieldDelegate, CustomerMeasurementChooserDelegate {
 
     @IBOutlet weak var bodyChest: UITextField!
     @IBOutlet weak var bodyWaist: UITextField!
@@ -89,7 +89,10 @@ class JacketMeasurementsViewController: UIViewController, UITextFieldDelegate {
 
     func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
         self.prepopulateTextFieldsWithBody(bodyMeasurements);
-        
+        self.prepopulateFinishTextFields(finishMeasurements);
+    }
+    
+    func prepopulateFinishTextFields(finishMeasurements : FinishMeasurements) {
         self.finishChest.text = finishMeasurements.chest;
         self.finishWaist.text = finishMeasurements.waist;
         self.finishHips.text = finishMeasurements.hips;
@@ -151,6 +154,20 @@ class JacketMeasurementsViewController: UIViewController, UITextFieldDelegate {
             self.delegate?.didFinishEditingJacket(existingOrder);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    @IBAction func addFinishMeasurementsPressed(sender: AnyObject) {
+        let measurementChooserVC = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
+        measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
+        measurementChooserVC.preferredContentSize = CGSizeMake(450, 350);
+        measurementChooserVC.delegate = self;
+        measurementChooserVC.finishMeasurements = self.delegate!.getFinishMeasurements();
+        self.presentViewController(measurementChooserVC, animated: true, completion: nil);
+    }
+    
+    func CustomerMeasurementChooserDidSelectIndex(index: NSInteger) {
+        let finish = self.delegate!.getFinishMeasurements()[index];
+        self.prepopulateFinishTextFields(finish);
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -40,6 +40,9 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Custom Order For \(self.customer.firstName) \(self.customer.lastName)";
+        
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         
@@ -183,6 +186,10 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         body.armHole = "16";
         body.belly = "17";
         return body;
+    }
+    
+    func getCustomer() -> Customer {
+        return self.customer;
     }
     
     func getFinishMeasurements() -> [FinishMeasurements] {

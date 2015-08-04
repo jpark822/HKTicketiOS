@@ -13,6 +13,8 @@ protocol OrderFormDelegate {
 //    func didFinishCustomizing(items: [OrderItemInterface]);
 //    func didFinishEditing(item: OrderItemInterface)
     
+    func getCustomer() -> Customer;
+    
     func getBodyMeasurements() -> BodyMeasurements;
     func getFinishMeasurements() -> [FinishMeasurements];
     

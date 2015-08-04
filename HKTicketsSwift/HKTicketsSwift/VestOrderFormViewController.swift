@@ -9,6 +9,8 @@
 import UIKit
 
 class VestOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+    
+    @IBOutlet weak var customerNameLabel: UILabel!
 
     @IBOutlet weak var fabricTextField: UITextField!
     @IBOutlet weak var vestCollectionView: UICollectionView!
@@ -30,6 +32,7 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.customerNameLabel.text = "\(self.delegate?.getCustomer().firstName) \(self.delegate?.getCustomer().lastName)"
         self.noteTextView.layer.borderColor = UIColor.blackColor().CGColor;
         self.noteTextView.layer.borderWidth = 1;
         self.moveToMeasurementsButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;

@@ -101,7 +101,7 @@
         <!--Add Suit Fabrics-->
         <scene sceneID="zsp-uk-91B">
             <objects>
-                <viewController storyboardIdentifier="suitFabricChooserId" id="IvZ-GO-Axo" customClass="SuitFabricChooserViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="suitFabricChooserId" id="IvZ-GO-Axo" customClass="SuitFabricChooserViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oh4-eg-tl6"/>
                         <viewControllerLayoutGuide type="bottom" id="IhH-mX-kVJ"/>
@@ -114,11 +114,11 @@
                                 <rect key="frame" x="309" y="0.0" width="459" height="960"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suitFabricCellId" rowHeight="187" id="g23-sl-mwy" customClass="SuitFabricTableViewCell" customModule="HKTicketsSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suitFabricCellId" rowHeight="187" id="g23-sl-mwy" customClass="SuitFabricTableViewCell" customModule="HKTickets" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="459" height="187"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g23-sl-mwy" id="A6e-Kz-tiT">
-                                            <rect key="frame" x="0.0" y="0.0" width="459" height="186.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="459" height="187"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pants Fabric" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeZ-1T-B50">
@@ -190,7 +190,7 @@
         <!--Suit Measurements-->
         <scene sceneID="OmX-oJ-vPt">
             <objects>
-                <viewController storyboardIdentifier="suitMeasurementVC" id="NmM-mG-NoU" customClass="SuitMeasurementsViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="suitMeasurementVC" id="NmM-mG-NoU" customClass="SuitMeasurementsViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vLa-na-qs8"/>
                         <viewControllerLayoutGuide type="bottom" id="noy-6g-nUI"/>
@@ -638,7 +638,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Suit Measurements" id="Sfo-P3-bz7"/>
+                    <navigationItem key="navigationItem" title="Suit Measurements" id="Sfo-P3-bz7">
+                        <barButtonItem key="rightBarButtonItem" title="Change Finish Measurements" id="uDV-jv-Hwc">
+                            <connections>
+                                <action selector="addFinishMeasurementsPressed:" destination="NmM-mG-NoU" id="e1U-Ti-sqw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
@@ -690,7 +696,7 @@
         <!--Suit Fabric Modal View Controller-->
         <scene sceneID="a1B-9w-pPz">
             <objects>
-                <viewController storyboardIdentifier="suitFabricModalId" id="Oui-NJ-mjk" customClass="SuitFabricModalViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="suitFabricModalId" id="Oui-NJ-mjk" customClass="SuitFabricModalViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B1A-sD-nGd"/>
                         <viewControllerLayoutGuide type="bottom" id="fEd-TX-PMj"/>
@@ -763,7 +769,7 @@
         <!--Suit Order Form-->
         <scene sceneID="8va-Op-Xxo">
             <objects>
-                <viewController storyboardIdentifier="suitOrderFormId" id="2bJ-Qd-6Av" customClass="SuitOrderFormViewController" customModule="HKTicketsSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="suitOrderFormId" id="2bJ-Qd-6Av" customClass="SuitOrderFormViewController" customModule="HKTickets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="48l-zd-413"/>
                         <viewControllerLayoutGuide type="bottom" id="feD-lU-jaG"/>
@@ -839,7 +845,7 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Neil Balani" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ju-iQ-bnf">
-                                <rect key="frame" x="20" y="17" width="150" height="21"/>
+                                <rect key="frame" x="20" y="17" width="390" height="21"/>
                                 <fontDescription key="fontDescription" name="Code-Bold" family="Code Bold" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1061,6 +1067,7 @@
                         <outlet property="buttonCollectionView" destination="vtJ-fF-QLP" id="79a-6e-G86"/>
                         <outlet property="buttonHoleLapelSwitch" destination="dY8-Yr-Krh" id="4Zt-mp-qm3"/>
                         <outlet property="cuffsCollectionView" destination="Efa-3e-OuL" id="JRg-1Q-nUu"/>
+                        <outlet property="customerNameLabel" destination="8Ju-iQ-bnf" id="8Pv-O9-exe"/>
                         <outlet property="depthOfPleatTextField" destination="Lh8-Oa-lk4" id="N0b-bI-Hbj"/>
                         <outlet property="extensionSwitch" destination="Tmu-6i-O1r" id="oeb-Wz-5Ff"/>
                         <outlet property="flapWidthTextField" destination="arG-bS-jUt" id="Moy-G7-XNP"/>

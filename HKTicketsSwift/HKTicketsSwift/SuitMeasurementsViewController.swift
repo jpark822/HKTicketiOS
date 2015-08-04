@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
+class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate, CustomerMeasurementChooserDelegate {
     //jacket outlets
     @IBOutlet weak var jacketBodyChest: UITextField!
     @IBOutlet weak var jacketBodyWaist: UITextField!
@@ -181,34 +181,7 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
     
     func prepopulateTextFieldsWithBody(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
         self.prepopulateBodyTextFieldsWithBody(bodyMeasurements);
-        
-        //jacket
-        self.jacketFinishChest.text = finishMeasurements.chest;
-        self.jacketFinishWaist.text = finishMeasurements.waist;
-        self.jacketFinishHips.text = finishMeasurements.hips;
-        self.jacketFinishShoulders.text = finishMeasurements.shoulders;
-        self.jacketFinishSleeveLength.text = finishMeasurements.jacketSleeveLength;
-        self.jacketFinishHalfShoulder.text = finishMeasurements.jacketHalfShoulder;
-        self.jacketFinishJacketLength.text = finishMeasurements.jacketLength;
-        self.jacketFinishJacketSleeve.text = finishMeasurements.jacketSleeveWidth;
-        
-        //pants
-        self.pantsFinishWaist.text = finishMeasurements.waist;
-        self.pantsFinishSeat.text = finishMeasurements.pantSeat;
-        self.pantsFinishCrotch.text = finishMeasurements.pantCrotch;
-        self.pantsFinish1623below.text = finishMeasurements.pant1623below;
-        self.pantsFinishBottomCuff.text = finishMeasurements.pantBottomCuff;
-        self.pantsFinishOutseam.text = finishMeasurements.pantOutseam;
-        self.pantsFinishInseam.text = finishMeasurements.pantInseam;
-        
-        //vest
-        if (self.newSuitOrdersContainVest()) {
-            self.vestFinishFrontLength.text = finishMeasurements.vestFrontLength;
-            self.vestFinishBackLength.text = finishMeasurements.vestBackLength;
-        }
-        else {
-            self.vestContainerView.hidden = true
-        }
+        self.prepopulateFinishTextFields(finishMeasurements);
     }
     
     func prepopulateBodyTextFieldsWithBody(bodyMeasurements : BodyMeasurements) {
@@ -241,6 +214,36 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
         }
         else {
             self.vestContainerView.hidden = true;
+        }
+    }
+    
+    func prepopulateFinishTextFields(finishMeasurements : FinishMeasurements) {
+        //jacket
+        self.jacketFinishChest.text = finishMeasurements.chest;
+        self.jacketFinishWaist.text = finishMeasurements.waist;
+        self.jacketFinishHips.text = finishMeasurements.hips;
+        self.jacketFinishShoulders.text = finishMeasurements.shoulders;
+        self.jacketFinishSleeveLength.text = finishMeasurements.jacketSleeveLength;
+        self.jacketFinishHalfShoulder.text = finishMeasurements.jacketHalfShoulder;
+        self.jacketFinishJacketLength.text = finishMeasurements.jacketLength;
+        self.jacketFinishJacketSleeve.text = finishMeasurements.jacketSleeveWidth;
+        
+        //pants
+        self.pantsFinishWaist.text = finishMeasurements.waist;
+        self.pantsFinishSeat.text = finishMeasurements.pantSeat;
+        self.pantsFinishCrotch.text = finishMeasurements.pantCrotch;
+        self.pantsFinish1623below.text = finishMeasurements.pant1623below;
+        self.pantsFinishBottomCuff.text = finishMeasurements.pantBottomCuff;
+        self.pantsFinishOutseam.text = finishMeasurements.pantOutseam;
+        self.pantsFinishInseam.text = finishMeasurements.pantInseam;
+        
+        //vest
+        if (self.newSuitOrdersContainVest()) {
+            self.vestFinishFrontLength.text = finishMeasurements.vestFrontLength;
+            self.vestFinishBackLength.text = finishMeasurements.vestBackLength;
+        }
+        else {
+            self.vestContainerView.hidden = true
         }
     }
     
@@ -379,6 +382,20 @@ class SuitMeasurementsViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return true;
+    }
+    
+    @IBAction func addFinishMeasurementsPressed(sender: AnyObject) {
+        let measurementChooserVC = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
+        measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
+        measurementChooserVC.preferredContentSize = CGSizeMake(450, 350);
+        measurementChooserVC.delegate = self;
+        measurementChooserVC.finishMeasurements = self.delegate!.getFinishMeasurements();
+        self.presentViewController(measurementChooserVC, animated: true, completion: nil);
+    }
+    
+    func CustomerMeasurementChooserDidSelectIndex(index: NSInteger) {
+        let finish = self.delegate!.getFinishMeasurements()[index];
+        self.prepopulateFinishTextFields(finish);
     }
 
 }

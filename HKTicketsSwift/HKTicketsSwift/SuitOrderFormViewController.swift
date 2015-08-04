@@ -10,6 +10,7 @@ import UIKit
 
 class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextViewDelegate, UITextFieldDelegate {
     var delegate : OrderFormDelegate?;
+    @IBOutlet weak var customerNameLabel: UILabel!
     
     //Jacket
     @IBOutlet weak var jacketFabricTextField: UITextField!
@@ -87,6 +88,8 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.customerNameLabel.text = "\(self.delegate?.getCustomer().firstName) \(self.delegate?.getCustomer().lastName)"
         
         self.ticketPocketSwitch.onTintColor = UIColor.HKTRed();
         self.buttonHoleLapelSwitch.onTintColor = UIColor.HKTRed();
