@@ -42,7 +42,7 @@ class CustomerMeasurementsViewController: UIViewController, UITableViewDelegate,
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
-        ServiceManager.sharedManager.getBodyMeasurementsByCustomerId("12345", success: { (body : BodyMeasurements) -> () in
+        ServiceManager.sharedManager.getBodyMeasurementsByCustomerId(12345, success: { (body : BodyMeasurements) -> () in
             self.chestTextField.text = body.chest;
             self.waistTextField.text = body.waist;
             self.hipsTextField.text = body.hips;
@@ -66,7 +66,7 @@ class CustomerMeasurementsViewController: UIViewController, UITableViewDelegate,
             }) { (error : NSError!) -> () in
         };
         
-        ServiceManager.sharedManager.getFinishMeasurementsByCustomerId("12345", success: { (finishMeasurements : [FinishMeasurements]) -> () in
+        ServiceManager.sharedManager.getFinishMeasurementsByCustomerId(12345, success: { (finishMeasurements : [FinishMeasurements]) -> () in
             self.finishMeasurements = finishMeasurements;
             self.tableView.reloadData();
             

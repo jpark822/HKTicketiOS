@@ -14,7 +14,9 @@ protocol OrderFormDelegate {
 //    func didFinishEditing(item: OrderItemInterface)
     
     func getBodyMeasurements() -> BodyMeasurements;
-    func getFinishMeasurements() -> FinishMeasurements;
+    func getFinishMeasurements() -> [FinishMeasurements];
+    
+    func getInitialFinishMeasurements() -> FinishMeasurements;
     
     func didFinishCustomizingShirts(items: [ShirtOrderInfo]);
     func didFinishEditingShirt(shirt: ShirtOrderInfo);

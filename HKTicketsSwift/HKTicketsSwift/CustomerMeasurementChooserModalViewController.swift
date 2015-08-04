@@ -13,6 +13,8 @@ protocol CustomerMeasurementChooserDelegate {
 }
 
 class CustomerMeasurementChooserModalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var finishMeasurements : [FinishMeasurements] = [];
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
@@ -21,6 +23,7 @@ class CustomerMeasurementChooserModalViewController: UIViewController, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
@@ -29,6 +32,7 @@ class CustomerMeasurementChooserModalViewController: UIViewController, UITableVi
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : CustomerMeasurementModalTableViewCell = tableView.dequeueReusableCellWithIdentifier("customerMeasurementModalCellId") as! CustomerMeasurementModalTableViewCell;
+        cell.configureWithFinishMeasurement(self.finishMeasurements[indexPath.row]);
         
         return cell;
     }
@@ -38,7 +42,7 @@ class CustomerMeasurementChooserModalViewController: UIViewController, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return self.finishMeasurements.count;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -1985,6 +1985,11 @@
                                 <action selector="backButtonPressed:" destination="byO-g5-I2F" id="fad-4W-FKY"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add Finish Measurements" id="w4G-hd-KTn">
+                            <connections>
+                                <action selector="addFinishMeasurementsPressed:" destination="byO-g5-I2F" id="OHh-sB-SJM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>

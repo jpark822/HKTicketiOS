@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
+class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate, CustomerMeasurementChooserDelegate {
     
     @IBOutlet weak var bodyChest: UITextField!
     @IBOutlet weak var bodyWaist: UITextField!
@@ -66,7 +66,7 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
         
         if self.shirts != nil {
             if let bodyMeasurements : BodyMeasurements = self.delegate!.getBodyMeasurements(),
-               let finishMeasurements : FinishMeasurements = self.delegate!.getFinishMeasurements() {
+               let finishMeasurements : FinishMeasurements = self.delegate!.getInitialFinishMeasurements() {
                 self.prepopulateTextFields(bodyMeasurements, finishMeasurements: finishMeasurements);
             }
 
@@ -93,17 +93,7 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
     
     func prepopulateTextFields(bodyMeasurements : BodyMeasurements, finishMeasurements : FinishMeasurements) {
         self.prepopulateBodyTextFields(bodyMeasurements);
-        
-        self.finishChest.text = finishMeasurements.chest;
-        self.finishWaist.text = finishMeasurements.waist;
-        self.finishHips.text = finishMeasurements.hips;
-        self.finishShoulders.text = finishMeasurements.shoulders;
-        self.finishSleeveLength.text = finishMeasurements.shirtSleeveLength;
-        self.finishShirtLength.text = finishMeasurements.shirtLength;
-        self.finishCuff.text = finishMeasurements.shirtCuff;
-        self.finishNeckSize.text = finishMeasurements.shirtNeck;
-        self.finishSleeve6Below.text = finishMeasurements.shirtWidth6Below;
-        self.finishSleeve12Below.text = finishMeasurements.shirtWidth12Below;
+        self.prepopulateFinishTextFields(finishMeasurements);
     }
     
     func prepopulateBodyTextFields(bodyMeasurements : BodyMeasurements) {
@@ -115,6 +105,19 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
         self.bodyShirtLength.text = bodyMeasurements.shirtLength;
         self.bodyWristLength.text = bodyMeasurements.wrist;
         self.bodyNeckSize.text = bodyMeasurements.neckSize;
+    }
+    
+    func prepopulateFinishTextFields(finishMeasurements : FinishMeasurements) {
+        self.finishChest.text = finishMeasurements.chest;
+        self.finishWaist.text = finishMeasurements.waist;
+        self.finishHips.text = finishMeasurements.hips;
+        self.finishShoulders.text = finishMeasurements.shoulders;
+        self.finishSleeveLength.text = finishMeasurements.shirtSleeveLength;
+        self.finishShirtLength.text = finishMeasurements.shirtLength;
+        self.finishCuff.text = finishMeasurements.shirtCuff;
+        self.finishNeckSize.text = finishMeasurements.shirtNeck;
+        self.finishSleeve6Below.text = finishMeasurements.shirtWidth6Below;
+        self.finishSleeve12Below.text = finishMeasurements.shirtWidth12Below;
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -157,6 +160,20 @@ class ShirtMeasurementsViewController: UIViewController, UITextFieldDelegate {
             self.delegate?.didFinishEditingShirt(existingShirt);
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
+    }
+    
+    @IBAction func addFinishMeasurementsPressed(sender: AnyObject) {
+        let measurementChooserVC = UIStoryboard(name: "Customer", bundle: nil).instantiateViewControllerWithIdentifier("customerMeasurementChooserModalId") as! CustomerMeasurementChooserModalViewController;
+        measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
+        measurementChooserVC.preferredContentSize = CGSizeMake(450, 350);
+        measurementChooserVC.delegate = self;
+        measurementChooserVC.finishMeasurements = self.delegate!.getFinishMeasurements();
+        self.presentViewController(measurementChooserVC, animated: true, completion: nil);
+    }
+    
+    func CustomerMeasurementChooserDidSelectIndex(index: NSInteger) {
+        let finish = self.delegate!.getFinishMeasurements()[index];
+        self.prepopulateFinishTextFields(finish);
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

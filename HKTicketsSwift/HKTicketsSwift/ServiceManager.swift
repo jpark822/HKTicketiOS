@@ -31,8 +31,9 @@ class ServiceManager: NSObject {
     let kMeasurementBodyTypeKey = "body"
     let kMeasurementFinishTypeKey = "finish"
     let kValueKey = "value"
+    let kCustomerIdKey = "customerId";
     
-    //id most likely needs changing
+    //MARK: finish measurement keys
     let kFinishIdKey = "id";
     let kFinishChestKey = "finish_chest";
     let kFinishWaistKey = "finish_west";
@@ -56,8 +57,7 @@ class ServiceManager: NSObject {
     let kFinishPantOutseamKey = "finish_pant_outseam";
     let kFinishPantInseamKey = "finish_pant_inseam";
     
-    //id most likely needs changing
-    let kCustomerIdKey = "customerId";
+    //MARK: body measurement keys
     let kBodyChestKey = "body_chest";
     let kBodyWaistKey = "body_waist";
     let kBodyHipsKey = "body_hips";
@@ -78,7 +78,7 @@ class ServiceManager: NSObject {
     let kBodyArmHoleKey = "body_arm_hole";
     let kBodyBellyKey = "body_belly";
     
-    //endpoints
+    //MARK: route endpoints
     let kMeasurementEndpoint = "Measurements";
     let kCustomersEndpoint = "Customers";
     
@@ -107,8 +107,8 @@ class ServiceManager: NSObject {
                 failure(error);
         }
     }
-    
-    func getBodyMeasurementsByCustomerId(_customerId : String, success : (BodyMeasurements -> ()), failure : (NSError!) -> ()) {
+    //MARK: TODO this is fake remove this
+    func getBodyMeasurementsByCustomerId(_customerId : Int, success : ((BodyMeasurements) -> ()), failure : (NSError!) -> ()) {
         let body = BodyMeasurements();
         body.chest = "1";
         body.waist = "2";
@@ -132,8 +132,8 @@ class ServiceManager: NSObject {
         
         success(body);
     }
-    
-    func getFinishMeasurementsByCustomerId(_customerId : String, success : ([FinishMeasurements] -> ()), failure : (NSError!) -> ()) {
+    //MARK: TODO this is fake remove this
+    func getFinishMeasurementsByCustomerId(_customerId : Int, success : (([FinishMeasurements]) -> ()), failure : (NSError!) -> ()) {
         let finish = FinishMeasurements();
         finish.chest = "1";
         finish.waist = "2";
@@ -159,13 +159,13 @@ class ServiceManager: NSObject {
         finish.vestFrontLength = "22";
         finish.vestBackLength = "23";
         finish.name = "Customer standard measurements";
-        finish.measurementId = "customerStandardFinishId";
+        finish.measurementId = "164236";
         
         let finish2 = FinishMeasurements();
-        finish2.chest = "1";
-        finish2.waist = "2";
-        finish2.waist = "3";
-        finish2.hips = "4";
+        finish2.chest = "11";
+        finish2.waist = "21";
+        finish2.waist = "31";
+        finish2.hips = "41";
         finish2.shoulders = "5";
         finish2.shirtSleeveLength = "6"
         finish2.shirtLength = "7";
@@ -186,7 +186,7 @@ class ServiceManager: NSObject {
         finish2.vestFrontLength = "22";
         finish2.vestBackLength = "23";
         finish2.name = "Customer slim fit measurements";
-        finish2.measurementId = "customerSlimFinishId";
+        finish2.measurementId = "2734654";
         
         success([finish, finish2]);
     }
@@ -225,7 +225,7 @@ class ServiceManager: NSObject {
     func convertResponseToBodyMeasurements(_response : Dictionary<String, AnyObject>) -> BodyMeasurements {
         let body = BodyMeasurements();
         
-        if let responseObject : AnyObject = _response["measurements"] {
+        if let responseObject : AnyObject = _response["value"] {
             if let response = responseObject as? Dictionary<String, String> {
                 body.chest = response[kBodyChestKey] ?? "";
                 body.waist = response[kBodyWaistKey] ?? "";
@@ -254,7 +254,7 @@ class ServiceManager: NSObject {
     func convertResponseToFinishMeasurements(_response : Dictionary<String, AnyObject>) -> [FinishMeasurements] {
         var finishMeasurements : [FinishMeasurements] = [];
         
-        if let measurements : AnyObject = _response["measurements"] {
+        if let measurements : AnyObject = _response["value"] {
             if let measurementArray = measurements as? [Dictionary<String, String>]  {
                 for measurementDict : Dictionary<String, String> in measurementArray {
                     let finishMeasurement : FinishMeasurements = FinishMeasurements();

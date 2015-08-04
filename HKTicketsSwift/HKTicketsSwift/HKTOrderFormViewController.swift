@@ -34,6 +34,10 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     
     var selectedItemType : OrderItemType? = nil;
     
+    var finishMeasurements : [FinishMeasurements] = [];
+    var bodyMeasurements : BodyMeasurements = BodyMeasurements();
+    var selectedFinishMeasurementIndex = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self;
@@ -51,6 +55,21 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action:"mainViewTapped" );
         self.view.addGestureRecognizer(tapRecognizer);
+        self.getMeasurements();
+        
+    }
+    
+    func getMeasurements() {
+        ServiceManager.sharedManager.getBodyMeasurementsByCustomerId(self.customer.customerId, success: { (bodyMeasurements : BodyMeasurements) -> () in
+            self.bodyMeasurements = bodyMeasurements;
+            }, failure: { (error : NSError!) -> () in
+                NSLog(error.description);
+        })
+        ServiceManager.sharedManager.getFinishMeasurementsByCustomerId(self.customer.customerId, success: { (finishMeasurements : [FinishMeasurements]) -> () in
+            self.finishMeasurements = finishMeasurements;
+            }) { (error : NSError!) -> () in
+                NSLog(error.description);
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -166,33 +185,17 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         return body;
     }
     
-    func getFinishMeasurements() -> FinishMeasurements {
-        let finish = FinishMeasurements();
-        finish.chest = "1";
-        finish.waist = "2";
-        finish.waist = "3";
-        finish.hips = "4";
-        finish.shoulders = "5";
-        finish.shirtSleeveLength = "6"
-        finish.shirtLength = "7";
-        finish.shirtCuff = "8";
-        finish.shirtNeck = "9";
-        finish.shirtWidth6Below = "10";
-        finish.shirtWidth12Below = "11";
-        finish.jacketSleeveLength = "12";
-        finish.jacketHalfShoulder = "13";
-        finish.jacketLength = "14";
-        finish.jacketSleeveWidth = "15";
-        finish.pantSeat = "16";
-        finish.pantCrotch = "17";
-        finish.pant1623below = "18";
-        finish.pantBottomCuff = "19";
-        finish.pantOutseam = "20";
-        finish.pantInseam = "21";
-        finish.vestFrontLength = "22";
-        finish.vestBackLength = "23";
-        
-        return finish;
+    func getFinishMeasurements() -> [FinishMeasurements] {
+        return self.finishMeasurements;
+    }
+    
+    func getInitialFinishMeasurements() -> FinishMeasurements {
+        if (self.finishMeasurements.count == 0) {
+            return FinishMeasurements();
+        }
+        else {
+            return self.finishMeasurements[self.selectedFinishMeasurementIndex];
+        }
     }
     
     //MARK: tableview methods
@@ -335,10 +338,12 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         measurementChooserVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
         measurementChooserVC.preferredContentSize = CGSizeMake(450, 350);
         measurementChooserVC.delegate = self;
+        measurementChooserVC.finishMeasurements = self.finishMeasurements;
         self.presentViewController(measurementChooserVC, animated: true, completion: nil);
     }
     
     func CustomerMeasurementChooserDidSelectIndex(index: NSInteger) {
+        self.selectedFinishMeasurementIndex = index;
         if (self.presentedViewController != nil) {
             self.presentedViewController!.dismissViewControllerAnimated(true, completion: nil);
             self.presentFabricChooser(self.selectedItemType!);

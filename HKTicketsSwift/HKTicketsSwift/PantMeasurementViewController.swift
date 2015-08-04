@@ -52,7 +52,7 @@ class PantMeasurementViewController: UIViewController, UITextFieldDelegate {
         
         if (self.pantOrders != nil) {
             if let body = self.delegate?.getBodyMeasurements(),
-             let finish = self.delegate?.getFinishMeasurements() {
+             let finish = self.delegate?.getInitialFinishMeasurements() {
                 self.prepopulateTextFieldsWithBody(body, finishMeasurements: finish);
             }
         }

@@ -38,7 +38,7 @@ class VestMeasurementViewController: UIViewController, UITextFieldDelegate {
         
         if (self.vestOrders != nil) {
             if let body = self.delegate?.getBodyMeasurements(),
-                let finish = self.delegate?.getFinishMeasurements() {
+                let finish = self.delegate?.getInitialFinishMeasurements() {
                     self.prepopulateTextFieldsWithBody(body, finishMeasurements: finish);
             }
         }
