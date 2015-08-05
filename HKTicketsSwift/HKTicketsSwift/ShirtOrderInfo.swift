@@ -72,6 +72,14 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
         case None = "No Monogram"
     }
     
+    enum Fusing : String {
+        case None = "No Fusing"
+        case LightFusing = "Light Fusing"
+        case RegularFusing = "Regular Fusing"
+        case DoubleFusing = "Double Fusing"
+        case TripleFusing = "Triple Fusing"
+    }
+    
     var itemType = OrderItemType.Shirt;
     var frontCollarLength : String! = "";
     var backCollarLength : String! = "";
@@ -80,6 +88,7 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
     var hasMonogram : Bool = true;
     var monogram : String! = "";
     var monogramColor : String! = "";
+    var monogramPlacement : String! = "";
     var fabric : String = "";
     var notes : String! = "";
     
@@ -91,6 +100,8 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
     var shirtFront : ShirtFront! = .Placket;
     var shirtBack : ShirtBack! = .Plain;
     var monogramPattern : MonogramPattern! = .None;
+    var collarFusing : Fusing! = .None;
+    var cuffFusing : Fusing! = .None;
     
     var bodyMeasurements : BodyMeasurements?;
     var finishMeasurements : ShirtFinishMeasurements?;
@@ -114,14 +125,19 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
             if (self.monogramColor.characters.count > 0) {
                 myString += "Monogram Color: \(self.monogramColor) \n";
             }
+            if (self.monogramPlacement.characters.count > 0) {
+                myString += "Monogram Placement: \(self.monogramPlacement) \n";
+            }
         }
         myString += "Collar: \(self.collar.rawValue) \n";
+        myString += "Collar Fusing: \(self.collarFusing.rawValue)";
         myString += "Stavs: \(self.stavs.rawValue) \n";
         if (self.shortSleeves != ShortSleeve.None) {
             myString += "Short Sleeves: \(self.shortSleeves.rawValue) \n";
         }
         myString += "Pockets: \(self.pockets.rawValue) \n";
         myString += "Cuffs: \(self.cuffs.rawValue) \n";
+        myString += "Cuff Fusing: \(self.cuffFusing.rawValue)";
         myString += "Shirt Front: \(self.shirtFront.rawValue) \n";
         myString += "Shirt Back: \(self.shirtBack.rawValue) \n";
         

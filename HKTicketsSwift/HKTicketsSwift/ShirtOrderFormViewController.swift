@@ -18,6 +18,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var nameLabel: UILabel!
 
     @IBOutlet weak var collarCollectionView: UICollectionView!
+    @IBOutlet weak var collarFusingSegmentedControl: UISegmentedControl!
     @IBOutlet weak var frontLengthTextField: UITextField!
     @IBOutlet weak var backLengthTextField: UITextField!
     @IBOutlet weak var StavsSegmentedControl: UISegmentedControl!
@@ -26,6 +27,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var pocketCollectionView: UICollectionView!
     
     @IBOutlet weak var cuffsCollectionView: UICollectionView!
+    @IBOutlet weak var cuffFusingSegmentedControl: UISegmentedControl!
     @IBOutlet weak var buttonPlacketSwitch: UISwitch!
     
     @IBOutlet weak var convertibleSwitch: UISwitch!
@@ -38,6 +40,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var monogramCollectionView: UICollectionView!
     @IBOutlet weak var monogramTextField: UITextField!
     @IBOutlet weak var monogramColorTextField: UITextField!
+    @IBOutlet weak var monogramPlacementTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
     @IBOutlet weak var moveToMeasurementsButton: UIButton!
     @IBOutlet weak var monogramContainerView: UIView!
@@ -90,6 +93,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     
     var monogramOptions : [ShirtOrderInfo.MonogramPattern]! = [ShirtOrderInfo.MonogramPattern.Eleven, ShirtOrderInfo.MonogramPattern.Twelve, ShirtOrderInfo.MonogramPattern.Twenty, ShirtOrderInfo.MonogramPattern.TwentyOne, ShirtOrderInfo.MonogramPattern.TwentyTwo, ShirtOrderInfo.MonogramPattern.TwentyThree, ShirtOrderInfo.MonogramPattern.ThirtyEight, ShirtOrderInfo.MonogramPattern.ThirtyNine, ShirtOrderInfo.MonogramPattern.Fourty];
     
+    var fusingOptions : [ShirtOrderInfo.Fusing] = [ShirtOrderInfo.Fusing.None, ShirtOrderInfo.Fusing.LightFusing, ShirtOrderInfo.Fusing.RegularFusing, ShirtOrderInfo.Fusing.DoubleFusing, ShirtOrderInfo.Fusing.TripleFusing];
+    
     //If editing, this will not be nil
     var editShirtinfo : ShirtOrderInfo?;
     @IBOutlet weak var fabricTextBox: UITextField!
@@ -98,7 +103,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         super.viewDidLoad()
         self.nameLabel.text = "\(self.delegate!.getCustomer().firstName) \(self.delegate!.getCustomer().lastName)"
         
-        self.scrollView.contentSize = CGSizeMake(768, 3485);
+        self.scrollView.contentSize = CGSizeMake(768, 3880);
         self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor;
         self.notesTextField.layer.borderWidth = 1;
         self.buttonPlacketSwitch.onTintColor = UIColor.HKTRed();
@@ -166,6 +171,12 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         if let stavIndex = self.stavOptions.indexOf(self.editShirtinfo!.stavs) {
             self.StavsSegmentedControl.selectedSegmentIndex = stavIndex;
         }
+        if let collarFusingIndex = self.fusingOptions.indexOf(self.editShirtinfo!.collarFusing) {
+            self.collarFusingSegmentedControl.selectedSegmentIndex = collarFusingIndex;
+        }
+        if let cuffFusingIndex = self.fusingOptions.indexOf(self.editShirtinfo!.cuffFusing) {
+            self.cuffFusingSegmentedControl.selectedSegmentIndex = cuffFusingIndex;
+        }
         if let shortSleeveIndex = self.shortSleeveOptions.indexOf(self.editShirtinfo!.shortSleeves) {
             self.shortSleeveCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: shortSleeveIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
         }
@@ -195,6 +206,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
         self.buttonPlacketSwitch.on = self.editShirtinfo!.buttonOnPlacket;
         self.convertibleSwitch.on = self.editShirtinfo!.convertibleCuff;
         self.monogramTextField.text = self.editShirtinfo!.monogram;
+        self.monogramPlacementTextField.text = self.editShirtinfo!.monogramPlacement;
         self.monogramColorTextField.text = self.editShirtinfo!.monogramColor;
         self.notesTextField.text = self.editShirtinfo!.notes;
     }
@@ -205,14 +217,16 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if (textField == self.monogramTextField ||
-            textField == self.monogramColorTextField) {
+            textField == self.monogramColorTextField ||
+            textField == self.monogramPlacementTextField) {
                 keyboardWillShow();
         }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         if (textField == self.monogramTextField ||
-            textField == self.monogramColorTextField) {
+            textField == self.monogramColorTextField ||
+            textField == self.monogramPlacementTextField) {
                 keyboardWillHide();
         }
     }
@@ -271,6 +285,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
                 var selectedCollarIndexes = self.collarCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.collar = self.collarOptions[selectedCollarIndexes[0].row];
                 shirtOrder.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
+                shirtOrder.collarFusing = self.fusingOptions[self.collarFusingSegmentedControl.selectedSegmentIndex];
+                shirtOrder.cuffFusing = self.fusingOptions[self.cuffFusingSegmentedControl.selectedSegmentIndex];
                 var selectedSleeveIndexes = self.shortSleeveCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtOrder.shortSleeves = self.shortSleeveOptions[selectedSleeveIndexes[0].row];
                 var selectedPocketsIndexes = self.pocketCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
@@ -289,6 +305,7 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
                 if (shirtOrder.hasMonogram) {
                     shirtOrder.monogram = self.monogramTextField.text;
                     shirtOrder.monogramColor = self.monogramColorTextField.text;
+                    shirtOrder.monogramPlacement = self.monogramPlacementTextField.text;
                     var selectedMonogramIndexes = self.monogramCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                     shirtOrder.monogramPattern = self.monogramOptions[selectedMonogramIndexes[0].row];
                 }
@@ -323,6 +340,8 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             var selectedCollarIndexes = self.collarCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.collar = self.collarOptions[selectedCollarIndexes[0].row];
             self.editShirtinfo!.stavs = self.stavOptions[self.StavsSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.collarFusing = self.fusingOptions[self.collarFusingSegmentedControl.selectedSegmentIndex];
+            self.editShirtinfo!.cuffFusing = self.fusingOptions[self.cuffFusingSegmentedControl.selectedSegmentIndex];
             var selectedShortSleeveIndexes = self.shortSleeveCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             self.editShirtinfo!.shortSleeves = self.shortSleeveOptions[selectedShortSleeveIndexes[0].row];
             var selectedPocketIndexes = self.pocketCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
@@ -337,12 +356,14 @@ class ShirtOrderFormViewController: UIViewController, UITextFieldDelegate, UITex
             if (shirtToEdit.hasMonogram) {
                 shirtToEdit.monogram = self.monogramTextField.text;
                 shirtToEdit.monogramColor = self.monogramColorTextField.text;
+                shirtToEdit.monogramPlacement = self.monogramPlacementTextField.text;
                 var selectedMonogramIndexes = self.monogramCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 shirtToEdit.monogramPattern = self.monogramOptions[selectedMonogramIndexes[0].row];
             }
             else {
                 shirtToEdit.monogram = "";
                 shirtToEdit.monogramColor = "";
+                shirtToEdit.monogramPlacement = "";
                 shirtToEdit.monogramPattern = ShirtOrderInfo.MonogramPattern.None;
             }
             
