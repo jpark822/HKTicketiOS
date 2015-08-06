@@ -317,6 +317,7 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         }
         let mailComposer = MFMailComposeViewController();
         mailComposer.setMessageBody(orderString, isHTML: false)
+        mailComposer.setSubject("New Order - \(self.newOrderNumberTextField.text) - \(self.customer.title) \(self.customer.firstName) \(self.customer.lastName)");
         mailComposer.mailComposeDelegate = self;
         self.presentViewController(mailComposer, animated: true, completion: nil);
         
