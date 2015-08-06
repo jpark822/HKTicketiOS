@@ -419,7 +419,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
             self.VestLiningColorTextField.enabled = true;
         }
         else {
-            self.liningColorTextField.text = "";
+            self.VestLiningColorTextField.text = "";
             self.VestLiningColorTextField.enabled = false;
         }
     }
