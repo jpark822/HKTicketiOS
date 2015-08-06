@@ -41,7 +41,7 @@ class JacketOrderFormViewController: UIViewController, UICollectionViewDataSourc
     var paddingOptions : [JacketOrderInfo.Padding] = [JacketOrderInfo.Padding.Light,
     JacketOrderInfo.Padding.Medium,
     JacketOrderInfo.Padding.Heavy,
-    JacketOrderInfo.Padding.NotApplicable];
+    JacketOrderInfo.Padding.None];
     var buttonOptions : [JacketOrderInfo.Buttons] = [JacketOrderInfo.Buttons.Single,
     JacketOrderInfo.Buttons.Two,
     JacketOrderInfo.Buttons.Three,

@@ -18,9 +18,16 @@ class VestOrderInfo: NSObject, OrderItemInterface {
         case Other = "Other"
     }
     
+    enum VestBack : String {
+        case LiningWithTab = "Lining With Tab"
+        case SameFabric = "Same Fabric At Back"
+    }
+    
     var itemType = OrderItemType.Vest;
     var fabric : String = "";
     var vestType : VestType = VestType.Other;
+    var vestBack : VestBack = .LiningWithTab
+    var vestLiningColor : String! = "";
     var firstButtonPosition = "";
     var notes = "";
     

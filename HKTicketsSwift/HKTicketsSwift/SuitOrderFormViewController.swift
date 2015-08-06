@@ -39,7 +39,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     var paddingOptions : [JacketOrderInfo.Padding] = [JacketOrderInfo.Padding.Light,
         JacketOrderInfo.Padding.Medium,
         JacketOrderInfo.Padding.Heavy,
-        JacketOrderInfo.Padding.NotApplicable];
+        JacketOrderInfo.Padding.None];
     var buttonOptions : [JacketOrderInfo.Buttons] = [JacketOrderInfo.Buttons.Single,
         JacketOrderInfo.Buttons.Two,
         JacketOrderInfo.Buttons.Three,
@@ -69,6 +69,8 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var vestFabricTextField: UITextField!
     @IBOutlet weak var vestCollectionView: UICollectionView!
     @IBOutlet weak var vestFirstButtonTextField: UITextField!
+    @IBOutlet weak var vestBackSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var VestLiningColorTextField: UITextField!
     
     var vestOptions : [VestOrderInfo.VestType] = [VestOrderInfo.VestType.V1,
         VestOrderInfo.VestType.V4,
@@ -76,6 +78,8 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
         VestOrderInfo.VestType.V8,
         VestOrderInfo.VestType.V12,
         VestOrderInfo.VestType.Other];
+    
+    var vestBackOptions : [VestOrderInfo.VestBack] = [VestOrderInfo.VestBack.LiningWithTab, VestOrderInfo.VestBack.SameFabric];
     
     //Overall Suit
     @IBOutlet weak var overallNotesTextField: UITextView!
@@ -204,9 +208,13 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
             self.vestFabricTextField.text = self.existingSuit?.vestOrderInfo!.fabric;
             self.vestFabricTextField.hidden = false;
             self.vestFirstButtonTextField.text = self.existingSuit?.vestOrderInfo!.firstButtonPosition;
+            self.VestLiningColorTextField.text = self.existingSuit?.vestOrderInfo!.vestLiningColor;
             
             if let vestTypeIndex = self.vestOptions.indexOf(self.existingSuit!.vestOrderInfo!.vestType) {
                 self.vestCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: vestTypeIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+            }
+            if let vestBackIndex = self.vestBackOptions.indexOf(self.existingSuit!.vestOrderInfo!.vestBack) {
+                self.vestBackSegmentedControl.selectedSegmentIndex = vestBackIndex;
             }
         }
 
@@ -215,7 +223,7 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews();
         
-        self.scrollView.contentSize = CGSizeMake(768, 2520);
+        self.scrollView.contentSize = CGSizeMake(768, 2620);
         if let suit = existingSuit {
             if suit.vestOrderInfo == nil {
                 var scrollViewSize = self.scrollView.contentSize;
@@ -331,6 +339,8 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                     let selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                     vestOrder.vestType = self.vestOptions[selectedVestTypeIndexes.first!.row];
                     vestOrder.firstButtonPosition = self.vestFirstButtonTextField.text!;
+                    vestOrder.vestLiningColor = self.VestLiningColorTextField.text;
+                    vestOrder.vestBack = self.vestBackOptions[self.vestBackSegmentedControl.selectedSegmentIndex];
                     suitOrder.vestOrderInfo = vestOrder;
                 }
                 
@@ -397,9 +407,20 @@ class SuitOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 existingVest.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
                 existingVest.firstButtonPosition = self.vestFirstButtonTextField.text!;
+                existingVest.vestLiningColor = self.VestLiningColorTextField.text;
+                existingVest.vestBack = self.vestBackOptions[self.vestBackSegmentedControl.selectedSegmentIndex];
             }
             
             suit.notes = self.overallNotesTextField.text;
+        }
+    }
+    @IBAction func vestBackSegmentedControlChanged(sender: AnyObject) {
+        if (self.vestBackSegmentedControl.selectedSegmentIndex == 0) {
+            self.VestLiningColorTextField.enabled = true;
+        }
+        else {
+            self.liningColorTextField.text = "";
+            self.VestLiningColorTextField.enabled = false;
         }
     }
     

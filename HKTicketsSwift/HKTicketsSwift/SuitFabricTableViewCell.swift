@@ -10,8 +10,7 @@ import UIKit
 
 class SuitFabricTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var jacketFabricLabel: UILabel!
-    @IBOutlet weak var pantsFabricLabel: UILabel!
+    @IBOutlet weak var suitFabricLabel: UILabel!
     @IBOutlet weak var vestFabricLabel: UILabel!
     
     override func awakeFromNib() {
@@ -19,8 +18,7 @@ class SuitFabricTableViewCell: UITableViewCell {
     }
     
     func configureWithSuitFabricUnit(_fabrics: SuitFabricUnit) {
-        self.jacketFabricLabel.text = "Jacket Fabric: \(_fabrics.suitFabric)"
-        self.pantsFabricLabel.text = "Pants Fabric: \(_fabrics.suitFabric)"
+        self.suitFabricLabel.text = "Suit Fabric: \(_fabrics.suitFabric)"
         self.vestFabricLabel.text = _fabrics.vestFabric ?? "No Vest";
     }
 }

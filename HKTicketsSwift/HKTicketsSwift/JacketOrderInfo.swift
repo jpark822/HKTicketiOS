@@ -24,7 +24,7 @@ class JacketOrderInfo: NSObject, OrderItemInterface {
         case Light = "Light"
         case Medium = "Medium"
         case Heavy = "Heavy"
-        case NotApplicable = "N/A"
+        case None = "No Padding"
     }
     
     enum Buttons : String {

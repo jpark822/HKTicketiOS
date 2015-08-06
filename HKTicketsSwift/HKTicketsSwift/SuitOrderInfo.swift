@@ -20,7 +20,8 @@ class SuitOrderInfo: NSObject, OrderItemInterface {
             return self.jacketOrderInfo.fabric;
         }
         set {
-            
+            self.jacketOrderInfo.fabric = newValue;
+            self.pantsOrderInfo.fabric = newValue;
         }
     }
     

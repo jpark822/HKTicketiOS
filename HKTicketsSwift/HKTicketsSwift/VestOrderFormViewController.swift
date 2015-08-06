@@ -14,9 +14,11 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
 
     @IBOutlet weak var fabricTextField: UITextField!
     @IBOutlet weak var vestCollectionView: UICollectionView!
+    @IBOutlet weak var liningColorTextField: UITextField!
     @IBOutlet weak var firstButtonTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var moveToMeasurementsButton: UIButton!
+    @IBOutlet weak var vestBackSegmentedControl: UISegmentedControl!
     
     var vestOptions : [VestOrderInfo.VestType] = [VestOrderInfo.VestType.V1,
         VestOrderInfo.VestType.V4,
@@ -24,6 +26,8 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         VestOrderInfo.VestType.V8,
         VestOrderInfo.VestType.V12,
         VestOrderInfo.VestType.Other];
+    
+    var vestBackOptions : [VestOrderInfo.VestBack] = [VestOrderInfo.VestBack.LiningWithTab, VestOrderInfo.VestBack.SameFabric];
     
     var existingVestOrder : VestOrderInfo?;
     var fabrics : [String]?;
@@ -59,9 +63,13 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.fabricTextField.hidden = false;
         self.noteTextView.text = self.existingVestOrder?.notes;
         self.firstButtonTextField.text = self.existingVestOrder?.firstButtonPosition;
+        self.liningColorTextField.text = self.existingVestOrder?.vestLiningColor;
         
         if let vestTypeIndex = self.vestOptions.indexOf(self.existingVestOrder!.vestType) {
             self.vestCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: vestTypeIndex, inSection: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.None);
+        }
+        if let vestBackIndex = self.vestBackOptions.indexOf(self.existingVestOrder!.vestBack) {
+            self.vestBackSegmentedControl.selectedSegmentIndex = vestBackIndex;
         }
     }
 
@@ -76,6 +84,8 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
                 var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
                 vestOrder.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
                 vestOrder.firstButtonPosition = self.firstButtonTextField.text!;
+                vestOrder.vestLiningColor = self.liningColorTextField.text;
+                vestOrder.vestBack = self.vestBackOptions[self.vestBackSegmentedControl.selectedSegmentIndex];
                 vestOrder.notes = self.noteTextView.text;
                 
                 orders.append(vestOrder);
@@ -101,6 +111,8 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
             var selectedVestTypeIndexes = self.vestCollectionView.indexPathsForSelectedItems() as [NSIndexPath]!;
             existingVest.vestType = self.vestOptions[selectedVestTypeIndexes[0].row];
             existingVest.firstButtonPosition = self.firstButtonTextField.text!;
+            existingVest.vestLiningColor = self.liningColorTextField.text;
+            existingVest.vestBack = self.vestBackOptions[self.vestBackSegmentedControl.selectedSegmentIndex];
             existingVest.notes = self.noteTextView.text;
         }
     }
@@ -113,6 +125,15 @@ class VestOrderFormViewController: UIViewController, UICollectionViewDataSource,
         self.collectFormDataAndUpdateExistingPants();
     }
 
+    @IBAction func liningSegmentedControlValueChanged(sender: AnyObject) {
+        if (self.vestBackSegmentedControl.selectedSegmentIndex == 0) {
+            self.liningColorTextField.enabled = true;
+        }
+        else {
+            self.liningColorTextField.text = "";
+            self.liningColorTextField.enabled = false;
+        }
+    }
     //MARK: collection view delegate and data source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let orderOptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("orderOptionCellId", forIndexPath: indexPath) as! OrderOptionCell;

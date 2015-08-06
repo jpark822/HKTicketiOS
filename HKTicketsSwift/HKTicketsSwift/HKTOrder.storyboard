@@ -163,6 +163,8 @@
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
+            <string>MyriadPro-Regular</string>
+            <string>MyriadPro-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -780,11 +782,8 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgl-yc-YvY">
-                                <rect key="frame" x="103" y="245" width="51" height="31"/>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Extension" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4fF-Dq-n2N">
-                                <rect key="frame" x="20" y="250" width="75" height="21"/>
+                                <rect key="frame" x="20" y="250" width="79" height="21"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -833,6 +832,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgl-yc-YvY">
+                                <rect key="frame" x="107" y="245" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1402,7 +1404,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZNp-Hs-84W">
-                                <rect key="frame" x="20" y="44" width="728" height="300"/>
+                                <rect key="frame" x="108" y="44" width="553" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qmq-9U-TQj">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1413,30 +1415,52 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Button Position" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT2-pw-Sf0">
-                                <rect key="frame" x="20" y="370" width="157" height="21"/>
+                                <rect key="frame" x="20" y="430" width="157" height="21"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Button Position" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qvH-HS-FRy">
-                                <rect key="frame" x="185" y="366" width="183" height="30"/>
+                                <rect key="frame" x="185" y="426" width="183" height="30"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m7a-Fz-7wA">
+                                <rect key="frame" x="20" y="352" width="728" height="29"/>
+                                <segments>
+                                    <segment title="Lining With Tab"/>
+                                    <segment title="Same Fabric At Back"/>
+                                </segments>
+                                <color key="tintColor" red="0.50980392159999999" green="0.0" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="liningSegmentedControlValueChanged:" destination="ng1-zm-mzM" eventType="valueChanged" id="RGe-zU-rZN"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lining Color" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oft-DE-fe1">
+                                <rect key="frame" x="124" y="388" width="183" height="30"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lining Color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSR-XR-TQX">
+                                <rect key="frame" x="20" y="394" width="91" height="18"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eru-1z-dPk">
-                                <rect key="frame" x="20" y="436" width="46" height="21"/>
+                                <rect key="frame" x="20" y="464" width="46" height="21"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="moX-y8-wto">
-                                <rect key="frame" x="20" y="465" width="728" height="128"/>
+                                <rect key="frame" x="20" y="493" width="728" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJ2-gN-VEf">
-                                <rect key="frame" x="20" y="616" width="728" height="83"/>
+                                <rect key="frame" x="20" y="644" width="728" height="83"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Code-Bold" family="Code Bold" pointSize="18"/>
                                 <state key="normal" title="Save and Move To Measurements">
@@ -1466,8 +1490,10 @@
                         <outlet property="customerNameLabel" destination="eu4-MS-57K" id="fCK-gP-QHH"/>
                         <outlet property="fabricTextField" destination="MK5-CV-Euk" id="M2d-GV-bi9"/>
                         <outlet property="firstButtonTextField" destination="qvH-HS-FRy" id="G36-jT-rP2"/>
+                        <outlet property="liningColorTextField" destination="Oft-DE-fe1" id="YU7-1H-9Pq"/>
                         <outlet property="moveToMeasurementsButton" destination="EJ2-gN-VEf" id="XqI-Qq-Q4W"/>
                         <outlet property="noteTextView" destination="moX-y8-wto" id="3c2-rQ-OXU"/>
+                        <outlet property="vestBackSegmentedControl" destination="m7a-Fz-7wA" id="AQX-pj-NCe"/>
                         <outlet property="vestCollectionView" destination="ZNp-Hs-84W" id="XCO-oh-gkf"/>
                         <segue destination="I6n-nl-oef" kind="show" id="lgm-aA-3EZ"/>
                     </connections>

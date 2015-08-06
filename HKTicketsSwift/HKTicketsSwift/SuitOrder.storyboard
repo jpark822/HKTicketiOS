@@ -110,31 +110,25 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="187" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SMb-dE-Aoj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SMb-dE-Aoj">
                                 <rect key="frame" x="309" y="0.0" width="459" height="960"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suitFabricCellId" rowHeight="187" id="g23-sl-mwy" customClass="SuitFabricTableViewCell" customModule="HKTickets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="459" height="187"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suitFabricCellId" rowHeight="90" id="g23-sl-mwy" customClass="SuitFabricTableViewCell" customModule="HKTickets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="459" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g23-sl-mwy" id="A6e-Kz-tiT">
-                                            <rect key="frame" x="0.0" y="0.0" width="459" height="186"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="459" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pants Fabric" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeZ-1T-B50">
-                                                    <rect key="frame" x="8" y="82" width="443" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suit Fabric" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYd-2H-Gdh">
+                                                    <rect key="frame" x="8" y="15" width="443" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vest Fabric" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3A-Ck-ZTd">
-                                                    <rect key="frame" x="8" y="136" width="443" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jacket Fabric" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYd-2H-Gdh">
-                                                    <rect key="frame" x="8" y="33" width="443" height="21"/>
+                                                    <rect key="frame" x="8" y="48" width="443" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -142,8 +136,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="jacketFabricLabel" destination="sYd-2H-Gdh" id="6DI-9a-cvU"/>
-                                            <outlet property="pantsFabricLabel" destination="FeZ-1T-B50" id="q9c-uc-9Ho"/>
+                                            <outlet property="suitFabricLabel" destination="sYd-2H-Gdh" id="h2d-zE-NR5"/>
                                             <outlet property="vestFabricLabel" destination="O3A-Ck-ZTd" id="Bmc-ph-Ukf"/>
                                         </connections>
                                     </tableViewCell>
@@ -952,7 +945,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWK-RY-eIV">
-                                <rect key="frame" x="5" y="1766" width="758" height="414"/>
+                                <rect key="frame" x="5" y="1766" width="758" height="488"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8U8-5C-gcy">
                                         <rect key="frame" x="15" y="9" width="83" height="21"/>
@@ -987,35 +980,28 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5VQ-ew-Eog">
-                                <rect key="frame" x="8" y="2183" width="752" height="279"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucr-hV-Nka">
-                                        <rect key="frame" x="8" y="199" width="736" height="83"/>
-                                        <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Code-Bold" family="Code Bold" pointSize="18"/>
-                                        <state key="normal" title="Save and Move to Measurements">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-Qc-6Sn">
+                                        <rect key="frame" x="15" y="414" width="728" height="29"/>
+                                        <segments>
+                                            <segment title="Lining With Tab"/>
+                                            <segment title="Same Fabric At Back"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.50980392159999999" green="0.0" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="doneButtonPressed:" destination="2bJ-Qd-6Av" eventType="touchUpInside" id="Ff9-Kc-Di6"/>
+                                            <action selector="vestBackSegmentedControlChanged:" destination="2bJ-Qd-6Av" eventType="valueChanged" id="Tht-wI-UP7"/>
                                         </connections>
-                                    </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7p2-yc-oZK">
-                                        <rect key="frame" x="8" y="37" width="736" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-Uy-qVA">
-                                        <rect key="frame" x="8" y="8" width="46" height="21"/>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lining Color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-Bl-Bxy">
+                                        <rect key="frame" x="15" y="453" width="92" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lining Color" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-1X-JeA">
+                                        <rect key="frame" x="115" y="449" width="183" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1049,6 +1035,35 @@
                                 <rect key="frame" x="103" y="1646" width="51" height="31"/>
                                 <color key="tintColor" red="0.50980392159999999" green="0.0" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5VQ-ew-Eog">
+                                <rect key="frame" x="8" y="2262" width="752" height="279"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucr-hV-Nka">
+                                        <rect key="frame" x="8" y="199" width="736" height="83"/>
+                                        <color key="backgroundColor" red="0.52156862749999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Code-Bold" family="Code Bold" pointSize="18"/>
+                                        <state key="normal" title="Save and Move to Measurements">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="2bJ-Qd-6Av" eventType="touchUpInside" id="Ff9-Kc-Di6"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7p2-yc-oZK">
+                                        <rect key="frame" x="8" y="37" width="736" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-Uy-qVA">
+                                        <rect key="frame" x="8" y="8" width="46" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
@@ -1064,6 +1079,7 @@
                     <size key="freeformSize" width="768" height="3000"/>
                     <connections>
                         <outlet property="NoteAndDoneButtonContainerView" destination="5VQ-ew-Eog" id="1rL-hD-ItB"/>
+                        <outlet property="VestLiningColorTextField" destination="q4K-1X-JeA" id="zXa-wc-1Gz"/>
                         <outlet property="buttonCollectionView" destination="vtJ-fF-QLP" id="79a-6e-G86"/>
                         <outlet property="buttonHoleLapelSwitch" destination="dY8-Yr-Krh" id="4Zt-mp-qm3"/>
                         <outlet property="cuffsCollectionView" destination="Efa-3e-OuL" id="JRg-1Q-nUu"/>
@@ -1087,6 +1103,7 @@
                         <outlet property="stitchCollectionView" destination="9uz-AI-mac" id="8zH-ID-V7U"/>
                         <outlet property="ticketPocketSwitch" destination="GCn-oi-n4k" id="02K-Ro-l3S"/>
                         <outlet property="ventCollectionView" destination="C8L-Et-8Ko" id="VpV-7F-EXw"/>
+                        <outlet property="vestBackSegmentedControl" destination="b2g-Qc-6Sn" id="mR9-js-0iH"/>
                         <outlet property="vestCollectionView" destination="gk6-9M-P6t" id="hGo-g0-zlD"/>
                         <outlet property="vestContainerView" destination="mWK-RY-eIV" id="AJQ-5O-v5Y"/>
                         <outlet property="vestFabricTextField" destination="Kab-3H-CrH" id="Sjk-ln-4f6"/>

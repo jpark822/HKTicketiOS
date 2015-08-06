@@ -60,7 +60,7 @@ class SuitFabricChooserViewController: UIViewController, SuitFabricModalDelegate
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 187;
+        return 90;
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
