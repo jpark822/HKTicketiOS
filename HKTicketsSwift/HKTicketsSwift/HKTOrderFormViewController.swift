@@ -41,6 +41,8 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.orderItems = [];
+        
         self.navigationItem.title = "Custom Order For \(self.customer.firstName) \(self.customer.lastName)";
         
         self.tableView.dataSource = self;
@@ -164,6 +166,7 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
         self.tableView.reloadData();
     }
     
+    
     func getBodyMeasurements() -> BodyMeasurements {
         let body = BodyMeasurements();
         body.chest = "1";
@@ -262,41 +265,6 @@ class HKTOrderFormViewController: UIViewController, OrderFormDelegate, UITableVi
             self.navigationController?.pushViewController(suitOrderVC, animated: true);
         }
     }
-
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let item : OrderItemInterface = self.orderItems[indexPath.row];
-//        
-//        switch item.itemType {
-//        case OrderItemType.Shirt:
-//            let shirtOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("shirtOrderFormId") as! ShirtOrderFormViewController;
-//            shirtOrderForm.editShirtinfo = item as? ShirtOrderInfo;
-//            shirtOrderForm.delegate = self;
-//            self.navigationController?.pushViewController(shirtOrderForm, animated: true);
-//        case OrderItemType.Pants:
-//            let pantsOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("PantsOrderFormID") as! PantsOrderFormViewController;
-//            pantsOrderForm.existingPantOrder = item as? PantsOrderInfo
-//            pantsOrderForm.delegate = self;
-//            self.navigationController?.pushViewController(pantsOrderForm, animated: true);
-//        case OrderItemType.Vest:
-//            let vestOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("vestOrderFormId") as! VestOrderFormViewController;
-//            vestOrderForm.existingVestOrder = item as? VestOrderInfo
-//            vestOrderForm.delegate = self;
-//            self.navigationController?.pushViewController(vestOrderForm, animated: true);
-//        case OrderItemType.Jacket:
-//            let jacketOrderForm = UIStoryboard(name: "HKTOrder", bundle: nil).instantiateViewControllerWithIdentifier("jacketOrderFormId") as! JacketOrderFormViewController;
-//            jacketOrderForm.existingJacketOrder = item as? JacketOrderInfo
-//            jacketOrderForm.delegate = self;
-//            self.navigationController?.pushViewController(jacketOrderForm, animated: true);
-//        case OrderItemType.Suit:
-//            let suitOrderVC = UIStoryboard(name: "SuitOrder", bundle: nil).instantiateViewControllerWithIdentifier("suitOrderFormId") as! SuitOrderFormViewController;
-//            suitOrderVC.existingSuit = item as? SuitOrderInfo
-//            suitOrderVC.delegate = self;
-//            
-//        default:
-//            
-//            NSLog("no type");
-//        }
-//    }
     
     
     @IBAction func backButtonPressed(sender: AnyObject) {

@@ -98,6 +98,20 @@ class JacketOrderInfo: NSObject, OrderItemInterface {
             myString += "Notes: \(self.notes)\n";
         }
         
+        if (self.bodyMeasurements != nil) {
+            myString += "\n";
+            myString += "Body Measurements:\n";
+            if (self.bodyMeasurements!.chest.characters.count > 0) {
+                myString += "Chest : \(self.bodyMeasurements?.chest)\n"
+            }
+            if (self.bodyMeasurements!.waist.characters.count > 0) {
+                myString += "Waist : \(self.bodyMeasurements?.waist)\n"
+            }
+            if (self.bodyMeasurements!.hips.characters.count > 0) {
+                myString += "Hips : \(self.bodyMeasurements?.hips)\n"
+            }
+        }
+        
         if let finish = self.finishMeasurements {
             myString += "Finish Measurements:\n";
             myString += finish.convertToMailingString();

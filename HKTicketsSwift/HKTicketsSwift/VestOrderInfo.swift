@@ -45,7 +45,21 @@ class VestOrderInfo: NSObject, OrderItemInterface {
         if (self.notes.characters.count > 0) {
             myString += "Notes: \(self.notes)\n";
         }
+        if (self.bodyMeasurements != nil) {
+            myString += "\n";
+            myString += "Body Measurements:\n";
+            if (self.bodyMeasurements!.chest.characters.count > 0) {
+                myString += "Chest : \(self.bodyMeasurements?.chest)\n"
+            }
+            if (self.bodyMeasurements!.waist.characters.count > 0) {
+                myString += "Waist : \(self.bodyMeasurements?.waist)\n"
+            }
+            if (self.bodyMeasurements!.hips.characters.count > 0) {
+                myString += "Hips : \(self.bodyMeasurements?.hips)\n"
+            }
+        }
         if self.finishMeasurements != nil {
+            myString += "\n";
             myString += "Finish Measurements:\n";
             myString += self.finishMeasurements!.convertToMailingString();
         }

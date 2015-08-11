@@ -146,6 +146,7 @@ class ShirtOrderInfo: NSObject, OrderItemInterface {
         }
         
         if self.finishMeasurements != nil {
+            myString += "\n";
             myString += "Finish Measurements:\n";
             myString += self.finishMeasurements!.convertToMailingString();
         }
