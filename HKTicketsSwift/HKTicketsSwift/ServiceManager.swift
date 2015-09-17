@@ -107,6 +107,7 @@ class ServiceManager: NSObject {
                 failure(error);
         }
     }
+    
     //MARK: TODO this is fake remove this
     func getBodyMeasurementsByCustomerId(_customerId : Int, success : ((BodyMeasurements) -> ()), failure : (NSError!) -> ()) {
         let body = BodyMeasurements();
@@ -196,11 +197,12 @@ class ServiceManager: NSObject {
         postBody[kCustomerIdKey] = "\(_customerId)";
     }
     
-    func getFinishMeasurementsForCustomer(_customerId : String, finishMeasurements : FinishMeasurements, success : (([FinishMeasurements]) -> ()), failure : (NSError!) -> ()) {
+    func getFinishMeasurementsForCustomer(_customerId : String, success : (([FinishMeasurements]) -> ()), failure : (NSError!) -> ()) {
         
         self.sessionManager .GET(kMeasurementEndpoint, parameters: [kCustomerIdKey : _customerId], success: { (dataTask : NSURLSessionDataTask!, response : AnyObject!) -> Void in
-            let convertedMeasurements = self.convertResponseToFinishMeasurements(response as! Dictionary<String, AnyObject>)
+            let convertedMeasurements = self.convertRawArrayOfFinishMeasurementsToFinishMeasurements(response as! [Dictionary<String, AnyObject>])
             success(convertedMeasurements);
+            
             }) { (dataTask : NSURLSessionDataTask!, error : NSError!) -> Void in
                 
         }
@@ -216,6 +218,7 @@ class ServiceManager: NSObject {
 
         self.sessionManager.POST("Measurements", parameters: postBody, success: { (dataTask : NSURLSessionDataTask!, response : AnyObject!) -> Void in
             success(responseDict: response as! Dictionary<String, AnyObject>);
+            
             }) { (dataTask : NSURLSessionDataTask!, error : NSError!) -> Void in
                 failure(error);
         }
@@ -249,43 +252,6 @@ class ServiceManager: NSObject {
             }
         }
         return body;
-    }
-    
-    func convertResponseToFinishMeasurements(_response : Dictionary<String, AnyObject>) -> [FinishMeasurements] {
-        var finishMeasurements : [FinishMeasurements] = [];
-        
-        if let measurements : AnyObject = _response["value"] {
-            if let measurementArray = measurements as? [Dictionary<String, String>]  {
-                for measurementDict : Dictionary<String, String> in measurementArray {
-                    let finishMeasurement : FinishMeasurements = FinishMeasurements();
-                    finishMeasurement.chest = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.waist = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.hips = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.shoulders = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.shirtSleeveLength = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.shirtCuff = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.shirtNeck = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.shirtWidth6Below = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.shirtWidth12Below = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.vestBackLength = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.vestFrontLength = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.jacketSleeveLength = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.jacketHalfShoulder = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.jacketLength = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.jacketSleeveWidth = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.pantSeat = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.pantCrotch = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.pant1623below = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.pantBottomCuff = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.pantOutseam = measurementDict[kFinishChestKey] ?? "";
-                    finishMeasurement.pantInseam = measurementDict[kFinishChestKey] ?? "";
-                    
-                    finishMeasurements.append(finishMeasurement);
-                }
-            }
-        }
-        
-        return finishMeasurements;
     }
     
     func covertBodyMeasurementsToDictionary(bodyMeasurements : BodyMeasurements) -> Dictionary<String, String> {
@@ -340,4 +306,52 @@ class ServiceManager: NSObject {
         return postBody;
     }
     
+    func convertRawArrayOfFinishMeasurementsToFinishMeasurements(_response : [Dictionary<String, AnyObject>]) -> [FinishMeasurements] {
+        var finishMeasurements : [FinishMeasurements] = [];
+        
+        for rawMeasurementDict : Dictionary<String, AnyObject> in _response {
+            if let measurementString = rawMeasurementDict["value"] as? String {
+                let measurementDict = self.convertJsonStringIntoDictionary(measurementString);
+                let finishMeasurement : FinishMeasurements = FinishMeasurements();
+                finishMeasurement.chest = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.waist = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.hips = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.shoulders = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.shirtSleeveLength = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.shirtCuff = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.shirtNeck = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.shirtWidth6Below = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.shirtWidth12Below = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.vestBackLength = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.vestFrontLength = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.jacketSleeveLength = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.jacketHalfShoulder = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.jacketLength = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.jacketSleeveWidth = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.pantSeat = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.pantCrotch = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.pant1623below = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.pantBottomCuff = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.pantOutseam = measurementDict[kFinishChestKey] as! String? ?? "";
+                finishMeasurement.pantInseam = measurementDict[kFinishChestKey] as! String? ?? "";
+                
+                finishMeasurements.append(finishMeasurement);
+            }
+        }
+        
+        return finishMeasurements;
+    }
+    
+    func convertJsonStringIntoDictionary(jsonString : String) -> Dictionary<String, AnyObject> {
+        let objectData = jsonString.dataUsingEncoding(NSUTF8StringEncoding);
+        var convertedDictionary = Dictionary<String, AnyObject>();
+        do {
+            convertedDictionary = try NSJSONSerialization.JSONObjectWithData(objectData!, options: NSJSONReadingOptions.MutableContainers) as! Dictionary<String, AnyObject>;
+        }
+        catch _ {
+            
+        }
+        
+        return convertedDictionary;
+    }
 }

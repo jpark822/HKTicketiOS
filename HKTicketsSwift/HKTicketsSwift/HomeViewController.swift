@@ -17,6 +17,12 @@ class HomeViewController: UIViewController {
 
         self.navigationController!.setNavigationBarHidden(true, animated: false);
         self.customersButton.layer.cornerRadius = HKTStyling.cornerRadiusMedium;
+        
+        ServiceManager.sharedManager.getFinishMeasurementsForCustomer("2700", success: { (finish : [FinishMeasurements]) -> () in
+            
+            }) { (error : NSError!) -> () in
+                
+        }
     }
 
     override func didReceiveMemoryWarning() {
