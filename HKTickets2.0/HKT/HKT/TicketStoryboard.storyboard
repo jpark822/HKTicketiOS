@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tickets-->
+        <scene sceneID="dRO-q7-iJz">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="WTi-FR-yOl" customClass="TicketListTableViewController" customModule="HKT" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tuh-te-WSj">
+                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="WTi-FR-yOl" id="aoS-XI-tWu"/>
+                            <outlet property="delegate" destination="WTi-FR-yOl" id="hGR-80-oVw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Tickets" id="ZVj-QV-zm0">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="N0J-XQ-6N3">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="WTi-FR-yOl" id="Jk1-mE-8qH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hds-tA-sWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-615" y="-559"/>
+        </scene>
+        <!--Ticket Detail View Controller-->
+        <scene sceneID="JOQ-eT-anj">
+            <objects>
+                <viewController id="Bph-Fl-ZhH" customClass="TicketDetailViewController" customModule="HKT" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q3V-Lr-n0v"/>
+                        <viewControllerLayoutGuide type="bottom" id="nUa-pi-NxY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2WI-Hc-sZF">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acn-Ko-t86">
+                                <rect key="frame" x="44" y="94" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pgl-Ga-anr"/>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="acn-Ko-t86" id="vit-rW-k4c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6A-es-1sX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-615" y="272"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xcz-jH-32a">
+            <objects>
+                <navigationController id="78g-3M-qfC" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="HQV-5s-C3c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bph-Fl-ZhH" kind="relationship" relationship="rootViewController" id="qlP-5x-rCG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uaj-Nd-Cgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1446" y="272"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ylt-Mj-BO3">
+            <objects>
+                <navigationController id="DbV-if-R1Z" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="NKa-8c-8bQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WTi-FR-yOl" kind="relationship" relationship="rootViewController" id="lfP-Tr-Lj6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDo-Rv-8U4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1445" y="-558"/>
+        </scene>
+        <!--Ticket Search Split View Controller-->
+        <scene sceneID="MDj-xF-6J4">
+            <objects>
+                <splitViewController storyboardIdentifier="ticketSearchSplitViewControllerID" id="YLK-PM-48n" customClass="TicketSearchSplitViewController" customModule="HKT" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="DbV-if-R1Z" kind="relationship" relationship="masterViewController" id="AUi-ck-EOj"/>
+                        <segue destination="78g-3M-qfC" kind="relationship" relationship="detailViewController" id="UXC-Ry-Pq0"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5M-ZA-vsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2174" y="-233"/>
+        </scene>
+    </scenes>
+</document>
