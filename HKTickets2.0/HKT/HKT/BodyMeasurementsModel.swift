@@ -9,8 +9,8 @@
 import Foundation
 
 struct BodyMeasurementsModel {
-    var id : String = "";
     
+    var id : String = "";
     var chest : String = "";
     var waist = "";
     var hips = "";
@@ -31,6 +31,29 @@ struct BodyMeasurementsModel {
     var armHole : String = "";
     var belly : String = "";
     
+    fileprivate enum JSONPropertyKey:String {
+        case ChestKey = "body_chest"
+        case WaistKey = "body_waist"
+        case HipsKey = "body_hips"
+        case ShouldersKey = "body_shoulders"
+        case SeatKey = "body_seat"
+        case CrotchKey = "body_crotch"
+        case ActualThighKey = "body_actual_thigh"
+        case OutseamKey = "body_outseam"
+        case InseamKey = "body_inseam"
+        case ShirtSleeveLengthKey = "body_shirt_sleeve_length"
+        case JacketSleeveLengthKey = "body_jacket_sleeve_length"
+        case ShirtLengthKey = "body_shirt_length"
+        case WristKey = "body_wrist"
+        case NeckSizeKey = "body_neck"
+        case JacketLengthKey = "body_jacket_length"
+        case JacketWidthKey = "body_jacket_width"
+        case BicepKey = "body_bicep"
+        case ArmHoleKey = "body_arm_hole"
+        case BellyKey = "body_belly"
+    }
+    
+    /* Not available until we implement receipts
     func convertToMailingString() -> String {
         var myString = "";
         myString += "Chest: \(self.chest) \n";
@@ -54,4 +77,7 @@ struct BodyMeasurementsModel {
         
         return myString;
     }
+    */
+    
+    
 }

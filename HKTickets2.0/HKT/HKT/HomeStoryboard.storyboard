@@ -37,6 +37,14 @@
                                     <action selector="TicketSearchButtonPressed:" destination="jWu-5L-hc2" eventType="touchUpInside" id="cV2-g9-YRv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ct5-XF-NaM">
+                                <rect key="frame" x="478" y="422" width="232" height="156"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ticket List"/>
+                                <connections>
+                                    <action selector="ticketListButtonPressed:" destination="jWu-5L-hc2" eventType="touchUpInside" id="FpH-dh-2Yb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

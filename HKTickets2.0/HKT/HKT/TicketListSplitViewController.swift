@@ -1,20 +1,20 @@
 //
-//  TicketSearchSplitViewController.swift
+//  TicketListSplitViewController.swift
 //  HKT
 //
-//  Created by Jay Park on 6/18/17.
+//  Created by Jay Park on 5/21/17.
 //  Copyright © 2017 ThoughtSeize. All rights reserved.
 //
 
 import UIKit
 
-class TicketSearchSplitViewController: UISplitViewController, TicketSearchCriteriaViewControllerDelegate {
+class TicketListSplitViewController: UISplitViewController, TicketListTableViewControllerDelegate {
     
-    var searchMasterVC:TicketSearchCriteriaViewController? {
+    var ticketMasterVC:TicketListTableViewController? {
         get {
             if let masterNavVC = self.masterViewController as? UINavigationController,
-                let searchVC = masterNavVC.viewControllers[0] as? TicketSearchCriteriaViewController {
-                return searchVC
+                let ticketVC = masterNavVC.viewControllers[0] as? TicketListTableViewController {
+                return ticketVC
             }
             else {
                 return nil
@@ -22,7 +22,7 @@ class TicketSearchSplitViewController: UISplitViewController, TicketSearchCriter
         }
     }
     
-    var searchDetailVC:TicketDetailViewController? {
+    var ticketDetailVC:TicketDetailViewController? {
         get {
             guard let detailNavVC = self.detailViewController as? UINavigationController else {
                 return nil
@@ -42,18 +42,19 @@ class TicketSearchSplitViewController: UISplitViewController, TicketSearchCriter
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let searchMasterVC = self.searchMasterVC {
-            searchMasterVC.delegate = self
+        if let ticketMasterVC = self.ticketMasterVC {
+            ticketMasterVC.delegate = self
         }
     }
     
-    //MARK: TicketSearchCriteriaViewControllerDelegate
-    func TicketSearchCriteriaViewControllerDidPressDone() {
-        self.dismiss(animated: true)
+    //MARK: - TicketListTableViewControllerDelegate
+    func TicketListTableViewControllerDidSelectTicket(ticket: TicketModel) {
+        self.ticketDetailVC?.ticket = ticket
     }
     
-    func TicketSearchCriteriaViewControllerDidPressSearch(request: URLSessionDataTask) {
-        NSLog("Search")
+    func TicketListTableViewControllerBackButtonPressed() {
+        self.dismiss(animated: true) { 
+        }
     }
 
 }

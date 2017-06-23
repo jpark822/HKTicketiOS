@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E312DCE1EF21274005B8E9F /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E312DCD1EF21274005B8E9F /* CustomerModel.swift */; };
+		4E312DD31EF2155F005B8E9F /* FinishMeasurementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E312DD21EF2155F005B8E9F /* FinishMeasurementsModel.swift */; };
+		4E312DD71EF6F35F005B8E9F /* TicketSearchSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E312DD61EF6F35F005B8E9F /* TicketSearchSplitViewController.swift */; };
+		4E312DDC1EF75B39005B8E9F /* CustomerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E312DDB1EF75B39005B8E9F /* CustomerDetailViewController.swift */; };
+		4EBDEDCF1EFB379F0089796F /* ApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDCE1EFB379F0089796F /* ApplicationData.swift */; };
 		4ED878D91ED2588000D72C26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878D81ED2588000D72C26 /* AppDelegate.swift */; };
 		4ED878DE1ED2588000D72C26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DC1ED2588000D72C26 /* Main.storyboard */; };
 		4ED878E01ED2588000D72C26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DF1ED2588000D72C26 /* Assets.xcassets */; };
@@ -17,7 +22,7 @@
 		4ED878F61ED2608E00D72C26 /* TitleDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878F51ED2608E00D72C26 /* TitleDetailTableViewCell.xib */; };
 		4ED878F81ED261B400D72C26 /* TitleDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878F71ED261B400D72C26 /* TitleDetailTableViewCell.swift */; };
 		4ED878FC1ED26ACF00D72C26 /* TicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878FB1ED26ACF00D72C26 /* TicketModel.swift */; };
-		4ED878FE1ED26CC900D72C26 /* TicketSearchSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878FD1ED26CC900D72C26 /* TicketSearchSplitViewController.swift */; };
+		4ED878FE1ED26CC900D72C26 /* TicketListSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878FD1ED26CC900D72C26 /* TicketListSplitViewController.swift */; };
 		4ED879001ED26D0900D72C26 /* UISplitViewController+MasterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878FF1ED26D0900D72C26 /* UISplitViewController+MasterDetail.swift */; };
 		4ED879021ED304A400D72C26 /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED879011ED304A400D72C26 /* TicketDetailViewController.swift */; };
 		4ED879051ED3A6FC00D72C26 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED879041ED3A6FC00D72C26 /* HomeStoryboard.storyboard */; };
@@ -31,6 +36,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E312DCD1EF21274005B8E9F /* CustomerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
+		4E312DD21EF2155F005B8E9F /* FinishMeasurementsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishMeasurementsModel.swift; sourceTree = "<group>"; };
+		4E312DD61EF6F35F005B8E9F /* TicketSearchSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketSearchSplitViewController.swift; sourceTree = "<group>"; };
+		4E312DDB1EF75B39005B8E9F /* CustomerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerDetailViewController.swift; sourceTree = "<group>"; };
+		4EBDEDCE1EFB379F0089796F /* ApplicationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationData.swift; sourceTree = "<group>"; };
 		4ED878D51ED2588000D72C26 /* HKT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED878D81ED2588000D72C26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED878DD1ED2588000D72C26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,7 +53,7 @@
 		4ED878F51ED2608E00D72C26 /* TitleDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4ED878F71ED261B400D72C26 /* TitleDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4ED878FB1ED26ACF00D72C26 /* TicketModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketModel.swift; sourceTree = "<group>"; };
-		4ED878FD1ED26CC900D72C26 /* TicketSearchSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketSearchSplitViewController.swift; sourceTree = "<group>"; };
+		4ED878FD1ED26CC900D72C26 /* TicketListSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketListSplitViewController.swift; sourceTree = "<group>"; };
 		4ED878FF1ED26D0900D72C26 /* UISplitViewController+MasterDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+MasterDetail.swift"; sourceTree = "<group>"; };
 		4ED879011ED304A400D72C26 /* TicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		4ED879041ED3A6FC00D72C26 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
@@ -67,6 +77,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E312DD41EF6F30C005B8E9F /* Ticket List */ = {
+			isa = PBXGroup;
+			children = (
+				4ED878FD1ED26CC900D72C26 /* TicketListSplitViewController.swift */,
+				4ED878F31ED25E5E00D72C26 /* TicketListTableViewController.swift */,
+			);
+			name = "Ticket List";
+			sourceTree = "<group>";
+		};
+		4E312DD51EF6F33B005B8E9F /* Ticket Search */ = {
+			isa = PBXGroup;
+			children = (
+				4E312DD61EF6F35F005B8E9F /* TicketSearchSplitViewController.swift */,
+				4ED879091ED3AD9500D72C26 /* TicketSearchCriteriaViewController.swift */,
+			);
+			name = "Ticket Search";
+			sourceTree = "<group>";
+		};
+		4E312DD81EF759F8005B8E9F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		4E312DDD1EF75B44005B8E9F /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				4E312DDB1EF75B39005B8E9F /* CustomerDetailViewController.swift */,
+				4ED879081ED3ABA200D72C26 /* CustomerSearch */,
+			);
+			name = Customer;
+			sourceTree = "<group>";
+		};
+		4EBDEDCD1EFB37700089796F /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				4EBDEDCE1EFB379F0089796F /* ApplicationData.swift */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		4ED878CC1ED2588000D72C26 = {
 			isa = PBXGroup;
 			children = (
@@ -86,15 +138,15 @@
 		4ED878D71ED2588000D72C26 /* HKT */ = {
 			isa = PBXGroup;
 			children = (
-				4ED879081ED3ABA200D72C26 /* CustomerSearch */,
+				4E312DDD1EF75B44005B8E9F /* Customer */,
 				4ED879031ED3A6EF00D72C26 /* Home */,
 				4ED878F01ED25CF600D72C26 /* Tickets */,
 				4ED878EA1ED25C2400D72C26 /* Login */,
 				4ED878F91ED2621100D72C26 /* SharedComponents */,
 				4ED878FA1ED26AB100D72C26 /* Model */,
+				4EBDEDCD1EFB37700089796F /* Store */,
+				4E312DD81EF759F8005B8E9F /* Utilities */,
 				4ED878EF1ED25C9300D72C26 /* Supporting Files */,
-				4ED878DF1ED2588000D72C26 /* Assets.xcassets */,
-				4ED878E41ED2588000D72C26 /* Info.plist */,
 			);
 			path = HKT;
 			sourceTree = "<group>";
@@ -111,8 +163,10 @@
 		4ED878EF1ED25C9300D72C26 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4ED878DF1ED2588000D72C26 /* Assets.xcassets */,
 				4ED878D81ED2588000D72C26 /* AppDelegate.swift */,
 				4ED878E11ED2588000D72C26 /* LaunchScreen.storyboard */,
+				4ED878E41ED2588000D72C26 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -120,11 +174,10 @@
 		4ED878F01ED25CF600D72C26 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
-				4ED878FD1ED26CC900D72C26 /* TicketSearchSplitViewController.swift */,
-				4ED879091ED3AD9500D72C26 /* TicketSearchCriteriaViewController.swift */,
-				4ED878F31ED25E5E00D72C26 /* TicketListTableViewController.swift */,
-				4ED879011ED304A400D72C26 /* TicketDetailViewController.swift */,
 				4ED878F11ED25D1600D72C26 /* TicketStoryboard.storyboard */,
+				4ED879011ED304A400D72C26 /* TicketDetailViewController.swift */,
+				4E312DD51EF6F33B005B8E9F /* Ticket Search */,
+				4E312DD41EF6F30C005B8E9F /* Ticket List */,
 			);
 			name = Tickets;
 			sourceTree = "<group>";
@@ -143,7 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				4ED878FB1ED26ACF00D72C26 /* TicketModel.swift */,
+				4E312DCD1EF21274005B8E9F /* CustomerModel.swift */,
 				4ED879131ED4520200D72C26 /* BodyMeasurementsModel.swift */,
+				4E312DD21EF2155F005B8E9F /* FinishMeasurementsModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -247,9 +302,13 @@
 				4ED878FC1ED26ACF00D72C26 /* TicketModel.swift in Sources */,
 				4ED879001ED26D0900D72C26 /* UISplitViewController+MasterDetail.swift in Sources */,
 				4ED879021ED304A400D72C26 /* TicketDetailViewController.swift in Sources */,
-				4ED878FE1ED26CC900D72C26 /* TicketSearchSplitViewController.swift in Sources */,
+				4E312DD71EF6F35F005B8E9F /* TicketSearchSplitViewController.swift in Sources */,
+				4E312DD31EF2155F005B8E9F /* FinishMeasurementsModel.swift in Sources */,
+				4E312DDC1EF75B39005B8E9F /* CustomerDetailViewController.swift in Sources */,
+				4ED878FE1ED26CC900D72C26 /* TicketListSplitViewController.swift in Sources */,
 				4ED879141ED4520200D72C26 /* BodyMeasurementsModel.swift in Sources */,
 				4ED878EE1ED25C7E00D72C26 /* LoginViewController.swift in Sources */,
+				4EBDEDCF1EFB379F0089796F /* ApplicationData.swift in Sources */,
 				4ED879071ED3A7E300D72C26 /* HomeViewController.swift in Sources */,
 				4ED878F81ED261B400D72C26 /* TitleDetailTableViewCell.swift in Sources */,
 				4ED879121ED3B1DD00D72C26 /* CustomerSearchResultTableViewController.swift in Sources */,
@@ -257,6 +316,7 @@
 				4ED8790E1ED3B08F00D72C26 /* CustomerSplitViewController.swift in Sources */,
 				4ED878F41ED25E5E00D72C26 /* TicketListTableViewController.swift in Sources */,
 				4ED878D91ED2588000D72C26 /* AppDelegate.swift in Sources */,
+				4E312DCE1EF21274005B8E9F /* CustomerModel.swift in Sources */,
 				4ED879101ED3B0DE00D72C26 /* CustomerSearchCriteriaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

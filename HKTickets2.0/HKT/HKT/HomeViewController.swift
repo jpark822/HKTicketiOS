@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func TicketSearchButtonPressed(_ sender: Any) {
-        let ticketSearchVC = UIStoryboard(name: "TicketStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ticketSearchSplitViewControllerID")
+        let ticketSearchVC = UIStoryboard(name: "TicketStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ticketSearchSplitViewControllerId")
         self.present(ticketSearchVC, animated: true) {
             
         }
@@ -35,5 +35,12 @@ class HomeViewController: UIViewController {
             
         }
         
+    }
+    
+    @IBAction func ticketListButtonPressed(_ sender: Any) {
+        let ticketSearchVC = UIStoryboard(name: "TicketStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ticketListSplitViewControllerId")
+        self.present(ticketSearchVC, animated: true) {
+            
+        }
     }
 }
