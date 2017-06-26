@@ -22,7 +22,7 @@ struct CustomerModel {
     var zip = -1;
     var customerId = -1;
     
-    fileprivate enum JSONPropertyKey : String {
+    enum JSONPropertyKey : String {
         case Title = "title";
         case FirstName = "first_name"
         case LastName = "last_name"
@@ -37,50 +37,51 @@ struct CustomerModel {
         case CustomerId = "id"
     }
     
-    static func customersWithArrayOfDictionaries(_customerArray : Array<Dictionary<String, AnyObject>>) -> [CustomerModel] {
+    static func customersWithArrayOfDictionaries(_ customerArray : Array<Dictionary<String, AnyObject>>) -> [CustomerModel] {
 
-        var customerArray : [CustomerModel] = [];
+        var parsedCustomerArray : [CustomerModel] = [];
         
-        for customerDictionary : Dictionary<String, AnyObject> in _customerArray {
+        for customerDictionary : Dictionary<String, AnyObject> in customerArray {
             var customer = CustomerModel();
-            if let title = customerDictionary[JSONPropertyKey.Title.rawValue] {
-                customer.title = title as! String;
+
+            if let title = customerDictionary[JSONPropertyKey.Title.rawValue] as? String {
+                customer.title = title
             }
-            if let firstName = customerDictionary[JSONPropertyKey.FirstName.rawValue] {
-                customer.firstName = firstName as! String;
+            if let firstName = customerDictionary[JSONPropertyKey.FirstName.rawValue] as? String {
+                customer.firstName = firstName
             }
-            if let lastName = customerDictionary[JSONPropertyKey.LastName.rawValue] {
-                customer.lastName = lastName as! String;
+            if let lastName = customerDictionary[JSONPropertyKey.LastName.rawValue] as? String {
+                customer.lastName = lastName
             }
-            if let middleName = customerDictionary[JSONPropertyKey.MiddleName.rawValue] {
-                customer.middleName = middleName as! String;
+            if let middleName = customerDictionary[JSONPropertyKey.MiddleName.rawValue] as? String {
+                customer.middleName = middleName
             }
-            if let phone = customerDictionary[JSONPropertyKey.Phone.rawValue] {
-                customer.phone = phone as! String;
+            if let phone = customerDictionary[JSONPropertyKey.Phone.rawValue] as? String {
+                customer.phone = phone
             }
-            if let email = customerDictionary[JSONPropertyKey.Email.rawValue] {
-                customer.email = email as! String;
+            if let email = customerDictionary[JSONPropertyKey.Email.rawValue] as? String {
+                customer.email = email
             }
-            if let address = customerDictionary[JSONPropertyKey.Address.rawValue] {
-                customer.address = address as! String;
+            if let address = customerDictionary[JSONPropertyKey.Address.rawValue] as? String {
+                customer.address = address
             }
-            if let address2 = customerDictionary[JSONPropertyKey.Address2.rawValue] {
-                customer.address2 = address2 as! String;
+            if let address2 = customerDictionary[JSONPropertyKey.Address2.rawValue] as? String {
+                customer.address2 = address2
             }
-            if let city = customerDictionary[JSONPropertyKey.City.rawValue] {
-                customer.city = city as! String;
+            if let city = customerDictionary[JSONPropertyKey.City.rawValue] as? String {
+                customer.city = city
             }
-            if let state = customerDictionary[JSONPropertyKey.State.rawValue] {
-                customer.state = state as! String;
+            if let state = customerDictionary[JSONPropertyKey.State.rawValue] as? String {
+                customer.state = state
             }
-            if let zip = customerDictionary[JSONPropertyKey.Zip.rawValue] {
-                customer.zip = zip as! NSInteger;
+            if let zip = customerDictionary[JSONPropertyKey.Zip.rawValue] as? Int {
+                customer.zip = zip
             }
-            if let customerId = customerDictionary[JSONPropertyKey.CustomerId.rawValue] {
-                customer.customerId = customerId as! NSInteger;
+            if let customerId = customerDictionary[JSONPropertyKey.CustomerId.rawValue] as? Int {
+                customer.customerId = customerId
             }
-            customerArray.append(customer);
+            parsedCustomerArray.append(customer);
         }
-        return customerArray;
+        return parsedCustomerArray;
     }
 }

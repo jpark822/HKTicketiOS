@@ -22,7 +22,7 @@ class CustomerSplitViewController: UISplitViewController, CustomerSearchCriteria
         }
     }
     
-    var ticketDetailVC:CustomerSearchResultTableViewController? {
+    var customerSearchDetailVC:CustomerSearchResultTableViewController? {
         get {
             guard let detailNavVC = self.detailViewController as? UINavigationController else {
                 return nil
@@ -48,9 +48,9 @@ class CustomerSplitViewController: UISplitViewController, CustomerSearchCriteria
     }
     
     //MARK: - CustomerSearchCriteriaViewControllerDelegate
-    func CustomerSearchCriteriaViewControllerDidPressSearch() {
-        print("yes")
-    }
+    func CustomerSearchCriteriaViewControllerDidFinishSearching(customerResults: [CustomerModel]) {
+        self.customerSearchDetailVC?.customers = customerResults
+    } 
     
     func CustomerSearchCriteriaViewControllerDidPressBack() {
         self.dismiss(animated: true) { 

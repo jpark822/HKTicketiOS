@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,10 +19,20 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        let ticketSearchVC = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "homeViewControllerId")
-        self.present(ticketSearchVC, animated: true) {
-            
+        let homeVC = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "homeViewControllerId")
+        
+        _ = ServiceManager.sharedInstance.login(username: usernameTextField.text!, password: passwordTextField.text!, success: { (task, response) in
+            DispatchQueue.main.async(execute: { 
+                self.present(homeVC, animated: true, completion: {
+                })
+            })
+        }){ (task, error) in
+            NSLog("Auth failed")
         }
+        
+//        self.present(ticketSearchVC, animated: true) {
+//            
+//        }
     }
     
 
