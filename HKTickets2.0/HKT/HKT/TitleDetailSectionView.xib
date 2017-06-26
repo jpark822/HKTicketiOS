@@ -32,6 +32,13 @@
                         </label>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-h4-0yt">
+                    <rect key="frame" x="0.0" y="157" width="590" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="kBk-VQ-hM7"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -39,6 +46,9 @@
                 <constraint firstItem="AMZ-CG-vSj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="AOs-4A-je0"/>
                 <constraint firstAttribute="bottom" secondItem="AMZ-CG-vSj" secondAttribute="bottom" constant="8" id="J2b-vT-Pzr"/>
                 <constraint firstItem="AMZ-CG-vSj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="VQ2-FJ-eMo"/>
+                <constraint firstAttribute="bottom" secondItem="Uaa-h4-0yt" secondAttribute="bottom" id="djf-7H-IW9"/>
+                <constraint firstAttribute="trailing" secondItem="Uaa-h4-0yt" secondAttribute="trailing" id="fhy-7t-oGR"/>
+                <constraint firstItem="Uaa-h4-0yt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gwd-fS-byj"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
