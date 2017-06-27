@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerSearchResultTableViewController: UITableViewController, TitleDetailSectionViewDelegate {
+class CustomerSearchResultTableViewController: UITableViewController, TitleDetailSectionViewDelegate, CustomerOptionTableViewCellDelegate, CustomerDetailViewControllerDelegate {
     
     //rows are expanded options when selected
     private enum CustomerSearchResultTableViewRow:Int {
@@ -17,7 +17,7 @@ class CustomerSearchResultTableViewController: UITableViewController, TitleDetai
     }
     
     private var expandedSections:Dictionary<Int,Bool> = [:]
-    private let indentationCellId = "indentationCellId"
+    private let customerOptionCellId = "customerOptionCellId"
     
     var customers = [CustomerModel]() {
         didSet {
@@ -31,7 +31,7 @@ class CustomerSearchResultTableViewController: UITableViewController, TitleDetai
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UINib(nibName: "IndentedLabelTableViewCell", bundle: nil), forCellReuseIdentifier: self.indentationCellId)
+        self.tableView.register(UINib(nibName: "CustomerOptionTableViewCell", bundle: nil), forCellReuseIdentifier: self.customerOptionCellId)
     }
     
     //MARK: - Expanded Table Helpers
@@ -58,7 +58,7 @@ class CustomerSearchResultTableViewController: UITableViewController, TitleDetai
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.expandedSections[section] == true {
-            return 2
+            return 1
         }
         return 0
     }
@@ -69,41 +69,60 @@ class CustomerSearchResultTableViewController: UITableViewController, TitleDetai
         sectionHeader.delegate = self
         sectionHeader.section = section
         sectionHeader.setLabels(title: customer.firstName, detail: customer.lastName)
+        
         return sectionHeader
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.indentationCellId, for: indexPath) as! IndentedLabelTableViewCell
-        
-        switch (indexPath.row) {
-        case CustomerSearchResultTableViewRow.editCustomer.rawValue:
-            cell.mainTitleLabel.text = "Edit Customer"
-        case CustomerSearchResultTableViewRow.measurements.rawValue:
-            cell.mainTitleLabel.text = "View Measurements"
-        default:
-            break
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.customerOptionCellId, for: indexPath) as! CustomerOptionTableViewCell
+        cell.customer = self.customers[indexPath.section]
+        cell.delegate = self
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 60
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 85
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    
-    }
-    
-    //MARK: TitleDetailSectionViewDelegate
+}
+
+//MARK: TitleDetailSectionViewDelegate
+extension CustomerSearchResultTableViewController {
     func titleDetailSectionViewTapped(sectionView: TitleDetailSectionView) {
         self.toggleSection(section: sectionView.section)
         self.tableView.reloadSections(IndexSet(integer:sectionView.section), with: .automatic)
     }
+}
 
+//MARK: - CustomerOptionTableViewCellDelegate
+extension CustomerSearchResultTableViewController {
+    func CustomerOptionTableViewCellDidPressEditCustomer(cell: CustomerOptionTableViewCell) {
+        let customerDetailVC = UIStoryboard(name: "CustomerStoryboard", bundle: nil).instantiateViewController(withIdentifier: "CustomerDetailViewControllerID") as! CustomerDetailViewController
+        customerDetailVC.delegate = self
+        
+        let customerDetailNav = StyledNavigationController(rootViewController: customerDetailVC)
+        customerDetailNav.modalPresentationStyle = .pageSheet
+        customerDetailNav.navigationController?.navigationBar.isTranslucent = false
+        
+        self.present(customerDetailNav, animated: true)
+    }
+    
+    func CustomerOptionTableViewCellDidPressMeasurements(cell: CustomerOptionTableViewCell) {
+        
+    }
+}
+
+//MARK: - CustomerDetailViewControllerDelegate
+extension CustomerSearchResultTableViewController {
+    func CustomerDetailViewControllerDidPressCancel() {
+        self.dismiss(animated: true)
+    }
+    
+    func CustomerDetailViewControllerDidSave() {
+        
+    }
 }

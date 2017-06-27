@@ -82,7 +82,7 @@ class TicketDetailViewController: UIViewController, CustomerDetailViewController
         
         let customerDetailNav = UINavigationController(rootViewController: customerDetailVC)
         customerDetailNav.modalPresentationStyle = .pageSheet
-        customerDetailNav.navigationController?.navigationBar.isOpaque = true
+        customerDetailNav.navigationController?.navigationBar.isTranslucent = false
         
         self.present(customerDetailNav, animated: true)
     }

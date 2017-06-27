@@ -22,6 +22,9 @@
 		4EBDEDEA1F009BD10089796F /* UIView+NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDE91F009BD10089796F /* UIView+NibLoading.swift */; };
 		4EBDEDED1F01DD1A0089796F /* IndentedLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDEC1F01DD1A0089796F /* IndentedLabelTableViewCell.swift */; };
 		4EBDEDEF1F01DD290089796F /* IndentedLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBDEDEE1F01DD290089796F /* IndentedLabelTableViewCell.xib */; };
+		4EBDEDF21F02769C0089796F /* CustomerOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF11F02769C0089796F /* CustomerOptionTableViewCell.xib */; };
+		4EBDEDF41F0277670089796F /* CustomerOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF31F0277670089796F /* CustomerOptionTableViewCell.swift */; };
+		4EBDEDFA1F027EB00089796F /* StyledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF91F027EB00089796F /* StyledNavigationController.swift */; };
 		4ED878D91ED2588000D72C26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878D81ED2588000D72C26 /* AppDelegate.swift */; };
 		4ED878DE1ED2588000D72C26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DC1ED2588000D72C26 /* Main.storyboard */; };
 		4ED878E01ED2588000D72C26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DF1ED2588000D72C26 /* Assets.xcassets */; };
@@ -63,6 +66,9 @@
 		4EBDEDE91F009BD10089796F /* UIView+NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoading.swift"; sourceTree = "<group>"; };
 		4EBDEDEC1F01DD1A0089796F /* IndentedLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndentedLabelTableViewCell.swift; sourceTree = "<group>"; };
 		4EBDEDEE1F01DD290089796F /* IndentedLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndentedLabelTableViewCell.xib; sourceTree = "<group>"; };
+		4EBDEDF11F02769C0089796F /* CustomerOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerOptionTableViewCell.xib; sourceTree = "<group>"; };
+		4EBDEDF31F0277670089796F /* CustomerOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOptionTableViewCell.swift; sourceTree = "<group>"; };
+		4EBDEDF91F027EB00089796F /* StyledNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledNavigationController.swift; sourceTree = "<group>"; };
 		4ED878D51ED2588000D72C26 /* HKT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED878D81ED2588000D72C26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED878DD1ED2588000D72C26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,6 +209,23 @@
 			name = IndentedLabelTableViewCell;
 			sourceTree = "<group>";
 		};
+		4EBDEDF01F02766E0089796F /* CustomerOptionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4EBDEDF11F02769C0089796F /* CustomerOptionTableViewCell.xib */,
+				4EBDEDF31F0277670089796F /* CustomerOptionTableViewCell.swift */,
+			);
+			name = CustomerOptionTableViewCell;
+			sourceTree = "<group>";
+		};
+		4EBDEDF81F027EA00089796F /* StyledNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				4EBDEDF91F027EB00089796F /* StyledNavigationController.swift */,
+			);
+			name = StyledNavigationController;
+			sourceTree = "<group>";
+		};
 		4ED878CC1ED2588000D72C26 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +295,8 @@
 		4ED878F91ED2621100D72C26 /* SharedComponents */ = {
 			isa = PBXGroup;
 			children = (
+				4EBDEDF81F027EA00089796F /* StyledNavigationController */,
+				4EBDEDF01F02766E0089796F /* CustomerOptionTableViewCell */,
 				4EBDEDE41F0099D60089796F /* TitleDetailView */,
 				4EBDEDE31F0099BB0089796F /* TitleDetailTableViewCell */,
 				4EBDEDEB1F01DCE50089796F /* IndentedLabelTableViewCell */,
@@ -386,6 +411,7 @@
 				4ED878F61ED2608E00D72C26 /* TitleDetailTableViewCell.xib in Resources */,
 				4ED878E31ED2588000D72C26 /* LaunchScreen.storyboard in Resources */,
 				4EBDEDEF1F01DD290089796F /* IndentedLabelTableViewCell.xib in Resources */,
+				4EBDEDF21F02769C0089796F /* CustomerOptionTableViewCell.xib in Resources */,
 				4ED879051ED3A6FC00D72C26 /* HomeStoryboard.storyboard in Resources */,
 				4ED878E01ED2588000D72C26 /* Assets.xcassets in Resources */,
 				4ED878DE1ED2588000D72C26 /* Main.storyboard in Resources */,
@@ -459,6 +485,7 @@
 				4E312DD31EF2155F005B8E9F /* FinishMeasurementsModel.swift in Sources */,
 				4E312DDC1EF75B39005B8E9F /* CustomerDetailViewController.swift in Sources */,
 				4ED878FE1ED26CC900D72C26 /* TicketListSplitViewController.swift in Sources */,
+				4EBDEDF41F0277670089796F /* CustomerOptionTableViewCell.swift in Sources */,
 				4ED879141ED4520200D72C26 /* BodyMeasurementsModel.swift in Sources */,
 				4ED878EE1ED25C7E00D72C26 /* LoginViewController.swift in Sources */,
 				4EBDEDCF1EFB379F0089796F /* ApplicationData.swift in Sources */,
@@ -475,6 +502,7 @@
 				4EBDEDE01F0045DC0089796F /* ServiceManager+Customers.swift in Sources */,
 				4EBDEDED1F01DD1A0089796F /* IndentedLabelTableViewCell.swift in Sources */,
 				4ED879101ED3B0DE00D72C26 /* CustomerSearchCriteriaViewController.swift in Sources */,
+				4EBDEDFA1F027EB00089796F /* StyledNavigationController.swift in Sources */,
 				4EBDEDD61EFDDB290089796F /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
