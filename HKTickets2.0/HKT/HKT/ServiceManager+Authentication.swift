@@ -23,7 +23,7 @@ extension ServiceManager {
             ApplicationData.username = username
             ApplicationData.password = password
             ApplicationData.authToken = authToken
-            self.sessionManager.requestSerializer.setValue("bearer \(authToken)", forHTTPHeaderField: "Authentication")
+            self.sessionManager.requestSerializer.setValue("bearer \(authToken)", forHTTPHeaderField: "Authorization")
             
             NSLog("Setting auth token to \(authToken)")
             
