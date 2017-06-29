@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CustomerModel {
+struct CustomerModel{
     var title = "";
     var firstName = "";
     var lastName = ""
@@ -37,49 +37,54 @@ struct CustomerModel {
         case CustomerId = "id"
     }
     
-    static func customersWithArrayOfDictionaries(_ customerArray : Array<Dictionary<String, AnyObject>>) -> [CustomerModel] {
+    init() {
+    }
+    
+    init(jsonDictionary:Dictionary<String, AnyObject>) {
+        if let title = jsonDictionary[JSONPropertyKey.Title.rawValue] as? String {
+            self.title = title
+        }
+        if let firstName = jsonDictionary[JSONPropertyKey.FirstName.rawValue] as? String {
+            self.firstName = firstName
+        }
+        if let lastName = jsonDictionary[JSONPropertyKey.LastName.rawValue] as? String {
+            self.lastName = lastName
+        }
+        if let middleName = jsonDictionary[JSONPropertyKey.MiddleName.rawValue] as? String {
+            self.middleName = middleName
+        }
+        if let phone = jsonDictionary[JSONPropertyKey.Phone.rawValue] as? String {
+            self.phone = phone
+        }
+        if let email = jsonDictionary[JSONPropertyKey.Email.rawValue] as? String {
+            self.email = email
+        }
+        if let address = jsonDictionary[JSONPropertyKey.Address.rawValue] as? String {
+            self.address = address
+        }
+        if let address2 = jsonDictionary[JSONPropertyKey.Address2.rawValue] as? String {
+            self.address2 = address2
+        }
+        if let city = jsonDictionary[JSONPropertyKey.City.rawValue] as? String {
+            self.city = city
+        }
+        if let state = jsonDictionary[JSONPropertyKey.State.rawValue] as? String {
+            self.state = state
+        }
+        if let zip = jsonDictionary[JSONPropertyKey.Zip.rawValue] as? Int {
+            self.zip = zip
+        }
+        if let customerId = jsonDictionary[JSONPropertyKey.CustomerId.rawValue] as? Int {
+            self.customerId = customerId
+        }
+    }
+    
+    static func customersWithArrayOfDictionaries(_ jsonArray : Array<Dictionary<String, AnyObject>>) -> [CustomerModel] {
 
         var parsedCustomerArray : [CustomerModel] = [];
         
-        for customerDictionary : Dictionary<String, AnyObject> in customerArray {
-            var customer = CustomerModel();
-
-            if let title = customerDictionary[JSONPropertyKey.Title.rawValue] as? String {
-                customer.title = title
-            }
-            if let firstName = customerDictionary[JSONPropertyKey.FirstName.rawValue] as? String {
-                customer.firstName = firstName
-            }
-            if let lastName = customerDictionary[JSONPropertyKey.LastName.rawValue] as? String {
-                customer.lastName = lastName
-            }
-            if let middleName = customerDictionary[JSONPropertyKey.MiddleName.rawValue] as? String {
-                customer.middleName = middleName
-            }
-            if let phone = customerDictionary[JSONPropertyKey.Phone.rawValue] as? String {
-                customer.phone = phone
-            }
-            if let email = customerDictionary[JSONPropertyKey.Email.rawValue] as? String {
-                customer.email = email
-            }
-            if let address = customerDictionary[JSONPropertyKey.Address.rawValue] as? String {
-                customer.address = address
-            }
-            if let address2 = customerDictionary[JSONPropertyKey.Address2.rawValue] as? String {
-                customer.address2 = address2
-            }
-            if let city = customerDictionary[JSONPropertyKey.City.rawValue] as? String {
-                customer.city = city
-            }
-            if let state = customerDictionary[JSONPropertyKey.State.rawValue] as? String {
-                customer.state = state
-            }
-            if let zip = customerDictionary[JSONPropertyKey.Zip.rawValue] as? Int {
-                customer.zip = zip
-            }
-            if let customerId = customerDictionary[JSONPropertyKey.CustomerId.rawValue] as? Int {
-                customer.customerId = customerId
-            }
+        for customerDictionary : Dictionary<String, AnyObject> in jsonArray {
+            var customer = CustomerModel(jsonDictionary: customerDictionary);
             parsedCustomerArray.append(customer);
         }
         return parsedCustomerArray;

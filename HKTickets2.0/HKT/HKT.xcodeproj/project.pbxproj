@@ -25,6 +25,7 @@
 		4EBDEDF21F02769C0089796F /* CustomerOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF11F02769C0089796F /* CustomerOptionTableViewCell.xib */; };
 		4EBDEDF41F0277670089796F /* CustomerOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF31F0277670089796F /* CustomerOptionTableViewCell.swift */; };
 		4EBDEDFA1F027EB00089796F /* StyledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF91F027EB00089796F /* StyledNavigationController.swift */; };
+		4EBDEDFC1F047FED0089796F /* ServiceManager+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDFB1F047FED0089796F /* ServiceManager+Tickets.swift */; };
 		4ED878D91ED2588000D72C26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878D81ED2588000D72C26 /* AppDelegate.swift */; };
 		4ED878DE1ED2588000D72C26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DC1ED2588000D72C26 /* Main.storyboard */; };
 		4ED878E01ED2588000D72C26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DF1ED2588000D72C26 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		4EBDEDF11F02769C0089796F /* CustomerOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerOptionTableViewCell.xib; sourceTree = "<group>"; };
 		4EBDEDF31F0277670089796F /* CustomerOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOptionTableViewCell.swift; sourceTree = "<group>"; };
 		4EBDEDF91F027EB00089796F /* StyledNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledNavigationController.swift; sourceTree = "<group>"; };
+		4EBDEDFB1F047FED0089796F /* ServiceManager+Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServiceManager+Tickets.swift"; sourceTree = "<group>"; };
 		4ED878D51ED2588000D72C26 /* HKT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED878D81ED2588000D72C26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED878DD1ED2588000D72C26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				4EBDEDD51EFDDB290089796F /* ServiceManager.swift */,
 				4EBDEDD81EFE8BCD0089796F /* ServiceManager+Authentication.swift */,
 				4EBDEDDF1F0045DC0089796F /* ServiceManager+Customers.swift */,
+				4EBDEDFB1F047FED0089796F /* ServiceManager+Tickets.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				4ED878D91ED2588000D72C26 /* AppDelegate.swift in Sources */,
 				4E312DCE1EF21274005B8E9F /* CustomerModel.swift in Sources */,
 				4EBDEDE01F0045DC0089796F /* ServiceManager+Customers.swift in Sources */,
+				4EBDEDFC1F047FED0089796F /* ServiceManager+Tickets.swift in Sources */,
 				4EBDEDED1F01DD1A0089796F /* IndentedLabelTableViewCell.swift in Sources */,
 				4ED879101ED3B0DE00D72C26 /* CustomerSearchCriteriaViewController.swift in Sources */,
 				4EBDEDFA1F027EB00089796F /* StyledNavigationController.swift in Sources */,

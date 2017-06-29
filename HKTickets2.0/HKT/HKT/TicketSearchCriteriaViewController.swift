@@ -9,11 +9,19 @@
 import UIKit
 
 protocol TicketSearchCriteriaViewControllerDelegate:class {
-    func TicketSearchCriteriaViewControllerDidPressDone() -> Void
-    func TicketSearchCriteriaViewControllerDidPressSearch(request: URLSessionDataTask) -> Void
+    func ticketSearchCriteriaViewControllerDidPressDone() -> Void
+    func ticketSearchCriteriaViewControllerDidFinishSearching(ticketResults:[TicketModel]) -> Void
 }
 
 class TicketSearchCriteriaViewController: UIViewController {
+    
+    @IBOutlet weak var ticketIdTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var statusTextField: UITextField!
+    @IBOutlet weak var orderIdTextField: UITextField!
     
     @IBOutlet weak var searchButton: UIButton!
     
@@ -25,13 +33,17 @@ class TicketSearchCriteriaViewController: UIViewController {
 
     @IBAction func backButtonPressed(_ sender: Any) {
         if let delegate = self.delegate {
-            delegate.TicketSearchCriteriaViewControllerDidPressDone()
+            delegate.ticketSearchCriteriaViewControllerDidPressDone()
         }
     }
 
     @IBAction func searchButtonPressed(_ sender: Any) {
-        if let delegate = self.delegate {
-            delegate.TicketSearchCriteriaViewControllerDidPressSearch(request: URLSessionDataTask())
+        ServiceManager.sharedInstance.searchForTickets(ticketId: self.ticketIdTextField.text, firstName: self.firstNameTextField.text, lastName: self.lastNameTextField.text, phone: self.phoneTextField.text, email: self.emailTextField.text, status: self.statusTextField.text, orderId: self.orderIdTextField.text, success: { (ticketModels) in
+            if let delegate = self.delegate {
+                delegate.ticketSearchCriteriaViewControllerDidFinishSearching(ticketResults: ticketModels)
+            }
+        }) { (task, error) in
+            NSLog("ticket search failed")
         }
     }
     

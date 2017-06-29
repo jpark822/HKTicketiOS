@@ -22,20 +22,12 @@ class TicketSearchSplitViewController: UISplitViewController, TicketSearchCriter
         }
     }
     
-    var searchDetailVC:TicketDetailViewController? {
+    var searchDetailVC:TicketListTableViewController? {
         get {
-            guard let detailNavVC = self.detailViewController as? UINavigationController else {
-                return nil
+            if let detailNavVC = self.detailViewController as? TicketListTableViewController {
+                return detailNavVC
             }
-            guard detailNavVC.viewControllers.count > 0 else {
-                return nil
-            }
-            if let ticketDetailVC = detailNavVC.viewControllers[0] as? TicketDetailViewController {
-                return ticketDetailVC
-            }
-            else {
-                return nil
-            }
+            return nil
         }
     }
 
@@ -48,12 +40,12 @@ class TicketSearchSplitViewController: UISplitViewController, TicketSearchCriter
     }
     
     //MARK: TicketSearchCriteriaViewControllerDelegate
-    func TicketSearchCriteriaViewControllerDidPressDone() {
+    func ticketSearchCriteriaViewControllerDidPressDone() {
         self.dismiss(animated: true)
     }
     
-    func TicketSearchCriteriaViewControllerDidPressSearch(request: URLSessionDataTask) {
-        NSLog("Search")
+    func ticketSearchCriteriaViewControllerDidFinishSearching(ticketResults: [TicketModel]) {
+        self.searchDetailVC?.ticketModels = ticketResults
     }
 
 }

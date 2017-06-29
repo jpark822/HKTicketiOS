@@ -11,6 +11,7 @@ import UIKit
 enum ServiceRouter {
     case login
     case customers
+    case tickets
     
     
     
@@ -21,6 +22,8 @@ enum ServiceRouter {
                 return "oauth/token"
             case .customers:
                 return "Customers"
+            case .tickets:
+                return "tickets"
             }
         }
     }

@@ -16,18 +16,19 @@ protocol TicketListTableViewControllerDelegate:class {
 class TicketListTableViewController: UITableViewController {
     
     weak var delegate:TicketListTableViewControllerDelegate?
-    var ticketModels:[TicketModel] = [TicketModel]()
+    var ticketModels:[TicketModel] = [TicketModel]() {
+        didSet {
+            guard self.isViewLoaded else {
+                return
+            }
+            self.tableView.reloadData()
+        }
+    }
     
     let ticketCellReuseId = "ticketSearchCellReuseID"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //fake data
-        for index in 1...5 {
-            let mode = TicketModel(fname: "neil\(index)", lname: "balani")
-            self.ticketModels.append(mode)
-        }
         
         self.tableView.register(UINib(nibName: "TitleDetailTableViewCell", bundle: nil), forCellReuseIdentifier: self.ticketCellReuseId)
     }
@@ -54,7 +55,7 @@ class TicketListTableViewController: UITableViewController {
     }
  
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 85
     }
     
     //MARK: - Table View Delegate
