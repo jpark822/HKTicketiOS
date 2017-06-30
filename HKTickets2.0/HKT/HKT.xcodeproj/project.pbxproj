@@ -26,6 +26,9 @@
 		4EBDEDF41F0277670089796F /* CustomerOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF31F0277670089796F /* CustomerOptionTableViewCell.swift */; };
 		4EBDEDFA1F027EB00089796F /* StyledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDF91F027EB00089796F /* StyledNavigationController.swift */; };
 		4EBDEDFC1F047FED0089796F /* ServiceManager+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEDFB1F047FED0089796F /* ServiceManager+Tickets.swift */; };
+		4EBDEDFF1F05B2240089796F /* TicketOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBDEDFE1F05B2240089796F /* TicketOverviewTableViewCell.xib */; };
+		4EBDEE011F05B24A0089796F /* TicketOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEE001F05B24A0089796F /* TicketOverviewTableViewCell.swift */; };
+		4EBDEE031F05E0580089796F /* TicketAlterationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBDEE021F05E0580089796F /* TicketAlterationModel.swift */; };
 		4ED878D91ED2588000D72C26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED878D81ED2588000D72C26 /* AppDelegate.swift */; };
 		4ED878DE1ED2588000D72C26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DC1ED2588000D72C26 /* Main.storyboard */; };
 		4ED878E01ED2588000D72C26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED878DF1ED2588000D72C26 /* Assets.xcassets */; };
@@ -71,6 +74,9 @@
 		4EBDEDF31F0277670089796F /* CustomerOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOptionTableViewCell.swift; sourceTree = "<group>"; };
 		4EBDEDF91F027EB00089796F /* StyledNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledNavigationController.swift; sourceTree = "<group>"; };
 		4EBDEDFB1F047FED0089796F /* ServiceManager+Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServiceManager+Tickets.swift"; sourceTree = "<group>"; };
+		4EBDEDFE1F05B2240089796F /* TicketOverviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketOverviewTableViewCell.xib; sourceTree = "<group>"; };
+		4EBDEE001F05B24A0089796F /* TicketOverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		4EBDEE021F05E0580089796F /* TicketAlterationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketAlterationModel.swift; sourceTree = "<group>"; };
 		4ED878D51ED2588000D72C26 /* HKT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED878D81ED2588000D72C26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED878DD1ED2588000D72C26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +235,15 @@
 			name = StyledNavigationController;
 			sourceTree = "<group>";
 		};
+		4EBDEDFD1F05B1EE0089796F /* TicketOverviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4EBDEDFE1F05B2240089796F /* TicketOverviewTableViewCell.xib */,
+				4EBDEE001F05B24A0089796F /* TicketOverviewTableViewCell.swift */,
+			);
+			name = TicketOverviewCell;
+			sourceTree = "<group>";
+		};
 		4ED878CC1ED2588000D72C26 = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +306,7 @@
 				4ED879011ED304A400D72C26 /* TicketDetailViewController.swift */,
 				4E312DD51EF6F33B005B8E9F /* Ticket Search */,
 				4E312DD41EF6F30C005B8E9F /* Ticket List */,
+				4EBDEDFD1F05B1EE0089796F /* TicketOverviewCell */,
 			);
 			name = Tickets;
 			sourceTree = "<group>";
@@ -314,6 +330,7 @@
 				4E312DCD1EF21274005B8E9F /* CustomerModel.swift */,
 				4ED879131ED4520200D72C26 /* BodyMeasurementsModel.swift */,
 				4E312DD21EF2155F005B8E9F /* FinishMeasurementsModel.swift */,
+				4EBDEE021F05E0580089796F /* TicketAlterationModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -418,6 +435,7 @@
 				4ED879051ED3A6FC00D72C26 /* HomeStoryboard.storyboard in Resources */,
 				4ED878E01ED2588000D72C26 /* Assets.xcassets in Resources */,
 				4ED878DE1ED2588000D72C26 /* Main.storyboard in Resources */,
+				4EBDEDFF1F05B2240089796F /* TicketOverviewTableViewCell.xib in Resources */,
 				4ED878F21ED25D1600D72C26 /* TicketStoryboard.storyboard in Resources */,
 				4ED8790C1ED3AF5100D72C26 /* CustomerStoryboard.storyboard in Resources */,
 			);
@@ -478,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBDEE011F05B24A0089796F /* TicketOverviewTableViewCell.swift in Sources */,
 				4ED878FC1ED26ACF00D72C26 /* TicketModel.swift in Sources */,
 				4EBDEDEA1F009BD10089796F /* UIView+NibLoading.swift in Sources */,
 				4ED879001ED26D0900D72C26 /* UISplitViewController+MasterDetail.swift in Sources */,
@@ -507,6 +526,7 @@
 				4EBDEDED1F01DD1A0089796F /* IndentedLabelTableViewCell.swift in Sources */,
 				4ED879101ED3B0DE00D72C26 /* CustomerSearchCriteriaViewController.swift in Sources */,
 				4EBDEDFA1F027EB00089796F /* StyledNavigationController.swift in Sources */,
+				4EBDEE031F05E0580089796F /* TicketAlterationModel.swift in Sources */,
 				4EBDEDD61EFDDB290089796F /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

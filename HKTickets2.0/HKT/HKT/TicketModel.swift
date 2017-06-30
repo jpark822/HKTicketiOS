@@ -10,7 +10,6 @@ import Foundation
 
 struct TicketModel {
     var id:Int = -1
-    var status = ""
     var lastModifiedTimestamp:Date?
     var dateIn:Date?
     var dateReady:Date?
@@ -25,6 +24,11 @@ struct TicketModel {
     var createdUser = ""
     var lastModifiedUser = ""
     var customerId = -1
+    var status:StatusCode = .initialized
+    
+    var customer = CustomerModel()
+    
+    var alterationItems = [TicketAlerationModel]()
     
     init() {
     }
@@ -46,10 +50,19 @@ struct TicketModel {
         case createdUser = "createdUser"
         case lastModifiedUser = "lastModifiedUser"
         case customerId = "customerId"
+        
+        case customerDictionary = "customer"
+        
+        case ticketAlterations = "ticketsAlterations"
     }
     
-    //TODO customer reference
-    //TODO ticket alteration array
+    enum StatusCode:String {
+        case active = "Active"
+        case done = "Done"
+        case cancelled = "Cancelled"
+        case invalid = "Invalid"
+        case initialized = ""
+    }
     
     init(jsonDictionary:Dictionary<String, AnyObject>) {
         let dateFormatter = DateFormatter()
@@ -60,11 +73,21 @@ struct TicketModel {
             self.id = id
         }
         if let status = jsonDictionary[JSONPropertyKey.status.rawValue] as? String {
-            self.status = status
+            switch status {
+            case "a":
+                self.status = .active
+            case "d":
+                self.status = .done
+            case "c":
+                self.status = .cancelled
+            case "i":
+                self.status = .initialized
+            default:
+                break
+            }
         }
         if let lastModifiedTimestampString = jsonDictionary[JSONPropertyKey.lastModifiedTimestamp.rawValue] as? String {
             self.lastModifiedTimestamp = dateFormatter.date(from: lastModifiedTimestampString)
-            
         }
         if let dateInString = jsonDictionary[JSONPropertyKey.dateIn.rawValue] as? String {
             self.dateIn = dateFormatter.date(from: dateInString)
@@ -104,6 +127,14 @@ struct TicketModel {
         }
         if let customerId = jsonDictionary[JSONPropertyKey.customerId.rawValue] as? Int {
             self.customerId = customerId
+        }
+        
+        if let customerDict = jsonDictionary[JSONPropertyKey.customerDictionary.rawValue] as? Dictionary<String, AnyObject> {
+            self.customer = CustomerModel(jsonDictionary: customerDict)
+        }
+        
+        if let alterationArray = jsonDictionary[JSONPropertyKey.ticketAlterations.rawValue] as? [Dictionary<String, AnyObject>] {
+            self.alterationItems = TicketAlerationModel.ticketAlterationsWithArrayOfDictionaries(alterationArray)
         }
     }
     

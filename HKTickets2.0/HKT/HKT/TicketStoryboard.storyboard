@@ -10,12 +10,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Customer Name-->
+        <!--Ticket Results-->
         <scene sceneID="dRO-q7-iJz">
             <objects>
-                <tableViewController storyboardIdentifier="TicketListTableViewControllerId" clearsSelectionOnViewWillAppear="NO" id="WTi-FR-yOl" customClass="TicketListTableViewController" customModule="HKT" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tuh-te-WSj">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                <tableViewController storyboardIdentifier="TicketListTableViewControllerId" clearsSelectionOnViewWillAppear="NO" id="WTi-FR-yOl" userLabel="Ticket Results" customClass="TicketListTableViewController" customModule="HKT" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tuh-te-WSj">
+                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -23,7 +23,7 @@
                             <outlet property="delegate" destination="WTi-FR-yOl" id="hGR-80-oVw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Customer Name" id="ZVj-QV-zm0">
+                    <navigationItem key="navigationItem" id="ZVj-QV-zm0">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="N0J-XQ-6N3">
                             <connections>
                                 <action selector="backButtonPressed:" destination="WTi-FR-yOl" id="Jk1-mE-8qH"/>
@@ -194,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="-1312" y="-1852"/>
         </scene>
-        <!--Ticket Search Criteria View Controller-->
+        <!--Ticket Search-->
         <scene sceneID="yqv-kC-bu1">
             <objects>
                 <viewController id="ecl-zh-OfE" customClass="TicketSearchCriteriaViewController" customModule="HKT" customModuleProvider="target" sceneMemberID="viewController">
@@ -234,15 +234,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCE-VM-ceJ">
-                                <rect key="frame" x="152" y="266" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="34n-2m-Pmc">
-                                <rect key="frame" x="152" y="304" width="97" height="30"/>
+                                <rect key="frame" x="153" y="316" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -269,15 +262,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZa-1U-xrE">
-                                <rect key="frame" x="71" y="275" width="50" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epc-cz-4xu">
-                                <rect key="frame" x="60" y="307" width="65" height="21"/>
+                                <rect key="frame" x="61" y="319" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -312,10 +298,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="es4-QM-rfQ">
+                                <rect key="frame" x="123" y="271" width="158" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="N/A"/>
+                                    <segment title="Active"/>
+                                    <segment title="Done"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZa-1U-xrE">
+                                <rect key="frame" x="59" y="275" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="d2v-11-6I5">
+                    <navigationItem key="navigationItem" title="Ticket Search" id="d2v-11-6I5">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="kDT-Sm-ZXe">
                             <connections>
                                 <action selector="backButtonPressed:" destination="ecl-zh-OfE" id="cKW-HB-qtP"/>
@@ -329,7 +331,7 @@
                         <outlet property="orderIdTextField" destination="34n-2m-Pmc" id="ZI2-3b-2pf"/>
                         <outlet property="phoneTextField" destination="Y2H-rq-g5I" id="GgE-SP-qpH"/>
                         <outlet property="searchButton" destination="IMJ-Mk-fRQ" id="QTS-AG-cyf"/>
-                        <outlet property="statusTextField" destination="kCE-VM-ceJ" id="mIB-qM-mm6"/>
+                        <outlet property="statusSegmentedControl" destination="es4-QM-rfQ" id="kGj-ee-saU"/>
                         <outlet property="ticketIdTextField" destination="c51-pb-q2q" id="5aC-5G-aNC"/>
                     </connections>
                 </viewController>
@@ -382,6 +384,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jB5-by-fC1"/>
+        <segue reference="lfP-Tr-Lj6"/>
     </inferredMetricsTieBreakers>
 </document>

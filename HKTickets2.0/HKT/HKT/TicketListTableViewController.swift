@@ -30,7 +30,7 @@ class TicketListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UINib(nibName: "TitleDetailTableViewCell", bundle: nil), forCellReuseIdentifier: self.ticketCellReuseId)
+        self.tableView.register(UINib(nibName: "TicketOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: self.ticketCellReuseId)
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -48,18 +48,20 @@ class TicketListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.ticketCellReuseId, for: indexPath) as! TitleDetailTableViewCell
-        cell.setLabels(title: "what", detail: "it do")
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.ticketCellReuseId, for: indexPath) as! TicketOverviewTableViewCell
+        let ticket = ticketModels[indexPath.row]
+        cell.configureWithTicket(ticket)
 
         return cell
     }
  
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
+        return 144
     }
     
     //MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if let delegate = self.delegate {
             delegate.TicketListTableViewControllerDidSelectTicket(ticket:self.ticketModels[indexPath.row])
         }

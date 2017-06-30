@@ -17,6 +17,21 @@ extension ServiceManager {
         if status != nil && !status!.isEmpty {
             searchParams[TicketModel.JSONPropertyKey.status.rawValue] = status
         }
+        if firstName != nil && !firstName!.isEmpty {
+            searchParams[CustomerModel.JSONPropertyKey.FirstName.rawValue] = status
+        }
+        if lastName != nil && !lastName!.isEmpty {
+            searchParams[CustomerModel.JSONPropertyKey.LastName.rawValue] = lastName
+        }
+        if phone != nil && !phone!.isEmpty {
+            searchParams[CustomerModel.JSONPropertyKey.Phone.rawValue] = phone
+        }
+        if email != nil && !email!.isEmpty {
+            searchParams[CustomerModel.JSONPropertyKey.Email.rawValue] = email
+        }
+        if orderId != nil && !orderId!.isEmpty {
+            searchParams[TicketModel.JSONPropertyKey.orderId.rawValue] = orderId
+        }
         
         return self.get(ServiceRouter.tickets.path, parameters: searchParams, progress: nil, success: { (task, response) in
             guard let responseDict = response as? [Dictionary<String, AnyObject>] else {
